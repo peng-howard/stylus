@@ -1684,7 +1684,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #1cb6f4;
+  background: #ff81ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2594,8 +2594,8 @@ h2 {
   transition-duration: 0.5s;
 }
 .post-eof {
-  background-color: transparent !important;
-  margin: 20px 0 !important;
+  border-bottom: solid 1px #fefefe;
+  width: 100% !important;
 }
 .highlight {
   border-radius: 5px;
@@ -2609,6 +2609,25 @@ blockquote {
   border-bottom: solid 1px #ccc;
   background-color: #f8f8f8;
   padding-top: 18px;
+  margin-bottom: 20px;
+}
+code {
+  border-radius: 5px;
+  padding: 3px 4px;
+  color: #090;
+  background-color: #f2f9f4;
+}
+pre {
+  border: solid 1px #ccc;
+  border-radius: 5px;
+/* knitr 会专门做一个没有底色的css，所以这里不会起作用 background-color: #333; */
+  padding: 20px 25px;
+}
+pre code {
+  padding: 0px; /* 段落中的 code 左边的 padding=4px 会导致 pre 中的 code 第一行左边相对下面的其它行有一个向右的偏移 */
+  background-color: transparent;
+  color: #000;
+  white-space: pre-wrap; /* 让 code 标记中的内容过宽时自动换行，不能用 normal，否则换行符也消失了 */
 }
 td.gutter pre {
   background-color: #ccc;
@@ -2646,6 +2665,20 @@ strong {
   color: #000 !important;
   border-radius: 5px !important;
 }
+a.prev,
+a.next,
+a.page-number {
+  border: none !important;
+  background-color: #e3e3e3 !important;
+}
+a.prev:hover,
+a.next:hover,
+a.page-number:hover {
+  background-color: #ccc !important;
+  transition: none;
+  color: #fff;
+  font-weight: bold;
+}
 .post-tags a {
   background-color: #f7f7f7;
   border: solid 2px #bbb;
@@ -2657,6 +2690,12 @@ strong {
   border: solid 2px #2dbe60;
   padding: 2px 4px;
   border-radius: 5px;
+}
+hr {
+  height: 0px !important;
+  border-top: solid 1px #ccc !important;
+  border-bottom: solid 1px #fefefe !important;
+  background: none !important;
 }
 ::selection {
   background-color: #000;
