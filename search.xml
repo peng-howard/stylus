@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+    
+    <entry>
+      <title><![CDATA[Markdown 快速入门]]></title>
+      <url>%2Flives%2F2017%2F03%2F25%2Fhello-world%2F</url>
+      <content type="text"><![CDATA[声明：这份文档派 生(fork)于繁体中文版，在此基础上进行了繁体转简体工作，并进行了适当的润色。此文档用 Markdown 语法编写，你可以到这里查看它的源文件。「繁体中文版的原始文件可以查看这里」--By @riku 注： 本项目托管于 GitCafe上，请通过“派生”和“合并请求”来帮忙改进本项目。 Getting the Gist of Markdown&#39;s Formatting Syntax此页提供了 Markdown 的简单概念，语法说明 页提供了完整详细的文档，说明了每项功能。但是 Markdown 其实很简单就可以上手，此页文档提供了一些范例，并且每个范例都会提供输出的 HTML 结果。 其实直接试试看也是一个很不错的方法，Dingus是一个网页应用程序，你可以把自已编写的 Markdown 文档转成 XHTML。 段落、标题、区块代码一个段落是由一个以上的连接的行句组成，而一个以上的空行则会划分出不同的段落（空行的定义是显示上看起来像是空行，就被视为空行，例如有一行只有空白和tab，那该行也会被视为空行），一般的段落不需要用空白或换行缩进。 123\begin&#123;equation&#125;aaa\end&#123;equation&#125; \[ a+b=c=\int^a_b f(x)\,\mathrm{d}x \] 1.2.3 测试H3]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[冷、暖]]></title>
+      <url>%2Flives%2F2007%2F01%2F26%2F2007-01-26-warm-cold%2F</url>
+      <content type="text"><![CDATA[刮了一早上的湿凉的风 天渐渐的越来越冷 呼出的气也变成白色 要下雪了 坐在车里看窗外 昏黄的街灯 思绪在漫天飞舞 从一个冷的地方 到另一个更冷的地方 心中怀念着下午温暖的阳光]]></content>
+    </entry>
+
+    
+  
+  
+</search>
