@@ -4,9 +4,9 @@
   
   <link href="/lives/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://peng-howard.github.io/lives/"/>
   <updated>2017-03-26T05:47:59.471Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://peng-howard.github.io/lives/</id>
   
   <author>
     <name>Hao Peng</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Markdown 快速入门</title>
-    <link href="http://yoursite.com/2017/03/25/hello-world/"/>
-    <id>http://yoursite.com/2017/03/25/hello-world/</id>
+    <link href="http://peng-howard.github.io/lives/2017/03/25/hello-world/"/>
+    <id>http://peng-howard.github.io/lives/2017/03/25/hello-world/</id>
     <published>2017-03-24T16:00:00.000Z</published>
     <updated>2017-03-26T05:47:59.471Z</updated>
     
@@ -31,19 +31,19 @@
     
     </summary>
     
-      <category term="软件应用" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
+      <category term="软件应用" scheme="http://peng-howard.github.io/lives/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
     
     
-      <category term="markdown" scheme="http://yoursite.com/tags/markdown/"/>
+      <category term="markdown" scheme="http://peng-howard.github.io/lives/tags/markdown/"/>
     
-      <category term="document" scheme="http://yoursite.com/tags/document/"/>
+      <category term="document" scheme="http://peng-howard.github.io/lives/tags/document/"/>
     
   </entry>
   
   <entry>
     <title>冷、暖</title>
-    <link href="http://yoursite.com/2007/01/26/2007-01-26-warm-cold/"/>
-    <id>http://yoursite.com/2007/01/26/2007-01-26-warm-cold/</id>
+    <link href="http://peng-howard.github.io/lives/2007/01/26/2007-01-26-warm-cold/"/>
+    <id>http://peng-howard.github.io/lives/2007/01/26/2007-01-26-warm-cold/</id>
     <published>2007-01-25T16:00:00.000Z</published>
     <updated>2017-03-25T13:59:54.536Z</updated>
     
@@ -62,10 +62,10 @@
     
     </summary>
     
-      <category term="feelings" scheme="http://yoursite.com/categories/feelings/"/>
+      <category term="feelings" scheme="http://peng-howard.github.io/lives/categories/feelings/"/>
     
     
-      <category term="冷、暖" scheme="http://yoursite.com/tags/%E5%86%B7%E3%80%81%E6%9A%96/"/>
+      <category term="冷、暖" scheme="http://peng-howard.github.io/lives/tags/%E5%86%B7%E3%80%81%E6%9A%96/"/>
     
   </entry>
   
