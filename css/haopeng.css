@@ -1,6 +1,7 @@
 body {
   background: url("/lives/images/bg.png") repeat;
 }
+/* 正文标题 */
 .post-title {
   font-size: 42px !important;
   color: #2dbe60;
@@ -46,6 +47,7 @@ h2 {
   font-size: 24px;
   font-weight: bold;
 }
+/* header 部分的圆圈导航 */
 .menu li a {
   border: solid 2px #bbb !important;
   background-color: #fefefe;
@@ -63,14 +65,41 @@ h2 {
   transition-property: all;
   transition-duration: 0.5s;
 }
+.category-list-item {
+  display: inline;
+}
+.category-list-item a {
+  margin-top: -1.78em;
+  padding: 1em 1em;
+  display: block;
+  font-size: 18px;
+  color: #2dbe60;
+  font-weight: bold;
+  border-bottom: dashed 1px #ccc !important;
+}
+.category-list-item a:hover {
+  font-size: 18px;
+  color: #2dbe60;
+  font-weight: bold;
+  background-color: #e3e3e3;
+}
+span.category-list-count {
+  float: right;
+  margin-top: -3.3em;
+  padding-right: 0.5em;
+}
 /* 首页每篇之间的分隔线 */
 .post-eof {
   border-bottom: solid 1px #fefefe;
   width: 100% !important;
 }
+/* 语法高亮块 */
 .highlight {
   border-radius: 5px;
   border: solid 1px #ccc;
+}
+td.gutter pre {
+  background-color: #ccc;
 }
 /* > 开始引用内容对应的样式 */
 blockquote {
@@ -102,9 +131,6 @@ pre code {
   color: #000;
   white-space: pre-wrap; /* 让 code 标记中的内容过宽时自动换行，不能用 normal，否则换行符也消失了 */
 }
-td.gutter pre {
-  background-color: #ccc;
-}
 .sidebar-nav .sidebar-nav-active {
   color: #2dbe60 !important;
   border-bottom-color: #2dbe60 !important;
@@ -122,6 +148,12 @@ td.gutter pre {
 .back-to-top {
   background-color: #bcbcbc !important;
   color: #000 !important;
+}
+.tag-cloud-tags {
+  margin-top: 2em;
+  background-color: #fefefe;
+  border: solid 1px #ccc;
+  border-radius: 5px;
 }
 strong {
   color: #2dbe60;
@@ -154,6 +186,7 @@ a.page-number:hover {
   color: #fff;
   font-weight: bold;
 }
+/* 正文标签 */
 .post-tags a {
   background-color: #f7f7f7;
   border: solid 2px #bbb;
