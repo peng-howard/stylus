@@ -5,7 +5,7 @@
   <link href="/stylus/atom.xml" rel="self"/>
   
   <link href="http://peng-howard.github.io/stylus/"/>
-  <updated>2017-03-27T08:18:18.349Z</updated>
+  <updated>2017-03-27T09:40:11.879Z</updated>
   <id>http://peng-howard.github.io/stylus/</id>
   
   <author>
@@ -14,6 +14,100 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Math version `bold&#39; is not defined</title>
+    <link href="http://peng-howard.github.io/stylus/2013/04/26/2013-04-26-Math-version-bold-not-defined/"/>
+    <id>http://peng-howard.github.io/stylus/2013/04/26/2013-04-26-Math-version-bold-not-defined/</id>
+    <published>2013-04-25T16:00:00.000Z</published>
+    <updated>2017-03-27T09:40:11.879Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用 Y &amp;amp; Y Mathtime 字体，用 XeLaTeX 编译，提示：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;“Error: Math version `bold&amp;apos; is not defined.”
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;解决方法是在导言区添加：&lt;/
+    
+    </summary>
+    
+      <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/categories/LaTeX/"/>
+    
+    
+      <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/tags/LaTeX/"/>
+    
+      <category term="Mathtime" scheme="http://peng-howard.github.io/stylus/tags/Mathtime/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用 pgfpages 生成 slides 的 4 in 1 版式效果</title>
+    <link href="http://peng-howard.github.io/stylus/2011/11/12/2011-11-12-pgfpages-slides-4-in-1-changing-margins/"/>
+    <id>http://peng-howard.github.io/stylus/2011/11/12/2011-11-12-pgfpages-slides-4-in-1-changing-margins/</id>
+    <published>2011-11-11T16:00:00.000Z</published>
+    <updated>2017-03-27T09:36:33.214Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Getting a 4 in 1 pdf Slides document and “Changing PDF Margins With The pdfpages Package”&lt;/p&gt;
+&lt;figure class=&quot;highlight tex&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
+    
+    </summary>
+    
+      <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/categories/LaTeX/"/>
+    
+    
+      <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/tags/LaTeX/"/>
+    
+      <category term="pgfpages" scheme="http://peng-howard.github.io/stylus/tags/pgfpages/"/>
+    
+      <category term="slides" scheme="http://peng-howard.github.io/stylus/tags/slides/"/>
+    
+      <category term="pdf" scheme="http://peng-howard.github.io/stylus/tags/pdf/"/>
+    
+      <category term="Beamer" scheme="http://peng-howard.github.io/stylus/tags/Beamer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何在Word中分栏状态下正确的输入脚注？</title>
+    <link href="http://peng-howard.github.io/stylus/2011/11/10/2011-11-10-word-footnote/"/>
+    <id>http://peng-howard.github.io/stylus/2011/11/10/2011-11-10-word-footnote/</id>
+    <published>2011-11-09T16:00:00.000Z</published>
+    <updated>2017-03-27T12:30:31.234Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在论文排版中，在题目或作者处插入了脚注后，再对正文分栏时；或者先分栏，再在题目或作者处插入脚注，分栏后的正文就跑到下一页上去了。&lt;/p&gt;
+&lt;p&gt;稿件格式的要求示意图如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cssdpq.bn1.livefilestore.c
+    
+    </summary>
+    
+      <category term="软件应用" scheme="http://peng-howard.github.io/stylus/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
+    
+    
+      <category term="Word" scheme="http://peng-howard.github.io/stylus/tags/Word/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>无法删除文件或文件夹的处理</title>
+    <link href="http://peng-howard.github.io/stylus/2009/03/03/2009-03-03-delete-file-and-folders/"/>
+    <id>http://peng-howard.github.io/stylus/2009/03/03/2009-03-03-delete-file-and-folders/</id>
+    <published>2009-03-02T16:00:00.000Z</published>
+    <updated>2017-03-27T09:42:57.385Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在删除文件或文件夹时，Windows系统错误提示：&lt;code&gt;无法删除****，找不到指定文件，请确定指定的路径及文件名是否正确&lt;/code&gt;的解决方法……&lt;/p&gt;
+&lt;p&gt;经常有人会碰到这个问题，网上找了很多版本的解决方法都没有用，用一些 360 文件粉碎，优化大师粉碎也不
+    
+    </summary>
+    
+      <category term="软件应用" scheme="http://peng-howard.github.io/stylus/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Aurora</title>
@@ -33,9 +127,31 @@
       <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/categories/LaTeX/"/>
     
     
+      <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/tags/LaTeX/"/>
+    
       <category term="Aurora" scheme="http://peng-howard.github.io/stylus/tags/Aurora/"/>
     
-      <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/tags/LaTeX/"/>
+  </entry>
+  
+  <entry>
+    <title>几个正则表达式</title>
+    <link href="http://peng-howard.github.io/stylus/2007/07/18/2007-07-18-regexp/"/>
+    <id>http://peng-howard.github.io/stylus/2007/07/18/2007-07-18-regexp/</id>
+    <published>2007-07-17T16:00:00.000Z</published>
+    <updated>2017-03-27T09:46:49.944Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;网络上的小说总是格式比较糟糕，需要进行整理才看起来舒服一些。&lt;/p&gt;
+&lt;p&gt;整理的过程中也遇到一些问题，我用的是 VS2005、C#，C# 对正则的支持很到位，甚至包含一些其它语言如 Perl 所没有的特殊功能，下面是相关表达式：&lt;/p&gt;
+&lt;h2 id=&quot;删除空行&quot;&gt;&lt;a 
+    
+    </summary>
+    
+      <category term="正则表达式" scheme="http://peng-howard.github.io/stylus/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+    
+      <category term="正则表达式" scheme="http://peng-howard.github.io/stylus/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
   </entry>
   

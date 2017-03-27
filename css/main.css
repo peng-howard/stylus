@@ -1684,7 +1684,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b9a814;
+  background: #2effc8;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2546,6 +2546,15 @@ a.post-title-link {
 }
 a.post-title-link:hover {
   text-decoration: none !important;
+}
+.post-title-link span {
+  display: block;
+}
+article.post-type-normal {
+  margin: 8px 0 !important;
+}
+.collection-title {
+  margin: 30px 0 !important;
 }
 .post-title-link::before {
   background-color: #2dbe60 !important; /* 下划线不是 underline, text-decoratioin, border-bottom，而是 bg-color */

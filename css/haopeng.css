@@ -15,6 +15,18 @@ a.post-title-link {
 a.post-title-link:hover {
   text-decoration: none !important;
 }
+/* 存档页中文章标题与时间对齐 */
+.post-title-link span {
+  display: block;
+}
+/* 缩小年内部每篇文章之间的间距 */
+article.post-type-normal {
+  margin: 8px 0 !important;
+}
+/* 缩小年上下的间距 */
+.collection-title {
+  margin: 30px 0 !important;
+}
 /* 首页标题的下划线效果 */
 .post-title-link::before {
   background-color: #2dbe60 !important; /* 下划线不是 underline, text-decoratioin, border-bottom，而是 bg-color */
