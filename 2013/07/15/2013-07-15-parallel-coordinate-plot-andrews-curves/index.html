@@ -109,7 +109,7 @@
 基于三维曲面（如三维曲面图）">
 <meta property="og:image" content="https://cssdpq.bn1.livefilestore.com/y2pvkki2cktl093Pl_BxKM-ZZ8RQ_u-6xQnlTubo23_SXYLGCCLvKy0HTC_tR7UpgB_1h5cVOsZCiZvi7rLWzq2ydWmMGy9_4byGLUhP5db-MQ/Iris%20%E6%95%B0%E6%8D%AE%E7%9A%84%E8%BD%AE%E5%BB%93%E5%9B%BE(Parallel%20Coordinate%20Plots">
 <meta property="og:image" content="https://cssdpq.bn1.livefilestore.com/y2pi1WtDEA1hzK6vfvFjDtdWP9FS4yzejGHptqXptD2HA1txjcmsmQ74JW_wF-AeYh1Yo0JpecJafME8aKbO5FF3eAyxPV_kSs2HAA-2jH6ZdI/Iris%20%E6%95%B0%E6%8D%AE%E7%9A%84%E8%B0%83%E5%92%8C%E6%9B%B2%E7%BA%BF%E5%9B%BE.png?psid=1">
-<meta property="og:updated_time" content="2017-03-28T05:16:47.878Z">
+<meta property="og:updated_time" content="2017-03-28T15:15:18.629Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="调和曲线图和轮廓图的比较z">
 <meta name="twitter:description" content="原文地址：http://cos.name/2009/03/parallel-coordinates-and-andrews-curve/#more-704
@@ -452,6 +452,7 @@
 <li>基于三维曲面（如三维曲面图）。</li>
 </ol>
 <p>其思想是将高维数据映射到低维空间（三维以下）内，尽量使信息损失最少，同时又能利于肉眼辨识。调和曲线图和轮廓图(即平行坐标图)都是多元数据的可视化方法，它们基于“线”的形式，将多元数据表示出来，对于聚类分析有很好的帮助。</p>
+<a id="more"></a>
 <h2 id="轮廓图"><a href="#轮廓图" class="headerlink" title="轮廓图"></a>轮廓图</h2><p>轮廓图的思想非常简单、直观，它是在横坐标上取$p$个点，依次表示各个指标(即变量)；横坐标上则对应各个指标的值(或者经过标准化变换后的值)，然后将每一组数据对应的点依次连接即可。</p>
 <p><code>lattice</code>包中的<code>parallel()</code>函数可以轻松绘出轮廓图。利用<code>iris</code>数据，以下代码可以画出其轮廓图。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(lattice)</div><div class="line">data(iris)</div><div class="line">parallel(~iris[<span class="number">1</span>:<span class="number">4</span>], iris, groups = Species,</div><div class="line">    horizontal.axis = <span class="literal">FALSE</span>, scales = list(x = list(rot = <span class="number">90</span>)))</div></pre></td></tr></table></figure>
