@@ -311,6 +311,187 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/12/07/2012-12-07-matlab-eval-feval/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2012/12/07/2012-12-07-matlab-eval-feval/" itemprop="url">
+                  Matlab中的eval与feval函数
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-12-07T00:00:00+08:00">
+                2012-12-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/Matlab/" itemprop="url" rel="index">
+                    <span itemprop="name">Matlab</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2012/12/07/2012-12-07-matlab-eval-feval/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2012/12/07/2012-12-07-matlab-eval-feval/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="eval函数用法简介"><a href="#eval函数用法简介" class="headerlink" title="eval函数用法简介"></a>eval函数用法简介</h2><p>原文地址：<a href="http://www.ilovematlab.cn/thread-53554-1-1.html" target="_blank" rel="external">http://www.ilovematlab.cn/thread-53554-1-1.html</a></p>
+<p><code>eval(expression)</code>用于执行其参数中包含的<code>expression</code>。例如，把<code>August1.mat</code>到<code>August3.mat</code>加载到<code>MATLAB workspace</code>：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> d=<span class="number">1</span>:<span class="number">3</span></div><div class="line">   s = [<span class="string">'load August'</span> int2str(d) <span class="string">'.mat'</span>]</div><div class="line">   eval(s)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>上面的部分代码也可以写成<code>s = [&#39;load August&#39;, int2str(d), &#39;.mat&#39;]</code>，也就是中间用逗号隔开，这样才能把三部分合成一个字符串，以下是被执行的<code>s</code>语句：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">s =</div><div class="line">   load August1.mat</div><div class="line">s =</div><div class="line">   load August2.mat</div><div class="line">s =</div><div class="line">   load August3.mat</div></pre></td></tr></table></figure>
+<h2 id="feval函数用法简介"><a href="#feval函数用法简介" class="headerlink" title="feval函数用法简介"></a>feval函数用法简介</h2><p>原文地址：<a href="http://www.madio.net/thread-170200-1-1.html" target="_blank" rel="external">http://www.madio.net/thread-170200-1-1.html</a></p>
+<p><code>[y1,..,yn] = FEVAL(F,x1,...,xn)</code>，<code>F</code>是需要使用函数的函数名，或者句柄(见下面程序注释)；<code>xi</code>是函数的参数，<code>yi</code>是函数的返回值。</p>
+<p>举例，假设需要调用的函数<code>foo</code>定义如下：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span>=<span class="title">foo</span><span class="params">(a,b)</span></span></div><div class="line">x=a*b;</div></pre></td></tr></table></figure>
+<p>若在<code>main</code>函数中用<code>feval</code>调用<code>foo</code>，可以有以下几种方式：</p>
+<blockquote>
+<ol>
+<li><code>result=feval(&#39;foo&#39;,3,15);</code></li>
+<li><code>result=feval(@foo,3,16); % 这里@foo是函数foo的句柄</code></li>
+<li>若调用的函数要作为<code>main</code>的参数，则</li>
+</ol>
+</blockquote>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">result</span>=<span class="title">main</span><span class="params">(f)</span></span></div><div class="line">result=feval(f,<span class="number">3</span>,<span class="number">10</span>);</div></pre></td></tr></table></figure>
+<p>然后调用<code>main</code>时将<code>&#39;foo&#39;</code>传入即可：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;main(<span class="string">'foo'</span>);</div></pre></td></tr></table></figure>
+<h2 id="feval和eval的区别"><a href="#feval和eval的区别" class="headerlink" title="feval和eval的区别"></a>feval和eval的区别</h2><p>原文地址：<a href="http://powerelite.blog.163.com/blog/static/42965891201272725641245/" target="_blank" rel="external">http://powerelite.blog.163.com/blog/static/42965891201272725641245/</a></p>
+<p><code>feval</code>和<code>eval</code>运行区别之一：<code>feval</code>的<code>FN</code>不能是表达式，其<code>FN</code><strong>只接受函数名</strong>。函数<code>eval</code>给MATLAB提供<strong>宏</strong>的能力，该函数提供了将用户创建的函数名传给其它函数能力，以便求值。函数<code>feval</code>与<code>eval</code>类似，但在用法上有更多的限制。<code>feval(&#39;fun&#39;,x)</code>求由字符串<code>&#39;fun&#39;</code>给定的函数值，其输入参量是变量<code>x</code>，即<code>feval_r(&#39;fun&#39;,x)</code>等价于求<code>fun(x)</code>值，注意下面代码中的运行错误解决方法见上面<code>feval</code>函数的三种使用方法。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">format short</div><div class="line">x=<span class="built_in">pi</span>/<span class="number">4</span>;</div><div class="line">Ve=eval(<span class="string">'1+sin(x)'</span>) </div><div class="line">Ve =</div><div class="line">    <span class="number">1.7071</span> </div><div class="line">Vf=feval(<span class="string">'1+sin(x)'</span>,x) </div><div class="line">??? Error using ==&gt; feval</div><div class="line">Invalid <span class="function"><span class="keyword">function</span> <span class="title">name</span> '1+<span class="title">sin</span><span class="params">(x)</span>'.</span></div></pre></td></tr></table></figure>
+<h2 id="关于带参数的积分问题"><a href="#关于带参数的积分问题" class="headerlink" title="关于带参数的积分问题"></a>关于带参数的积分问题</h2><p>原文地址：<a href="http://forum.chinavib.com/thread-42369-1-1.html" target="_blank" rel="external">http://forum.chinavib.com/thread-42369-1-1.html</a></p>
+<p>有不少人常问带参数的积分问题该如何处理,现举一个例子，希望能起到抛砖引玉的作用。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">%%%--------------------------------------------%%%</span></div><div class="line">例如以下问题:</div><div class="line">函数为 y=<span class="built_in">sin</span>(k.*x).*x.^<span class="number">2</span>，对x积分，</div><div class="line">积分区域为【<span class="number">1</span>，<span class="number">5</span>】，目的是要画 k 和 y 的图形.</div><div class="line"><span class="comment">%%%============================================%%%</span></div><div class="line"><span class="comment">%%% 作k的一个循环, k作为 inline函数的参数即可.</span></div><div class="line">clear all</div><div class="line">k=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">5</span>);</div><div class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="built_in">length</span>(k)</div><div class="line">    kk=k(<span class="built_in">i</span>);</div><div class="line">    fun=strcat(<span class="string">'sin('</span>,num2str(kk),<span class="string">'*x).*x.^2'</span>);</div><div class="line">    y(<span class="built_in">i</span>)=quadl(inline(fun),<span class="number">1</span>,<span class="number">5</span>);</div><div class="line"><span class="keyword">end</span></div><div class="line">plot(k,y)</div><div class="line"><span class="comment">%%%============================================%%%</span></div></pre></td></tr></table></figure>
+<p><strong>注意</strong>：这个程序的特别意义在于，对于任何复杂的、无显式积分表达式的带参数积分问题具有通用性，我主要是针对此而写的。</p>
+<h2 id="Matlab中函数调用及feval函数，带参数积分问题"><a href="#Matlab中函数调用及feval函数，带参数积分问题" class="headerlink" title="Matlab中函数调用及feval函数，带参数积分问题"></a>Matlab中函数调用及<code>feval</code>函数，带参数积分问题</h2><p>原文地址：<a href="http://www.ilovematlab.cn/thread-36666-1-1.html" target="_blank" rel="external">http://www.ilovematlab.cn/thread-36666-1-1.html</a></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">InlineSubAnonymousNestedDemo</span></span></div><div class="line"><span class="comment">% 带参数的积分问题</span></div><div class="line"><span class="comment">% 例如</span></div><div class="line"><span class="comment">% 函数为 y=sin(k.*x).*x.^2，对x积分，</span></div><div class="line"><span class="comment">% 积分区域为【1，5】，目的是要画 k 和 y 的图形.</span></div><div class="line"><span class="comment">% 例子意义在于,对于一些复杂的、无显式积分表达式的带参数积分问题具有通用性</span></div><div class="line"><span class="comment">% 问题来源于振动论坛原xjzuo版主发的一个帖子；</span></div><div class="line"><span class="comment">% 原帖地址：http://www.chinavib.com/forum/thread-42369-1-2.html%% 用inline解决</span></div><div class="line">tic;</div><div class="line">k=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">5</span>);</div><div class="line">y1 = <span class="built_in">zeros</span>(<span class="built_in">size</span>(k));</div><div class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="built_in">length</span>(k)</div><div class="line">    kk=k(<span class="built_in">i</span>);</div><div class="line">    fun=inline([<span class="string">'sin('</span>,num2str(kk),<span class="string">'*x).*x.^2'</span>]);</div><div class="line">    y1(<span class="built_in">i</span>)=quadl(fun,<span class="number">0</span>,<span class="number">5</span>);</div><div class="line"><span class="keyword">end</span></div><div class="line">time = toc;</div><div class="line"><span class="built_in">disp</span>([<span class="string">'用inline方法的时间是：'</span>,num2str(time),<span class="string">'秒!'</span>])<span class="comment">%% 用anonymous function 解决</span></div><div class="line">tic;</div><div class="line">f=@(k) quadl(@(x)  <span class="built_in">sin</span>(k.*x).*x.^<span class="number">2</span>,<span class="number">0</span>,<span class="number">5</span>);</div><div class="line">kk=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">5</span>);</div><div class="line">y2=<span class="built_in">zeros</span>(<span class="built_in">size</span>(kk));</div><div class="line"><span class="keyword">for</span> ii=<span class="number">1</span>:<span class="built_in">length</span>(kk)</div><div class="line">y2(ii)=f(kk(ii));</div><div class="line"><span class="keyword">end</span></div><div class="line">time = toc;</div><div class="line"><span class="built_in">disp</span>([<span class="string">'用anonymous function方法的时间是：'</span>,num2str(time),<span class="string">'秒!'</span>])<span class="comment">%% 用nested function解决</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">y</span> = <span class="title">ParaInteg</span><span class="params">(k)</span></span></div><div class="line">y=quadl(@(x) <span class="built_in">sin</span>(k.*x).*x.^<span class="number">2</span> ,<span class="number">0</span>,<span class="number">5</span>);</div><div class="line"><span class="keyword">end</span></div><div class="line">tic;</div><div class="line">kk=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">5</span>);</div><div class="line">y3=<span class="built_in">zeros</span>(<span class="built_in">size</span>(kk));</div><div class="line"><span class="keyword">for</span> ii=<span class="number">1</span>:<span class="built_in">length</span>(kk)</div><div class="line">y3(ii)=ParaInteg(kk(ii));</div><div class="line"><span class="keyword">end</span></div><div class="line">time = toc;</div><div class="line"><span class="built_in">disp</span>([<span class="string">'用nested function方法的时间是：'</span>,num2str(time),<span class="string">'秒!'</span>])<span class="comment">%% 用 arrayfun + anonymous function 解决</span></div><div class="line">tic;y4 = arrayfun(@(k) quadl(@(x)  <span class="built_in">sin</span>(k.*x).*x.^<span class="number">2</span>,<span class="number">0</span>,<span class="number">5</span>),<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">5</span>));time = toc;</div><div class="line"><span class="built_in">disp</span>([<span class="string">'用arrayfun + anonymous function方法的时间是：'</span>,num2str(time),<span class="string">'秒!'</span>])</div><div class="line">plot(kk,y2);</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/12/05/2012-12-05-r-string-grep/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -473,165 +654,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/12/05/2012-12-05-r-mem-gc/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hao Peng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/stylus/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="语千 ~ 刻一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/stylus/2012/12/05/2012-12-05-r-mem-gc/" itemprop="url">
-                  R的内存管理和垃圾清理z
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-12-05T00:00:00+08:00">
-                2012-12-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/R/" itemprop="url" rel="index">
-                    <span itemprop="name">R</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/stylus/2012/12/05/2012-12-05-r-mem-gc/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2012/12/05/2012-12-05-r-mem-gc/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>原文地址：<a href="http://jliblog.com/archives/276">http://jliblog.com/archives/276</a></p>
-<p>写R程序的人，相信都会遇到过<code>“cannot allocate vector of size”</code>或者<code>“无法分配大小为…的矢量”</code>这样的错误。原因很简单，基本都是产生一个大矩阵等对象时发生的，最干脆的解决办法有两种，第一种是加大内存换64位系统，第二种是改变算法避免如此大的对象。第一种办法，是最好的办法，不过大对象的需求是没有止尽的，终究不是长久之道。第二种办法是最好的思路，无论多么大的对象都是可以弄小的，无非就是分而治之、时间换空间等，对算法的研究也是没有止尽的。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/stylus/2012/12/05/2012-12-05-r-mem-gc/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/12/05/2012-12-05-r-reg-exp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -746,6 +768,165 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/stylus/2012/12/05/2012-12-05-r-reg-exp/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/12/05/2012-12-05-r-mem-gc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2012/12/05/2012-12-05-r-mem-gc/" itemprop="url">
+                  R的内存管理和垃圾清理z
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-12-05T00:00:00+08:00">
+                2012-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2012/12/05/2012-12-05-r-mem-gc/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2012/12/05/2012-12-05-r-mem-gc/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>原文地址：<a href="http://jliblog.com/archives/276">http://jliblog.com/archives/276</a></p>
+<p>写R程序的人，相信都会遇到过<code>“cannot allocate vector of size”</code>或者<code>“无法分配大小为…的矢量”</code>这样的错误。原因很简单，基本都是产生一个大矩阵等对象时发生的，最干脆的解决办法有两种，第一种是加大内存换64位系统，第二种是改变算法避免如此大的对象。第一种办法，是最好的办法，不过大对象的需求是没有止尽的，终究不是长久之道。第二种办法是最好的思路，无论多么大的对象都是可以弄小的，无非就是分而治之、时间换空间等，对算法的研究也是没有止尽的。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/stylus/2012/12/05/2012-12-05-r-mem-gc/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2088,160 +2269,6 @@ robustdemo      稳健回归拟合工具</pre>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2011/12/28/2011-12-28-lasteqn/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hao Peng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/stylus/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="语千 ~ 刻一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/stylus/2011/12/28/2011-12-28-lasteqn/" itemprop="url">
-                  引用最近的一个公式：lasteqn z
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2011-12-28T00:00:00+08:00">
-                2011-12-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/LaTeX/" itemprop="url" rel="index">
-                    <span itemprop="name">LaTeX</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/stylus/2011/12/28/2011-12-28-lasteqn/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2011/12/28/2011-12-28-lasteqn/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>原文地址：<a href="http://bbs.ctex.org/viewthread.php?tid=69755" target="_blank" rel="external">http://bbs.ctex.org/viewthread.php?tid=69755</a></p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">&#123;article&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;amsmath&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">providecommand</span></span><span class="tag">\<span class="name">currentseclabel</span><span class="string">&#123;&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">newcommand</span></span><span class="tag">\<span class="name">seclabel</span><span class="string">[1]</span><span class="string">&#123;</span></span></div><div class="line">  \renewcommand\currentseclabel&#123;#1&#125;<span class="comment">%</span></div><div class="line">  <span class="tag">\<span class="name">label</span><span class="string">&#123;sec:#1&#125;</span></span>&#125;</div><div class="line"><span class="tag">\<span class="name">newcommand</span></span><span class="tag">\<span class="name">secref</span><span class="string">[1]</span><span class="string">&#123;</span></span></div><div class="line">  \ref&#123;sec:#1&#125;&#125;</div><div class="line"><span class="tag">\<span class="name">newcommand</span></span><span class="tag">\<span class="name">eqlabel</span><span class="string">[1]</span><span class="string">&#123;</span></span></div><div class="line">  \label&#123;eq:\currentseclabel:#1&#125;&#125;</div><div class="line"><span class="tag">\<span class="name">let</span></span><span class="tag">\<span class="name">saveeqref</span></span><span class="tag">\<span class="name">eqref</span></span></div><div class="line"><span class="tag">\<span class="name">renewcommand</span></span><span class="tag">\<span class="name">eqref</span><span class="string">[2]</span><span class="string">[\currentseclabel]</span><span class="string">&#123;</span></span></div><div class="line">  \saveeqref&#123;eq:#1:#2&#125;&#125;</div><div class="line"><span class="tag">\<span class="name">newcommand</span></span><span class="tag">\<span class="name">lasteqn</span><span class="string">&#123;(\theequation)&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">section</span><span class="string">&#123;Rectangle&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">seclabel</span><span class="string">&#123;rect&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;equation&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">eqlabel</span><span class="string">&#123;area&#125;</span></span></div><div class="line">A = ab</div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;equation&#125;</span></span>Area formula <span class="tag">\<span class="name">eqref</span><span class="string">&#123;area&#125;</span></span>.Previous equation <span class="tag">\<span class="name">lasteqn</span></span>.<span class="tag">\<span class="name">section</span><span class="string">&#123;Circle&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">seclabel</span><span class="string">&#123;circ&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;equation&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">eqlabel</span><span class="string">&#123;area&#125;</span></span></div><div class="line">A = <span class="tag">\<span class="name">pi</span></span> r^2</div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;equation&#125;</span></span></div><div class="line"></div><div class="line">Area formula <span class="tag">\<span class="name">eqref</span><span class="string">&#123;area&#125;</span></span>.<span class="tag">\<span class="name">section</span><span class="string">&#123;Summary&#125;</span></span>Area of rectangles see <span class="tag">\<span class="name">eqref</span><span class="string">[rect]</span><span class="string">&#123;area&#125;</span></span> in section~<span class="tag">\<span class="name">secref</span><span class="string">&#123;rect&#125;</span></span>;</div><div class="line">area of circles see <span class="tag">\<span class="name">eqref</span><span class="string">[circ]</span><span class="string">&#123;area&#125;</span></span> in section~<span class="tag">\<span class="name">secref</span><span class="string">&#123;circ&#125;</span></span>.</div><div class="line"></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2291,7 +2318,7 @@ robustdemo      稳健回归拟合工具</pre>
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">37</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2313,7 +2340,7 @@ robustdemo      稳健回归拟合工具</pre>
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
