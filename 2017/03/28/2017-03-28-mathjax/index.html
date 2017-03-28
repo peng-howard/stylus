@@ -97,7 +97,7 @@ hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的
 <meta property="og:description" content="原文地址：http://blog.csdn.net/emptyset110/article/details/50123231
 hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的时候下划线_是被escape掉并且换成了&amp;lt;em&amp;gt;标签，即斜体字，另外LaTeX中的\\也会被转义成一个\，这样会导致MathJax渲染时不认为它是一个换行符了。
 修改ma">
-<meta property="og:updated_time" content="2017-03-28T05:29:18.473Z">
+<meta property="og:updated_time" content="2017-03-28T14:46:57.201Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mathjax与Markdown的冲突解决">
 <meta name="twitter:description" content="原文地址：http://blog.csdn.net/emptyset110/article/details/50123231
@@ -435,9 +435,13 @@ hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的
 <pre><code>escape: /^\\([\\`*{}\[\]()# +\-.!_&gt;])/,1
 em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,1
 </code></pre><p>替换成：</p>
-<pre><code>escape: /^\\([`*\[\]()# +\-.!_&gt;])/,1
-em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
-</code></pre>
+<pre class="white">
+<code>escape: /^\\([`*\[\]()# +\-.!_>])/,1
+em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</code>
+</pre>
+
+<p>本模板提供了一个<code>&lt;pre class=&quot;white&quot;&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;</code>的环境用于生成背景为白色的代码环境，注意<code>&lt;pre&gt;</code>与<code>&lt;code&gt;</code>之间可以换行，但<code>&lt;code&gt;</code>与文本之间要紧密相联；还提供了<code>&lt;pre class=&quot;center&quot;&gt;&lt;/pre&gt;</code>用于生成文字居中效果，不需要在行与行之间换行！</p>
+
       
     </div>
 

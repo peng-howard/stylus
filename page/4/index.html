@@ -635,6 +635,325 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2007/07/18/2013-06-18-tikz-dvipdfm-not-work/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2007/07/18/2013-06-18-tikz-dvipdfm-not-work/" itemprop="url">
+                  latex+dvipdfmx编译pgf图形无效的解决方法z
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-07-18T00:00:00+08:00">
+                2007-07-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/LaTeX/" itemprop="url" rel="index">
+                    <span itemprop="name">LaTeX</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2007/07/18/2013-06-18-tikz-dvipdfm-not-work/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2007/07/18/2013-06-18-tikz-dvipdfm-not-work/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>原文地址：<a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=76106&amp;extra=&amp;page=1" target="_blank" rel="external">http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=76106&amp;extra=&amp;page=1</a></p>
+<blockquote>
+<p>最好的方法是升级<code>expl3</code>宏包</p>
+</blockquote>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">[cs4size,openany,twoside,UTF8]</span><span class="string">&#123;ctexbook&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">[]</span><span class="string">&#123;graphicx&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">pgfsysdriver</span><span class="string">&#123;pgfsys-dvipdfm.def&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;tikz&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;tikzpicture&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">draw</span></span> (2,2) circle (10ex);</div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;tikzpicture&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2007/07/18/2007-07-18-regexp1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2007/07/18/2007-07-18-regexp1/" itemprop="url">
+                  多段文本分段
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-07-18T00:00:00+08:00">
+                2007-07-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/正则表达式/" itemprop="url" rel="index">
+                    <span itemprop="name">正则表达式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2007/07/18/2007-07-18-regexp1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2007/07/18/2007-07-18-regexp1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p><strong>参考资料</strong>：<a href="http://www.geany.org/manual/gtk/glib/glib-regex-syntax.html">http://www.geany.org/manual/gtk/glib/glib-regex-syntax.html</a></p>
+</blockquote>
+<p>说明，只是大概思想，如果真想对一篇很长的文本分段，直接这么做肯定不行。</p>
+<p>表达式：<code>&lt;h1&gt;(.(?!&lt;h1&gt;))+\r\n</code>，注意环境为.NET 2.0，设置匹配的 Options 为<code>SingleLine</code>。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/stylus/2007/07/18/2007-07-18-regexp1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2007/07/18/2012-11-18-matlab-current-default-folder/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -800,163 +1119,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2007/07/18/2013-06-18-tikz-dvipdfm-not-work/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hao Peng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/stylus/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="语千 ~ 刻一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/stylus/2007/07/18/2013-06-18-tikz-dvipdfm-not-work/" itemprop="url">
-                  latex+dvipdfmx编译pgf图形无效的解决方法z
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-07-18T00:00:00+08:00">
-                2007-07-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/LaTeX/" itemprop="url" rel="index">
-                    <span itemprop="name">LaTeX</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/stylus/2007/07/18/2013-06-18-tikz-dvipdfm-not-work/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2007/07/18/2013-06-18-tikz-dvipdfm-not-work/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>原文地址：<a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=76106&amp;extra=&amp;page=1" target="_blank" rel="external">http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=76106&amp;extra=&amp;page=1</a></p>
-<blockquote>
-<p>最好的方法是升级<code>expl3</code>宏包</p>
-</blockquote>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">[cs4size,openany,twoside,UTF8]</span><span class="string">&#123;ctexbook&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">[]</span><span class="string">&#123;graphicx&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">pgfsysdriver</span><span class="string">&#123;pgfsys-dvipdfm.def&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;tikz&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;tikzpicture&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">draw</span></span> (2,2) circle (10ex);</div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;tikzpicture&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2007/07/18/2007-07-18-regexp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1075,168 +1237,6 @@
 <p>此外，Frontpage2003 对于正则也提供简单支持，只是它的语法与传统的正则语法有些出入，提供的功能也比较简单，但对于简单的工作它还是有很大作用的，配合它提供的“html代码格式重新设置”功能，可以简化许多通过程序也比较不容易完成的任务。</p>
 
           
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2007/07/18/2007-07-18-regexp1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hao Peng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/stylus/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="语千 ~ 刻一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/stylus/2007/07/18/2007-07-18-regexp1/" itemprop="url">
-                  多段文本分段
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-07-18T00:00:00+08:00">
-                2007-07-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/正则表达式/" itemprop="url" rel="index">
-                    <span itemprop="name">正则表达式</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/stylus/2007/07/18/2007-07-18-regexp1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2007/07/18/2007-07-18-regexp1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p><strong>参考资料</strong>：<a href="http://www.geany.org/manual/gtk/glib/glib-regex-syntax.html">http://www.geany.org/manual/gtk/glib/glib-regex-syntax.html</a></p>
-</blockquote>
-<p>说明，只是大概思想，如果真想对一篇很长的文本分段，直接这么做肯定不行。</p>
-<p>表达式：<code>&lt;h1&gt;(.(?!&lt;h1&gt;))+\r\n</code>，注意环境为.NET 2.0，设置匹配的 Options 为<code>SingleLine</code>。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/stylus/2007/07/18/2007-07-18-regexp1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
