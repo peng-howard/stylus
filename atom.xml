@@ -5,7 +5,7 @@
   <link href="/stylus/atom.xml" rel="self"/>
   
   <link href="http://peng-howard.github.io/stylus/"/>
-  <updated>2017-03-27T09:40:11.879Z</updated>
+  <updated>2017-03-28T03:16:05.214Z</updated>
   <id>http://peng-howard.github.io/stylus/</id>
   
   <author>
@@ -14,6 +14,154 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>调和曲线图和轮廓图的比较z</title>
+    <link href="http://peng-howard.github.io/stylus/2013/07/15/2013-07-15-parallel-coordinate-plot-andrews-curves/"/>
+    <id>http://peng-howard.github.io/stylus/2013/07/15/2013-07-15-parallel-coordinate-plot-andrews-curves/</id>
+    <published>2013-07-14T16:00:00.000Z</published>
+    <updated>2017-03-28T03:16:05.214Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;原文地址：&lt;a href=&quot;http://cos.name/2009/03/parallel-coordinates-and-andrews-curve/#more-704&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://cos.name/20
+    
+    </summary>
+    
+      <category term="统计学" scheme="http://peng-howard.github.io/stylus/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
+    
+    
+      <category term="图形" scheme="http://peng-howard.github.io/stylus/tags/%E5%9B%BE%E5%BD%A2/"/>
+    
+      <category term="调和曲线图" scheme="http://peng-howard.github.io/stylus/tags/%E8%B0%83%E5%92%8C%E6%9B%B2%E7%BA%BF%E5%9B%BE/"/>
+    
+      <category term="轮廓图" scheme="http://peng-howard.github.io/stylus/tags/%E8%BD%AE%E5%BB%93%E5%9B%BE/"/>
+    
+      <category term="平行坐标图" scheme="http://peng-howard.github.io/stylus/tags/%E5%B9%B3%E8%A1%8C%E5%9D%90%E6%A0%87%E5%9B%BE/"/>
+    
+      <category term="安德鲁曲线图" scheme="http://peng-howard.github.io/stylus/tags/%E5%AE%89%E5%BE%B7%E9%B2%81%E6%9B%B2%E7%BA%BF%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>滤波的基本概念</title>
+    <link href="http://peng-howard.github.io/stylus/2013/07/10/2013-07-10-filter/"/>
+    <id>http://peng-howard.github.io/stylus/2013/07/10/2013-07-10-filter/</id>
+    <published>2013-07-09T16:00:00.000Z</published>
+    <updated>2017-03-28T03:54:26.012Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;参考资料：&quot;&gt;&lt;a href=&quot;#参考资料：&quot; class=&quot;headerlink&quot; title=&quot;参考资料：&quot;&gt;&lt;/a&gt;参考资料：&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;滤波(filter)：&lt;a href=&quot;http://baike.baidu.com/view/1627
+    
+    </summary>
+    
+      <category term="信号与系统" scheme="http://peng-howard.github.io/stylus/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="滤波" scheme="http://peng-howard.github.io/stylus/tags/%E6%BB%A4%E6%B3%A2/"/>
+    
+      <category term="增益" scheme="http://peng-howard.github.io/stylus/tags/%E5%A2%9E%E7%9B%8A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>散点图与回归拟合线</title>
+    <link href="http://peng-howard.github.io/stylus/2013/07/05/2013-07-05-scatter-fitted-line/"/>
+    <id>http://peng-howard.github.io/stylus/2013/07/05/2013-07-05-scatter-fitted-line/</id>
+    <published>2013-07-04T16:00:00.000Z</published>
+    <updated>2017-03-27T16:54:30.900Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在初级的计量教材中看到一幅用Eviews制作的散点图，这幅图的最大特点是在X-Y散点图中还加入了回归拟合线。这种类型的图我知道用Excel是很容易制作的，在网上查询的结果也有其他人考虑过在Stata, SAS, SPSS, R等软件中来完成。&lt;/p&gt;
+&lt;p&gt;我曾经一度非常希
+    
+    </summary>
+    
+      <category term="计量经济学" scheme="http://peng-howard.github.io/stylus/categories/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/"/>
+    
+    
+      <category term="图形" scheme="http://peng-howard.github.io/stylus/tags/%E5%9B%BE%E5%BD%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>分位点与分位数</title>
+    <link href="http://peng-howard.github.io/stylus/2013/06/25/2013-06-25-quantile/"/>
+    <id>http://peng-howard.github.io/stylus/2013/06/25/2013-06-25-quantile/</id>
+    <published>2013-06-24T16:00:00.000Z</published>
+    <updated>2017-03-27T17:12:35.549Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;分位数在统计学是中一个比较简单和容易理解的概念，大部分初级的统计学教材中都会有相应的介绍。但实际在理解这个概念的时候，要注意连续情形下与分位数相关的几个概念之间的联系与区别。&lt;/p&gt;
+&lt;h2 id=&quot;离散情形&quot;&gt;&lt;a href=&quot;#离散情形&quot; class=&quot;headerli
+    
+    </summary>
+    
+      <category term="统计学" scheme="http://peng-howard.github.io/stylus/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
+    
+    
+      <category term="分位数" scheme="http://peng-howard.github.io/stylus/tags/%E5%88%86%E4%BD%8D%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R的应用领域包介绍z</title>
+    <link href="http://peng-howard.github.io/stylus/2013/06/09/2013-06-09-r-packages-introduction/"/>
+    <id>http://peng-howard.github.io/stylus/2013/06/09/2013-06-09-r-packages-introduction/</id>
+    <published>2013-06-08T16:00:00.000Z</published>
+    <updated>2017-03-28T03:57:38.092Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Analysis-of-Pharmacokinetic-Data-药物-代谢-动力学数据分析&quot;&gt;&lt;a href=&quot;#Analysis-of-Pharmacokinetic-Data-药物-代谢-动力学数据分析&quot; class=&quot;headerlink&quot; title=&quot;Analysis of Pharmacokinetic Data 药物(代谢)动力学数据分析&quot;&gt;&lt;/a&gt;Analysis of Pharmacokinetic Data 药物(代谢)动力学数据分析&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;网址&lt;/strong&gt;：&lt;a href=&quot;http://cran.r-project.org/web/views/Pharmacokinetics.html&quot;&gt;http://cran.r-project.org/web/views/Pharmacokinetics.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;维护人员&lt;/strong&gt;：Suzette Blanchard&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;版本&lt;/strong&gt;：2008-02-15&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;翻译&lt;/strong&gt;：R-fox, 2008-04-12&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/categories/R/"/>
+    
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/tags/R/"/>
+    
+      <category term="宏包" scheme="http://peng-howard.github.io/stylus/tags/%E5%AE%8F%E5%8C%85/"/>
+    
+      <category term="package" scheme="http://peng-howard.github.io/stylus/tags/package/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Disqus与Mathjax可能有冲突</title>
+    <link href="http://peng-howard.github.io/stylus/2013/06/03/2013-06-03-conflict-between-disqus-and-mathjax/"/>
+    <id>http://peng-howard.github.io/stylus/2013/06/03/2013-06-03-conflict-between-disqus-and-mathjax/</id>
+    <published>2013-06-02T16:00:00.000Z</published>
+    <updated>2017-03-28T03:03:21.327Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在系统中添加Mathjax支持的时候，发现如果LaTeX公式与Disqus评论系统同时存在，会导致如下的错误&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This page is forcing your browser to use legacy mode, which is
+    
+    </summary>
+    
+      <category term="软件应用" scheme="http://peng-howard.github.io/stylus/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
+    
+    
+      <category term="Disqus" scheme="http://peng-howard.github.io/stylus/tags/Disqus/"/>
+    
+      <category term="Mathjax" scheme="http://peng-howard.github.io/stylus/tags/Mathjax/"/>
+    
+      <category term="kramdown" scheme="http://peng-howard.github.io/stylus/tags/kramdown/"/>
+    
+  </entry>
   
   <entry>
     <title>Math version `bold&#39; is not defined</title>
@@ -40,16 +188,15 @@
   </entry>
   
   <entry>
-    <title>用 pgfpages 生成 slides 的 4 in 1 版式效果</title>
-    <link href="http://peng-howard.github.io/stylus/2011/11/12/2011-11-12-pgfpages-slides-4-in-1-changing-margins/"/>
-    <id>http://peng-howard.github.io/stylus/2011/11/12/2011-11-12-pgfpages-slides-4-in-1-changing-margins/</id>
-    <published>2011-11-11T16:00:00.000Z</published>
-    <updated>2017-03-27T09:36:33.214Z</updated>
+    <title>导致“Missing number, treated as zero”的原因</title>
+    <link href="http://peng-howard.github.io/stylus/2013/02/01/2013-02-01-missing-number-treated-as-zero/"/>
+    <id>http://peng-howard.github.io/stylus/2013/02/01/2013-02-01-missing-number-treated-as-zero/</id>
+    <published>2013-01-31T16:00:00.000Z</published>
+    <updated>2017-03-28T03:01:41.923Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Getting a 4 in 1 pdf Slides document and “Changing PDF Margins With The pdfpages Package”&lt;/p&gt;
-&lt;figure class=&quot;highlight tex&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
+      &lt;p&gt;从&lt;a href=&quot;http://web.mit.edu/ghudson/dev/nokrb/third/tetex/texmf/doc/help/faq/uktug-faq/FAQ271.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http:
     
     </summary>
     
@@ -58,93 +205,41 @@
     
       <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/tags/LaTeX/"/>
     
-      <category term="pgfpages" scheme="http://peng-howard.github.io/stylus/tags/pgfpages/"/>
-    
-      <category term="slides" scheme="http://peng-howard.github.io/stylus/tags/slides/"/>
-    
-      <category term="pdf" scheme="http://peng-howard.github.io/stylus/tags/pdf/"/>
-    
-      <category term="Beamer" scheme="http://peng-howard.github.io/stylus/tags/Beamer/"/>
-    
   </entry>
   
   <entry>
-    <title>如何在Word中分栏状态下正确的输入脚注？</title>
-    <link href="http://peng-howard.github.io/stylus/2011/11/10/2011-11-10-word-footnote/"/>
-    <id>http://peng-howard.github.io/stylus/2011/11/10/2011-11-10-word-footnote/</id>
-    <published>2011-11-09T16:00:00.000Z</published>
-    <updated>2017-03-27T12:30:31.234Z</updated>
+    <title>Matlab中的eval与feval函数</title>
+    <link href="http://peng-howard.github.io/stylus/2012/12/07/2012-12-07-matlab-eval-feval/"/>
+    <id>http://peng-howard.github.io/stylus/2012/12/07/2012-12-07-matlab-eval-feval/</id>
+    <published>2012-12-06T16:00:00.000Z</published>
+    <updated>2017-03-28T03:00:19.832Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;在论文排版中，在题目或作者处插入了脚注后，再对正文分栏时；或者先分栏，再在题目或作者处插入脚注，分栏后的正文就跑到下一页上去了。&lt;/p&gt;
-&lt;p&gt;稿件格式的要求示意图如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cssdpq.bn1.livefilestore.c
+      &lt;h2 id=&quot;eval函数用法简介&quot;&gt;&lt;a href=&quot;#eval函数用法简介&quot; class=&quot;headerlink&quot; title=&quot;eval函数用法简介&quot;&gt;&lt;/a&gt;eval函数用法简介&lt;/h2&gt;&lt;p&gt;原文地址：&lt;a href=&quot;http://www.ilovematlab.c
     
     </summary>
     
-      <category term="软件应用" scheme="http://peng-howard.github.io/stylus/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
+      <category term="Matlab" scheme="http://peng-howard.github.io/stylus/categories/Matlab/"/>
     
     
-      <category term="Word" scheme="http://peng-howard.github.io/stylus/tags/Word/"/>
+      <category term="Matlab" scheme="http://peng-howard.github.io/stylus/tags/Matlab/"/>
     
-  </entry>
-  
-  <entry>
-    <title>无法删除文件或文件夹的处理</title>
-    <link href="http://peng-howard.github.io/stylus/2009/03/03/2009-03-03-delete-file-and-folders/"/>
-    <id>http://peng-howard.github.io/stylus/2009/03/03/2009-03-03-delete-file-and-folders/</id>
-    <published>2009-03-02T16:00:00.000Z</published>
-    <updated>2017-03-27T09:42:57.385Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在删除文件或文件夹时，Windows系统错误提示：&lt;code&gt;无法删除****，找不到指定文件，请确定指定的路径及文件名是否正确&lt;/code&gt;的解决方法……&lt;/p&gt;
-&lt;p&gt;经常有人会碰到这个问题，网上找了很多版本的解决方法都没有用，用一些 360 文件粉碎，优化大师粉碎也不
-    
-    </summary>
-    
-      <category term="软件应用" scheme="http://peng-howard.github.io/stylus/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
-    
+      <category term="eval" scheme="http://peng-howard.github.io/stylus/tags/eval/"/>
     
   </entry>
   
   <entry>
-    <title>Aurora</title>
-    <link href="http://peng-howard.github.io/stylus/2008/07/26/2008-07-25-aurora/"/>
-    <id>http://peng-howard.github.io/stylus/2008/07/26/2008-07-25-aurora/</id>
-    <published>2008-07-25T16:00:00.000Z</published>
-    <updated>2017-03-27T08:18:18.349Z</updated>
+    <title>R中正则表达式简介z</title>
+    <link href="http://peng-howard.github.io/stylus/2012/12/05/2012-12-05-r-reg-exp/"/>
+    <id>http://peng-howard.github.io/stylus/2012/12/05/2012-12-05-r-reg-exp/</id>
+    <published>2012-12-04T16:00:00.000Z</published>
+    <updated>2017-03-27T16:49:16.099Z</updated>
     
     <summary type="html">
     
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;下载地址&lt;/strong&gt;：&lt;a href=&quot;http://elevatorlady.ca/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://elevatorlady.ca/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;s
-    
-    </summary>
-    
-      <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/categories/LaTeX/"/>
-    
-    
-      <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/tags/LaTeX/"/>
-    
-      <category term="Aurora" scheme="http://peng-howard.github.io/stylus/tags/Aurora/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>几个正则表达式</title>
-    <link href="http://peng-howard.github.io/stylus/2007/07/18/2007-07-18-regexp/"/>
-    <id>http://peng-howard.github.io/stylus/2007/07/18/2007-07-18-regexp/</id>
-    <published>2007-07-17T16:00:00.000Z</published>
-    <updated>2017-03-27T09:46:49.944Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;网络上的小说总是格式比较糟糕，需要进行整理才看起来舒服一些。&lt;/p&gt;
-&lt;p&gt;整理的过程中也遇到一些问题，我用的是 VS2005、C#，C# 对正则的支持很到位，甚至包含一些其它语言如 Perl 所没有的特殊功能，下面是相关表达式：&lt;/p&gt;
-&lt;h2 id=&quot;删除空行&quot;&gt;&lt;a 
+      &lt;p&gt;原文地址：&lt;a href=&quot;http://jliblog.com/archives/28&quot;&gt;http://jliblog.com/archives/28&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;R中的&lt;code&gt;grep、grepl、sub、gsub、regexpr、gregexpr&lt;/code&gt;等函数都使用正则表达式的规则进行匹配。默认是&lt;code&gt;egrep&lt;/code&gt;的规则，也可以选用Perl语言的规则。在这里，我们以R中的&lt;code&gt;sub&lt;/code&gt;函数为例（因为该函数可以返回替换字符串后的具体内容）介绍正则表达式的用法。&lt;/p&gt;
     
     </summary>
     
@@ -152,6 +247,258 @@
     
     
       <category term="正则表达式" scheme="http://peng-howard.github.io/stylus/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R中字符串处理和grep的用法z</title>
+    <link href="http://peng-howard.github.io/stylus/2012/12/05/2012-12-05-r-string-grep/"/>
+    <id>http://peng-howard.github.io/stylus/2012/12/05/2012-12-05-r-string-grep/</id>
+    <published>2012-12-04T16:00:00.000Z</published>
+    <updated>2017-03-28T02:16:00.584Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;原文地址：&lt;a href=&quot;http://jliblog.com/archives/26&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://jliblog.com/archives/26&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;R通常被用来进行数值计算比较多，字符
+    
+    </summary>
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/categories/R/"/>
+    
+    
+      <category term="正则表达式" scheme="http://peng-howard.github.io/stylus/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/tags/R/"/>
+    
+      <category term="字符串" scheme="http://peng-howard.github.io/stylus/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    
+      <category term="grep" scheme="http://peng-howard.github.io/stylus/tags/grep/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R的内存管理和垃圾清理z</title>
+    <link href="http://peng-howard.github.io/stylus/2012/12/05/2012-12-05-r-mem-gc/"/>
+    <id>http://peng-howard.github.io/stylus/2012/12/05/2012-12-05-r-mem-gc/</id>
+    <published>2012-12-04T16:00:00.000Z</published>
+    <updated>2017-03-28T02:11:31.599Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;原文地址：&lt;a href=&quot;http://jliblog.com/archives/276&quot;&gt;http://jliblog.com/archives/276&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;写R程序的人，相信都会遇到过&lt;code&gt;“cannot allocate vector of size”&lt;/code&gt;或者&lt;code&gt;“无法分配大小为…的矢量”&lt;/code&gt;这样的错误。原因很简单，基本都是产生一个大矩阵等对象时发生的，最干脆的解决办法有两种，第一种是加大内存换64位系统，第二种是改变算法避免如此大的对象。第一种办法，是最好的办法，不过大对象的需求是没有止尽的，终究不是长久之道。第二种办法是最好的思路，无论多么大的对象都是可以弄小的，无非就是分而治之、时间换空间等，对算法的研究也是没有止尽的。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/categories/R/"/>
+    
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Matlab统计学工具箱</title>
+    <link href="http://peng-howard.github.io/stylus/2012/12/04/2012-12-04-matlab-statistics-toolbox/"/>
+    <id>http://peng-howard.github.io/stylus/2012/12/04/2012-12-04-matlab-statistics-toolbox/</id>
+    <published>2012-12-03T16:00:00.000Z</published>
+    <updated>2017-03-28T02:57:41.786Z</updated>
+    
+    <summary type="html">
+    
+      &lt;div&gt;
+&lt;div style=&quot;float:left;margin-right: 1em;padding-right: 1em;border-right: solid 3px #ddd;&quot;&gt;
+表1 概率密度函数
+
+&lt;pre&gt;函数名          对应分布的概率密度函数
+b
+    
+    </summary>
+    
+      <category term="Matlab" scheme="http://peng-howard.github.io/stylus/categories/Matlab/"/>
+    
+    
+      <category term="Matlab" scheme="http://peng-howard.github.io/stylus/tags/Matlab/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R中如何取消科学计数法z</title>
+    <link href="http://peng-howard.github.io/stylus/2012/12/04/2012-12-04-cancel-scientific-notation-in-r/"/>
+    <id>http://peng-howard.github.io/stylus/2012/12/04/2012-12-04-cancel-scientific-notation-in-r/</id>
+    <published>2012-12-03T16:00:00.000Z</published>
+    <updated>2017-03-27T17:05:50.131Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;原文地址：&lt;a href=&quot;http://bbs.pinggu.org/thread-1403060-1-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://bbs.pinggu.org/thread-1403060-1-1.html
+    
+    </summary>
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/categories/R/"/>
+    
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Matlab画二维图心得</title>
+    <link href="http://peng-howard.github.io/stylus/2012/11/23/2012-11-23-matlab-ezplot-latex/"/>
+    <id>http://peng-howard.github.io/stylus/2012/11/23/2012-11-23-matlab-ezplot-latex/</id>
+    <published>2012-11-22T16:00:00.000Z</published>
+    <updated>2017-03-27T17:07:17.820Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;&lt;code&gt;plot()&lt;/code&gt;函数主要用于已有坐标对的连接（包括单个坐标，利用这一点再加上修改&lt;code&gt;MarkSize&lt;/code&gt;可以画出指定大小的圆点等各种符号）；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ezplot()&lt;/code&gt;既可以画普通函数的图像，也可以画隐函数图像，换句话说，对于给定的函数，&lt;code&gt;ezplot()&lt;/code&gt;可以实现&lt;code&gt;plot()&lt;/code&gt;的结果；&lt;/li&gt;
+&lt;li&gt;根据&lt;code&gt;ezplot()&lt;/code&gt;作隐函数图像的原理，&lt;a href=&quot;http://www.ilovematlab.cn/thread-21438-1-1.html&quot;&gt;http://www.ilovematlab.cn/thread-21438-1-1.html&lt;/a&gt;给出了一种用&lt;code&gt;ezplot()&lt;/code&gt;同时画两条曲线的巧妙方法，但要注意该方法无法将两条曲线区分开来，因此可能会导致利用&lt;code&gt;legend()&lt;/code&gt;添加图例的意图无法达到。&lt;/li&gt;
+&lt;li&gt;添加多条曲线时要利用好&lt;code&gt;hold on&lt;/code&gt;这一语句；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;axis&lt;/code&gt;的刻度在默认情况下会自动根据给出的最后一次&lt;code&gt;ezplot()&lt;/code&gt;进行调整，如果不希望画出的图像为自适应大小，需要在图像绘制完成后，手工指定axis的x轴与y轴最大、最小刻度；&lt;/li&gt;
+&lt;li&gt;添加箭头可以用annotation完成，要注意其坐标是相对大小，在&lt;code&gt;[0,1]&lt;/code&gt;之间，我个人比较喜欢PSTricks的箭头风格，因此也会考虑在PSTricks中对已生成的图像进行深加工；&lt;/li&gt;
+&lt;li&gt;可以将&lt;code&gt;ezplot()&lt;/code&gt;和&lt;code&gt;legend()&lt;/code&gt;的结果赋给某个变量，再通过&lt;code&gt;set()&lt;/code&gt;函数对图像对象或者&lt;code&gt;legend&lt;/code&gt;对象进行字体大小、颜色等的操作；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;latex()&lt;/code&gt;函数可以用于将指定的符号表达式转换成LaTeX语法格式；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sym()&lt;/code&gt;函数可以用于将某个数值对象转换成符号表达式以供&lt;code&gt;latex()&lt;/code&gt;函数使用；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;title&lt;/code&gt;、&lt;code&gt;xlabel&lt;/code&gt;、&lt;code&gt;ylabel&lt;/code&gt;、&lt;code&gt;zlabel&lt;/code&gt;、&lt;code&gt;textbox&lt;/code&gt;和&lt;code&gt;text&lt;/code&gt;等函数可以利用&lt;code&gt;&amp;#39;Interpreter&amp;#39;&lt;/code&gt;,&lt;code&gt;&amp;#39;latex&amp;#39;&lt;/code&gt;加载LaTeX格式；&lt;/li&gt;
+&lt;li&gt;因为&lt;code&gt;Legend&lt;/code&gt;没有&lt;code&gt;Interpreter&lt;/code&gt;属性，所以如果要在其中使用LaTeX，必须获取对应的文字句柄，并对文字对象设置&lt;code&gt;String&lt;/code&gt;和&lt;code&gt;Interpreter&lt;/code&gt;属性，关于这一点可以参考：&lt;a href=&quot;http://www.mathworks.com/matlabcentral/newsreader/view_thread/254118&quot;&gt;http://www.mathworks.com/matlabcentral/newsreader/view_thread/254118&lt;/a&gt;和&lt;a href=&quot;http://sites.google.com/site/sleepingwalking/matlab/latex-in-legend&quot;&gt;http://sites.google.com/site/sleepingwalking/matlab/latex-in-legend&lt;/a&gt;，从下面的示例可以看到，&lt;code&gt;String&lt;/code&gt;不一定必要；&lt;/li&gt;
+&lt;li&gt;将图像插入LaTeX文档时，建议不要使用&lt;code&gt;pdf&lt;/code&gt;格式，而是使用&lt;code&gt;eps&lt;/code&gt;格式，否则得到的图像结果锯齿感会比较明显。&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="Matlab" scheme="http://peng-howard.github.io/stylus/categories/Matlab/"/>
+    
+    
+      <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/tags/LaTeX/"/>
+    
+      <category term="图形" scheme="http://peng-howard.github.io/stylus/tags/%E5%9B%BE%E5%BD%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>apsrtable在knitr中生成LaTeX表格</title>
+    <link href="http://peng-howard.github.io/stylus/2012/11/21/2012-11-21-apsrtable-knitr-latex-table/"/>
+    <id>http://peng-howard.github.io/stylus/2012/11/21/2012-11-21-apsrtable-knitr-latex-table/</id>
+    <published>2012-11-20T16:00:00.000Z</published>
+    <updated>2017-03-28T02:56:20.619Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;原文地址：&lt;a href=&quot;http://cos.name/cn/topic/108631&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://cos.name/cn/topic/108631&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;apsrtable(
+    
+    </summary>
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/categories/R/"/>
+    
+    
+      <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/tags/LaTeX/"/>
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/tags/R/"/>
+    
+      <category term="knitr" scheme="http://peng-howard.github.io/stylus/tags/knitr/"/>
+    
+      <category term="表格" scheme="http://peng-howard.github.io/stylus/tags/%E8%A1%A8%E6%A0%BC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>knitr、Markdown、Pandoc相关的几份资料</title>
+    <link href="http://peng-howard.github.io/stylus/2012/09/17/2012-09-17-knitr/"/>
+    <id>http://peng-howard.github.io/stylus/2012/09/17/2012-09-17-knitr/</id>
+    <published>2012-09-16T16:00:00.000Z</published>
+    <updated>2017-03-27T16:51:39.234Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;为什么Markdown+R有较大概率成为科技写作主流？&lt;a href=&quot;http://www.yangzhiping.com/tech/r-markdown-knitr.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://ww
+    
+    </summary>
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/categories/R/"/>
+    
+    
+      <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/tags/LaTeX/"/>
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/tags/R/"/>
+    
+      <category term="knitr" scheme="http://peng-howard.github.io/stylus/tags/knitr/"/>
+    
+      <category term="Markdown" scheme="http://peng-howard.github.io/stylus/tags/Markdown/"/>
+    
+      <category term="Pandoc" scheme="http://peng-howard.github.io/stylus/tags/Pandoc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Office卸载工具下载</title>
+    <link href="http://peng-howard.github.io/stylus/2012/02/07/2012-02-07-office-uninstall-tools/"/>
+    <id>http://peng-howard.github.io/stylus/2012/02/07/2012-02-07-office-uninstall-tools/</id>
+    <published>2012-02-06T16:00:00.000Z</published>
+    <updated>2017-03-27T16:57:02.278Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://download.microsoft.com/download/D/1/8/D1893A85-9299-4372-9B51-DAACE77CEDEE/MicrosoftFixit50416.msi&quot; target=&quot;_blank&quot;
+    
+    </summary>
+    
+      <category term="软件应用" scheme="http://peng-howard.github.io/stylus/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
+    
+    
+      <category term="Office" scheme="http://peng-howard.github.io/stylus/tags/Office/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>引用最近的一个公式：lasteqn z</title>
+    <link href="http://peng-howard.github.io/stylus/2011/12/28/2011-12-28-lasteqn/"/>
+    <id>http://peng-howard.github.io/stylus/2011/12/28/2011-12-28-lasteqn/</id>
+    <published>2011-12-27T16:00:00.000Z</published>
+    <updated>2017-03-28T02:23:44.686Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;原文地址：&lt;a href=&quot;http://bbs.ctex.org/viewthread.php?tid=69755&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://bbs.ctex.org/viewthread.php?tid=69755&lt;/
+    
+    </summary>
+    
+      <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/categories/LaTeX/"/>
+    
+    
+      <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/tags/LaTeX/"/>
+    
+      <category term="公式" scheme="http://peng-howard.github.io/stylus/tags/%E5%85%AC%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>底层命令解释</title>
+    <link href="http://peng-howard.github.io/stylus/2011/12/02/2011-12-02-latex-basic-instructions/"/>
+    <id>http://peng-howard.github.io/stylus/2011/12/02/2011-12-02-latex-basic-instructions/</id>
+    <published>2011-12-01T16:00:00.000Z</published>
+    <updated>2017-03-28T02:53:35.270Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://bbs.ctex.org/forum.php?mod=viewthread&amp;amp;tid=68913&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;判断某个命令是否已经用过&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;bl
+    
+    </summary>
+    
+      <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/categories/LaTeX/"/>
+    
+    
+      <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/tags/LaTeX/"/>
     
   </entry>
   

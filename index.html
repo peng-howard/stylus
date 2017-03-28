@@ -311,6 +311,1030 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2013/07/15/2013-07-15-parallel-coordinate-plot-andrews-curves/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2013/07/15/2013-07-15-parallel-coordinate-plot-andrews-curves/" itemprop="url">
+                  调和曲线图和轮廓图的比较z
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-07-15T00:00:00+08:00">
+                2013-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/统计学/" itemprop="url" rel="index">
+                    <span itemprop="name">统计学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2013/07/15/2013-07-15-parallel-coordinate-plot-andrews-curves/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2013/07/15/2013-07-15-parallel-coordinate-plot-andrews-curves/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>原文地址：<a href="http://cos.name/2009/03/parallel-coordinates-and-andrews-curve/#more-704" target="_blank" rel="external">http://cos.name/2009/03/parallel-coordinates-and-andrews-curve/#more-704</a></p>
+<p>作者：<a href="http://taiyun.cos.name" target="_blank" rel="external">魏太云</a></p>
+<p>多元数据的可视化方法很多，譬如散点图、星图、雷达图、脸谱图、协同图等，大致可分为以下几类：</p>
+<ol>
+<li>基于点（如二维、三维散点图）；</li>
+<li>基于线（如轮廓图、调和曲线图）；</li>
+<li>基于平面图形（如星图、雷达图、蛛网图）；</li>
+<li>基于三维曲面（如三维曲面图）。</li>
+</ol>
+<p>其思想是将高维数据映射到低维空间（三维以下）内，尽量使信息损失最少，同时又能利于肉眼辨识。调和曲线图和轮廓图(即平行坐标图)都是多元数据的可视化方法，它们基于“线”的形式，将多元数据表示出来，对于聚类分析有很好的帮助。</p>
+<h2 id="轮廓图"><a href="#轮廓图" class="headerlink" title="轮廓图"></a>轮廓图</h2><p>轮廓图的思想非常简单、直观，它是在横坐标上取$p$个点，依次表示各个指标(即变量)；横坐标上则对应各个指标的值(或者经过标准化变换后的值)，然后将每一组数据对应的点依次连接即可。</p>
+<p><code>lattice</code>包中的<code>parallel()</code>函数可以轻松绘出轮廓图。利用<code>iris</code>数据，以下代码可以画出其轮廓图。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(lattice)</div><div class="line">data(iris)</div><div class="line">parallel(~iris[<span class="number">1</span>:<span class="number">4</span>], iris, groups = Species,</div><div class="line">    horizontal.axis = <span class="literal">FALSE</span>, scales = list(x = list(rot = <span class="number">90</span>)))</div></pre></td></tr></table></figure>
+<p><img src="https://cssdpq.bn1.livefilestore.com/y2pvkki2cktl093Pl_BxKM-ZZ8RQ_u-6xQnlTubo23_SXYLGCCLvKy0HTC_tR7UpgB_1h5cVOsZCiZvi7rLWzq2ydWmMGy9_4byGLUhP5db-MQ/Iris%20%E6%95%B0%E6%8D%AE%E7%9A%84%E8%BD%AE%E5%BB%93%E5%9B%BE(Parallel%20Coordinate%20Plots" alt="">.png?psid=1)</p>
+<p style="text-align: center">图1 Iris 数据的轮廓图(Parallel Coordinate Plots)</p>
+
+<p>观察上图，可以发现同一品种的鸢尾花的轮廓图粗略地聚集在一起。</p>
+<h2 id="调和曲线图"><a href="#调和曲线图" class="headerlink" title="调和曲线图"></a>调和曲线图</h2><p>调和曲线图的思想和傅立叶变换十分相似，是根据三角变换方法将$p$维空间的点映射到二维平面上的曲线上。假设$X_r$是$p$维数据的第$r$个观测值，即</p>
+<p>$$X<em>r^T=(x</em>{r1},\dotsc,x_{rp})$$</p>
+<p>则对应的调和曲线是</p>
+<p>$$f<em>r(t)=\frac{x</em>{r1}}{\sqrt{2}} +x<em>{r2}\sin t+x</em>{r3}\cos t+x<em>{r4}\sin 2 t+x</em>{r5} \cos 2 t+\cdots$$</p>
+<p>其中$-\pi\leqslant t\leqslant \pi$.</p>
+<p>同样利用<code>iris</code>数据，下面代码(主要取自《统计建模与R软件》，尚未优化)可以画出其调和曲线图</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">x = as.matrix(iris[<span class="number">1</span>:<span class="number">4</span>])</div><div class="line">t = seq(-pi, pi, pi/<span class="number">30</span>)</div><div class="line">m = nrow(x)</div><div class="line">n = ncol(x)</div><div class="line">f = matrix(<span class="number">0</span>, m, length(t))</div><div class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>:m) &#123;</div><div class="line">    f[i, ] = x[i, <span class="number">1</span>]/sqrt(<span class="number">2</span>)</div><div class="line">    <span class="keyword">for</span> (j <span class="keyword">in</span> <span class="number">2</span>:n) &#123;</div><div class="line">        <span class="keyword">if</span> (j%%<span class="number">2</span> == <span class="number">0</span>)</div><div class="line">            f[i, ] = f[i, ] + x[i, j] * sin(j/<span class="number">2</span> * t)</div><div class="line">        <span class="keyword">else</span> f[i, ] = f[i, ] + x[i, j] * cos(j%/%<span class="number">2</span> * t)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">plot(c(-pi, pi), c(min(f), max(f)), type = <span class="string">"n"</span>, main = <span class="string">"The Unison graph of Iris"</span>,</div><div class="line">    xlab = <span class="string">"t"</span>, ylab = <span class="string">"f(t)"</span>)</div><div class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>:m) lines(t, f[i, ], col = c(<span class="string">"red"</span>, <span class="string">"green3"</span>,</div><div class="line">    <span class="string">"blue"</span>)[unclass(iris$Species[i])])</div><div class="line">legend(x = -<span class="number">3</span>, y = <span class="number">15</span>, c(<span class="string">"setosa"</span>, <span class="string">"versicolor"</span>, <span class="string">"virginica"</span>),</div><div class="line">    lty = <span class="number">1</span>, col = c(<span class="string">"red"</span>, <span class="string">"green3"</span>, <span class="string">"blue"</span>))</div></pre></td></tr></table></figure>
+<p><img src="https://cssdpq.bn1.livefilestore.com/y2pi1WtDEA1hzK6vfvFjDtdWP9FS4yzejGHptqXptD2HA1txjcmsmQ74JW_wF-AeYh1Yo0JpecJafME8aKbO5FF3eAyxPV_kSs2HAA-2jH6ZdI/Iris%20%E6%95%B0%E6%8D%AE%E7%9A%84%E8%B0%83%E5%92%8C%E6%9B%B2%E7%BA%BF%E5%9B%BE.png?psid=1" alt="Iris 数据的调和曲线图"></p>
+<p style="text-align: center">图2 Iris 数据的调和曲线图</p>
+
+<p>观察上图，同样可以发现同一品种鸢尾花数据的调和曲线图基本上扭在一起。同第一幅图比较后，发现第二幅图更加清楚明白，事实上Andrews证明了调和曲线图有许多良好性质。</p>
+<h2 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h2><p>轮廓图和调和曲线图有着相近的功能，而技巧大有不同。轮廓图简单却现得粗糙，调和曲线图公式复杂却十分精细。从这一个侧面可以发现直观的统计思想固然重要，但存在很多种不可能通过直观思想得到的、而又非常精细、美妙的方法，此时倍受众多统计学家责难的数学显得优雅而又强大。</p>
+<hr>
+
+<blockquote>
+<p><strong>谢益辉</strong>：正好我前一段时间也写过一个调和曲线图的R函数，发出来分享一下：
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">andrews.curve = <span class="keyword">function</span>(x, n = <span class="number">101</span>, type = <span class="string">"l"</span>, lty = <span class="number">1</span>, </div><div class="line">    lwd = <span class="number">1</span>, pch = <span class="literal">NA</span>, xlab = <span class="string">"t"</span>, ylab = <span class="string">"f(t)"</span>, <span class="keyword">...</span>) &#123;</div><div class="line">    p = ncol(x)</div><div class="line">    <span class="keyword">if</span> (is.null(p)) </div><div class="line">        <span class="keyword">stop</span>(<span class="string">"'x' must be a matrix or data.frame!"</span>)</div><div class="line">    <span class="keyword">if</span> (p &lt; <span class="number">1</span>) </div><div class="line">        <span class="keyword">stop</span>(<span class="string">"'x' must have at least one column!"</span>)</div><div class="line">    theta = matrix(seq(-pi, pi, length.out = n), nrow = n, ncol = <span class="number">1</span>)</div><div class="line">    <span class="keyword">if</span> (p == <span class="number">1</span>) &#123;</div><div class="line">        a = matrix(x/sqrt(<span class="number">2</span>), nrow = n, ncol = nrow(x), byrow = <span class="literal">TRUE</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (p &gt; <span class="number">1</span>) &#123;</div><div class="line">        b = matrix(rep(<span class="number">1</span>:(p/<span class="number">2</span>), each = <span class="number">2</span>, length.out = p - <span class="number">1</span>), </div><div class="line">            nrow = <span class="number">1</span>, ncol = p - <span class="number">1</span>)</div><div class="line">        a = cbind(<span class="number">1</span>/sqrt(<span class="number">2</span>), sin(theta %*% b + matrix(rep(c(<span class="number">0</span>, </div><div class="line">            pi/<span class="number">2</span>), length.out = p - <span class="number">1</span>), nrow = n, ncol = p - </div><div class="line">            <span class="number">1</span>, byrow = <span class="literal">TRUE</span>))) %*% t(x)</div><div class="line">    &#125;</div><div class="line">    matplot(theta, a, type = type, lty = lty, lwd = lwd, pch = pch, </div><div class="line">        xlab = xlab, ylab = ylab, <span class="keyword">...</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>里面都是以矩阵的形式做的运算，不过我没有测试，不知道速度会不会快一些。对于调和曲线图，观测$X_i$和$X_j$的欧式距离正好是曲线垂直距离的积分，这是数学性质和图形性质能够结合的关键。</p>
+<p><hr>
+<strong>魏太云</strong>：快很多呢，没有一个显式循环，十分方便:)。调和曲线图的确很好地将数学融进了图形，可谓鬼斧神工啊。</p>
+<p><hr>
+<strong>fasterr</strong>：<code>andrews.curve(x, col=c(‘red’, ‘green3′, ‘blue’))</code>可是画出来的不是很一样：《统计建模与R软件》版的调和曲线的颜色比较友好，相近族类的颜色一样、不同类的颜色不同。
+<code>andrews.curve()</code>绘制的曲线颜色是是交替的（一次red，一次green3, 一次blue，依次循环使用），而不是颜色按类聚集，这样画出来的色彩整体很凌乱（颜色重叠后就更变味了）。
+传入什么控制参数<code>andrews.curve()</code>也能得到一样的效果么？</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2013/07/10/2013-07-10-filter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2013/07/10/2013-07-10-filter/" itemprop="url">
+                  滤波的基本概念
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-07-10T00:00:00+08:00">
+                2013-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/信号与系统/" itemprop="url" rel="index">
+                    <span itemprop="name">信号与系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2013/07/10/2013-07-10-filter/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2013/07/10/2013-07-10-filter/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><ol>
+<li>滤波(filter)：<a href="http://baike.baidu.com/view/162707.htm" target="_blank" rel="external">http://baike.baidu.com/view/162707.htm</a></li>
+<li>增益(gain)：<a href="http://baike.baidu.com/view/343150.htm" target="_blank" rel="external">http://baike.baidu.com/view/343150.htm</a></li>
+<li>低通滤波(Low-pass filter)：<a href="http://baike.baidu.com/view/1669798.htm" target="_blank" rel="external">http://baike.baidu.com/view/1669798.htm</a></li>
+<li>高通滤波(high-pass filter)：<a href="http://baike.baidu.com/view/1877222.htm" target="_blank" rel="external">http://baike.baidu.com/view/1877222.htm</a></li>
+</ol>
+<hr>
+
+<h2 id="1-滤波"><a href="#1-滤波" class="headerlink" title="1 滤波"></a>1 滤波</h2><ul>
+<li>滤波是将信号中特定波段频率滤除的操作，是抑制和防止干扰的一项重要措施。分<strong>经典滤波</strong>和<strong>现代滤波</strong>。</li>
+<li>滤波是将信号中特定波段频率滤除的操作，是抑制和防止干扰的一项重要措施。是根据观察某一随机过程的结果，对另一与之有关的随机过程进行估计的概率理论与方法。</li>
+</ul>
+<h3 id="1-1-起源"><a href="#1-1-起源" class="headerlink" title="1.1 起源"></a>1.1 起源</h3><p>滤波一词起源于通信理论，它是从含有干扰的接收信号中提取有用信号的一种技术。“接收信号”相当于被观测的随机过程，“有用信号”相当于被估计的随机过程。例如用雷达跟踪飞机，测得的飞机位置的数据中，含有测量误差及其他随机干扰，如何利用这些数据尽可能准确地估计出飞机在每一时刻的位置、速度、加速度等，并预测飞机未来的位置，就是一个滤波与预测问题。这类问题在电子技术、航天科学、控制工程及其他科学技术部门中都是大量存在的。历史上最早考虑的是维纳滤波，后来R.E.卡尔曼和R.S.布西于20世纪60年代提出了卡尔曼滤波。现对一般的非线性滤波问题的研究相当活跃。</p>
+<h3 id="1-2-经典滤波"><a href="#1-2-经典滤波" class="headerlink" title="1.2 经典滤波"></a>1.2 经典滤波</h3><p>经典滤波的概念，是根据傅立叶分析和变换提出的一个工程概念。根据高等数学理论，任何一个满足一定条件的信号，都可以被看成是由无限个正弦波叠加而成。换句话说，就是工程信号是不同频率的正弦波线性叠加而成的，组成信号的不同频率的正弦波叫做信号的<strong>频率成分</strong>或叫做<strong>谐波成分</strong>。</p>
+<blockquote>
+<p><strong>滤波器</strong>
+只允许一定频率范围内的信号成分正常通过，而阻止另一部分频率成分通过的电路，叫做经典滤波器或滤波电路。实际上，任何一个电子系统都具有自己的频带宽度(对信号最高频率的限制)，频率特性反映出了电子系统的这个基本特点。而滤波器，则是根据电路参数对电路频带宽度的影响而设计出来的工程应用电路。</p>
+</blockquote>
+<h3 id="1-3-现代滤波"><a href="#1-3-现代滤波" class="headerlink" title="1.3 现代滤波"></a>1.3 现代滤波</h3><p>用模拟电子电路对模拟信号进行滤波，其基本原理就是利用电路的频率特性实现对信号中频率成分的选择。根据频率滤波时，是把信号看成是由不同频率正弦波叠加而成的模拟信号，通过选择不同的频率成分来实现信号滤波。</p>
+<ol>
+<li>当允许信号中较高频率的成分通过滤波器时，这种滤波器叫做<strong>高通滤波器</strong>。</li>
+<li>当允许信号中较低频率的成分通过滤波器时，这种滤波器叫做<strong>低通滤波器</strong>。</li>
+<li>设低频段的截止频率为fp1，高频段的截止频率为fp2:<ol>
+<li>频率在fp1与fp2之间的信号能通过其它频率的信号被衰减的滤波器叫做<strong>带通</strong>滤波器。</li>
+<li>反之，频率在fp1到fp2的范围之间的被衰减，之外能通过的滤波器叫做<strong>带阻</strong>滤波器。</li>
+</ol>
+</li>
+</ol>
+<p>理想滤波器的行为特性通常用<strong>幅度-频率</strong>特性图描述，也叫做滤波器电路的<strong>幅频特性</strong>。</p>
+<h3 id="滤波问题及分类"><a href="#滤波问题及分类" class="headerlink" title="滤波问题及分类"></a>滤波问题及分类</h3><p>对于滤波器，增益幅度不为零的频率范围叫做通频带，简称<strong>通带</strong>，增益幅度为零的频率范围叫做<strong>阻带</strong>。例如对于LP，从-w1到w1之间，叫做LP的通带，其他频率部分叫做阻带。通带所表示的是能够通过滤波器而不会产生衰减的信号频率成分，阻带所表示的是被滤波器衰减掉的信号频率成分。通带内信号所获得的增益，叫做<strong>通带增益</strong>，阻带中信号所得到的衰减，叫做<strong>阻带衰减</strong>。在工程实际中，一般使用dB作为滤波器的幅度增益单位。</p>
+<p>按照滤波是在一整段时间上进行或只是在某些采样点上进行，可分为连续时间滤波与离散时间滤波。前者的时间参数集$T$可取为实半轴$[0,\infty)$或实轴$(-\infty,\infty)$;后者的T可取为非负整数集$\{0,1,2,\dotsc\}$或整数集$\{\dotsc,-2,-1,0,1,2,\dotsc\}$。设$X=\{X_t\in T={Y,t\in T)$有穷，即其中$X$为被估计过程，它不能被直接观测；$Y$为被观测过程，它包含了$X$的某些信息。用表示到时刻$t$为止的观测数据全体，如果能找到中诸元的一个函数?(),使其均方误差达到极小，就称为$X_t$的最优滤波；如果取极小值的范围限于线性函数，就称为$X_t$的线性最优滤波。可以证明，最优滤波与线性最优滤波都以概率1惟一存在。对于前者，悯t就是$X_t$关于$\sigma()$(生成的$\sigma$域)的条件期望，记作对于后者，若进一步设均值$E(X_t)$呏$(EY_t)$呏0,则悯t就是$X_t$在所张成的希尔伯特空间上的投影，记作如果$(X,Y)$是二维正态过程，则最优滤波与线性最优滤波是一致的。<strong>这部分有错</strong></p>
+<p>为了应用和叙述的方便，有时还把上面的定义更细致地加以分类。设$\tau$为一确定的实数或整数，且考虑被估计过程。按照$\tau=0,\tau&gt;0,\tau&lt;0$，分别称为最优滤波、($\tau$步)预测或外推、($\tau$步)平滑或内插，分别为对应的误差与均方误差，而统称这类问题为滤波问题。滤波问题的主要课题是研究对哪些类型的随机过程$X$和$Y$，可以并且如何用观测结果的某种解析表示式，或微分方程，或递推公式等形式,表达出并进而研究它们的种种性质。此外，上面所指的一维随机过程$X,Y$，都可以推广为多维随机过程。</p>
+<h4 id="维纳滤波"><a href="#维纳滤波" class="headerlink" title="维纳滤波"></a>维纳滤波</h4><p>历史上最先考虑的是宽平稳过程(见<a href="http://baike.baidu.com/view/754539.htm" target="_blank" rel="external">平稳过程</a>)的线性预测和滤波问题，它的一般模型是$Y_t=X_t+N_t$，其中$(X，N)$为二维宽平稳过程或序列，其谱分布函数已知，其均值为零。设从$-\infty$到时刻$t$为止的全部$Y$的值都已被观测到，求$X$的$\tau$步线性预测及其均方误差。如果限于考虑$N=0,\tau&gt;0$的情形，则变成在无误差观测条件下$X$本身的线性预测问题；如果$N\neq 0,\tau\leqslant 0$，则变成从受到噪声$N$干扰的接收信号$Y$中提取有用信号$X$的滤波问题。1939$\sim$1941年，Α.Η.柯尔莫哥洛夫利用平稳序列的沃尔德分解(见<a href="http://baike.baidu.com/view/754539.htm" target="_blank" rel="external">平稳过程</a>)，给出了线性预测的一般理论与处理办法，随即被推广到连续时间的平稳过程。N.维纳则在1942年对于平稳序列与过程的谱密度存在且满足某种正则条件的情形，利用谱分解导出了线性最优预测和滤波的明显表达式，即维纳滤波公式，并在防空火力控制、电子工程等部门获得了应用。上述模型在50年代被推广到仅在有限时间区间内进行观测的平稳过程以及某些特殊的非平稳过程，其应用范围也扩充到更多的领域。至今它仍是处理各种动态数据（如气象、水文、地震勘探等）及预测未来的有力工具之一。</p>
+<p>维纳滤波公式是通过平稳过程的谱分解导出的，难以推广到较一般的非平稳过程和多维情形，因而应用范围受到限制。另一方面，在不断增加观测结果时，不易从已算出的滤波值及新的观测值较简单地求出新的滤波值，特别是不能满足在电子计算机上快速处理大量数据的需要。</p>
+<h4 id="卡尔曼滤波"><a href="#卡尔曼滤波" class="headerlink" title="卡尔曼滤波"></a>卡尔曼滤波</h4><p>由于高速电子计算机的发展以及测定人造卫星轨道和导航等技术问题的需要，R.E.卡尔曼与R.S.布西于20世纪60年代初期提出了一类新的线性滤波的模型与方法，通称为卡尔曼滤波。其基本假设是，被估计过程$X$为随机噪声影响下的有限阶多维线性动态系统的输出，而被观测的$Y_t$则是$X_t$的部分分量或其线性函数与量测噪声的叠加，这里并不要求平稳性，但要求不同时刻的噪声值是不相关的。此外，观测只需从某一确定时刻开始，而不必是无穷长的观测区间。更重要的是，适应电子计算机的特点，卡尔曼滤波公式不是将估计值表成观测值的明显的函数形式，而是给出它的一种递推算法(即实时算法)。具体地说，对于离散时间滤波，只要适当增大$X$的维数，就可以将$t$时刻的滤波值表成为前一时刻的滤波值与本时刻的观测值$Y_t$的某种线性组合。对于连续时间滤波,则可以给出与$Y_t$所应满足的线性随机微分方程。在需要不断增加观测结果和输出滤波值的情形，这样的算法加快了处理数据的速度，而且减少了数据存贮量。卡尔曼还证明，如果所考虑的线性系统满足某种“可控性”和“可观测性”(这是现代控制理论中由卡尔曼提出的两个重要概念)，那么最优滤波一定是“渐近稳定”的。大致说来，就是由初始误差、舍入误差及其他的不准确性所引起的效应，将随着滤波时间的延长而逐渐消失或趋于稳定， 不致形成误差的积累。这在实际应用上是很重要的。</p>
+<p>卡尔曼滤波也有多种形式的推广，例如放宽对噪声不相关性的限制，用线性系统逼近非线性系统，以及所谓“自适应滤波”，等等，并获得了日益广泛的应用。</p>
+<h4 id="非线性滤波"><a href="#非线性滤波" class="headerlink" title="非线性滤波"></a>非线性滤波</h4><p>前已说明，一般的非线性最优滤波可归结为求条件期望的问题。对于有限多个观测值的情形，条件期望原则上可以用贝叶斯公式来计算。但即使在比较简单的场合，这样得出的结果也是相当繁杂的，无论对实际应用或理论研究都很不方便。与卡尔曼滤波类似，人们也希望能给出非线性滤波的某种递推算法或它所满足的随机微分方程。但一般它们并不存在，因此必须对所讨论的过程X与Y加以适当的限制。非线性滤波的研究工作相当活跃，它涉及随机过程论的许多近代成果，如随机过程一般理论、鞅、随机微分方程、点过程等。其中一个十分重要的问题，是研究在什么条件下，存在一个鞅M，使得在任何时刻,M和Y都包含同样的信息；这样的M称为Y的新息过程。目前对于一类所谓“条件正态过程”，已经给出了非线性最优滤波的可严格实现的递推算式。在实际应用上，对非线性滤波问题往往采用各种线性近似的方法。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2013/07/05/2013-07-05-scatter-fitted-line/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2013/07/05/2013-07-05-scatter-fitted-line/" itemprop="url">
+                  散点图与回归拟合线
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-07-05T00:00:00+08:00">
+                2013-07-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/计量经济学/" itemprop="url" rel="index">
+                    <span itemprop="name">计量经济学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2013/07/05/2013-07-05-scatter-fitted-line/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2013/07/05/2013-07-05-scatter-fitted-line/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在初级的计量教材中看到一幅用Eviews制作的散点图，这幅图的最大特点是在X-Y散点图中还加入了回归拟合线。这种类型的图我知道用Excel是很容易制作的，在网上查询的结果也有其他人考虑过在Stata, SAS, SPSS, R等软件中来完成。</p>
+<p>我曾经一度非常希望能够通过Eviews内带的命令来完成这一幅图的制作，但似乎没有特别简洁的做法。现在想起来，其实这种图没什么太大意义，毕竟现实工作中很少会出现一元回归的场合。</p>
+<p>不过从另一角度来看，这种图或许在分位数回归中有些许实用性，毕竟即使解释变量只有一个的情形下，这种类型的图也可以让初学者更清楚的看到平均值回归与分位数回归的差异所在。</p>
+<p>Eviews的作图功能太弱，R、Stata等都能最方便的得到想要的图形。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2013/06/25/2013-06-25-quantile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2013/06/25/2013-06-25-quantile/" itemprop="url">
+                  分位点与分位数
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-06-25T00:00:00+08:00">
+                2013-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/统计学/" itemprop="url" rel="index">
+                    <span itemprop="name">统计学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2013/06/25/2013-06-25-quantile/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2013/06/25/2013-06-25-quantile/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>分位数在统计学是中一个比较简单和容易理解的概念，大部分初级的统计学教材中都会有相应的介绍。但实际在理解这个概念的时候，要注意连续情形下与分位数相关的几个概念之间的联系与区别。</p>
+<h2 id="离散情形"><a href="#离散情形" class="headerlink" title="离散情形"></a>离散情形</h2><p>举一个例子，将100名同学的期末考试总分成绩所组成的向量$\mathbf{x}$按从小到大的规则进行排序，生成一个新的顺序统计量$\mathbf{x}^\prime$，那么$\mathbf{x}$的$1/4$分位数指的是$\mathbf{x}^\prime$第25号位上的那个数字，同理可知中位数以及$3/4$分位数等。</p>
+<h2 id="连续情形"><a href="#连续情形" class="headerlink" title="连续情形"></a>连续情形</h2><p>以正态分布为例，$1/4$分位数指的是$\mathrm{Pr}(X\leqslant x)=1/4$对应的$x$值，类似的，标准正态分布中中位数对应的$x$为0。</p>
+<p>从上面的例子可以看出，分位点确定的基础是在离散情形下将样本数量标准化为1，而在连续情形下则是将x坐标轴的可用长度标准化为1(对于正态分布和t分布而言，原始长度为$-\infty$到$+\infty$之间的全部范围。</p>
+<blockquote>
+<p>在连续情形下，若考虑的置信系数是左单侧的，那么置信系数$\alpha$对应的下$\alpha$分位点的$x$值与$\alpha$分位数以及$\mathrm{Pr}(X\leqslant x)=\alpha$中的$x$实际上指向同一个$x$值。</p>
+</blockquote>
+<p>这个值在大部分统计软件中对应的命令以<code>q</code>开头，比如R中的<code>qnorm</code>命令。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2013/06/09/2013-06-09-r-packages-introduction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2013/06/09/2013-06-09-r-packages-introduction/" itemprop="url">
+                  R的应用领域包介绍z
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-06-09T00:00:00+08:00">
+                2013-06-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2013/06/09/2013-06-09-r-packages-introduction/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2013/06/09/2013-06-09-r-packages-introduction/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Analysis-of-Pharmacokinetic-Data-药物-代谢-动力学数据分析"><a href="#Analysis-of-Pharmacokinetic-Data-药物-代谢-动力学数据分析" class="headerlink" title="Analysis of Pharmacokinetic Data 药物(代谢)动力学数据分析"></a>Analysis of Pharmacokinetic Data 药物(代谢)动力学数据分析</h2><ul>
+<li><strong>网址</strong>：<a href="http://cran.r-project.org/web/views/Pharmacokinetics.html">http://cran.r-project.org/web/views/Pharmacokinetics.html</a></li>
+<li><strong>维护人员</strong>：Suzette Blanchard</li>
+<li><strong>版本</strong>：2008-02-15</li>
+<li><strong>翻译</strong>：R-fox, 2008-04-12</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/stylus/2013/06/09/2013-06-09-r-packages-introduction/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2013/06/03/2013-06-03-conflict-between-disqus-and-mathjax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2013/06/03/2013-06-03-conflict-between-disqus-and-mathjax/" itemprop="url">
+                  Disqus与Mathjax可能有冲突
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-06-03T00:00:00+08:00">
+                2013-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/软件应用/" itemprop="url" rel="index">
+                    <span itemprop="name">软件应用</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2013/06/03/2013-06-03-conflict-between-disqus-and-mathjax/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2013/06/03/2013-06-03-conflict-between-disqus-and-mathjax/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在系统中添加Mathjax支持的时候，发现如果LaTeX公式与Disqus评论系统同时存在，会导致如下的错误</p>
+<blockquote>
+<p>This page is forcing your browser to use legacy mode, which is not compatible with Disqus. Please see our troubleshooting guide to get more information about this error.</p>
+</blockquote>
+<p>这个错误在IE8.0中出现，但在Firefox 21中却不存在，初步怀疑是Mathjax调用<code>Mootools 1.4.5</code>而导致，具体见<a href="http://wordpress.org/support/topic/disqus-browser-legacy-error" target="_blank" rel="external">http://wordpress.org/support/topic/disqus-browser-legacy-error</a>。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2013/04/26/2013-04-26-Math-version-bold-not-defined/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -468,7 +1492,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2011/11/12/2011-11-12-pgfpages-slides-4-in-1-changing-margins/">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2013/02/01/2013-02-01-missing-number-treated-as-zero/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hao Peng">
@@ -490,8 +1514,8 @@
             
               
                 
-                <a class="post-title-link" href="/stylus/2011/11/12/2011-11-12-pgfpages-slides-4-in-1-changing-margins/" itemprop="url">
-                  用 pgfpages 生成 slides 的 4 in 1 版式效果
+                <a class="post-title-link" href="/stylus/2013/02/01/2013-02-01-missing-number-treated-as-zero/" itemprop="url">
+                  导致“Missing number, treated as zero”的原因
                 </a>
               
             
@@ -507,8 +1531,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2011-11-12T00:00:00+08:00">
-                2011-11-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-02-01T00:00:00+08:00">
+                2013-02-01
               </time>
             
 
@@ -548,9 +1572,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/stylus/2011/11/12/2011-11-12-pgfpages-slides-4-in-1-changing-margins/#comments" itemprop="discussionUrl">
+                <a href="/stylus/2013/02/01/2013-02-01-missing-number-treated-as-zero/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2011/11/12/2011-11-12-pgfpages-slides-4-in-1-changing-margins/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2013/02/01/2013-02-01-missing-number-treated-as-zero/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -578,17 +1602,12 @@
       
         
           
-            <p>Getting a 4 in 1 pdf Slides document and “Changing PDF Margins With The pdfpages Package”</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">[a4paper, landscape]</span><span class="string">&#123;article&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">[final]</span><span class="string">&#123;pdfpages&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">includepdf</span><span class="string">[nup=2x2,pages=-, delta=15 15, offset=20 0, frame, scale=0.92,%</span></span></div><div class="line">    turn=false]<span class="string">&#123;slides.pdf&#125;</span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="comment">% offset=20 0 为偏移横向的内容，给左边留一定的空白用于装订；</span></div><div class="line"><span class="comment">% 不使用 offset 的纵向偏移，否则虽然下方有空白，但天头没有；</span></div><div class="line"><span class="comment">% 解决纵向留空使用了 scale 选项，直接缩小页面的尺寸，产生自动纵向留白。</span></div></pre></td></tr></table></figure>
-<p>用 Beamer 做的 Slides，最刚开始用 Acrobat 打印机生成幻灯片的四合一效果，但发现 Acrobat 打印过程中会对图片的质量造成一定的损伤。</p>
-<p>后来发现<code>psnup</code>工具可以实现<strong>4 in 1</strong>的效果，但试验之后感觉速度和方便程度都很欠缺，需要先将 pdf 文件转换 ps 文件，光是这个过程就太漫长，受不了；另外就是该工具提供的选项看起来不是很舒服。</p>
-<p>最后回想起其实 LaTeX 自带的<code>pgfpages</code>宏包可以完成这个任务，又回头查了了下 Beam User Guide，发现 Beamer 中也尝试过使用该宏包。但是 Beamer 中的<code>\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]</code>类命令我不能直接在 Beamer 之外用，而<code>pgfpages</code>中的<code>delta</code>与<code>offset</code>组合工作还存在问题(见上面的代码注释)，最后发现<code>\includepdf</code>的<code>scale</code>选项配合<code>delta</code>与<code>offset</code>就可以完美的达到想要的效果，问题搞定！</p>
-<p>PS：事实上<code>pgfpages</code>宏包的手册中没有对<code>scale</code>选项进行专门的说明，这个选项其实源于<code>graphicsx</code>宏包的<code>\includegraphic</code>命令，解决上面问题的思路来自下面的资料：</p>
-<ul>
-<li><a href="http://magic.aladdin.cs.cmu.edu/2007/11/13/changing-pdf-margins-with-the-pdfpages-package/" target="_blank" rel="external">http://magic.aladdin.cs.cmu.edu/2007/11/13/changing-pdf-margins-with-the-pdfpages-package/</a></li>
-<li><a href="http://www.tardis.ed.ac.uk/~ajcd/psutils/psnup.html" target="_blank" rel="external">http://www.tardis.ed.ac.uk/~ajcd/psutils/psnup.html</a></li>
-<li><a href="http://apps.hi.baidu.com/share/detail/21414399" target="_blank" rel="external">http://apps.hi.baidu.com/share/detail/21414399</a></li>
-</ul>
+            <p>从<a href="http://web.mit.edu/ghudson/dev/nokrb/third/tetex/texmf/doc/help/faq/uktug-faq/FAQ271.html" target="_blank" rel="external">http://web.mit.edu/ghudson/dev/nokrb/third/tetex/texmf/doc/help/faq/uktug-faq/FAQ271.html</a>给出的结果看，遇到如下的情况时：</p>
+<pre><code>! Missing number, treated as zero.
+
+                   \relax
+l.21 \begin{Ventry}{Return values}
+</code></pre><p>很可能添加<code>calc</code>宏包的支持就可能可以解决问题，至少我确实解决了。</p>
 
           
         
@@ -632,7 +1651,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2011/11/10/2011-11-10-word-footnote/">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/12/07/2012-12-07-matlab-eval-feval/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hao Peng">
@@ -654,8 +1673,8 @@
             
               
                 
-                <a class="post-title-link" href="/stylus/2011/11/10/2011-11-10-word-footnote/" itemprop="url">
-                  如何在Word中分栏状态下正确的输入脚注？
+                <a class="post-title-link" href="/stylus/2012/12/07/2012-12-07-matlab-eval-feval/" itemprop="url">
+                  Matlab中的eval与feval函数
                 </a>
               
             
@@ -671,8 +1690,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2011-11-10T00:00:00+08:00">
-                2011-11-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-12-07T00:00:00+08:00">
+                2012-12-07
               </time>
             
 
@@ -694,8 +1713,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/软件应用/" itemprop="url" rel="index">
-                    <span itemprop="name">软件应用</span>
+                  <a href="/stylus/categories/Matlab/" itemprop="url" rel="index">
+                    <span itemprop="name">Matlab</span>
                   </a>
                 </span>
 
@@ -712,9 +1731,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/stylus/2011/11/10/2011-11-10-word-footnote/#comments" itemprop="discussionUrl">
+                <a href="/stylus/2012/12/07/2012-12-07-matlab-eval-feval/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2011/11/10/2011-11-10-word-footnote/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2012/12/07/2012-12-07-matlab-eval-feval/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -742,339 +1761,35 @@
       
         
           
-            <p>在论文排版中，在题目或作者处插入了脚注后，再对正文分栏时；或者先分栏，再在题目或作者处插入脚注，分栏后的正文就跑到下一页上去了。</p>
-<p>稿件格式的要求示意图如下：</p>
-<p><img src="https://cssdpq.bn1.livefilestore.com/y2pnvi9MBSCA5XA7cPaxPdso3UgOSbD9M7WNk_OXZQZqMJdjGegFSbTLKHaFt7brBL6uqCk-8atcJL5FLAEYjm7kgee4J6h16Q3FA_J3-_QqHg/word-footnote.jpg?psid=1" alt="Word脚注"></p>
-<p>解决方案：</p>
-<ul>
-<li>word 2003：“工具”→“选项”→“兼容性”→“选项”→“按照word 6.x/95/97的方式排放脚注”；</li>
-<li>word 2007：“左上角圆形图标”→“word选项”→“在左边列中点高级”→在右边的“兼容性选项”下点“版式选项”，展开版式选项，勾选按“word 6.x/95/97的方式排安排脚注”。</li>
-</ul>
-<p>经过以上操作后，分栏后，加入脚注或者加入脚注后再分栏，正文跑到第二页的问题就可以解决了。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2009/03/03/2009-03-03-delete-file-and-folders/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hao Peng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/stylus/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="语千 ~ 刻一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/stylus/2009/03/03/2009-03-03-delete-file-and-folders/" itemprop="url">
-                  无法删除文件或文件夹的处理
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2009-03-03T00:00:00+08:00">
-                2009-03-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/软件应用/" itemprop="url" rel="index">
-                    <span itemprop="name">软件应用</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/stylus/2009/03/03/2009-03-03-delete-file-and-folders/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2009/03/03/2009-03-03-delete-file-and-folders/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在删除文件或文件夹时，Windows系统错误提示：<code>无法删除****，找不到指定文件，请确定指定的路径及文件名是否正确</code>的解决方法……</p>
-<p>经常有人会碰到这个问题，网上找了很多版本的解决方法都没有用，用一些 360 文件粉碎，优化大师粉碎也不行，但这一个方法需非常有效，一试就成功，收藏下来。</p>
-<p>具体方法如下，请一步步进行，一定可以解决你的难题。</p>
+            <h2 id="eval函数用法简介"><a href="#eval函数用法简介" class="headerlink" title="eval函数用法简介"></a>eval函数用法简介</h2><p>原文地址：<a href="http://www.ilovematlab.cn/thread-53554-1-1.html" target="_blank" rel="external">http://www.ilovematlab.cn/thread-53554-1-1.html</a></p>
+<p><code>eval(expression)</code>用于执行其参数中包含的<code>expression</code>。例如，把<code>August1.mat</code>到<code>August3.mat</code>加载到<code>MATLAB workspace</code>：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> d=<span class="number">1</span>:<span class="number">3</span></div><div class="line">   s = [<span class="string">'load August'</span> int2str(d) <span class="string">'.mat'</span>]</div><div class="line">   eval(s)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>上面的部分代码也可以写成<code>s = [&#39;load August&#39;, int2str(d), &#39;.mat&#39;]</code>，也就是中间用逗号隔开，这样才能把三部分合成一个字符串，以下是被执行的<code>s</code>语句：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">s =</div><div class="line">   load August1.mat</div><div class="line">s =</div><div class="line">   load August2.mat</div><div class="line">s =</div><div class="line">   load August3.mat</div></pre></td></tr></table></figure>
+<h2 id="feval函数用法简介"><a href="#feval函数用法简介" class="headerlink" title="feval函数用法简介"></a>feval函数用法简介</h2><p>原文地址：<a href="http://www.madio.net/thread-170200-1-1.html" target="_blank" rel="external">http://www.madio.net/thread-170200-1-1.html</a></p>
+<p><code>[y1,..,yn] = FEVAL(F,x1,...,xn)</code>，<code>F</code>是需要使用函数的函数名，或者句柄(见下面程序注释)；<code>xi</code>是函数的参数，<code>yi</code>是函数的返回值。</p>
+<p>举例，假设需要调用的函数<code>foo</code>定义如下：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span>=<span class="title">foo</span><span class="params">(a,b)</span></span></div><div class="line">x=a*b;</div></pre></td></tr></table></figure>
+<p>若在<code>main</code>函数中用<code>feval</code>调用<code>foo</code>，可以有以下几种方式：</p>
+<blockquote>
 <ol>
-<li>启用一个 cmd；</li>
-<li>到要删除的文件(夹)的上一层目录下；</li>
-<li>运行命令：<code>dir /x</code>，然后记下要删除的文件(夹)对应行的第三列(记作 比如：<code>alixixi~com</code>)；</li>
-<li>如果是文件，输入：<code>del alixixi~com</code>(就是刚才记得东西)，是文件夹就输入：<code>rd alixixi~com</code>；</li>
+<li><code>result=feval(&#39;foo&#39;,3,15);</code></li>
+<li><code>result=feval(@foo,3,16); % 这里@foo是函数foo的句柄</code></li>
+<li>若调用的函数要作为<code>main</code>的参数，则</li>
 </ol>
-<p>大功告成！</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2008/07/26/2008-07-25-aurora/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hao Peng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/stylus/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="语千 ~ 刻一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/stylus/2008/07/26/2008-07-25-aurora/" itemprop="url">
-                  Aurora
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2008-07-26T00:00:00+08:00">
-                2008-07-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/LaTeX/" itemprop="url" rel="index">
-                    <span itemprop="name">LaTeX</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/stylus/2008/07/26/2008-07-25-aurora/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2008/07/26/2008-07-25-aurora/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p><strong>下载地址</strong>：<a href="http://elevatorlady.ca/" target="_blank" rel="external">http://elevatorlady.ca/</a></p>
-<p><strong>破解</strong>：<a href="http://ssfighter.blog.com.cn/archives/2007/2296454.shtml" target="_blank" rel="external">http://ssfighter.blog.com.cn/archives/2007/2296454.shtml</a></p>
 </blockquote>
-<p>演示：</p>
-<p><img src="/stylus/images/Aurora.png" alt="aurora"></p>
-<p>懒人的最佳选择。</p>
-
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">result</span>=<span class="title">main</span><span class="params">(f)</span></span></div><div class="line">result=feval(f,<span class="number">3</span>,<span class="number">10</span>);</div></pre></td></tr></table></figure>
+<p>然后调用<code>main</code>时将<code>&#39;foo&#39;</code>传入即可：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;main(<span class="string">'foo'</span>);</div></pre></td></tr></table></figure>
+<h2 id="feval和eval的区别"><a href="#feval和eval的区别" class="headerlink" title="feval和eval的区别"></a>feval和eval的区别</h2><p>原文地址：<a href="http://powerelite.blog.163.com/blog/static/42965891201272725641245/" target="_blank" rel="external">http://powerelite.blog.163.com/blog/static/42965891201272725641245/</a></p>
+<p><code>feval</code>和<code>eval</code>运行区别之一：<code>feval</code>的<code>FN</code>不能是表达式，其<code>FN</code><strong>只接受函数名</strong>。函数<code>eval</code>给MATLAB提供<strong>宏</strong>的能力，该函数提供了将用户创建的函数名传给其它函数能力，以便求值。函数<code>feval</code>与<code>eval</code>类似，但在用法上有更多的限制。<code>feval(&#39;fun&#39;,x)</code>求由字符串<code>&#39;fun&#39;</code>给定的函数值，其输入参量是变量<code>x</code>，即<code>feval_r(&#39;fun&#39;,x)</code>等价于求<code>fun(x)</code>值，注意下面代码中的运行错误解决方法见上面<code>feval</code>函数的三种使用方法。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">format short</div><div class="line">x=<span class="built_in">pi</span>/<span class="number">4</span>;</div><div class="line">Ve=eval(<span class="string">'1+sin(x)'</span>) </div><div class="line">Ve =</div><div class="line">    <span class="number">1.7071</span> </div><div class="line">Vf=feval(<span class="string">'1+sin(x)'</span>,x) </div><div class="line">??? Error using ==&gt; feval</div><div class="line">Invalid <span class="function"><span class="keyword">function</span> <span class="title">name</span> '1+<span class="title">sin</span><span class="params">(x)</span>'.</span></div></pre></td></tr></table></figure>
+<h2 id="关于带参数的积分问题"><a href="#关于带参数的积分问题" class="headerlink" title="关于带参数的积分问题"></a>关于带参数的积分问题</h2><p>原文地址：<a href="http://forum.chinavib.com/thread-42369-1-1.html" target="_blank" rel="external">http://forum.chinavib.com/thread-42369-1-1.html</a></p>
+<p>有不少人常问带参数的积分问题该如何处理,现举一个例子，希望能起到抛砖引玉的作用。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">%%%--------------------------------------------%%%</span></div><div class="line">例如以下问题:</div><div class="line">函数为 y=<span class="built_in">sin</span>(k.*x).*x.^<span class="number">2</span>，对x积分，</div><div class="line">积分区域为【<span class="number">1</span>，<span class="number">5</span>】，目的是要画 k 和 y 的图形.</div><div class="line"><span class="comment">%%%============================================%%%</span></div><div class="line"><span class="comment">%%% 作k的一个循环, k作为 inline函数的参数即可.</span></div><div class="line">clear all</div><div class="line">k=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">5</span>);</div><div class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="built_in">length</span>(k)</div><div class="line">    kk=k(<span class="built_in">i</span>);</div><div class="line">    fun=strcat(<span class="string">'sin('</span>,num2str(kk),<span class="string">'*x).*x.^2'</span>);</div><div class="line">    y(<span class="built_in">i</span>)=quadl(inline(fun),<span class="number">1</span>,<span class="number">5</span>);</div><div class="line"><span class="keyword">end</span></div><div class="line">plot(k,y)</div><div class="line"><span class="comment">%%%============================================%%%</span></div></pre></td></tr></table></figure>
+<p><strong>注意</strong>：这个程序的特别意义在于，对于任何复杂的、无显式积分表达式的带参数积分问题具有通用性，我主要是针对此而写的。</p>
+<h2 id="Matlab中函数调用及feval函数，带参数积分问题"><a href="#Matlab中函数调用及feval函数，带参数积分问题" class="headerlink" title="Matlab中函数调用及feval函数，带参数积分问题"></a>Matlab中函数调用及<code>feval</code>函数，带参数积分问题</h2><p>原文地址：<a href="http://www.ilovematlab.cn/thread-36666-1-1.html" target="_blank" rel="external">http://www.ilovematlab.cn/thread-36666-1-1.html</a></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">InlineSubAnonymousNestedDemo</span></span></div><div class="line"><span class="comment">% 带参数的积分问题</span></div><div class="line"><span class="comment">% 例如</span></div><div class="line"><span class="comment">% 函数为 y=sin(k.*x).*x.^2，对x积分，</span></div><div class="line"><span class="comment">% 积分区域为【1，5】，目的是要画 k 和 y 的图形.</span></div><div class="line"><span class="comment">% 例子意义在于,对于一些复杂的、无显式积分表达式的带参数积分问题具有通用性</span></div><div class="line"><span class="comment">% 问题来源于振动论坛原xjzuo版主发的一个帖子；</span></div><div class="line"><span class="comment">% 原帖地址：http://www.chinavib.com/forum/thread-42369-1-2.html%% 用inline解决</span></div><div class="line">tic;</div><div class="line">k=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">5</span>);</div><div class="line">y1 = <span class="built_in">zeros</span>(<span class="built_in">size</span>(k));</div><div class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="built_in">length</span>(k)</div><div class="line">    kk=k(<span class="built_in">i</span>);</div><div class="line">    fun=inline([<span class="string">'sin('</span>,num2str(kk),<span class="string">'*x).*x.^2'</span>]);</div><div class="line">    y1(<span class="built_in">i</span>)=quadl(fun,<span class="number">0</span>,<span class="number">5</span>);</div><div class="line"><span class="keyword">end</span></div><div class="line">time = toc;</div><div class="line"><span class="built_in">disp</span>([<span class="string">'用inline方法的时间是：'</span>,num2str(time),<span class="string">'秒!'</span>])<span class="comment">%% 用anonymous function 解决</span></div><div class="line">tic;</div><div class="line">f=@(k) quadl(@(x)  <span class="built_in">sin</span>(k.*x).*x.^<span class="number">2</span>,<span class="number">0</span>,<span class="number">5</span>);</div><div class="line">kk=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">5</span>);</div><div class="line">y2=<span class="built_in">zeros</span>(<span class="built_in">size</span>(kk));</div><div class="line"><span class="keyword">for</span> ii=<span class="number">1</span>:<span class="built_in">length</span>(kk)</div><div class="line">y2(ii)=f(kk(ii));</div><div class="line"><span class="keyword">end</span></div><div class="line">time = toc;</div><div class="line"><span class="built_in">disp</span>([<span class="string">'用anonymous function方法的时间是：'</span>,num2str(time),<span class="string">'秒!'</span>])<span class="comment">%% 用nested function解决</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">y</span> = <span class="title">ParaInteg</span><span class="params">(k)</span></span></div><div class="line">y=quadl(@(x) <span class="built_in">sin</span>(k.*x).*x.^<span class="number">2</span> ,<span class="number">0</span>,<span class="number">5</span>);</div><div class="line"><span class="keyword">end</span></div><div class="line">tic;</div><div class="line">kk=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">5</span>);</div><div class="line">y3=<span class="built_in">zeros</span>(<span class="built_in">size</span>(kk));</div><div class="line"><span class="keyword">for</span> ii=<span class="number">1</span>:<span class="built_in">length</span>(kk)</div><div class="line">y3(ii)=ParaInteg(kk(ii));</div><div class="line"><span class="keyword">end</span></div><div class="line">time = toc;</div><div class="line"><span class="built_in">disp</span>([<span class="string">'用nested function方法的时间是：'</span>,num2str(time),<span class="string">'秒!'</span>])<span class="comment">%% 用 arrayfun + anonymous function 解决</span></div><div class="line">tic;y4 = arrayfun(@(k) quadl(@(x)  <span class="built_in">sin</span>(k.*x).*x.^<span class="number">2</span>,<span class="number">0</span>,<span class="number">5</span>),<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">5</span>));time = toc;</div><div class="line"><span class="built_in">disp</span>([<span class="string">'用arrayfun + anonymous function方法的时间是：'</span>,num2str(time),<span class="string">'秒!'</span>])</div><div class="line">plot(kk,y2);</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
           
         
       
@@ -1117,7 +1832,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2007/07/18/2007-07-18-regexp/">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/12/05/2012-12-05-r-reg-exp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hao Peng">
@@ -1139,8 +1854,8 @@
             
               
                 
-                <a class="post-title-link" href="/stylus/2007/07/18/2007-07-18-regexp/" itemprop="url">
-                  几个正则表达式
+                <a class="post-title-link" href="/stylus/2012/12/05/2012-12-05-r-reg-exp/" itemprop="url">
+                  R中正则表达式简介z
                 </a>
               
             
@@ -1156,8 +1871,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-07-18T00:00:00+08:00">
-                2007-07-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-12-05T00:00:00+08:00">
+                2012-12-05
               </time>
             
 
@@ -1197,9 +1912,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/stylus/2007/07/18/2007-07-18-regexp/#comments" itemprop="discussionUrl">
+                <a href="/stylus/2012/12/05/2012-12-05-r-reg-exp/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2007/07/18/2007-07-18-regexp/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2012/12/05/2012-12-05-r-reg-exp/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1226,15 +1941,15 @@
 
       
         
-          
-            <p>网络上的小说总是格式比较糟糕，需要进行整理才看起来舒服一些。</p>
-<p>整理的过程中也遇到一些问题，我用的是 VS2005、C#，C# 对正则的支持很到位，甚至包含一些其它语言如 Perl 所没有的特殊功能，下面是相关表达式：</p>
-<h2 id="删除空行"><a href="#删除空行" class="headerlink" title="删除空行"></a>删除空行</h2><p><code>[\s　]*(?=\r\n)</code>，要注意这个表达式中包含了一个全角的空格。在 Editplus 中还推荐了另一种写法，不过没有采用，是这样的：<code>^[ \t]*\n</code>（注意 <code>\t</code> 前有一个空格，当然愿意的话也可以和第一种一样包含一个全角空格），这种写法用C#的正则表达式测试器来测试的时候并不有效。而前一种写法在 Editplus 中则好像不能够支持，另外 Editplus 好像对<code>?=、?!、?&lt;=、?&lt;!</code>这几种高级部分内容的支持也不存在。</p>
-<p>当然Editplus的最大好处之一就是能够同时替换打开的多个文件，这点真的比较有用。</p>
-<h2 id="双引号问题"><a href="#双引号问题" class="headerlink" title="双引号问题"></a>双引号问题</h2><p>在小说中经常由于排版原因会出现<code>““</code>这样两个连续的起始直角双引号，这时候要注意表达式的写法，如果直接用<code>(“.+)“</code>这样写法会导致匹配出现错误，本来想非贪婪是否能够解决，似乎没有什么作用，只好取个巧，用下面的表达式完成：<code>(“[^“]+)“</code>，这个表达式 Editplus 也支持，所以效果还是不错的。</p>
-<p>此外，Frontpage2003 对于正则也提供简单支持，只是它的语法与传统的正则语法有些出入，提供的功能也比较简单，但对于简单的工作它还是有很大作用的，配合它提供的“html代码格式重新设置”功能，可以简化许多通过程序也比较不容易完成的任务。</p>
-
-          
+          <p>原文地址：<a href="http://jliblog.com/archives/28">http://jliblog.com/archives/28</a></p>
+<p>R中的<code>grep、grepl、sub、gsub、regexpr、gregexpr</code>等函数都使用正则表达式的规则进行匹配。默认是<code>egrep</code>的规则，也可以选用Perl语言的规则。在这里，我们以R中的<code>sub</code>函数为例（因为该函数可以返回替换字符串后的具体内容）介绍正则表达式的用法。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/stylus/2012/12/05/2012-12-05-r-reg-exp/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1270,6 +1985,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/stylus/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/stylus/page/4/">4</a><a class="extend next" rel="next" href="/stylus/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1312,7 +2031,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">35</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1323,7 +2042,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/stylus/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1334,7 +2053,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

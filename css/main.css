@@ -1684,7 +1684,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #2effc8;
+  background: #ffffbf;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2669,6 +2669,14 @@ pre code {
   border-bottom-color: #2dbe60 !important;
 }
 .sidebar-nav .sidebar-nav-active:hover {
+  color: #0f0 !important;
+  border-bottom-color: #0f0 !important;
+}
+.active-current a {
+  color: #2dbe60 !important;
+  border-bottom-color: #2dbe60 !important;
+}
+.active-current a:hover {
   color: #0f0 !important;
   border-bottom-color: #0f0 !important;
 }

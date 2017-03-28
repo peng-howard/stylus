@@ -1,0 +1,1047 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next muse" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/stylus/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Helvatica, Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/stylus/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/stylus/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="滤波,增益," />
+
+
+
+
+
+  <link rel="alternate" href="/stylus/atom.xml" title="语千 ~ 刻一" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/stylus/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="参考资料：
+滤波(filter)：http://baike.baidu.com/view/162707.htm
+增益(gain)：http://baike.baidu.com/view/343150.htm
+低通滤波(Low-pass filter)：http://baike.baidu.com/view/1669798.htm
+高通滤波(high-pass filter)：http://baik">
+<meta property="og:type" content="article">
+<meta property="og:title" content="滤波的基本概念">
+<meta property="og:url" content="http://peng-howard.github.io/stylus/2013/07/10/2013-07-10-filter/index.html">
+<meta property="og:site_name" content="语千 ~ 刻一">
+<meta property="og:description" content="参考资料：
+滤波(filter)：http://baike.baidu.com/view/162707.htm
+增益(gain)：http://baike.baidu.com/view/343150.htm
+低通滤波(Low-pass filter)：http://baike.baidu.com/view/1669798.htm
+高通滤波(high-pass filter)：http://baik">
+<meta property="og:updated_time" content="2017-03-28T03:54:26.012Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="滤波的基本概念">
+<meta name="twitter:description" content="参考资料：
+滤波(filter)：http://baike.baidu.com/view/162707.htm
+增益(gain)：http://baike.baidu.com/view/343150.htm
+低通滤波(Low-pass filter)：http://baike.baidu.com/view/1669798.htm
+高通滤波(high-pass filter)：http://baik">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/stylus/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://peng-howard.github.io/stylus/2013/07/10/2013-07-10-filter/"/>
+
+
+
+
+
+  <title> 滤波的基本概念 | 语千 ~ 刻一 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/stylus/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">语千 ~ 刻一</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/stylus/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/stylus/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/stylus/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/stylus/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/stylus/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/stylus/links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
+            
+            链接
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2013/07/10/2013-07-10-filter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                滤波的基本概念
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-07-10T00:00:00+08:00">
+                2013-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/信号与系统/" itemprop="url" rel="index">
+                    <span itemprop="name">信号与系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2013/07/10/2013-07-10-filter/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2013/07/10/2013-07-10-filter/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><ol>
+<li>滤波(filter)：<a href="http://baike.baidu.com/view/162707.htm" target="_blank" rel="external">http://baike.baidu.com/view/162707.htm</a></li>
+<li>增益(gain)：<a href="http://baike.baidu.com/view/343150.htm" target="_blank" rel="external">http://baike.baidu.com/view/343150.htm</a></li>
+<li>低通滤波(Low-pass filter)：<a href="http://baike.baidu.com/view/1669798.htm" target="_blank" rel="external">http://baike.baidu.com/view/1669798.htm</a></li>
+<li>高通滤波(high-pass filter)：<a href="http://baike.baidu.com/view/1877222.htm" target="_blank" rel="external">http://baike.baidu.com/view/1877222.htm</a></li>
+</ol>
+<hr>
+
+<h2 id="1-滤波"><a href="#1-滤波" class="headerlink" title="1 滤波"></a>1 滤波</h2><ul>
+<li>滤波是将信号中特定波段频率滤除的操作，是抑制和防止干扰的一项重要措施。分<strong>经典滤波</strong>和<strong>现代滤波</strong>。</li>
+<li>滤波是将信号中特定波段频率滤除的操作，是抑制和防止干扰的一项重要措施。是根据观察某一随机过程的结果，对另一与之有关的随机过程进行估计的概率理论与方法。</li>
+</ul>
+<h3 id="1-1-起源"><a href="#1-1-起源" class="headerlink" title="1.1 起源"></a>1.1 起源</h3><p>滤波一词起源于通信理论，它是从含有干扰的接收信号中提取有用信号的一种技术。“接收信号”相当于被观测的随机过程，“有用信号”相当于被估计的随机过程。例如用雷达跟踪飞机，测得的飞机位置的数据中，含有测量误差及其他随机干扰，如何利用这些数据尽可能准确地估计出飞机在每一时刻的位置、速度、加速度等，并预测飞机未来的位置，就是一个滤波与预测问题。这类问题在电子技术、航天科学、控制工程及其他科学技术部门中都是大量存在的。历史上最早考虑的是维纳滤波，后来R.E.卡尔曼和R.S.布西于20世纪60年代提出了卡尔曼滤波。现对一般的非线性滤波问题的研究相当活跃。</p>
+<h3 id="1-2-经典滤波"><a href="#1-2-经典滤波" class="headerlink" title="1.2 经典滤波"></a>1.2 经典滤波</h3><p>经典滤波的概念，是根据傅立叶分析和变换提出的一个工程概念。根据高等数学理论，任何一个满足一定条件的信号，都可以被看成是由无限个正弦波叠加而成。换句话说，就是工程信号是不同频率的正弦波线性叠加而成的，组成信号的不同频率的正弦波叫做信号的<strong>频率成分</strong>或叫做<strong>谐波成分</strong>。</p>
+<blockquote>
+<p><strong>滤波器</strong>
+只允许一定频率范围内的信号成分正常通过，而阻止另一部分频率成分通过的电路，叫做经典滤波器或滤波电路。实际上，任何一个电子系统都具有自己的频带宽度(对信号最高频率的限制)，频率特性反映出了电子系统的这个基本特点。而滤波器，则是根据电路参数对电路频带宽度的影响而设计出来的工程应用电路。</p>
+</blockquote>
+<h3 id="1-3-现代滤波"><a href="#1-3-现代滤波" class="headerlink" title="1.3 现代滤波"></a>1.3 现代滤波</h3><p>用模拟电子电路对模拟信号进行滤波，其基本原理就是利用电路的频率特性实现对信号中频率成分的选择。根据频率滤波时，是把信号看成是由不同频率正弦波叠加而成的模拟信号，通过选择不同的频率成分来实现信号滤波。</p>
+<ol>
+<li>当允许信号中较高频率的成分通过滤波器时，这种滤波器叫做<strong>高通滤波器</strong>。</li>
+<li>当允许信号中较低频率的成分通过滤波器时，这种滤波器叫做<strong>低通滤波器</strong>。</li>
+<li>设低频段的截止频率为fp1，高频段的截止频率为fp2:<ol>
+<li>频率在fp1与fp2之间的信号能通过其它频率的信号被衰减的滤波器叫做<strong>带通</strong>滤波器。</li>
+<li>反之，频率在fp1到fp2的范围之间的被衰减，之外能通过的滤波器叫做<strong>带阻</strong>滤波器。</li>
+</ol>
+</li>
+</ol>
+<p>理想滤波器的行为特性通常用<strong>幅度-频率</strong>特性图描述，也叫做滤波器电路的<strong>幅频特性</strong>。</p>
+<h3 id="滤波问题及分类"><a href="#滤波问题及分类" class="headerlink" title="滤波问题及分类"></a>滤波问题及分类</h3><p>对于滤波器，增益幅度不为零的频率范围叫做通频带，简称<strong>通带</strong>，增益幅度为零的频率范围叫做<strong>阻带</strong>。例如对于LP，从-w1到w1之间，叫做LP的通带，其他频率部分叫做阻带。通带所表示的是能够通过滤波器而不会产生衰减的信号频率成分，阻带所表示的是被滤波器衰减掉的信号频率成分。通带内信号所获得的增益，叫做<strong>通带增益</strong>，阻带中信号所得到的衰减，叫做<strong>阻带衰减</strong>。在工程实际中，一般使用dB作为滤波器的幅度增益单位。</p>
+<p>按照滤波是在一整段时间上进行或只是在某些采样点上进行，可分为连续时间滤波与离散时间滤波。前者的时间参数集$T$可取为实半轴$[0,\infty)$或实轴$(-\infty,\infty)$;后者的T可取为非负整数集$\{0,1,2,\dotsc\}$或整数集$\{\dotsc,-2,-1,0,1,2,\dotsc\}$。设$X=\{X_t\in T={Y,t\in T)$有穷，即其中$X$为被估计过程，它不能被直接观测；$Y$为被观测过程，它包含了$X$的某些信息。用表示到时刻$t$为止的观测数据全体，如果能找到中诸元的一个函数?(),使其均方误差达到极小，就称为$X_t$的最优滤波；如果取极小值的范围限于线性函数，就称为$X_t$的线性最优滤波。可以证明，最优滤波与线性最优滤波都以概率1惟一存在。对于前者，悯t就是$X_t$关于$\sigma()$(生成的$\sigma$域)的条件期望，记作对于后者，若进一步设均值$E(X_t)$呏$(EY_t)$呏0,则悯t就是$X_t$在所张成的希尔伯特空间上的投影，记作如果$(X,Y)$是二维正态过程，则最优滤波与线性最优滤波是一致的。<strong>这部分有错</strong></p>
+<p>为了应用和叙述的方便，有时还把上面的定义更细致地加以分类。设$\tau$为一确定的实数或整数，且考虑被估计过程。按照$\tau=0,\tau&gt;0,\tau&lt;0$，分别称为最优滤波、($\tau$步)预测或外推、($\tau$步)平滑或内插，分别为对应的误差与均方误差，而统称这类问题为滤波问题。滤波问题的主要课题是研究对哪些类型的随机过程$X$和$Y$，可以并且如何用观测结果的某种解析表示式，或微分方程，或递推公式等形式,表达出并进而研究它们的种种性质。此外，上面所指的一维随机过程$X,Y$，都可以推广为多维随机过程。</p>
+<h4 id="维纳滤波"><a href="#维纳滤波" class="headerlink" title="维纳滤波"></a>维纳滤波</h4><p>历史上最先考虑的是宽平稳过程(见<a href="http://baike.baidu.com/view/754539.htm" target="_blank" rel="external">平稳过程</a>)的线性预测和滤波问题，它的一般模型是$Y_t=X_t+N_t$，其中$(X，N)$为二维宽平稳过程或序列，其谱分布函数已知，其均值为零。设从$-\infty$到时刻$t$为止的全部$Y$的值都已被观测到，求$X$的$\tau$步线性预测及其均方误差。如果限于考虑$N=0,\tau&gt;0$的情形，则变成在无误差观测条件下$X$本身的线性预测问题；如果$N\neq 0,\tau\leqslant 0$，则变成从受到噪声$N$干扰的接收信号$Y$中提取有用信号$X$的滤波问题。1939$\sim$1941年，Α.Η.柯尔莫哥洛夫利用平稳序列的沃尔德分解(见<a href="http://baike.baidu.com/view/754539.htm" target="_blank" rel="external">平稳过程</a>)，给出了线性预测的一般理论与处理办法，随即被推广到连续时间的平稳过程。N.维纳则在1942年对于平稳序列与过程的谱密度存在且满足某种正则条件的情形，利用谱分解导出了线性最优预测和滤波的明显表达式，即维纳滤波公式，并在防空火力控制、电子工程等部门获得了应用。上述模型在50年代被推广到仅在有限时间区间内进行观测的平稳过程以及某些特殊的非平稳过程，其应用范围也扩充到更多的领域。至今它仍是处理各种动态数据（如气象、水文、地震勘探等）及预测未来的有力工具之一。</p>
+<p>维纳滤波公式是通过平稳过程的谱分解导出的，难以推广到较一般的非平稳过程和多维情形，因而应用范围受到限制。另一方面，在不断增加观测结果时，不易从已算出的滤波值及新的观测值较简单地求出新的滤波值，特别是不能满足在电子计算机上快速处理大量数据的需要。</p>
+<h4 id="卡尔曼滤波"><a href="#卡尔曼滤波" class="headerlink" title="卡尔曼滤波"></a>卡尔曼滤波</h4><p>由于高速电子计算机的发展以及测定人造卫星轨道和导航等技术问题的需要，R.E.卡尔曼与R.S.布西于20世纪60年代初期提出了一类新的线性滤波的模型与方法，通称为卡尔曼滤波。其基本假设是，被估计过程$X$为随机噪声影响下的有限阶多维线性动态系统的输出，而被观测的$Y_t$则是$X_t$的部分分量或其线性函数与量测噪声的叠加，这里并不要求平稳性，但要求不同时刻的噪声值是不相关的。此外，观测只需从某一确定时刻开始，而不必是无穷长的观测区间。更重要的是，适应电子计算机的特点，卡尔曼滤波公式不是将估计值表成观测值的明显的函数形式，而是给出它的一种递推算法(即实时算法)。具体地说，对于离散时间滤波，只要适当增大$X$的维数，就可以将$t$时刻的滤波值表成为前一时刻的滤波值与本时刻的观测值$Y_t$的某种线性组合。对于连续时间滤波,则可以给出与$Y_t$所应满足的线性随机微分方程。在需要不断增加观测结果和输出滤波值的情形，这样的算法加快了处理数据的速度，而且减少了数据存贮量。卡尔曼还证明，如果所考虑的线性系统满足某种“可控性”和“可观测性”(这是现代控制理论中由卡尔曼提出的两个重要概念)，那么最优滤波一定是“渐近稳定”的。大致说来，就是由初始误差、舍入误差及其他的不准确性所引起的效应，将随着滤波时间的延长而逐渐消失或趋于稳定， 不致形成误差的积累。这在实际应用上是很重要的。</p>
+<p>卡尔曼滤波也有多种形式的推广，例如放宽对噪声不相关性的限制，用线性系统逼近非线性系统，以及所谓“自适应滤波”，等等，并获得了日益广泛的应用。</p>
+<h4 id="非线性滤波"><a href="#非线性滤波" class="headerlink" title="非线性滤波"></a>非线性滤波</h4><p>前已说明，一般的非线性最优滤波可归结为求条件期望的问题。对于有限多个观测值的情形，条件期望原则上可以用贝叶斯公式来计算。但即使在比较简单的场合，这样得出的结果也是相当繁杂的，无论对实际应用或理论研究都很不方便。与卡尔曼滤波类似，人们也希望能给出非线性滤波的某种递推算法或它所满足的随机微分方程。但一般它们并不存在，因此必须对所讨论的过程X与Y加以适当的限制。非线性滤波的研究工作相当活跃，它涉及随机过程论的许多近代成果，如随机过程一般理论、鞅、随机微分方程、点过程等。其中一个十分重要的问题，是研究在什么条件下，存在一个鞅M，使得在任何时刻,M和Y都包含同样的信息；这样的M称为Y的新息过程。目前对于一类所谓“条件正态过程”，已经给出了非线性最优滤波的可严格实现的递推算式。在实际应用上，对非线性滤波问题往往采用各种线性近似的方法。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/stylus/tags/滤波/" rel="tag"># 滤波</a>
+          
+            <a href="/stylus/tags/增益/" rel="tag"># 增益</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/stylus/2013/07/05/2013-07-05-scatter-fitted-line/" rel="next" title="散点图与回归拟合线">
+                <i class="fa fa-chevron-left"></i> 散点图与回归拟合线
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/stylus/2013/07/15/2013-07-15-parallel-coordinate-plot-andrews-curves/" rel="prev" title="调和曲线图和轮廓图的比较z">
+                调和曲线图和轮廓图的比较z <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/stylus/images/avatar.png"
+               alt="Hao Peng" />
+          <p class="site-author-name" itemprop="name">Hao Peng</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/stylus/archives">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/stylus/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/stylus/tags/index.html">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/stylus/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/your-user-name" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/your-user-name" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://macshuo.com/" title="MacTalk" target="_blank">MacTalk</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://example.com/" title="Title" target="_blank">Title</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料："><span class="nav-number">1.</span> <span class="nav-text">参考资料：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-滤波"><span class="nav-number">2.</span> <span class="nav-text">1 滤波</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-起源"><span class="nav-number">2.1.</span> <span class="nav-text">1.1 起源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-经典滤波"><span class="nav-number">2.2.</span> <span class="nav-text">1.2 经典滤波</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-现代滤波"><span class="nav-number">2.3.</span> <span class="nav-text">1.3 现代滤波</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#滤波问题及分类"><span class="nav-number">2.4.</span> <span class="nav-text">滤波问题及分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#维纳滤波"><span class="nav-number">2.4.1.</span> <span class="nav-text">维纳滤波</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卡尔曼滤波"><span class="nav-number">2.4.2.</span> <span class="nav-text">卡尔曼滤波</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非线性滤波"><span class="nav-number">2.4.3.</span> <span class="nav-text">非线性滤波</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  Powered by <a href="https://hexo.io/">Hexo</a> &amp; <a href="https://github.com/iissnan/hexo-theme-next">NexT</a> on GitHub |
+  
+  Copyright  2005 - 
+  <span itemprop="copyrightYear">2017</span>
+  by 
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"><a href="mailto:haopeng.yn@gmail.com">Hao Peng</a></span>
+</div>
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/stylus/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/stylus/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/stylus/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/stylus/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/stylus/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/stylus/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://peng-howard-github-io.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://peng-howard.github.io/stylus/stylus/2013/07/10/2013-07-10-filter/';
+          this.page.identifier = '2013/07/10/2013-07-10-filter/';
+          this.page.title = '滤波的基本概念';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://peng-howard-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/stylus/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+</body>
+</html>
