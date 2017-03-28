@@ -1684,7 +1684,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffffbf;
+  background: #54c1cc;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2633,9 +2633,6 @@ span.category-list-count {
   border-radius: 5px;
   border: solid 1px #ccc;
 }
-td.gutter pre {
-  background-color: #ccc;
-}
 blockquote {
   border-radius: 5px;
   border-left: solid 8px #ccc;
@@ -2643,8 +2640,11 @@ blockquote {
   border-top: solid 1px #ccc;
   border-bottom: solid 1px #ccc;
   background-color: #f8f8f8;
-  padding-top: 18px;
+  padding-top: 0px;
   margin-bottom: 20px;
+}
+blockquote p {
+  margin: 10px 0;
 }
 code {
   border-radius: 5px;
@@ -2657,6 +2657,17 @@ pre {
   border-radius: 5px;
 /* knitr 会专门做一个没有底色的css，所以这里不会起作用 background-color: #333; */
   padding: 20px 25px;
+}
+pre.white {
+  background-color: #fefefe;
+}
+pre.center {
+  text-align: center !important;
+  line-height: 2em;
+  font-size: 16px;
+  border: none;
+  background-color: transparent;
+  padding: 0px;
 }
 pre code {
   padding: 0px; /* 段落中的 code 左边的 padding=4px 会导致 pre 中的 code 第一行左边相对下面的其它行有一个向右的偏移 */
