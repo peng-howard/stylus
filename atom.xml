@@ -5,7 +5,7 @@
   <link href="/stylus/atom.xml" rel="self"/>
   
   <link href="http://peng-howard.github.io/stylus/"/>
-  <updated>2017-03-28T03:16:05.214Z</updated>
+  <updated>2017-03-28T05:29:18.473Z</updated>
   <id>http://peng-howard.github.io/stylus/</id>
   
   <author>
@@ -16,11 +16,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Mathjax与Markdown的冲突解决</title>
+    <link href="http://peng-howard.github.io/stylus/2017/03/28/2017-03-28-mathjax/"/>
+    <id>http://peng-howard.github.io/stylus/2017/03/28/2017-03-28-mathjax/</id>
+    <published>2017-03-27T16:00:00.000Z</published>
+    <updated>2017-03-28T05:29:18.473Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;原文地址：&lt;a href=&quot;http://blog.csdn.net/emptyset110/article/details/50123231&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/emptyset110/
+    
+    </summary>
+    
+      <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/categories/LaTeX/"/>
+    
+    
+      <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/tags/LaTeX/"/>
+    
+      <category term="Markdown" scheme="http://peng-howard.github.io/stylus/tags/Markdown/"/>
+    
+      <category term="Mathjax" scheme="http://peng-howard.github.io/stylus/tags/Mathjax/"/>
+    
+  </entry>
+  
+  <entry>
     <title>调和曲线图和轮廓图的比较z</title>
     <link href="http://peng-howard.github.io/stylus/2013/07/15/2013-07-15-parallel-coordinate-plot-andrews-curves/"/>
     <id>http://peng-howard.github.io/stylus/2013/07/15/2013-07-15-parallel-coordinate-plot-andrews-curves/</id>
     <published>2013-07-14T16:00:00.000Z</published>
-    <updated>2017-03-28T03:16:05.214Z</updated>
+    <updated>2017-03-28T05:16:47.878Z</updated>
     
     <summary type="html">
     
@@ -48,7 +72,7 @@
     <link href="http://peng-howard.github.io/stylus/2013/07/10/2013-07-10-filter/"/>
     <id>http://peng-howard.github.io/stylus/2013/07/10/2013-07-10-filter/</id>
     <published>2013-07-09T16:00:00.000Z</published>
-    <updated>2017-03-28T03:54:26.012Z</updated>
+    <updated>2017-03-28T05:17:20.323Z</updated>
     
     <summary type="html">
     
@@ -230,29 +254,6 @@
   </entry>
   
   <entry>
-    <title>R中正则表达式简介z</title>
-    <link href="http://peng-howard.github.io/stylus/2012/12/05/2012-12-05-r-reg-exp/"/>
-    <id>http://peng-howard.github.io/stylus/2012/12/05/2012-12-05-r-reg-exp/</id>
-    <published>2012-12-04T16:00:00.000Z</published>
-    <updated>2017-03-27T16:49:16.099Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;原文地址：&lt;a href=&quot;http://jliblog.com/archives/28&quot;&gt;http://jliblog.com/archives/28&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;R中的&lt;code&gt;grep、grepl、sub、gsub、regexpr、gregexpr&lt;/code&gt;等函数都使用正则表达式的规则进行匹配。默认是&lt;code&gt;egrep&lt;/code&gt;的规则，也可以选用Perl语言的规则。在这里，我们以R中的&lt;code&gt;sub&lt;/code&gt;函数为例（因为该函数可以返回替换字符串后的具体内容）介绍正则表达式的用法。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="正则表达式" scheme="http://peng-howard.github.io/stylus/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-    
-      <category term="正则表达式" scheme="http://peng-howard.github.io/stylus/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-      <category term="R" scheme="http://peng-howard.github.io/stylus/tags/R/"/>
-    
-  </entry>
-  
-  <entry>
     <title>R中字符串处理和grep的用法z</title>
     <link href="http://peng-howard.github.io/stylus/2012/12/05/2012-12-05-r-string-grep/"/>
     <id>http://peng-howard.github.io/stylus/2012/12/05/2012-12-05-r-string-grep/</id>
@@ -276,6 +277,29 @@
       <category term="字符串" scheme="http://peng-howard.github.io/stylus/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     
       <category term="grep" scheme="http://peng-howard.github.io/stylus/tags/grep/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R中正则表达式简介z</title>
+    <link href="http://peng-howard.github.io/stylus/2012/12/05/2012-12-05-r-reg-exp/"/>
+    <id>http://peng-howard.github.io/stylus/2012/12/05/2012-12-05-r-reg-exp/</id>
+    <published>2012-12-04T16:00:00.000Z</published>
+    <updated>2017-03-27T16:49:16.099Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;原文地址：&lt;a href=&quot;http://jliblog.com/archives/28&quot;&gt;http://jliblog.com/archives/28&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;R中的&lt;code&gt;grep、grepl、sub、gsub、regexpr、gregexpr&lt;/code&gt;等函数都使用正则表达式的规则进行匹配。默认是&lt;code&gt;egrep&lt;/code&gt;的规则，也可以选用Perl语言的规则。在这里，我们以R中的&lt;code&gt;sub&lt;/code&gt;函数为例（因为该函数可以返回替换字符串后的具体内容）介绍正则表达式的用法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="正则表达式" scheme="http://peng-howard.github.io/stylus/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+    
+      <category term="正则表达式" scheme="http://peng-howard.github.io/stylus/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/tags/R/"/>
     
   </entry>
   
@@ -476,29 +500,6 @@ b
       <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/tags/LaTeX/"/>
     
       <category term="公式" scheme="http://peng-howard.github.io/stylus/tags/%E5%85%AC%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>底层命令解释</title>
-    <link href="http://peng-howard.github.io/stylus/2011/12/02/2011-12-02-latex-basic-instructions/"/>
-    <id>http://peng-howard.github.io/stylus/2011/12/02/2011-12-02-latex-basic-instructions/</id>
-    <published>2011-12-01T16:00:00.000Z</published>
-    <updated>2017-03-28T02:53:35.270Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://bbs.ctex.org/forum.php?mod=viewthread&amp;amp;tid=68913&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;判断某个命令是否已经用过&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;bl
-    
-    </summary>
-    
-      <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/categories/LaTeX/"/>
-    
-    
-      <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/tags/LaTeX/"/>
     
   </entry>
   

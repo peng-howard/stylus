@@ -311,6 +311,196 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2011/12/02/2011-12-02-latex-basic-instructions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2011/12/02/2011-12-02-latex-basic-instructions/" itemprop="url">
+                  底层命令解释
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2011-12-02T00:00:00+08:00">
+                2011-12-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/LaTeX/" itemprop="url" rel="index">
+                    <span itemprop="name">LaTeX</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2011/12/02/2011-12-02-latex-basic-instructions/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2011/12/02/2011-12-02-latex-basic-instructions/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=68913" target="_blank" rel="external">判断某个命令是否已经用过</a></li>
+</ul>
+<blockquote>
+<p>判断是否已经定义用<code>\ifdefined</code>或者<code>\ifcsname</code>，如果没有eTeX支持也可以用<code>\ifx\foo\undefined</code>或者 LaTeX 内核的<code>\@ifundefined</code>。  </p>
+<p>判断是否用过一遍，可以在\foo的定义中设置一个全局变量，然后在后面检测。</p>
+</blockquote>
+<ul>
+<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=65712" target="_blank" rel="external"><code>\let</code>和<code>\xdef</code>有什么区别？</a></li>
+</ul>
+<blockquote>
+<p><code>\xdef</code>把定义中的内容完全展开，用来定义一个宏；<code>\let</code>让新宏与旧宏意义相同。<code>\xdef</code>就是<code>\global\edef</code>。<code>\let</code>没有<code>\global</code>的意思。</p>
+</blockquote>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">a</span><span class="string">&#123;foo&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">b</span><span class="string">&#123;\a&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">edef</span></span><span class="tag">\<span class="name">c</span><span class="string">&#123;\b&#125;</span></span> 得到的是 <span class="tag">\<span class="name">c</span></span> -&gt; foo</div><div class="line"><span class="tag">\<span class="name">let</span></span><span class="tag">\<span class="name">d</span></span><span class="tag">\<span class="name">b</span></span>    得到的是 <span class="tag">\<span class="name">d</span></span> -&gt; <span class="tag">\<span class="name">a</span></span></div></pre></td></tr></table></figure>
+<p>一个外链：<a href="http://tex.stackexchange.com/questions/8163/what-is-the-difference-between-let-and-edef" target="_blank" rel="external">What is the difference between \let and \edef</a></p>
+<ul>
+<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=4520" target="_blank" rel="external">\renewcommand<code>*</code>的作用</a></li>
+</ul>
+<blockquote>
+<p><code>\renewcommand</code>所带参数可以包含用\par或空行表示的新段落；<br><code>\renewcommand*</code>不行</p>
+</blockquote>
+<ul>
+<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=64550" target="_blank" rel="external"><code>\string</code>的作用</a></li>
+</ul>
+<blockquote>
+<p>将一个命令输出为带斜杠的字符串。</p>
+</blockquote>
+<ul>
+<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=4520" target="_blank" rel="external"><code>\expandafter</code>的作用</a></li>
+</ul>
+<blockquote>
+<p>让制控命令顺序颠倒过来，后面的命令先起作用，下边是一个证明的例子：</p>
+</blockquote>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">test</span><span class="string">&#123;9999&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">makeatletter</span></span></div><div class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">testt</span></span>#1#2#3#4&#123;<span class="tag">\<span class="name">@</span></span>alph&#123;#1&#125;<span class="tag">\<span class="name">@</span></span>Alph&#123;#2&#125;<span class="tag">\<span class="name">@</span></span>Roman&#123;#3&#125;<span class="tag">\<span class="name">@</span></span>roman&#123;#4&#125;&#125;</div><div class="line"><span class="tag">\<span class="name">makeatother</span></span></div><div class="line"><span class="tag">\<span class="name">expandafter</span></span><span class="tag">\<span class="name">testt</span></span><span class="tag">\<span class="name">test</span></span></div></pre></td></tr></table></figure>
+<p>如果不加\expandafter的话：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">testt</span></span><span class="tag">\<span class="name">test</span></span></div></pre></td></tr></table></figure>
+<p>就会出错。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2011/11/27/2011-11-27-ctex-2-9-0-152-beamer-theorem/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1795,166 +1985,6 @@ l.226 \end{frame}
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2008/07/26/2008-07-25-aurora/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hao Peng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/stylus/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="语千 ~ 刻一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/stylus/2008/07/26/2008-07-25-aurora/" itemprop="url">
-                  Aurora
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2008-07-26T00:00:00+08:00">
-                2008-07-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/LaTeX/" itemprop="url" rel="index">
-                    <span itemprop="name">LaTeX</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/stylus/2008/07/26/2008-07-25-aurora/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2008/07/26/2008-07-25-aurora/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p><strong>下载地址</strong>：<a href="http://elevatorlady.ca/" target="_blank" rel="external">http://elevatorlady.ca/</a></p>
-<p><strong>破解</strong>：<a href="http://ssfighter.blog.com.cn/archives/2007/2296454.shtml" target="_blank" rel="external">http://ssfighter.blog.com.cn/archives/2007/2296454.shtml</a></p>
-</blockquote>
-<p>演示：</p>
-<p><img src="/stylus/images/Aurora.png" alt="aurora"></p>
-<p>懒人的最佳选择。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2004,7 +2034,7 @@ l.226 \end{frame}
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2015,7 +2045,7 @@ l.226 \end{frame}
             
             <div class="site-state-item site-state-categories">
               <a href="/stylus/categories/index.html">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2026,7 +2056,7 @@ l.226 \end{frame}
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -109,7 +109,7 @@
 基于三维曲面（如三维曲面图）">
 <meta property="og:image" content="https://cssdpq.bn1.livefilestore.com/y2pvkki2cktl093Pl_BxKM-ZZ8RQ_u-6xQnlTubo23_SXYLGCCLvKy0HTC_tR7UpgB_1h5cVOsZCiZvi7rLWzq2ydWmMGy9_4byGLUhP5db-MQ/Iris%20%E6%95%B0%E6%8D%AE%E7%9A%84%E8%BD%AE%E5%BB%93%E5%9B%BE(Parallel%20Coordinate%20Plots">
 <meta property="og:image" content="https://cssdpq.bn1.livefilestore.com/y2pi1WtDEA1hzK6vfvFjDtdWP9FS4yzejGHptqXptD2HA1txjcmsmQ74JW_wF-AeYh1Yo0JpecJafME8aKbO5FF3eAyxPV_kSs2HAA-2jH6ZdI/Iris%20%E6%95%B0%E6%8D%AE%E7%9A%84%E8%B0%83%E5%92%8C%E6%9B%B2%E7%BA%BF%E5%9B%BE.png?psid=1">
-<meta property="og:updated_time" content="2017-03-28T03:16:05.214Z">
+<meta property="og:updated_time" content="2017-03-28T05:16:47.878Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="调和曲线图和轮廓图的比较z">
 <meta name="twitter:description" content="原文地址：http://cos.name/2009/03/parallel-coordinates-and-andrews-curve/#more-704
@@ -460,9 +460,9 @@
 
 <p>观察上图，可以发现同一品种的鸢尾花的轮廓图粗略地聚集在一起。</p>
 <h2 id="调和曲线图"><a href="#调和曲线图" class="headerlink" title="调和曲线图"></a>调和曲线图</h2><p>调和曲线图的思想和傅立叶变换十分相似，是根据三角变换方法将$p$维空间的点映射到二维平面上的曲线上。假设$X_r$是$p$维数据的第$r$个观测值，即</p>
-<p>$$X<em>r^T=(x</em>{r1},\dotsc,x_{rp})$$</p>
+<p>$$X_r^T=(x_{r1},\dotsc,x_{rp})$$</p>
 <p>则对应的调和曲线是</p>
-<p>$$f<em>r(t)=\frac{x</em>{r1}}{\sqrt{2}} +x<em>{r2}\sin t+x</em>{r3}\cos t+x<em>{r4}\sin 2 t+x</em>{r5} \cos 2 t+\cdots$$</p>
+<p>$$f_r(t)=\frac{x_{r1}}{\sqrt{2}} +x_{r2}\sin t+x_{r3}\cos t+x_{r4}\sin 2 t+x_{r5} \cos 2 t+\cdots$$</p>
 <p>其中$-\pi\leqslant t\leqslant \pi$.</p>
 <p>同样利用<code>iris</code>数据，下面代码(主要取自《统计建模与R软件》，尚未优化)可以画出其调和曲线图</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">x = as.matrix(iris[<span class="number">1</span>:<span class="number">4</span>])</div><div class="line">t = seq(-pi, pi, pi/<span class="number">30</span>)</div><div class="line">m = nrow(x)</div><div class="line">n = ncol(x)</div><div class="line">f = matrix(<span class="number">0</span>, m, length(t))</div><div class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>:m) &#123;</div><div class="line">    f[i, ] = x[i, <span class="number">1</span>]/sqrt(<span class="number">2</span>)</div><div class="line">    <span class="keyword">for</span> (j <span class="keyword">in</span> <span class="number">2</span>:n) &#123;</div><div class="line">        <span class="keyword">if</span> (j%%<span class="number">2</span> == <span class="number">0</span>)</div><div class="line">            f[i, ] = f[i, ] + x[i, j] * sin(j/<span class="number">2</span> * t)</div><div class="line">        <span class="keyword">else</span> f[i, ] = f[i, ] + x[i, j] * cos(j%/%<span class="number">2</span> * t)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">plot(c(-pi, pi), c(min(f), max(f)), type = <span class="string">"n"</span>, main = <span class="string">"The Unison graph of Iris"</span>,</div><div class="line">    xlab = <span class="string">"t"</span>, ylab = <span class="string">"f(t)"</span>)</div><div class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>:m) lines(t, f[i, ], col = c(<span class="string">"red"</span>, <span class="string">"green3"</span>,</div><div class="line">    <span class="string">"blue"</span>)[unclass(iris$Species[i])])</div><div class="line">legend(x = -<span class="number">3</span>, y = <span class="number">15</span>, c(<span class="string">"setosa"</span>, <span class="string">"versicolor"</span>, <span class="string">"virginica"</span>),</div><div class="line">    lty = <span class="number">1</span>, col = c(<span class="string">"red"</span>, <span class="string">"green3"</span>, <span class="string">"blue"</span>))</div></pre></td></tr></table></figure>
@@ -544,6 +544,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/stylus/2017/03/28/2017-03-28-mathjax/" rel="prev" title="Mathjax与Markdown的冲突解决">
+                Mathjax与Markdown的冲突解决 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -621,7 +625,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -632,7 +636,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/stylus/categories/index.html">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -643,7 +647,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
