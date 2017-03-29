@@ -87,19 +87,22 @@
 
 
 
-<meta name="description" content="与Markdown的冲突解决原文地址：http://blog.csdn.net/emptyset110/article/details/50123231
-hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的时候下划线_是被escape掉并且换成了&amp;lt;em&amp;gt;标签，即斜体字，另外LaTeX中的\\也会被转义成一个\，这样会导致MathJax渲染时不认为">
+<meta name="description" content="Mathjax 指令参考：http://docs.mathjax.org/en/latest/tex.html
+与Markdown的冲突解决原文地址：http://blog.csdn.net/emptyset110/article/details/50123231
+hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的时候下划线_是被escape掉并且换成了&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo 的 NexT 主题中使用 Mathjax">
 <meta property="og:url" content="http://peng-howard.github.io/stylus/2017/03/28/mathjax/index.html">
 <meta property="og:site_name" content="语千 ~ 刻一">
-<meta property="og:description" content="与Markdown的冲突解决原文地址：http://blog.csdn.net/emptyset110/article/details/50123231
-hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的时候下划线_是被escape掉并且换成了&amp;lt;em&amp;gt;标签，即斜体字，另外LaTeX中的\\也会被转义成一个\，这样会导致MathJax渲染时不认为">
-<meta property="og:updated_time" content="2017-03-29T15:18:00.727Z">
+<meta property="og:description" content="Mathjax 指令参考：http://docs.mathjax.org/en/latest/tex.html
+与Markdown的冲突解决原文地址：http://blog.csdn.net/emptyset110/article/details/50123231
+hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的时候下划线_是被escape掉并且换成了&amp;">
+<meta property="og:updated_time" content="2017-03-29T15:37:50.016Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo 的 NexT 主题中使用 Mathjax">
-<meta name="twitter:description" content="与Markdown的冲突解决原文地址：http://blog.csdn.net/emptyset110/article/details/50123231
-hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的时候下划线_是被escape掉并且换成了&amp;lt;em&amp;gt;标签，即斜体字，另外LaTeX中的\\也会被转义成一个\，这样会导致MathJax渲染时不认为">
+<meta name="twitter:description" content="Mathjax 指令参考：http://docs.mathjax.org/en/latest/tex.html
+与Markdown的冲突解决原文地址：http://blog.csdn.net/emptyset110/article/details/50123231
+hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的时候下划线_是被escape掉并且换成了&amp;">
 
 
 
@@ -421,7 +424,8 @@ hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的
       
 
       
-        <h2 id="与Markdown的冲突解决"><a href="#与Markdown的冲突解决" class="headerlink" title="与Markdown的冲突解决"></a>与Markdown的冲突解决</h2><p>原文地址：<a href="http://blog.csdn.net/emptyset110/article/details/50123231" target="_blank" rel="external">http://blog.csdn.net/emptyset110/article/details/50123231</a></p>
+        <p>Mathjax 指令参考：<a href="http://docs.mathjax.org/en/latest/tex.html" target="_blank" rel="external">http://docs.mathjax.org/en/latest/tex.html</a></p>
+<h2 id="与Markdown的冲突解决"><a href="#与Markdown的冲突解决" class="headerlink" title="与Markdown的冲突解决"></a>与Markdown的冲突解决</h2><p>原文地址：<a href="http://blog.csdn.net/emptyset110/article/details/50123231" target="_blank" rel="external">http://blog.csdn.net/emptyset110/article/details/50123231</a></p>
 <p>hexo先用<code>marked.js</code>渲染，然后再交给MathJax渲染。在<code>marked.js</code>渲染的时候下划线<code>_</code>是被escape掉并且换成了<code>&lt;em&gt;</code>标签，即斜体字，另外LaTeX中的<code>\\</code>也会被转义成一个<code>\</code>，这样会导致MathJax渲染时不认为它是一个换行符了。</p>
 <p>修改<code>marked.js</code>源码的方式来避开这些问题 </p>
 <ul>
