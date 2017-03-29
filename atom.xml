@@ -5,7 +5,7 @@
   <link href="/stylus/atom.xml" rel="self"/>
   
   <link href="http://peng-howard.github.io/stylus/"/>
-  <updated>2017-03-28T14:46:57.201Z</updated>
+  <updated>2017-03-29T14:54:21.678Z</updated>
   <id>http://peng-howard.github.io/stylus/</id>
   
   <author>
@@ -16,15 +16,15 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Mathjax与Markdown的冲突解决</title>
-    <link href="http://peng-howard.github.io/stylus/2017/03/28/2017-03-28-mathjax/"/>
-    <id>http://peng-howard.github.io/stylus/2017/03/28/2017-03-28-mathjax/</id>
+    <title>Hexo 的 NexT 主题中使用 Mathjax</title>
+    <link href="http://peng-howard.github.io/stylus/2017/03/28/mathjax/"/>
+    <id>http://peng-howard.github.io/stylus/2017/03/28/mathjax/</id>
     <published>2017-03-27T16:00:00.000Z</published>
-    <updated>2017-03-28T14:46:57.201Z</updated>
+    <updated>2017-03-29T14:54:21.678Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;原文地址：&lt;a href=&quot;http://blog.csdn.net/emptyset110/article/details/50123231&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/emptyset110/
+      &lt;h2 id=&quot;与Markdown的冲突解决&quot;&gt;&lt;a href=&quot;#与Markdown的冲突解决&quot; class=&quot;headerlink&quot; title=&quot;与Markdown的冲突解决&quot;&gt;&lt;/a&gt;与Markdown的冲突解决&lt;/h2&gt;&lt;p&gt;原文地址：&lt;a href=&quot;http://b
     
     </summary>
     
@@ -40,9 +40,34 @@
   </entry>
   
   <entry>
+    <title>谈谈 Bias-Variance Tradeoff</title>
+    <link href="http://peng-howard.github.io/stylus/2017/03/25/bias-variance-tradeoff/"/>
+    <id>http://peng-howard.github.io/stylus/2017/03/25/bias-variance-tradeoff/</id>
+    <published>2017-03-25T03:33:41.000Z</published>
+    <updated>2017-03-29T14:01:32.522Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;原文地址&lt;/strong&gt;：&lt;a href=&quot;http://liam0205.me/2017/03/25/bias-variance-tradeoff/&quot;&gt;http://liam0205.me/2017/03/25/bias-variance-tradeoff/&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;准确&lt;/strong&gt;是两个概念。准是 &lt;strong&gt;bias&lt;/strong&gt; 小，确是 &lt;strong&gt;variance&lt;/strong&gt; 小。准确是相对概念，因为 bias-variance tradeoff。
+——Liam Huang&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在机器学习领域，人们总是希望使自己的模型尽可能准确地描述数据背后的真是规律。通俗所言的「准确」，其实就是误差小。在领域中，排除人为失误，人们一般会遇到三种误差来源：随机误差、偏差和方差。偏差和方差又与「欠拟合」及「过拟合」紧紧联系在一起。由于随机误差是不可消除的，所以此篇我们讨论在偏差和方差之间的权衡（Bias-Variance Tradeoff）。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://peng-howard.github.io/stylus/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="机器学习" scheme="http://peng-howard.github.io/stylus/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>LaTeX 中的浮动体：基础篇z</title>
-    <link href="http://peng-howard.github.io/stylus/2017/03/11/2017-03-11-floats-in-LaTeX-basic/"/>
-    <id>http://peng-howard.github.io/stylus/2017/03/11/2017-03-11-floats-in-LaTeX-basic/</id>
+    <link href="http://peng-howard.github.io/stylus/2017/03/11/floats-in-LaTeX-basic/"/>
+    <id>http://peng-howard.github.io/stylus/2017/03/11/floats-in-LaTeX-basic/</id>
     <published>2017-03-11T07:34:10.000Z</published>
     <updated>2017-03-28T15:28:10.804Z</updated>
     
@@ -65,8 +90,8 @@
   
   <entry>
     <title>调和曲线图和轮廓图的比较z</title>
-    <link href="http://peng-howard.github.io/stylus/2013/07/15/2013-07-15-parallel-coordinate-plot-andrews-curves/"/>
-    <id>http://peng-howard.github.io/stylus/2013/07/15/2013-07-15-parallel-coordinate-plot-andrews-curves/</id>
+    <link href="http://peng-howard.github.io/stylus/2013/07/15/parallel-coordinate-plot-andrews-curves/"/>
+    <id>http://peng-howard.github.io/stylus/2013/07/15/parallel-coordinate-plot-andrews-curves/</id>
     <published>2013-07-14T16:00:00.000Z</published>
     <updated>2017-03-28T15:15:18.629Z</updated>
     
@@ -102,8 +127,8 @@
   
   <entry>
     <title>滤波的基本概念</title>
-    <link href="http://peng-howard.github.io/stylus/2013/07/10/2013-07-10-filter/"/>
-    <id>http://peng-howard.github.io/stylus/2013/07/10/2013-07-10-filter/</id>
+    <link href="http://peng-howard.github.io/stylus/2013/07/10/filter/"/>
+    <id>http://peng-howard.github.io/stylus/2013/07/10/filter/</id>
     <published>2013-07-09T16:00:00.000Z</published>
     <updated>2017-03-28T15:02:37.849Z</updated>
     
@@ -129,8 +154,8 @@
   
   <entry>
     <title>散点图与回归拟合线</title>
-    <link href="http://peng-howard.github.io/stylus/2013/07/05/2013-07-05-scatter-fitted-line/"/>
-    <id>http://peng-howard.github.io/stylus/2013/07/05/2013-07-05-scatter-fitted-line/</id>
+    <link href="http://peng-howard.github.io/stylus/2013/07/05/scatter-fitted-line/"/>
+    <id>http://peng-howard.github.io/stylus/2013/07/05/scatter-fitted-line/</id>
     <published>2013-07-04T16:00:00.000Z</published>
     <updated>2017-03-27T16:54:30.900Z</updated>
     
@@ -150,8 +175,8 @@
   
   <entry>
     <title>分位点与分位数</title>
-    <link href="http://peng-howard.github.io/stylus/2013/06/25/2013-06-25-quantile/"/>
-    <id>http://peng-howard.github.io/stylus/2013/06/25/2013-06-25-quantile/</id>
+    <link href="http://peng-howard.github.io/stylus/2013/06/25/quantile/"/>
+    <id>http://peng-howard.github.io/stylus/2013/06/25/quantile/</id>
     <published>2013-06-24T16:00:00.000Z</published>
     <updated>2017-03-27T17:12:35.549Z</updated>
     
@@ -171,8 +196,8 @@
   
   <entry>
     <title>R的应用领域包介绍z</title>
-    <link href="http://peng-howard.github.io/stylus/2013/06/09/2013-06-09-r-packages-introduction/"/>
-    <id>http://peng-howard.github.io/stylus/2013/06/09/2013-06-09-r-packages-introduction/</id>
+    <link href="http://peng-howard.github.io/stylus/2013/06/09/r-packages-introduction/"/>
+    <id>http://peng-howard.github.io/stylus/2013/06/09/r-packages-introduction/</id>
     <published>2013-06-08T16:00:00.000Z</published>
     <updated>2017-03-28T03:57:38.092Z</updated>
     
@@ -200,8 +225,8 @@
   
   <entry>
     <title>Disqus与Mathjax可能有冲突</title>
-    <link href="http://peng-howard.github.io/stylus/2013/06/03/2013-06-03-conflict-between-disqus-and-mathjax/"/>
-    <id>http://peng-howard.github.io/stylus/2013/06/03/2013-06-03-conflict-between-disqus-and-mathjax/</id>
+    <link href="http://peng-howard.github.io/stylus/2013/06/03/conflict-between-disqus-and-mathjax/"/>
+    <id>http://peng-howard.github.io/stylus/2013/06/03/conflict-between-disqus-and-mathjax/</id>
     <published>2013-06-02T16:00:00.000Z</published>
     <updated>2017-03-28T03:03:21.327Z</updated>
     
@@ -226,8 +251,8 @@
   
   <entry>
     <title>Math version `bold&#39; is not defined</title>
-    <link href="http://peng-howard.github.io/stylus/2013/04/26/2013-04-26-Math-version-bold-not-defined/"/>
-    <id>http://peng-howard.github.io/stylus/2013/04/26/2013-04-26-Math-version-bold-not-defined/</id>
+    <link href="http://peng-howard.github.io/stylus/2013/04/26/Math-version-bold-not-defined/"/>
+    <id>http://peng-howard.github.io/stylus/2013/04/26/Math-version-bold-not-defined/</id>
     <published>2013-04-25T16:00:00.000Z</published>
     <updated>2017-03-27T09:40:11.879Z</updated>
     
@@ -250,8 +275,8 @@
   
   <entry>
     <title>导致“Missing number, treated as zero”的原因</title>
-    <link href="http://peng-howard.github.io/stylus/2013/02/01/2013-02-01-missing-number-treated-as-zero/"/>
-    <id>http://peng-howard.github.io/stylus/2013/02/01/2013-02-01-missing-number-treated-as-zero/</id>
+    <link href="http://peng-howard.github.io/stylus/2013/02/01/missing-number-treated-as-zero/"/>
+    <id>http://peng-howard.github.io/stylus/2013/02/01/missing-number-treated-as-zero/</id>
     <published>2013-01-31T16:00:00.000Z</published>
     <updated>2017-03-28T03:01:41.923Z</updated>
     
@@ -270,8 +295,8 @@
   
   <entry>
     <title>Matlab中的eval与feval函数</title>
-    <link href="http://peng-howard.github.io/stylus/2012/12/07/2012-12-07-matlab-eval-feval/"/>
-    <id>http://peng-howard.github.io/stylus/2012/12/07/2012-12-07-matlab-eval-feval/</id>
+    <link href="http://peng-howard.github.io/stylus/2012/12/07/matlab-eval-feval/"/>
+    <id>http://peng-howard.github.io/stylus/2012/12/07/matlab-eval-feval/</id>
     <published>2012-12-06T16:00:00.000Z</published>
     <updated>2017-03-28T03:00:19.832Z</updated>
     
@@ -291,9 +316,30 @@
   </entry>
   
   <entry>
+    <title>R的内存管理和垃圾清理z</title>
+    <link href="http://peng-howard.github.io/stylus/2012/12/05/r-mem-gc/"/>
+    <id>http://peng-howard.github.io/stylus/2012/12/05/r-mem-gc/</id>
+    <published>2012-12-04T16:00:00.000Z</published>
+    <updated>2017-03-28T02:11:31.599Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;原文地址：&lt;a href=&quot;http://jliblog.com/archives/276&quot;&gt;http://jliblog.com/archives/276&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;写R程序的人，相信都会遇到过&lt;code&gt;“cannot allocate vector of size”&lt;/code&gt;或者&lt;code&gt;“无法分配大小为…的矢量”&lt;/code&gt;这样的错误。原因很简单，基本都是产生一个大矩阵等对象时发生的，最干脆的解决办法有两种，第一种是加大内存换64位系统，第二种是改变算法避免如此大的对象。第一种办法，是最好的办法，不过大对象的需求是没有止尽的，终究不是长久之道。第二种办法是最好的思路，无论多么大的对象都是可以弄小的，无非就是分而治之、时间换空间等，对算法的研究也是没有止尽的。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/categories/R/"/>
+    
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
     <title>R中字符串处理和grep的用法z</title>
-    <link href="http://peng-howard.github.io/stylus/2012/12/05/2012-12-05-r-string-grep/"/>
-    <id>http://peng-howard.github.io/stylus/2012/12/05/2012-12-05-r-string-grep/</id>
+    <link href="http://peng-howard.github.io/stylus/2012/12/05/r-string-grep/"/>
+    <id>http://peng-howard.github.io/stylus/2012/12/05/r-string-grep/</id>
     <published>2012-12-04T16:00:00.000Z</published>
     <updated>2017-03-28T02:16:00.584Z</updated>
     
@@ -319,8 +365,8 @@
   
   <entry>
     <title>R中正则表达式简介z</title>
-    <link href="http://peng-howard.github.io/stylus/2012/12/05/2012-12-05-r-reg-exp/"/>
-    <id>http://peng-howard.github.io/stylus/2012/12/05/2012-12-05-r-reg-exp/</id>
+    <link href="http://peng-howard.github.io/stylus/2012/12/05/r-reg-exp/"/>
+    <id>http://peng-howard.github.io/stylus/2012/12/05/r-reg-exp/</id>
     <published>2012-12-04T16:00:00.000Z</published>
     <updated>2017-03-27T16:49:16.099Z</updated>
     
@@ -341,16 +387,15 @@
   </entry>
   
   <entry>
-    <title>R的内存管理和垃圾清理z</title>
-    <link href="http://peng-howard.github.io/stylus/2012/12/05/2012-12-05-r-mem-gc/"/>
-    <id>http://peng-howard.github.io/stylus/2012/12/05/2012-12-05-r-mem-gc/</id>
-    <published>2012-12-04T16:00:00.000Z</published>
-    <updated>2017-03-28T02:11:31.599Z</updated>
+    <title>R中如何取消科学计数法z</title>
+    <link href="http://peng-howard.github.io/stylus/2012/12/04/cancel-scientific-notation-in-r/"/>
+    <id>http://peng-howard.github.io/stylus/2012/12/04/cancel-scientific-notation-in-r/</id>
+    <published>2012-12-03T16:00:00.000Z</published>
+    <updated>2017-03-27T17:05:50.131Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;原文地址：&lt;a href=&quot;http://jliblog.com/archives/276&quot;&gt;http://jliblog.com/archives/276&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;写R程序的人，相信都会遇到过&lt;code&gt;“cannot allocate vector of size”&lt;/code&gt;或者&lt;code&gt;“无法分配大小为…的矢量”&lt;/code&gt;这样的错误。原因很简单，基本都是产生一个大矩阵等对象时发生的，最干脆的解决办法有两种，第一种是加大内存换64位系统，第二种是改变算法避免如此大的对象。第一种办法，是最好的办法，不过大对象的需求是没有止尽的，终究不是长久之道。第二种办法是最好的思路，无论多么大的对象都是可以弄小的，无非就是分而治之、时间换空间等，对算法的研究也是没有止尽的。&lt;/p&gt;
+      &lt;p&gt;原文地址：&lt;a href=&quot;http://bbs.pinggu.org/thread-1403060-1-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://bbs.pinggu.org/thread-1403060-1-1.html
     
     </summary>
     
@@ -363,8 +408,8 @@
   
   <entry>
     <title>Matlab统计学工具箱</title>
-    <link href="http://peng-howard.github.io/stylus/2012/12/04/2012-12-04-matlab-statistics-toolbox/"/>
-    <id>http://peng-howard.github.io/stylus/2012/12/04/2012-12-04-matlab-statistics-toolbox/</id>
+    <link href="http://peng-howard.github.io/stylus/2012/12/04/matlab-statistics-toolbox/"/>
+    <id>http://peng-howard.github.io/stylus/2012/12/04/matlab-statistics-toolbox/</id>
     <published>2012-12-03T16:00:00.000Z</published>
     <updated>2017-03-28T02:57:41.786Z</updated>
     
@@ -387,29 +432,9 @@ b
   </entry>
   
   <entry>
-    <title>R中如何取消科学计数法z</title>
-    <link href="http://peng-howard.github.io/stylus/2012/12/04/2012-12-04-cancel-scientific-notation-in-r/"/>
-    <id>http://peng-howard.github.io/stylus/2012/12/04/2012-12-04-cancel-scientific-notation-in-r/</id>
-    <published>2012-12-03T16:00:00.000Z</published>
-    <updated>2017-03-27T17:05:50.131Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;原文地址：&lt;a href=&quot;http://bbs.pinggu.org/thread-1403060-1-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://bbs.pinggu.org/thread-1403060-1-1.html
-    
-    </summary>
-    
-      <category term="R" scheme="http://peng-howard.github.io/stylus/categories/R/"/>
-    
-    
-      <category term="R" scheme="http://peng-howard.github.io/stylus/tags/R/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Matlab画二维图心得</title>
-    <link href="http://peng-howard.github.io/stylus/2012/11/23/2012-11-23-matlab-ezplot-latex/"/>
-    <id>http://peng-howard.github.io/stylus/2012/11/23/2012-11-23-matlab-ezplot-latex/</id>
+    <link href="http://peng-howard.github.io/stylus/2012/11/23/matlab-ezplot-latex/"/>
+    <id>http://peng-howard.github.io/stylus/2012/11/23/matlab-ezplot-latex/</id>
     <published>2012-11-22T16:00:00.000Z</published>
     <updated>2017-03-27T17:07:17.820Z</updated>
     
@@ -443,8 +468,8 @@ b
   
   <entry>
     <title>apsrtable在knitr中生成LaTeX表格</title>
-    <link href="http://peng-howard.github.io/stylus/2012/11/21/2012-11-21-apsrtable-knitr-latex-table/"/>
-    <id>http://peng-howard.github.io/stylus/2012/11/21/2012-11-21-apsrtable-knitr-latex-table/</id>
+    <link href="http://peng-howard.github.io/stylus/2012/11/21/apsrtable-knitr-latex-table/"/>
+    <id>http://peng-howard.github.io/stylus/2012/11/21/apsrtable-knitr-latex-table/</id>
     <published>2012-11-20T16:00:00.000Z</published>
     <updated>2017-03-28T02:56:20.619Z</updated>
     
@@ -470,8 +495,8 @@ b
   
   <entry>
     <title>knitr、Markdown、Pandoc相关的几份资料</title>
-    <link href="http://peng-howard.github.io/stylus/2012/09/17/2012-09-17-knitr/"/>
-    <id>http://peng-howard.github.io/stylus/2012/09/17/2012-09-17-knitr/</id>
+    <link href="http://peng-howard.github.io/stylus/2012/09/17/knitr/"/>
+    <id>http://peng-howard.github.io/stylus/2012/09/17/knitr/</id>
     <published>2012-09-16T16:00:00.000Z</published>
     <updated>2017-03-27T16:51:39.234Z</updated>
     
@@ -494,27 +519,6 @@ b
       <category term="Markdown" scheme="http://peng-howard.github.io/stylus/tags/Markdown/"/>
     
       <category term="Pandoc" scheme="http://peng-howard.github.io/stylus/tags/Pandoc/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Office卸载工具下载</title>
-    <link href="http://peng-howard.github.io/stylus/2012/02/07/2012-02-07-office-uninstall-tools/"/>
-    <id>http://peng-howard.github.io/stylus/2012/02/07/2012-02-07-office-uninstall-tools/</id>
-    <published>2012-02-06T16:00:00.000Z</published>
-    <updated>2017-03-27T16:57:02.278Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://download.microsoft.com/download/D/1/8/D1893A85-9299-4372-9B51-DAACE77CEDEE/MicrosoftFixit50416.msi&quot; target=&quot;_blank&quot;
-    
-    </summary>
-    
-      <category term="软件应用" scheme="http://peng-howard.github.io/stylus/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
-    
-    
-      <category term="Office" scheme="http://peng-howard.github.io/stylus/tags/Office/"/>
     
   </entry>
   

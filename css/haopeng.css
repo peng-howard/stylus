@@ -244,6 +244,11 @@ hr {
   border-bottom: solid 1px #fefefe !important;
   background: none !important;
 }
+em {
+  display: block;
+  text-align: center;
+  font-style: normal;
+}
 ::selection {
   background-color: #000;
   color: #0f0;
