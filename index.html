@@ -428,7 +428,7 @@
 <li>针对下划线的问题，取消<code>_</code>作为斜体转义，因为<code>marked.js</code>中<code>*</code>也是斜体的意思，所以取消掉<code>_</code>的转义并不影响我们使用markdown，只要我们习惯用<code>*</code>作为斜体字标记就行了。 </li>
 <li>针对<code>marked.js</code>与Mathjax对于个别字符二次转义的问题，我们只要不让<code>marked.js</code>去转义<code>\\,\{,\}</code>在MathJax中有特殊用途的字符就行了。 </li>
 </ul>
-<p>具体修改方式，用编辑器打开<code>marked.js</code>（在<code>./node_modules/marked/lib/</code>中）</p>
+<p>具体修改方式，用编辑器打开<code>marked.js</code>（在<code>./node_modules/marked/lib/</code>中），将其中的：</p>
 <pre><code>escape: /^\\([\\`*{}\[\]()# +\-.!_&gt;])/,1
 em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,1
 </code></pre><p>替换成：</p>
