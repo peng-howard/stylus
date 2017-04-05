@@ -1,5 +1,5 @@
 body {
-  background: url("/stylus/images/bg.png") repeat;
+  background: #f3f3f3 url("/lives/images/bg.png") repeat;
 }
 /* 正文标题 */
 .post-title {
