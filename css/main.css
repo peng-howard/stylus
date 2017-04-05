@@ -1684,7 +1684,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3c37ff;
+  background: #0ea722;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2602,8 +2602,20 @@ h2 {
   transition-property: all;
   transition-duration: 0.5s;
 }
-.menu-item-icon {
-  padding-left: 3px;
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .menu-item-icon {
+    padding-left: 3px;
+  }
+}
+@-moz-document url-prefix() {
+  .menu-item-icon {
+    padding-left: 0px;
+  }
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .menu-item-icon {
+    padding-left: 0px;
+  }
 }
 .category-list-item {
   display: inline;
