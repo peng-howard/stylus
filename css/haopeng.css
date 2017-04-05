@@ -63,7 +63,7 @@ h2 {
 .menu li a {
   border: solid 2px #bbb !important;
   background-color: #fefefe;
-  border-radius: 35px;
+  border-radius: 50%;
   padding-top: 5px;
   padding-bottom: 5px;
   width: 60px;
@@ -76,6 +76,9 @@ h2 {
   font-weight: bold;
   transition-property: all;
   transition-duration: 0.5s;
+}
+.menu-item-icon {
+  padding-left: 3px;
 }
 .category-list-item {
   display: inline;
