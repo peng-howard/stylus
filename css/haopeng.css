@@ -238,6 +238,21 @@ a.page-number:hover {
   padding: 2px 4px;
   border-radius: 5px;
 }
+/* 版权部分 */
+.copyright {
+  font-family: Galdeano, Helvetica, Roboto;
+  font-size: 18px;
+}
+.copyright a {
+  color: #2dbe60;
+  border-bottom: dashed 1px #bbb;
+}
+.copyright a:hover {
+  color: #236e25;
+}
+.copyright .with-love {
+  font-size: 15px;
+}
 hr {
   height: 0px !important;
   border-top: solid 1px #ccc !important;
