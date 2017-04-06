@@ -1,5 +1,13 @@
+/* latin */
+@font-face {
+  font-family: 'Galdeano';
+  font-style: normal;
+  font-weight: 400;
+  src: url("/stylus/lib/font-Galdeano/galdeano-webfont.woff2") format('woff2'), url("/stylus/lib/font-Galdeano/galdeano-webfont.woff") format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
 body {
-  background: #f3f3f3 url("/lives/images/bg.png") repeat;
+  background: #f3f3f3 url("/stylus/images/bg.png") repeat;
 }
 /* 正文标题 */
 .post-title {
@@ -259,7 +267,7 @@ a.page-number:hover {
 }
 /* 版权部分 */
 .copyright {
-  font-family: Galdeano, Helvetica, Roboto;
+  font-family: Galdeano, Helvetica, "Microsoft YaHei", sans-serif;
   font-size: 18px;
 }
 .copyright a {
