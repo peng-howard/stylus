@@ -1707,7 +1707,7 @@ l.21 \begin{Ventry}{Return values}
         
           
             <div>
-<div style="float:left;margin-right: 1em;padding-right: 1em;border-right: solid 3px #ddd;">
+<div id="leftDivPre" style="float:left; margin-right: 1em; padding-right: 1em; border-right: solid 3px #ddd;">
 表1 概率密度函数
 
 <pre>函数名          对应分布的概率密度函数
@@ -2054,6 +2054,15 @@ robustdemo      稳健回归拟合工具</pre>
 </div>
 </div>
 <div style="clear:both"></div>
+
+<script language="javascript">
+if (document.getElementById("content").offsetWidth == 700) {
+    document.getElementById("leftDivPre").style.float = "none";
+    document.getElementById("leftDivPre").style.borderRight = "none";
+    document.getElementById("leftDivPre").style.marginRight = "0em";
+    document.getElementById("leftDivPre").style.paddingRight = "0em";
+}
+</script>
           
         
       
