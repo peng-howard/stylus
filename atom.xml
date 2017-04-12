@@ -113,6 +113,29 @@
   </entry>
   
   <entry>
+    <title>根据浏览器类型、屏幕分辨率调用不同的样式文件z</title>
+    <link href="http://peng-howard.github.io/stylus/2016/09/23/JS-CSS-WebAgent/"/>
+    <id>http://peng-howard.github.io/stylus/2016/09/23/JS-CSS-WebAgent/</id>
+    <published>2016-09-22T16:00:00.000Z</published>
+    <updated>2017-04-12T14:43:48.147Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;原文地址&lt;/strong&gt;：&lt;a href=&quot;http://blog.csdn.net/duchao123duchao/article/details/52638506&quot;&gt;http://blog.csdn.net/duchao123duchao/article/details/52638506&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;1-根据分辨率提供不同的-CSS-样式&quot;&gt;&lt;a href=&quot;#1-根据分辨率提供不同的-CSS-样式&quot; class=&quot;headerlink&quot; title=&quot;1. 根据分辨率提供不同的 CSS 样式&quot;&gt;&lt;/a&gt;1. 根据分辨率提供不同的 CSS 样式&lt;/h2&gt;&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;@&lt;span class=&quot;keyword&quot;&gt;media&lt;/span&gt; screen and (min-width: &lt;span class=&quot;number&quot;&gt;320px&lt;/span&gt;) and (max-width: &lt;span class=&quot;number&quot;&gt;480px&lt;/span&gt;)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	在这里写小屏幕设备的样式&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;@&lt;span class=&quot;keyword&quot;&gt;media&lt;/span&gt; only screen and (min-width: &lt;span class=&quot;number&quot;&gt;321px&lt;/span&gt;) and (max-width: &lt;span class=&quot;number&quot;&gt;1024px&lt;/span&gt;)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	这里写宽度大于321&lt;span class=&quot;selector-tag&quot;&gt;px&lt;/span&gt;小于1024&lt;span class=&quot;selector-tag&quot;&gt;px&lt;/span&gt;的样式(一般是平板电脑)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;@&lt;span class=&quot;keyword&quot;&gt;media&lt;/span&gt; only screen and (min-width: &lt;span class=&quot;number&quot;&gt;1029px&lt;/span&gt;)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	这里写&lt;span class=&quot;selector-tag&quot;&gt;pc&lt;/span&gt;客户端的样式&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="网页编程" scheme="http://peng-howard.github.io/stylus/categories/%E7%BD%91%E9%A1%B5%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="CSS" scheme="http://peng-howard.github.io/stylus/tags/CSS/"/>
+    
+      <category term="Javascript" scheme="http://peng-howard.github.io/stylus/tags/Javascript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>调和曲线图和轮廓图的比较z</title>
     <link href="http://peng-howard.github.io/stylus/2013/07/15/parallel-coordinate-plot-andrews-curves/"/>
     <id>http://peng-howard.github.io/stylus/2013/07/15/parallel-coordinate-plot-andrews-curves/</id>
@@ -411,6 +434,26 @@
   </entry>
   
   <entry>
+    <title>R中如何取消科学计数法z</title>
+    <link href="http://peng-howard.github.io/stylus/2012/12/04/cancel-scientific-notation-in-r/"/>
+    <id>http://peng-howard.github.io/stylus/2012/12/04/cancel-scientific-notation-in-r/</id>
+    <published>2012-12-03T16:00:00.000Z</published>
+    <updated>2017-03-27T17:05:50.131Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;原文地址：&lt;a href=&quot;http://bbs.pinggu.org/thread-1403060-1-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://bbs.pinggu.org/thread-1403060-1-1.html
+    
+    </summary>
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/categories/R/"/>
+    
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Matlab统计学工具箱</title>
     <link href="http://peng-howard.github.io/stylus/2012/12/04/matlab-statistics-toolbox/"/>
     <id>http://peng-howard.github.io/stylus/2012/12/04/matlab-statistics-toolbox/</id>
@@ -432,26 +475,6 @@ b
     
     
       <category term="Matlab" scheme="http://peng-howard.github.io/stylus/tags/Matlab/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R中如何取消科学计数法z</title>
-    <link href="http://peng-howard.github.io/stylus/2012/12/04/cancel-scientific-notation-in-r/"/>
-    <id>http://peng-howard.github.io/stylus/2012/12/04/cancel-scientific-notation-in-r/</id>
-    <published>2012-12-03T16:00:00.000Z</published>
-    <updated>2017-03-27T17:05:50.131Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;原文地址：&lt;a href=&quot;http://bbs.pinggu.org/thread-1403060-1-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://bbs.pinggu.org/thread-1403060-1-1.html
-    
-    </summary>
-    
-      <category term="R" scheme="http://peng-howard.github.io/stylus/categories/R/"/>
-    
-    
-      <category term="R" scheme="http://peng-howard.github.io/stylus/tags/R/"/>
     
   </entry>
   
@@ -487,33 +510,6 @@ b
       <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/tags/LaTeX/"/>
     
       <category term="图形" scheme="http://peng-howard.github.io/stylus/tags/%E5%9B%BE%E5%BD%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>apsrtable在knitr中生成LaTeX表格</title>
-    <link href="http://peng-howard.github.io/stylus/2012/11/21/apsrtable-knitr-latex-table/"/>
-    <id>http://peng-howard.github.io/stylus/2012/11/21/apsrtable-knitr-latex-table/</id>
-    <published>2012-11-20T16:00:00.000Z</published>
-    <updated>2017-03-28T02:56:20.619Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;原文地址：&lt;a href=&quot;http://cos.name/cn/topic/108631&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://cos.name/cn/topic/108631&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;apsrtable(
-    
-    </summary>
-    
-      <category term="R" scheme="http://peng-howard.github.io/stylus/categories/R/"/>
-    
-    
-      <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/tags/LaTeX/"/>
-    
-      <category term="R" scheme="http://peng-howard.github.io/stylus/tags/R/"/>
-    
-      <category term="knitr" scheme="http://peng-howard.github.io/stylus/tags/knitr/"/>
-    
-      <category term="表格" scheme="http://peng-howard.github.io/stylus/tags/%E8%A1%A8%E6%A0%BC/"/>
     
   </entry>
   

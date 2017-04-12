@@ -1,0 +1,1027 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next muse" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/stylus/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+<link href="/stylus/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/stylus/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CSS,Javascript," />
+
+
+
+
+
+  <link rel="alternate" href="/stylus/atom.xml" title="语千 ~ 刻一" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/stylus/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="原文地址：http://blog.csdn.net/duchao123duchao/article/details/52638506
+1. 根据分辨率提供不同的 CSS 样式1234567891011@media screen and (min-width: 320px) and (max-width: 480px)&amp;#123;	在这里写小屏幕设备的样式&amp;#125;@media only scre">
+<meta property="og:type" content="article">
+<meta property="og:title" content="根据浏览器类型、屏幕分辨率调用不同的样式文件z">
+<meta property="og:url" content="http://peng-howard.github.io/stylus/2016/09/23/JS-CSS-WebAgent/index.html">
+<meta property="og:site_name" content="语千 ~ 刻一">
+<meta property="og:description" content="原文地址：http://blog.csdn.net/duchao123duchao/article/details/52638506
+1. 根据分辨率提供不同的 CSS 样式1234567891011@media screen and (min-width: 320px) and (max-width: 480px)&amp;#123;	在这里写小屏幕设备的样式&amp;#125;@media only scre">
+<meta property="og:updated_time" content="2017-04-12T14:43:48.147Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="根据浏览器类型、屏幕分辨率调用不同的样式文件z">
+<meta name="twitter:description" content="原文地址：http://blog.csdn.net/duchao123duchao/article/details/52638506
+1. 根据分辨率提供不同的 CSS 样式1234567891011@media screen and (min-width: 320px) and (max-width: 480px)&amp;#123;	在这里写小屏幕设备的样式&amp;#125;@media only scre">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/stylus/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://peng-howard.github.io/stylus/2016/09/23/JS-CSS-WebAgent/"/>
+
+
+
+
+
+  <title> 根据浏览器类型、屏幕分辨率调用不同的样式文件z | 语千 ~ 刻一 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/stylus/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">语千 ~ 刻一</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/stylus/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/stylus/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/stylus/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/stylus/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/stylus/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/stylus/links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
+            
+            链接
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2016/09/23/JS-CSS-WebAgent/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                根据浏览器类型、屏幕分辨率调用不同的样式文件z
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-23T00:00:00+08:00">
+                2016-09-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/网页编程/" itemprop="url" rel="index">
+                    <span itemprop="name">网页编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2016/09/23/JS-CSS-WebAgent/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/09/23/JS-CSS-WebAgent/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>原文地址</strong>：<a href="http://blog.csdn.net/duchao123duchao/article/details/52638506" target="_blank" rel="external">http://blog.csdn.net/duchao123duchao/article/details/52638506</a></p>
+<h2 id="1-根据分辨率提供不同的-CSS-样式"><a href="#1-根据分辨率提供不同的-CSS-样式" class="headerlink" title="1. 根据分辨率提供不同的 CSS 样式"></a>1. 根据分辨率提供不同的 CSS 样式</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">320px</span>) and (max-width: <span class="number">480px</span>)&#123;</div><div class="line">	在这里写小屏幕设备的样式</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">media</span> only screen and (min-width: <span class="number">321px</span>) and (max-width: <span class="number">1024px</span>)&#123;</div><div class="line">	这里写宽度大于321<span class="selector-tag">px</span>小于1024<span class="selector-tag">px</span>的样式(一般是平板电脑)</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">media</span> only screen and (min-width: <span class="number">1029px</span>)&#123;</div><div class="line">	这里写<span class="selector-tag">pc</span>客户端的样式</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="2-用-js-根据客户端输出对应样式"><a href="#2-用-js-根据客户端输出对应样式" class="headerlink" title="2. 用 js 根据客户端输出对应样式"></a>2. 用 js 根据客户端输出对应样式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 事实上用 asp、php 后台判断更保险，js 在前端，有可能被用户禁止 */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadCSS</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>((navigator.userAgent.match(<span class="regexp">/(phone|pad|pod|iPhone|iPod|iOS|iPad|Android|wOSBrowser|BrowserNG|WebOS)/i</span>))) &#123;</div><div class="line">         <span class="built_in">document</span>.write(<span class="string">'&lt;link href="css/pad-phone.css" rel="stylesheet" type="text/css" media="screen" /&gt;'</span>);</div><div class="line">     &#125;</div><div class="line">     <span class="keyword">else</span> &#123;</div><div class="line">         <span class="built_in">document</span>.write(<span class="string">'&lt;link href="css/pc.css" rel="stylesheet" type="text/css" media="screen" /&gt;'</span>);</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line">loadCSS();</div></pre></td></tr></table></figure>
+<h2 id="3-既判断分辨率，也判断浏览器"><a href="#3-既判断分辨率，也判断浏览器" class="headerlink" title="3. 既判断分辨率，也判断浏览器"></a>3. 既判断分辨率，也判断浏览器</h2><p>应 E.Qiang 提议，重新完善代码，使之成为判断浏览器类型屏幕分辨率自动调用不同 CSS 的代码，代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">&lt;SCRIPT LANGUAGE=<span class="string">"JavaScript"</span>&gt;</div><div class="line">&lt;!--</div><div class="line">if (window.navigator.userAgent.indexOf("MSIE")&gt;=1) &#123;</div><div class="line">	var IE1024="";</div><div class="line">	var IE800="";</div><div class="line">	var IE1152="";</div><div class="line">	var IEother="";</div><div class="line">	ScreenWidth(IE1024,IE800,IE1152,IEother)</div><div class="line">&#125; else &#123;</div><div class="line">	if (window.navigator.userAgent.indexOf("Firefox")&gt;=1) &#123;</div><div class="line">		 // 如果浏览器为Firefox</div><div class="line">		 var Firefox1024="";</div><div class="line">		 var Firefox800="";</div><div class="line">		 var Firefox1152="";</div><div class="line">		 var Firefoxother="";</div><div class="line">		 ScreenWidth(Firefox1024,Firefox800,Firefox1152,Firefoxother)</div><div class="line">	&#125; else &#123;</div><div class="line">		// 如果浏览器为其他</div><div class="line">		var Other1024="";</div><div class="line">		var Other800="";</div><div class="line">		var Other1152="";</div><div class="line">		var Otherother="";</div><div class="line">		ScreenWidth(Other1024,Other800,Other1152,Otherother)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function ScreenWidth(CSS1,CSS2,CSS3,CSS4)	&#123;</div><div class="line">	if ((screen.width == 1024) &amp;&amp; (screen.height == 768)) &#123;</div><div class="line">		setActiveStyleSheet(CSS1);</div><div class="line">	&#125; else &#123;</div><div class="line">		if ((screen.width == 800) &amp;&amp; (screen.height == 600)) &#123;</div><div class="line">			setActiveStyleSheet(CSS2);</div><div class="line">		&#125; else &#123;</div><div class="line">			if ((screen.width == 1152) &amp;&amp; (screen.height == 864)) &#123;</div><div class="line">				setActiveStyleSheet(CSS3);</div><div class="line">			&#125; else &#123;</div><div class="line">				setActiveStyleSheet(CSS4);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">function setActiveStyleSheet(title)&#123;</div><div class="line">	document.getElementsByTagName("link")[0].href="style/"+title;</div><div class="line">&#125;</div><div class="line">//--&gt;</div><div class="line">&lt;/SCRIPT&gt;</div></pre></td></tr></table></figure>
+<h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> IE1024=<span class="string">""</span>;</div><div class="line"><span class="keyword">var</span> IE800=<span class="string">""</span>;</div><div class="line"><span class="keyword">var</span> IE1152=<span class="string">""</span>;</div><div class="line"><span class="keyword">var</span> IEother=<span class="string">""</span>;</div></pre></td></tr></table></figure>
+<p>引号里面分别填写用户使用 IE 并且分辨率为<code>1024*768, 800*600, 1152*864</code>的时候要使用的 css 文件名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var Firefox1024=&quot;&quot;;</div><div class="line">var Firefox800=&quot;&quot;;</div><div class="line">var Firefox1152=&quot;&quot;;</div><div class="line">var Firefoxother=&quot;&quot;;</div></pre></td></tr></table></figure>
+<p>引号里面分别填写用户使用 FF 并且分辨率为<code>1024*768, 800*600, 1152*864</code>的时候要使用的 css 文件名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var Other1024=&quot;&quot;;</div><div class="line">var Other800=&quot;&quot;;</div><div class="line">var Other1152=&quot;&quot;;</div><div class="line">var Otherother=&quot;&quot;;</div></pre></td></tr></table></figure>
+<p>引号里面分别填写用户使用其他浏览器并且分辨率为<code>1024*768, 800*600, 1152*864</code>的时候要使用的 css 文件名。</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><ol>
+<li>不判断分辨率，只判断浏览器，实现根据浏览器类型自动调用不同CSS。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;SCRIPT LANGUAGE=&quot;JavaScript&quot;&gt;</div><div class="line">&lt;!--</div><div class="line">if (window.navigator.userAgent.indexOf(&quot;MSIE&quot;)&gt;=1) &#123;    </div><div class="line">	// 如果浏览器为IE</div><div class="line">	setActiveStyleSheet(&quot;default.css&quot;);</div><div class="line">	&#125; else &#123;</div><div class="line">		if (window.navigator.userAgent.indexOf(&quot;Firefox&quot;)&gt;=1) &#123;</div><div class="line">			// 如果浏览器为Firefox</div><div class="line">			setActiveStyleSheet(&quot;default2.css&quot;);</div><div class="line">		&#125; else &#123;</div><div class="line">			// 如果浏览器为其他</div><div class="line">			setActiveStyleSheet(&quot;newsky.css&quot;);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	function setActiveStyleSheet(title)&#123;</div><div class="line">	document.getElementsByTagName(&quot;link&quot;)[0].href=&quot;style/&quot;+title;</div><div class="line">&#125;</div><div class="line">//--&gt;</div><div class="line">&lt;/SCRIPT&gt;</div></pre></td></tr></table></figure>
+<p><strong>解释</strong>：</p>
+<ul>
+<li>如果浏览器为 IE，则调用 default.css</li>
+<li>如果浏览器为 Firefox，则调用 default2.css</li>
+<li>如果浏览器为其他，则调用 newsky.css</li>
+</ul>
+<p><strong>用法</strong>：放在<code>&lt;/head&gt;</code>前面即可。</p>
+<ol>
+<li>只要求判断根据屏幕宽度选择不同的 CSS 样式表。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script language=javascript&gt;</div><div class="line">&lt;!--</div><div class="line">if (screen.width == 800) &#123;</div><div class="line">	document.write('&lt;link rel=stylesheet type="text/css" href="css800.css"&gt;')</div><div class="line">&#125;</div><div class="line">else &#123;</div><div class="line">	document.write('&lt;link rel=stylesheet type="text/css" href="css1024.css"&gt;')</div><div class="line">&#125;</div><div class="line">//--&gt;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/stylus/tags/CSS/" rel="tag"># CSS</a>
+          
+            <a href="/stylus/tags/Javascript/" rel="tag"># Javascript</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/stylus/2013/07/15/parallel-coordinate-plot-andrews-curves/" rel="next" title="调和曲线图和轮廓图的比较z">
+                <i class="fa fa-chevron-left"></i> 调和曲线图和轮廓图的比较z
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/stylus/2017/03/11/floats-in-LaTeX-basic/" rel="prev" title="LaTeX 中的浮动体：基础篇z">
+                LaTeX 中的浮动体：基础篇z <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/stylus/images/avatar.png"
+               alt="Hao Peng" />
+          <p class="site-author-name" itemprop="name">Hao Peng</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/stylus/archives">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/stylus/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/stylus/tags/index.html">
+                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/stylus/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/your-user-name" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/your-user-name" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://macshuo.com/" title="MacTalk" target="_blank">MacTalk</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://example.com/" title="Title" target="_blank">Title</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-根据分辨率提供不同的-CSS-样式"><span class="nav-number">1.</span> <span class="nav-text">1. 根据分辨率提供不同的 CSS 样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-用-js-根据客户端输出对应样式"><span class="nav-number">2.</span> <span class="nav-text">2. 用 js 根据客户端输出对应样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-既判断分辨率，也判断浏览器"><span class="nav-number">3.</span> <span class="nav-text">3. 既判断分辨率，也判断浏览器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解释"><span class="nav-number">4.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子"><span class="nav-number">5.</span> <span class="nav-text">例子</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  Powered by <a href="https://hexo.io/">Hexo</a> &amp; <a href="https://github.com/iissnan/hexo-theme-next">NexT</a> on GitHub |
+  
+  Copyright  2005 - 
+  <span itemprop="copyrightYear">2017</span>
+  by 
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"><a href="mailto:haopeng.yn@gmail.com">Hao Peng</a></span>
+</div>
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/stylus/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/stylus/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/stylus/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/stylus/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/stylus/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/stylus/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://peng-howard-github-io.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://peng-howard.github.io/stylus/stylus/2016/09/23/JS-CSS-WebAgent/';
+          this.page.identifier = '2016/09/23/JS-CSS-WebAgent/';
+          this.page.title = '根据浏览器类型、屏幕分辨率调用不同的样式文件z';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://peng-howard-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/stylus/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {equationNumbers: {autoNumber: ["AMS"], useLabelIds: true}},
+        "HTML-CSS": {linebreaks: {automatic: true}},
+        SVG: {linebreaks: {automatic: true}}
+    });
+	</script>
+	
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+  
+
+</body>
+</html>
