@@ -8,6 +8,7 @@
 }
 body {
   background: #f3f3f3 url("/stylus/images/bg.png") repeat;
+  font-size: 18px;
 }
 /* 正文标题 */
 .post-title {
@@ -47,6 +48,12 @@ h2 {
   font-size: 28px;
   color: #2dbe60;
 }
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 20px;
+}
 .headband {
   display: none;
 }
@@ -85,7 +92,7 @@ h2 {
   transition-property: all;
   transition-duration: 0.5s;
 }
-/* Chrome */
+/* Chrome: 图标和文字没有对齐 */
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   .menu-item-icon {
     padding-left: 3px;
@@ -97,19 +104,20 @@ h2 {
     padding-left: 0px;
   }
 }
-/* IE10+ */
+/* IE10+: 默认图标和文字已经对齐 */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .menu-item-icon {
     padding-left: 0px;
   }
 }
 /* http://www.webkaka.com/tutorial/html/2015/080912/ */
+/* 分类页 */
 .category-list-item {
   display: inline;
 }
 .category-list-item a {
-  margin-top: -1.78em;
-  padding: 1em 1em;
+  margin-top: -2em;
+  padding: 0.7em 1em;
   display: block;
   font-size: 18px;
   color: #2dbe60;
@@ -124,7 +132,7 @@ h2 {
 }
 span.category-list-count {
   float: right;
-  margin-top: -3.3em;
+  margin-top: -2.7em;
   padding-right: 0.5em;
 }
 /* 首页每篇之间的分隔线 */
@@ -139,10 +147,22 @@ span.category-list-count {
   background-color: #fcfcfc;
 }
 .highlight .gutter pre {
+  font-size: 15px;
   background-color: #f7f7f7;
 }
 td.code pre {
+  font-size: 15px;
   background-color: #fcfcfc !important;
+}
+/* 正文段落 */
+p {
+  line-height: 1.75em;
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+/* 默认的公式比周围的文字大，难看；另外用 em 和 px 似乎不起作用(也可能是大小不正确) */
+.MathJax {
+  font-size: 10px !important;
 }
 /* > 开始引用内容对应的样式 */
 blockquote {
@@ -160,29 +180,34 @@ blockquote p {
 }
 /* 用一个 tab 缩进产生的 pre 效果 */
 code {
+  font-size: 16px;
   border-radius: 5px;
   padding: 3px 4px;
   color: #090;
   background-color: #f2f9f4;
 }
 pre {
+  font-size: 15px;
   border: solid 1px #ccc;
   border-radius: 5px;
 /* knitr 会专门做一个没有底色的css，所以这里不会起作用 background-color: #333; */
   padding: 20px 25px;
+  overflow-x: hidden;
 }
 pre.white {
+  font-size: 15px;
   background-color: #fefefe;
 }
 pre.center {
   text-align: center !important;
   line-height: 2em;
-  font-size: 16px;
+  font-size: 18px;
   border: none;
   background-color: transparent;
   padding: 0px;
 }
 pre code {
+  font-size: 15px;
   padding: 0px; /* 段落中的 code 左边的 padding=4px 会导致 pre 中的 code 第一行左边相对下面的其它行有一个向右的偏移 */
   background-color: transparent;
   color: #000;
