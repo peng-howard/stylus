@@ -109,7 +109,7 @@
 <meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/R/ggimage/Screenshot3.png">
 <meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/R/ggimage/geom_pokemon.png">
 <meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/R/ggimage/Screenshot2.png">
-<meta property="og:updated_time" content="2017-04-13T02:57:40.775Z">
+<meta property="og:updated_time" content="2017-04-13T04:18:31.066Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ggimage：ggplot2中愉快地使用图片z">
 <meta name="twitter:description" content="原文地址：https://cos.name/2017/04/ggimage/
@@ -446,10 +446,11 @@
 <p>博客：<a href="https://guangchuangyu.github.io" target="_blank" rel="external">https://guangchuangyu.github.io</a>， 公众号：biobabble</p>
 </blockquote>
 <h1 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h1><p>本文介绍了<strong>ggimage</strong>包，允许在<strong>ggplot2</strong>作图时嵌入图片，并支持<code>aes</code>映射，可以把离散型变量映射到不同图片。目前有几个包可以使用图片嵌入做图，但都是针对特定的场景，这里使用<strong>ggimage</strong>来展示在这些特定领域里的应用，<strong>ggimage</strong>的设计是通用的，并不被特定场景所限定，文末又介绍了用R图标来画出R、用饼图来画气泡图等实例。</p>
+<a id="more"></a>
 <h1 id="图上嵌图片"><a href="#图上嵌图片" class="headerlink" title="图上嵌图片"></a>图上嵌图片</h1><p>R 基础图形库（base graphics）可以在做图的时候嵌入图片，使用的是<code>graphics::rasterImage</code>：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">imgurl &lt;- <span class="string">"http://phylopic.org/assets/images/submissions/295cd9f7-eef2-441e-ba7e-40c772ca7611.256.png"</span></div><div class="line"><span class="keyword">library</span>(EBImage)</div><div class="line">x &lt;- readImage(imgurl)</div><div class="line">plot(<span class="number">1</span>, type = <span class="string">"n"</span>, xlab = <span class="string">""</span>, ylab = <span class="string">""</span>, xlim = c(<span class="number">0</span>, <span class="number">8</span>), ylim = c(<span class="number">0</span>, <span class="number">8</span>))</div><div class="line">rasterImage(x, <span class="number">2</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">4</span>)</div></pre></td></tr></table></figure>
 <p><img src="/stylus/images/R/ggimage/raster.png" alt="R绘图嵌入图片演示"></p>
-<a id="more"></a> 
+<!--more--> 
 <p>如果我们搜索”ggplot2 image”，会找到类似于下面这样的帖子/博文：</p>
 <ul>
 <li><a href="https://stackoverflow.com/questions/9917049/inserting-an-image-to-ggplot2" target="_blank" rel="external">r - Inserting an image to ggplot2 - Stack Overflow</a></li>
