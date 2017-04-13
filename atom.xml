@@ -79,8 +79,7 @@
     
       &lt;p&gt;&lt;strong&gt;原文地址&lt;/strong&gt;：&lt;a href=&quot;http://liam0205.me/2017/03/25/bias-variance-tradeoff/&quot;&gt;http://liam0205.me/2017/03/25/bias-variance-tradeoff/&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;准确&lt;/strong&gt;是两个概念。准是 &lt;strong&gt;bias&lt;/strong&gt; 小，确是 &lt;strong&gt;variance&lt;/strong&gt; 小。准确是相对概念，因为 bias-variance tradeoff。
-——Liam Huang&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;准确&lt;/strong&gt;是两个概念。准是 &lt;strong&gt;bias&lt;/strong&gt; 小，确是 &lt;strong&gt;variance&lt;/strong&gt; 小。准确是相对概念，因为 bias-variance tradeoff。&lt;br&gt;——Liam Huang&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;在机器学习领域，人们总是希望使自己的模型尽可能准确地描述数据背后的真是规律。通俗所言的「准确」，其实就是误差小。在领域中，排除人为失误，人们一般会遇到三种误差来源：随机误差、偏差和方差。偏差和方差又与「欠拟合」及「过拟合」紧紧联系在一起。由于随机误差是不可消除的，所以此篇我们讨论在偏差和方差之间的权衡（Bias-Variance Tradeoff）。&lt;/p&gt;
     
@@ -463,6 +462,26 @@
   </entry>
   
   <entry>
+    <title>Matlab统计学工具箱</title>
+    <link href="http://peng-howard.github.io/stylus/2012/12/04/matlab-statistics-toolbox/"/>
+    <id>http://peng-howard.github.io/stylus/2012/12/04/matlab-statistics-toolbox/</id>
+    <published>2012-12-03T16:00:00.000Z</published>
+    <updated>2017-04-12T16:42:13.527Z</updated>
+    
+    <summary type="html">
+    
+      &lt;div&gt;&lt;br&gt;&lt;div id=&quot;leftDivPre&quot; style=&quot;float:left; margin-right: 1em; padding-right: 1em; border-right: solid 3px #ddd;&quot;&gt;&lt;br&gt;表1 概率密度函数&lt;br&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Matlab" scheme="http://peng-howard.github.io/stylus/categories/Matlab/"/>
+    
+    
+      <category term="Matlab" scheme="http://peng-howard.github.io/stylus/tags/Matlab/"/>
+    
+  </entry>
+  
+  <entry>
     <title>R中如何取消科学计数法z</title>
     <link href="http://peng-howard.github.io/stylus/2012/12/04/cancel-scientific-notation-in-r/"/>
     <id>http://peng-howard.github.io/stylus/2012/12/04/cancel-scientific-notation-in-r/</id>
@@ -479,30 +498,6 @@
     
     
       <category term="R" scheme="http://peng-howard.github.io/stylus/tags/R/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Matlab统计学工具箱</title>
-    <link href="http://peng-howard.github.io/stylus/2012/12/04/matlab-statistics-toolbox/"/>
-    <id>http://peng-howard.github.io/stylus/2012/12/04/matlab-statistics-toolbox/</id>
-    <published>2012-12-03T16:00:00.000Z</published>
-    <updated>2017-04-12T16:42:13.527Z</updated>
-    
-    <summary type="html">
-    
-      &lt;div&gt;
-&lt;div id=&quot;leftDivPre&quot; style=&quot;float:left; margin-right: 1em; padding-right: 1em; border-right: solid 3px #ddd;&quot;&gt;
-表1 概率密度函数
-
-&lt;pre&gt;函数名    
-    
-    </summary>
-    
-      <category term="Matlab" scheme="http://peng-howard.github.io/stylus/categories/Matlab/"/>
-    
-    
-      <category term="Matlab" scheme="http://peng-howard.github.io/stylus/tags/Matlab/"/>
     
   </entry>
   
