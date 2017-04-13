@@ -438,12 +438,12 @@
 <pre><code>\w+(?=;)
 </code></pre><p>matches a word followed by a semicolon, but does not include the semicolon in the match, and</p>
 <pre><code>foo(?!bar)
-</code></pre><p>matches any occurrence of &quot;foo&quot; that is not followed by &quot;bar&quot;. Note that the apparently similar pattern</p>
+</code></pre><p>matches any occurrence of “foo” that is not followed by “bar”. Note that the apparently similar pattern</p>
 <pre><code>(?!foo)bar
-</code></pre><p>does not find an occurrence of &quot;bar&quot; that is preceded by something other than &quot;foo&quot;; it finds any occurrence of &quot;bar&quot; whatsoever, because the assertion (?!foo) is always TRUE when the next three characters are &quot;bar&quot;. A lookbehind assertion is needed to </p>
+</code></pre><p>does not find an occurrence of “bar” that is preceded by something other than “foo”; it finds any occurrence of “bar” whatsoever, because the assertion (?!foo) is always TRUE when the next three characters are “bar”. A lookbehind assertion is needed to </p>
 <p>achieve this effect. Lookbehind assertions start with (?&lt;= for positive assertions and (?&lt;! for negative assertions. For example,</p>
 <pre><code>(?&lt;!foo)bar
-</code></pre><p>does find an occurrence of &quot;bar&quot; that is not preceded by &quot;foo&quot;. The contents of a lookbehind assertion are restricted such that all the strings it matches must have a fixed length. However, if there are several alternatives, they do not all have to have </p>
+</code></pre><p>does find an occurrence of “bar” that is not preceded by “foo”. The contents of a lookbehind assertion are restricted such that all the strings it matches must have a fixed length. However, if there are several alternatives, they do not all have to have </p>
 <p>the same fixed length. Thus</p>
 <pre><code>(?&lt;=bullock|donkey)
 </code></pre><p>is permitted, but</p>
@@ -457,15 +457,15 @@
 <p>Lookbehinds in conjunction with once-only subpatterns can be particularly useful for matching at the ends of strings; an example is given at the end of the section on once-only subpatterns.</p>
 <p>Several assertions (of any sort) may occur in succession. For example,</p>
 <pre><code>(?&lt;=\d{3})(?&lt;!999)foo
-</code></pre><p>matches &quot;foo&quot; preceded by three digits that are not &quot;999&quot;. Notice that each of the assertions is applied independently at the same point in the subject string. First there is a check that the previous three characters are all digits, then there is a check </p>
-<p>that the same three characters are not &quot;999&quot;. This pattern does not match &quot;foo&quot; preceded by six characters, the first of which are digits and the last three of which are not &quot;999&quot;. For example, it doesn&#39;t match &quot;123abcfoo&quot;. A pattern to do that is</p>
+</code></pre><p>matches “foo” preceded by three digits that are not “999”. Notice that each of the assertions is applied independently at the same point in the subject string. First there is a check that the previous three characters are all digits, then there is a check </p>
+<p>that the same three characters are not “999”. This pattern does not match “foo” preceded by six characters, the first of which are digits and the last three of which are not “999”. For example, it doesn’t match “123abcfoo”. A pattern to do that is</p>
 <pre><code>(?&lt;=\d{3}...)(?&lt;!999)foo
-</code></pre><p>This time the first assertion looks at the preceding six characters, checking that the first three are digits, and then the second assertion checks that the preceding three characters are not &quot;999&quot;.</p>
+</code></pre><p>This time the first assertion looks at the preceding six characters, checking that the first three are digits, and then the second assertion checks that the preceding three characters are not “999”.</p>
 <p>Assertions can be nested in any combination. For example,</p>
 <pre><code>(?&lt;=(?&lt;!foo)bar)baz
-</code></pre><p>matches an occurrence of &quot;baz&quot; that is preceded by &quot;bar&quot; which in turn is not preceded by &quot;foo&quot;, while</p>
+</code></pre><p>matches an occurrence of “baz” that is preceded by “bar” which in turn is not preceded by “foo”, while</p>
 <pre><code>(?&lt;=\d{3}(?!999)...)foo
-</code></pre><p>is another pattern which matches &quot;foo&quot; preceded by three digits and any three characters that are not &quot;999&quot;.</p>
+</code></pre><p>is another pattern which matches “foo” preceded by three digits and any three characters that are not “999”.</p>
 <p>Assertion subpatterns are not capturing subpatterns, and may not be repeated, because it makes no sense to assert the same thing several times. If any kind of assertion contains capturing subpatterns within it, these are counted for the purposes of numbering the capturing subpatterns in the whole pattern. However, substring capturing is carried out only for positive assertions, because it does not make sense for negative assertions.</p>
 
       
@@ -509,8 +509,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/stylus/2007/07/18/tikz-dvipdfm-not-work/" rel="next" title="latex+dvipdfmx编译pgf图形无效的解决方法z">
-                <i class="fa fa-chevron-left"></i> latex+dvipdfmx编译pgf图形无效的解决方法z
+              <a href="/stylus/2007/07/18/regexp/" rel="next" title="几个正则表达式">
+                <i class="fa fa-chevron-left"></i> 几个正则表达式
               </a>
             
           </div>
@@ -519,8 +519,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/stylus/2007/07/18/regexp/" rel="prev" title="几个正则表达式">
-                几个正则表达式 <i class="fa fa-chevron-right"></i>
+              <a href="/stylus/2007/07/18/matlab-current-default-folder/" rel="prev" title="设置MATLAB中Current Folder的默认文件夹">
+                设置MATLAB中Current Folder的默认文件夹 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -600,7 +600,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -622,7 +622,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

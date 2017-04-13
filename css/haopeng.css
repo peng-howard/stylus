@@ -222,6 +222,14 @@ pre code {
   border-bottom-color: #0f0 !important;
 }
 /* 右侧 toc 当前 */
+.active a {
+  color: #bbb !important;
+  border-bottom-color: #bbb !important;
+}
+.active a:hover {
+  color: #0f0 !important;
+  border-bottom-color: #0f0 !important;
+}
 .active-current a {
   color: #2dbe60 !important;
   border-bottom-color: #2dbe60 !important;
@@ -315,6 +323,11 @@ em {
   display: block;
   text-align: center;
   font-style: normal;
+}
+table {
+  border-collapse: separate !important;
+  border-bottom: none;
+  table-layout: auto;
 }
 ::selection {
   background-color: #000;

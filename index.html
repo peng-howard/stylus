@@ -304,6 +304,172 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2017/03/29/ggimage/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2017/03/29/ggimage/" itemprop="url">
+                  ggimage：ggplot2中愉快地使用图片z
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-29T00:00:00+08:00">
+                2017-03-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2017/03/29/ggimage/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/03/29/ggimage/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>原文地址：<a href="https://cos.name/2017/04/ggimage/">https://cos.name/2017/04/ggimage/</a></p>
+<blockquote>
+<p>作者简介：余光创，香港大学公共卫生学院，生物信息学博士生。</p>
+<p>博客：<a href="https://guangchuangyu.github.io">https://guangchuangyu.github.io</a>， 公众号：biobabble</p>
+</blockquote>
+<h1 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h1><p>本文介绍了<strong>ggimage</strong>包，允许在<strong>ggplot2</strong>作图时嵌入图片，并支持<code>aes</code>映射，可以把离散型变量映射到不同图片。目前有几个包可以使用图片嵌入做图，但都是针对特定的场景，这里使用<strong>ggimage</strong>来展示在这些特定领域里的应用，<strong>ggimage</strong>的设计是通用的，并不被特定场景所限定，文末又介绍了用R图标来画出R、用饼图来画气泡图等实例。</p>
+<h1 id="图上嵌图片"><a href="#图上嵌图片" class="headerlink" title="图上嵌图片"></a>图上嵌图片</h1><p>R 基础图形库（base graphics）可以在做图的时候嵌入图片，使用的是<code>graphics::rasterImage</code>：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">imgurl &lt;- <span class="string">"http://phylopic.org/assets/images/submissions/295cd9f7-eef2-441e-ba7e-40c772ca7611.256.png"</span></div><div class="line"><span class="keyword">library</span>(EBImage)</div><div class="line">x &lt;- readImage(imgurl)</div><div class="line">plot(<span class="number">1</span>, type = <span class="string">"n"</span>, xlab = <span class="string">""</span>, ylab = <span class="string">""</span>, xlim = c(<span class="number">0</span>, <span class="number">8</span>), ylim = c(<span class="number">0</span>, <span class="number">8</span>))</div><div class="line">rasterImage(x, <span class="number">2</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">4</span>)</div></pre></td></tr></table></figure>
+<p><img src="/stylus/images/R/ggimage/raster.png" alt="R绘图嵌入图片演示"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/stylus/2017/03/29/ggimage/#more" rel="contents">
+              阅读全文
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2017/03/28/mathjax/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -589,8 +755,7 @@ em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</code>
         
           <p><strong>原文地址</strong>：<a href="http://liam0205.me/2017/03/25/bias-variance-tradeoff/">http://liam0205.me/2017/03/25/bias-variance-tradeoff/</a></p>
 <blockquote>
-<p><strong>准确</strong>是两个概念。准是 <strong>bias</strong> 小，确是 <strong>variance</strong> 小。准确是相对概念，因为 bias-variance tradeoff。
-——Liam Huang</p>
+<p><strong>准确</strong>是两个概念。准是 <strong>bias</strong> 小，确是 <strong>variance</strong> 小。准确是相对概念，因为 bias-variance tradeoff。<br>——Liam Huang</p>
 </blockquote>
 <p>在机器学习领域，人们总是希望使自己的模型尽可能准确地描述数据背后的真是规律。通俗所言的「准确」，其实就是误差小。在领域中，排除人为失误，人们一般会遇到三种误差来源：随机误差、偏差和方差。偏差和方差又与「欠拟合」及「过拟合」紧紧联系在一起。由于随机误差是不可消除的，所以此篇我们讨论在偏差和方差之间的权衡（Bias-Variance Tradeoff）。</p>
           <!--noindex-->
@@ -1759,174 +1924,11 @@ em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</code>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2013/06/09/r-packages-introduction/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hao Peng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/stylus/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="语千 ~ 刻一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/stylus/2013/06/09/r-packages-introduction/" itemprop="url">
-                  R的应用领域包介绍z
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-06-09T00:00:00+08:00">
-                2013-06-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/R/" itemprop="url" rel="index">
-                    <span itemprop="name">R</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/stylus/2013/06/09/r-packages-introduction/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2013/06/09/r-packages-introduction/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Analysis-of-Pharmacokinetic-Data-药物-代谢-动力学数据分析"><a href="#Analysis-of-Pharmacokinetic-Data-药物-代谢-动力学数据分析" class="headerlink" title="Analysis of Pharmacokinetic Data 药物(代谢)动力学数据分析"></a>Analysis of Pharmacokinetic Data 药物(代谢)动力学数据分析</h2><ul>
-<li><strong>网址</strong>：<a href="http://cran.r-project.org/web/views/Pharmacokinetics.html">http://cran.r-project.org/web/views/Pharmacokinetics.html</a></li>
-<li><strong>维护人员</strong>：Suzette Blanchard</li>
-<li><strong>版本</strong>：2008-02-15</li>
-<li><strong>翻译</strong>：R-fox, 2008-04-12</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/stylus/2013/06/09/r-packages-introduction/#more" rel="contents">
-              阅读全文
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/stylus/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/stylus/page/4/">4</a><a class="extend next" rel="next" href="/stylus/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/stylus/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/stylus/page/5/">5</a><a class="extend next" rel="next" href="/stylus/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1971,7 +1973,7 @@ em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</code>
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1993,7 +1995,7 @@ em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</code>
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

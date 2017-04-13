@@ -5,7 +5,7 @@
   <link href="/stylus/atom.xml" rel="self"/>
   
   <link href="http://peng-howard.github.io/stylus/"/>
-  <updated>2017-03-29T15:37:50.016Z</updated>
+  <updated>2017-04-13T02:57:40.775Z</updated>
   <id>http://peng-howard.github.io/stylus/</id>
   
   <author>
@@ -14,6 +14,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ggimage：ggplot2中愉快地使用图片z</title>
+    <link href="http://peng-howard.github.io/stylus/2017/03/29/ggimage/"/>
+    <id>http://peng-howard.github.io/stylus/2017/03/29/ggimage/</id>
+    <published>2017-03-28T16:00:00.000Z</published>
+    <updated>2017-04-13T02:57:40.775Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;原文地址：&lt;a href=&quot;https://cos.name/2017/04/ggimage/&quot;&gt;https://cos.name/2017/04/ggimage/&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;作者简介：余光创，香港大学公共卫生学院，生物信息学博士生。&lt;/p&gt;
+&lt;p&gt;博客：&lt;a href=&quot;https://guangchuangyu.github.io&quot;&gt;https://guangchuangyu.github.io&lt;/a&gt;， 公众号：biobabble&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;导言&quot;&gt;&lt;a href=&quot;#导言&quot; class=&quot;headerlink&quot; title=&quot;导言&quot;&gt;&lt;/a&gt;导言&lt;/h1&gt;&lt;p&gt;本文介绍了&lt;strong&gt;ggimage&lt;/strong&gt;包，允许在&lt;strong&gt;ggplot2&lt;/strong&gt;作图时嵌入图片，并支持&lt;code&gt;aes&lt;/code&gt;映射，可以把离散型变量映射到不同图片。目前有几个包可以使用图片嵌入做图，但都是针对特定的场景，这里使用&lt;strong&gt;ggimage&lt;/strong&gt;来展示在这些特定领域里的应用，&lt;strong&gt;ggimage&lt;/strong&gt;的设计是通用的，并不被特定场景所限定，文末又介绍了用R图标来画出R、用饼图来画气泡图等实例。&lt;/p&gt;
+&lt;h1 id=&quot;图上嵌图片&quot;&gt;&lt;a href=&quot;#图上嵌图片&quot; class=&quot;headerlink&quot; title=&quot;图上嵌图片&quot;&gt;&lt;/a&gt;图上嵌图片&lt;/h1&gt;&lt;p&gt;R 基础图形库（base graphics）可以在做图的时候嵌入图片，使用的是&lt;code&gt;graphics::rasterImage&lt;/code&gt;：&lt;/p&gt;
+&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;imgurl &amp;lt;- &lt;span class=&quot;string&quot;&gt;&quot;http://phylopic.org/assets/images/submissions/295cd9f7-eef2-441e-ba7e-40c772ca7611.256.png&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;library&lt;/span&gt;(EBImage)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;x &amp;lt;- readImage(imgurl)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;plot(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, type = &lt;span class=&quot;string&quot;&gt;&quot;n&quot;&lt;/span&gt;, xlab = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;, ylab = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;, xlim = c(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;8&lt;/span&gt;), ylim = c(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;8&lt;/span&gt;))&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;rasterImage(x, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;/stylus/images/R/ggimage/raster.png&quot; alt=&quot;R绘图嵌入图片演示&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/categories/R/"/>
+    
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/tags/R/"/>
+    
+      <category term="图形" scheme="http://peng-howard.github.io/stylus/tags/%E5%9B%BE%E5%BD%A2/"/>
+    
+      <category term="ggplot2" scheme="http://peng-howard.github.io/stylus/tags/ggplot2/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo 的 NexT 主题中使用 Mathjax</title>
@@ -50,8 +82,7 @@
     
       &lt;p&gt;&lt;strong&gt;原文地址&lt;/strong&gt;：&lt;a href=&quot;http://liam0205.me/2017/03/25/bias-variance-tradeoff/&quot;&gt;http://liam0205.me/2017/03/25/bias-variance-tradeoff/&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;准确&lt;/strong&gt;是两个概念。准是 &lt;strong&gt;bias&lt;/strong&gt; 小，确是 &lt;strong&gt;variance&lt;/strong&gt; 小。准确是相对概念，因为 bias-variance tradeoff。
-——Liam Huang&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;准确&lt;/strong&gt;是两个概念。准是 &lt;strong&gt;bias&lt;/strong&gt; 小，确是 &lt;strong&gt;variance&lt;/strong&gt; 小。准确是相对概念，因为 bias-variance tradeoff。&lt;br&gt;——Liam Huang&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;在机器学习领域，人们总是希望使自己的模型尽可能准确地描述数据背后的真是规律。通俗所言的「准确」，其实就是误差小。在领域中，排除人为失误，人们一般会遇到三种误差来源：随机误差、偏差和方差。偏差和方差又与「欠拟合」及「过拟合」紧紧联系在一起。由于随机误差是不可消除的，所以此篇我们讨论在偏差和方差之间的权衡（Bias-Variance Tradeoff）。&lt;/p&gt;
     
@@ -363,6 +394,27 @@
   </entry>
   
   <entry>
+    <title>R的内存管理和垃圾清理z</title>
+    <link href="http://peng-howard.github.io/stylus/2012/12/05/r-mem-gc/"/>
+    <id>http://peng-howard.github.io/stylus/2012/12/05/r-mem-gc/</id>
+    <published>2012-12-04T16:00:00.000Z</published>
+    <updated>2017-03-28T02:11:31.599Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;原文地址：&lt;a href=&quot;http://jliblog.com/archives/276&quot;&gt;http://jliblog.com/archives/276&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;写R程序的人，相信都会遇到过&lt;code&gt;“cannot allocate vector of size”&lt;/code&gt;或者&lt;code&gt;“无法分配大小为…的矢量”&lt;/code&gt;这样的错误。原因很简单，基本都是产生一个大矩阵等对象时发生的，最干脆的解决办法有两种，第一种是加大内存换64位系统，第二种是改变算法避免如此大的对象。第一种办法，是最好的办法，不过大对象的需求是没有止尽的，终究不是长久之道。第二种办法是最好的思路，无论多么大的对象都是可以弄小的，无非就是分而治之、时间换空间等，对算法的研究也是没有止尽的。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/categories/R/"/>
+    
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
     <title>R中字符串处理和grep的用法z</title>
     <link href="http://peng-howard.github.io/stylus/2012/12/05/r-string-grep/"/>
     <id>http://peng-howard.github.io/stylus/2012/12/05/r-string-grep/</id>
@@ -413,27 +465,6 @@
   </entry>
   
   <entry>
-    <title>R的内存管理和垃圾清理z</title>
-    <link href="http://peng-howard.github.io/stylus/2012/12/05/r-mem-gc/"/>
-    <id>http://peng-howard.github.io/stylus/2012/12/05/r-mem-gc/</id>
-    <published>2012-12-04T16:00:00.000Z</published>
-    <updated>2017-03-28T02:11:31.599Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;原文地址：&lt;a href=&quot;http://jliblog.com/archives/276&quot;&gt;http://jliblog.com/archives/276&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;写R程序的人，相信都会遇到过&lt;code&gt;“cannot allocate vector of size”&lt;/code&gt;或者&lt;code&gt;“无法分配大小为…的矢量”&lt;/code&gt;这样的错误。原因很简单，基本都是产生一个大矩阵等对象时发生的，最干脆的解决办法有两种，第一种是加大内存换64位系统，第二种是改变算法避免如此大的对象。第一种办法，是最好的办法，不过大对象的需求是没有止尽的，终究不是长久之道。第二种办法是最好的思路，无论多么大的对象都是可以弄小的，无非就是分而治之、时间换空间等，对算法的研究也是没有止尽的。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="R" scheme="http://peng-howard.github.io/stylus/categories/R/"/>
-    
-    
-      <category term="R" scheme="http://peng-howard.github.io/stylus/tags/R/"/>
-    
-  </entry>
-  
-  <entry>
     <title>R中如何取消科学计数法z</title>
     <link href="http://peng-howard.github.io/stylus/2012/12/04/cancel-scientific-notation-in-r/"/>
     <id>http://peng-howard.github.io/stylus/2012/12/04/cancel-scientific-notation-in-r/</id>
@@ -462,11 +493,7 @@
     
     <summary type="html">
     
-      &lt;div&gt;
-&lt;div id=&quot;leftDivPre&quot; style=&quot;float:left; margin-right: 1em; padding-right: 1em; border-right: solid 3px #ddd;&quot;&gt;
-表1 概率密度函数
-
-&lt;pre&gt;函数名    
+      &lt;div&gt;&lt;br&gt;&lt;div id=&quot;leftDivPre&quot; style=&quot;float:left; margin-right: 1em; padding-right: 1em; border-right: solid 3px #ddd;&quot;&gt;&lt;br&gt;表1 概率密度函数&lt;br&gt;&lt;br&gt;
     
     </summary>
     
@@ -474,41 +501,6 @@
     
     
       <category term="Matlab" scheme="http://peng-howard.github.io/stylus/tags/Matlab/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Matlab画二维图心得</title>
-    <link href="http://peng-howard.github.io/stylus/2012/11/23/matlab-ezplot-latex/"/>
-    <id>http://peng-howard.github.io/stylus/2012/11/23/matlab-ezplot-latex/</id>
-    <published>2012-11-22T16:00:00.000Z</published>
-    <updated>2017-03-27T17:07:17.820Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ol&gt;
-&lt;li&gt;&lt;code&gt;plot()&lt;/code&gt;函数主要用于已有坐标对的连接（包括单个坐标，利用这一点再加上修改&lt;code&gt;MarkSize&lt;/code&gt;可以画出指定大小的圆点等各种符号）；&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ezplot()&lt;/code&gt;既可以画普通函数的图像，也可以画隐函数图像，换句话说，对于给定的函数，&lt;code&gt;ezplot()&lt;/code&gt;可以实现&lt;code&gt;plot()&lt;/code&gt;的结果；&lt;/li&gt;
-&lt;li&gt;根据&lt;code&gt;ezplot()&lt;/code&gt;作隐函数图像的原理，&lt;a href=&quot;http://www.ilovematlab.cn/thread-21438-1-1.html&quot;&gt;http://www.ilovematlab.cn/thread-21438-1-1.html&lt;/a&gt;给出了一种用&lt;code&gt;ezplot()&lt;/code&gt;同时画两条曲线的巧妙方法，但要注意该方法无法将两条曲线区分开来，因此可能会导致利用&lt;code&gt;legend()&lt;/code&gt;添加图例的意图无法达到。&lt;/li&gt;
-&lt;li&gt;添加多条曲线时要利用好&lt;code&gt;hold on&lt;/code&gt;这一语句；&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;axis&lt;/code&gt;的刻度在默认情况下会自动根据给出的最后一次&lt;code&gt;ezplot()&lt;/code&gt;进行调整，如果不希望画出的图像为自适应大小，需要在图像绘制完成后，手工指定axis的x轴与y轴最大、最小刻度；&lt;/li&gt;
-&lt;li&gt;添加箭头可以用annotation完成，要注意其坐标是相对大小，在&lt;code&gt;[0,1]&lt;/code&gt;之间，我个人比较喜欢PSTricks的箭头风格，因此也会考虑在PSTricks中对已生成的图像进行深加工；&lt;/li&gt;
-&lt;li&gt;可以将&lt;code&gt;ezplot()&lt;/code&gt;和&lt;code&gt;legend()&lt;/code&gt;的结果赋给某个变量，再通过&lt;code&gt;set()&lt;/code&gt;函数对图像对象或者&lt;code&gt;legend&lt;/code&gt;对象进行字体大小、颜色等的操作；&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;latex()&lt;/code&gt;函数可以用于将指定的符号表达式转换成LaTeX语法格式；&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sym()&lt;/code&gt;函数可以用于将某个数值对象转换成符号表达式以供&lt;code&gt;latex()&lt;/code&gt;函数使用；&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;title&lt;/code&gt;、&lt;code&gt;xlabel&lt;/code&gt;、&lt;code&gt;ylabel&lt;/code&gt;、&lt;code&gt;zlabel&lt;/code&gt;、&lt;code&gt;textbox&lt;/code&gt;和&lt;code&gt;text&lt;/code&gt;等函数可以利用&lt;code&gt;&amp;#39;Interpreter&amp;#39;&lt;/code&gt;,&lt;code&gt;&amp;#39;latex&amp;#39;&lt;/code&gt;加载LaTeX格式；&lt;/li&gt;
-&lt;li&gt;因为&lt;code&gt;Legend&lt;/code&gt;没有&lt;code&gt;Interpreter&lt;/code&gt;属性，所以如果要在其中使用LaTeX，必须获取对应的文字句柄，并对文字对象设置&lt;code&gt;String&lt;/code&gt;和&lt;code&gt;Interpreter&lt;/code&gt;属性，关于这一点可以参考：&lt;a href=&quot;http://www.mathworks.com/matlabcentral/newsreader/view_thread/254118&quot;&gt;http://www.mathworks.com/matlabcentral/newsreader/view_thread/254118&lt;/a&gt;和&lt;a href=&quot;http://sites.google.com/site/sleepingwalking/matlab/latex-in-legend&quot;&gt;http://sites.google.com/site/sleepingwalking/matlab/latex-in-legend&lt;/a&gt;，从下面的示例可以看到，&lt;code&gt;String&lt;/code&gt;不一定必要；&lt;/li&gt;
-&lt;li&gt;将图像插入LaTeX文档时，建议不要使用&lt;code&gt;pdf&lt;/code&gt;格式，而是使用&lt;code&gt;eps&lt;/code&gt;格式，否则得到的图像结果锯齿感会比较明显。&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="Matlab" scheme="http://peng-howard.github.io/stylus/categories/Matlab/"/>
-    
-    
-      <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/tags/LaTeX/"/>
-    
-      <category term="图形" scheme="http://peng-howard.github.io/stylus/tags/%E5%9B%BE%E5%BD%A2/"/>
     
   </entry>
   

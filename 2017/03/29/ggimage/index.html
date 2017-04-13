@@ -1,0 +1,1248 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next muse" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/stylus/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+<link href="/stylus/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/stylus/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="R,图形,ggplot2," />
+
+
+
+
+
+  <link rel="alternate" href="/stylus/atom.xml" title="语千 ~ 刻一" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/stylus/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="原文地址：https://cos.name/2017/04/ggimage/
+
+作者简介：余光创，香港大学公共卫生学院，生物信息学博士生。
+博客：https://guangchuangyu.github.io， 公众号：biobabble
+
+导言本文介绍了ggimage包，允许在ggplot2作图时嵌入图片，并支持aes映射，可以把离散型变量映射到不同图片。目前有几个包可以使用图片嵌入做图，但都是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ggimage：ggplot2中愉快地使用图片z">
+<meta property="og:url" content="http://peng-howard.github.io/stylus/2017/03/29/ggimage/index.html">
+<meta property="og:site_name" content="语千 ~ 刻一">
+<meta property="og:description" content="原文地址：https://cos.name/2017/04/ggimage/
+
+作者简介：余光创，香港大学公共卫生学院，生物信息学博士生。
+博客：https://guangchuangyu.github.io， 公众号：biobabble
+
+导言本文介绍了ggimage包，允许在ggplot2作图时嵌入图片，并支持aes映射，可以把离散型变量映射到不同图片。目前有几个包可以使用图片嵌入做图，但都是">
+<meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/R/ggimage/raster.png">
+<meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/R/ggimage/Screenshot1.png">
+<meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/R/ggimage/ggimage_CatterPlots.png">
+<meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/R/ggimage/ggimage_rphylopic.png">
+<meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/R/ggimage/emoji_residual2.png">
+<meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/R/ggimage/olympics_2016.png">
+<meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/R/ggimage/R.png">
+<meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/R/ggimage/us_crime.png">
+<meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/R/ggimage/us_crime.gif">
+<meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/R/ggimage/mm.png">
+<meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/R/ggimage/Screenshot3.png">
+<meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/R/ggimage/geom_pokemon.png">
+<meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/R/ggimage/Screenshot2.png">
+<meta property="og:updated_time" content="2017-04-13T02:57:40.775Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ggimage：ggplot2中愉快地使用图片z">
+<meta name="twitter:description" content="原文地址：https://cos.name/2017/04/ggimage/
+
+作者简介：余光创，香港大学公共卫生学院，生物信息学博士生。
+博客：https://guangchuangyu.github.io， 公众号：biobabble
+
+导言本文介绍了ggimage包，允许在ggplot2作图时嵌入图片，并支持aes映射，可以把离散型变量映射到不同图片。目前有几个包可以使用图片嵌入做图，但都是">
+<meta name="twitter:image" content="http://peng-howard.github.io/stylus/stylus/images/R/ggimage/raster.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/stylus/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://peng-howard.github.io/stylus/2017/03/29/ggimage/"/>
+
+
+
+
+
+  <title> ggimage：ggplot2中愉快地使用图片z | 语千 ~ 刻一 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/stylus/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">语千 ~ 刻一</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/stylus/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/stylus/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/stylus/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/stylus/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/stylus/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/stylus/links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
+            
+            链接
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2017/03/29/ggimage/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ggimage：ggplot2中愉快地使用图片z
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-29T00:00:00+08:00">
+                2017-03-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2017/03/29/ggimage/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/03/29/ggimage/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>原文地址：<a href="https://cos.name/2017/04/ggimage/" target="_blank" rel="external">https://cos.name/2017/04/ggimage/</a></p>
+<blockquote>
+<p>作者简介：余光创，香港大学公共卫生学院，生物信息学博士生。</p>
+<p>博客：<a href="https://guangchuangyu.github.io" target="_blank" rel="external">https://guangchuangyu.github.io</a>， 公众号：biobabble</p>
+</blockquote>
+<h1 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h1><p>本文介绍了<strong>ggimage</strong>包，允许在<strong>ggplot2</strong>作图时嵌入图片，并支持<code>aes</code>映射，可以把离散型变量映射到不同图片。目前有几个包可以使用图片嵌入做图，但都是针对特定的场景，这里使用<strong>ggimage</strong>来展示在这些特定领域里的应用，<strong>ggimage</strong>的设计是通用的，并不被特定场景所限定，文末又介绍了用R图标来画出R、用饼图来画气泡图等实例。</p>
+<h1 id="图上嵌图片"><a href="#图上嵌图片" class="headerlink" title="图上嵌图片"></a>图上嵌图片</h1><p>R 基础图形库（base graphics）可以在做图的时候嵌入图片，使用的是<code>graphics::rasterImage</code>：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">imgurl &lt;- <span class="string">"http://phylopic.org/assets/images/submissions/295cd9f7-eef2-441e-ba7e-40c772ca7611.256.png"</span></div><div class="line"><span class="keyword">library</span>(EBImage)</div><div class="line">x &lt;- readImage(imgurl)</div><div class="line">plot(<span class="number">1</span>, type = <span class="string">"n"</span>, xlab = <span class="string">""</span>, ylab = <span class="string">""</span>, xlim = c(<span class="number">0</span>, <span class="number">8</span>), ylim = c(<span class="number">0</span>, <span class="number">8</span>))</div><div class="line">rasterImage(x, <span class="number">2</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">4</span>)</div></pre></td></tr></table></figure>
+<p><img src="/stylus/images/R/ggimage/raster.png" alt="R绘图嵌入图片演示"></p>
+<a id="more"></a> 
+<p>如果我们搜索”ggplot2 image”，会找到类似于下面这样的帖子/博文：</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/9917049/inserting-an-image-to-ggplot2" target="_blank" rel="external">r - Inserting an image to ggplot2 - Stack Overflow</a></li>
+<li><a href="https://www.r-bloggers.com/add-a-background-png-image-to-ggplot2/" target="_blank" rel="external">Add a background png image to ggplot2 | R-bloggers</a></li>
+</ul>
+<p>也就是说通过程序员秘笈，搜索，我们用<strong>ggplot2</strong>同样也可以做到。</p>
+<p>这里我们需要用到<code>annotation_custom(rasterGrob)</code>来把图片加到<strong>ggplot2</strong>图形中，这和基础图形库是一模一样的。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(grid)</div><div class="line"><span class="keyword">library</span>(ggplot2)</div><div class="line"></div><div class="line">p &lt;- ggplot(d = data.frame(x = c(<span class="number">0</span>, <span class="number">8</span>), y = c(<span class="number">0</span>, <span class="number">8</span>)), aes(x, y)) + geom_blank()</div><div class="line">p + annotation_custom(rasterGrob(x), <span class="number">2</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">4</span>)</div></pre></td></tr></table></figure>
+<p>如果要使用图片来打点画一个散点图，我们就需要<code>for</code>循环，对每一个点进行操作，这显然是底层的操作，而<strong>ggplot2</strong>是一个高抽象的画图系统，我们希望能够使用<strong>ggplot2</strong>的语法。</p>
+<p><strong>ggimage</strong>就是来实现这样一个功能，它只是一个简单的包，允许我们在ggplot2中把离散性变量映射到不同的图片来画图。</p>
+<p><img src="/stylus/images/R/ggimage/Screenshot1.png" alt="推特截屏：把图片当字体一样使用"></p>
+<p>实现这个功能的想法已经酝酿很久了，在<strong>ggtree</strong>的开发中，我实现了<code>phylopic</code>函数来使用Phylopic数据库的图片注释进化树，也实现了<code>subview</code>函数在图上嵌入小图。用图片来注释进化树在进化分析上还是很常见的，特别是在一些分类学的研究中，需要把一些分类学特征在进化树上展示出来，而像我们做病毒，也经常会把一些图片放在进化树上来展示病毒的宿主信息。</p>
+<p><strong>ggtree</strong>和可视化有关的函数分两类，一类是加注释的图层，另一类是可视化操作树（比如像旋转、合并分支）。操作树的都是普通函数，而加注释的都是<code>geom</code>图层，除了<code>subview</code>和<code>phylopic</code>，这种所谓逼死处女座的存在，我早就想改成了<code>geom_subview</code>和<code>geom_phylopic</code>了（已实现），这也是为什么我要写<strong>ggimage</strong>的原因了。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p><strong>ggimage</strong>依赖于<strong>EBImage</strong>来读图片，这是个Bioconductor包，所以我们需要额外的动作来安装它，用<code>setRepositories</code>把Bioconductor软件仓库加进来，这样<code>install.packages</code>也可以搜索到它的包。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">setRepositories(ind = <span class="number">1</span>:<span class="number">2</span>)</div><div class="line">install.packages(<span class="string">"ggimage"</span>)</div></pre></td></tr></table></figure>
+<h1 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h1><p>据我所知目前支持使用图片的R包有<strong>CatterPlots</strong>, <strong>rphylopic</strong>, <strong>emoGG</strong>,<br><strong>ggflags</strong>这几个，都是为特定的目的而实现的，都有其特定的应用场景，而<strong>ggimage</strong>是的<br><code>geom_image</code>是通用的，通过对它进行简单的包装，同样可以实现这些特殊场景的应用图层。</p>
+<p><strong>CatterPlots</strong>这个包只可以应用于基础图形库（base graphics）中，通过预设的几个猫图（R对象，随包载入）来画散点图。最近<a href="http://blog.revolutionanalytics.com/2017/02/catterplots-plots-with-cats.html" target="_blank" rel="external">RevolutionAnalytics 有博文</a>介绍。<strong>ggplot2</strong>没有相应画猫的包。我们可以使用<strong>ggimage</strong>来画，而且不用限制于<strong>CatterPlots</strong>预设的几个图形。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(ggplot2)</div><div class="line"><span class="keyword">library</span>(ggimage)</div><div class="line"></div><div class="line">mytheme &lt;- theme_minimal() +</div><div class="line">    theme(axis.title = element_blank())</div><div class="line">theme_set(mytheme)</div><div class="line"></div><div class="line">x &lt;- seq(-<span class="number">2</span> * pi, <span class="number">2</span> * pi, length.out = <span class="number">30</span>)</div><div class="line">d &lt;- data.frame(x = x, y = sin(x))</div><div class="line"></div><div class="line">img &lt;- <span class="string">"http://www.belleamibengals.com/bengal_cat_2.png"</span></div><div class="line">ggplot(d, aes(x, y)) + geom_image(image = img, size = <span class="number">.1</span>)</div></pre></td></tr></table></figure>
+<p><img src="/stylus/images/R/ggimage/ggimage_CatterPlots.png" alt="ggimage画猫散点图演示"></p>
+<p><strong>CatterPlots</strong>实现的方式就是上面谈到的<code>rasterImage</code>内部使用了循环。<strong>rphylopic</strong>同时支持基础图形库（base graphics）和<strong>ggplot2</strong>，也是一样的实现方式，不过<strong>rphylopic</strong>内部没有使用循环，一次只能加一个图，它使用的图来自于<a href="http://phylopic.org/" target="_blank" rel="external">phylopic</a>数据库。</p>
+<p>我们用<strong>ggimage</strong>同样可以使用<code>phylopic</code>图片：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ggplot(d, aes(x, y)) + geom_phylopic(image = <span class="string">"500bd7c6-71c1-4b86-8e54-55f72ad1beca"</span>, size = <span class="number">.1</span>)</div></pre></td></tr></table></figure>
+<p><img src="/stylus/images/R/ggimage/ggimage_rphylopic.png" alt="ggimage使用phylopic图片演示"></p>
+<blockquote>
+<p>图中是<code>翼足目</code>动物。</p>
+</blockquote>
+<p><strong>emoGG</strong>是专门来画<code>emoji</code>的，如果要画<code>emoji</code>的话，我推荐我写的<strong>emojifont</strong>包，在轩哥的<a href="https://cos.name/2014/01/showtext-interesting-fonts-and-graphs/" target="_blank" rel="external"><strong>showtext</strong>基础</a>上，把<code>emoji</code>当做普通字体一样操作，更方便。</p>
+<p><strong>emoGG</strong>这个包提供了<code>geom_emoji</code>图层，虽然一次可以画出散点，但因为不支持<code>aes</code>映射，而<strong>ggimage</strong>所提供的<code>geom_emoji</code>则支持映射，下面的例子中我们做了一个简单的回归分析，如果残差<code>&lt;0.5</code>用笑脸表示，<code>&gt;0.5</code>则用哭脸来表示。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">set.seed(<span class="number">123</span>)</div><div class="line">iris2 &lt;- iris[sample(<span class="number">1</span>:nrow(iris), <span class="number">30</span>), ]</div><div class="line">model &lt;- lm(Petal.Length ~ Sepal.Length, data = iris2)</div><div class="line">iris2$fitted &lt;- predict(model)</div><div class="line"></div><div class="line">p &lt;- ggplot(iris2, aes(x = Sepal.Length, y = Petal.Length)) +</div><div class="line">  geom_linerange(aes(ymin = fitted, ymax = Petal.Length),</div><div class="line">                 colour = <span class="string">"purple"</span>) +</div><div class="line">  geom_abline(intercept = model$coefficients[<span class="number">1</span>],</div><div class="line">              slope = model$coefficients[<span class="number">2</span>])</div><div class="line"></div><div class="line">p + ggimage::geom_emoji(aes(image = ifelse(abs(Petal.Length-fitted) &gt; <span class="number">0.5</span>, <span class="string">'1f622'</span>, <span class="string">'1f600'</span>)))</div></pre></td></tr></table></figure>
+<p><img src="/stylus/images/R/ggimage/emoji_residual2.png" alt="ggimage画emoji演示"></p>
+<p>如果要用<strong>emoGG</strong>来做的话，则需要自己切数据分两次来进行：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p + emoGG::geom_emoji(data = subset(iris2, (Petal.Length-fitted) &lt; <span class="number">0.5</span>), emoji = <span class="string">"1f600"</span>) +</div><div class="line">    emoGG::geom_emoji(data = subset(iris2, (Petal.Length-fitted) &gt; <span class="number">0.5</span>), emoji = <span class="string">"1f622"</span>)</div></pre></td></tr></table></figure>
+<p>这里我们只分两类(残差是否大于0.5)，所以需要加两次，试想我们的分类变量有多种可能的取值，则我们需要分多次切数据加图层，<strong>CatterPlots</strong>、<strong>rphylopic</strong>和<strong>emoGG</strong>都有这个问题，这也是<code>aes</code>映射之于<strong>ggplot2</strong>的重要和强大之处，它让我们可以在更高的抽像水平思考，</p>
+<p><strong>ggflags</strong>是支持<code>aes</code>映射的，只不过它只能用来画国旗而已。同样<strong>ggimage</strong>也提供<br>了相应的<code>geom_flag</code>来使用国旗用于做图。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(rvest)</div><div class="line"><span class="keyword">library</span>(dplyr)</div><div class="line"></div><div class="line">url &lt;- <span class="string">"http://www.nbcolympics.com/medals"</span></div><div class="line"></div><div class="line">medals &lt;- read_html(url) %&gt;%</div><div class="line">    html_nodes(<span class="string">"table"</span>) %&gt;%</div><div class="line">    html_table() %&gt;% .[[<span class="number">1</span>]]</div><div class="line"></div><div class="line"><span class="keyword">library</span>(countrycode)</div><div class="line"><span class="keyword">library</span>(tidyr)</div><div class="line"></div><div class="line">medals &lt;- medals %&gt;%</div><div class="line">    mutate(code = countrycode(Country, <span class="string">"country.name"</span>, <span class="string">"iso2c"</span>)) %&gt;%</div><div class="line">    gather(medal, count, Gold:Bronze) %&gt;%</div><div class="line">    filter(Total &gt;= <span class="number">10</span>)</div><div class="line"></div><div class="line">head(medals)</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Country</th>
+<th style="text-align:right">Total</th>
+<th style="text-align:left">code</th>
+<th style="text-align:left">medal</th>
+<th style="text-align:right">count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Russia</td>
+<td style="text-align:right">33</td>
+<td style="text-align:left">RU</td>
+<td style="text-align:left">Gold</td>
+<td style="text-align:right">13</td>
+</tr>
+<tr>
+<td style="text-align:left">United States</td>
+<td style="text-align:right">28</td>
+<td style="text-align:left">US</td>
+<td style="text-align:left">Gold</td>
+<td style="text-align:right">9</td>
+</tr>
+<tr>
+<td style="text-align:left">Norway</td>
+<td style="text-align:right">26</td>
+<td style="text-align:left">NO</td>
+<td style="text-align:left">Gold</td>
+<td style="text-align:right">11</td>
+</tr>
+<tr>
+<td style="text-align:left">Canada</td>
+<td style="text-align:right">25</td>
+<td style="text-align:left">CA</td>
+<td style="text-align:left">Gold</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:left">Netherlands</td>
+<td style="text-align:right">24</td>
+<td style="text-align:left">NL</td>
+<td style="text-align:left">Gold</td>
+<td style="text-align:right">8</td>
+</tr>
+<tr>
+<td style="text-align:left">Germany</td>
+<td style="text-align:right">19</td>
+<td style="text-align:left">DE</td>
+<td style="text-align:left">Gold</td>
+<td style="text-align:right">8</td>
+</tr>
+</tbody>
+</table>
+<p>首先我们从网站上爬回来2016年各个国家的奥林匹克奖牌数，画出柱状图，并在<code>xlab</code>国家名边上用<strong>ggimage</strong>画上国旗：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">p &lt;- ggplot(medals, aes(Country, count)) + geom_col(aes(fill = medal), width = <span class="number">.8</span>)</div><div class="line"></div><div class="line">p + geom_flag(y = -<span class="number">2</span>, aes(image = code)) +</div><div class="line">    coord_flip() + expand_limits(y = -<span class="number">2</span>)  +</div><div class="line">    scale_fill_manual(values = c(<span class="string">"Gold"</span> = <span class="string">"gold"</span>, <span class="string">"Bronze"</span> = <span class="string">"#cd7f32"</span>, <span class="string">"Silver"</span> = <span class="string">"#C0C0C0"</span>))</div></pre></td></tr></table></figure>
+<p><img src="/stylus/images/R/ggimage/olympics_2016.png" alt="ggimage画国旗演示"></p>
+<h2 id="ggimage"><a href="#ggimage" class="headerlink" title="ggimage"></a><strong>ggimage</strong></h2><p>前面我们介绍了<strong>ggimage</strong>在一些场景的应用实例，虽然有专门的包针对这些应用场景，但<strong>ggimage</strong>在这些领域中的表现要比大多数的包要好（支持aes映射）。但<strong>ggimage</strong>的使用并不限于这些(<code>geom_phylopic</code>，<code>geom_emoji</code>和<code>geom_flag</code>只是通用图层<code>geom_image</code>的简单封装)，这里将展示一些有趣的例子。</p>
+<h3 id="用R图标来画R形状"><a href="#用R图标来画R形状" class="headerlink" title="用R图标来画R形状"></a>用R图标来画R形状</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">x &lt;- c(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3.5</span>, <span class="number">3.5</span>, <span class="number">4</span>)</div><div class="line">y &lt;- c(<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">2</span>)</div><div class="line">d &lt;- data.frame(x = x, y = y)</div><div class="line"></div><div class="line">img &lt;- system.file(<span class="string">"img"</span>, <span class="string">"Rlogo.png"</span>, package = <span class="string">"png"</span>)</div><div class="line">ggplot(d, aes(x, y)) + geom_image(image = img, size = <span class="number">.1</span>) +</div><div class="line">  xlim(<span class="number">0</span>, <span class="number">6</span>) + ylim(<span class="number">0</span>, <span class="number">7</span>)</div></pre></td></tr></table></figure>
+<p><img src="/stylus/images/R/ggimage/R.png" alt="用R图标画R形状演示"></p>
+<h3 id="嵌套式绘图"><a href="#嵌套式绘图" class="headerlink" title="嵌套式绘图"></a>嵌套式绘图</h3><p>这里我要展示的是非常有名的气泡图（Bubble Plot），但气泡不是圆圈，而是使用<br><strong>ggplot2</strong>画的饼图，我先把饼图保存起来，再用<strong>ggimage</strong>拿来画，饼图的大小<br>与人口总数正相关。这个例子可以应用到很多场景中去，比如一个时间序列的曲线，你要用统计图在某些时间点上展示相关的信息，比如你要在地图上加某些地方的相关统计信息（如果要在地图上画饼图，可以使用我写的<a href="https://cran.r-project.org/package=scatterpie" target="_blank" rel="external"><strong>scatterpie</strong></a>包）。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">crime &lt;- read.csv(<span class="string">"http://datasets.flowingdata.com/crimeRatesByState2005.tsv"</span>,</div><div class="line">                  header = <span class="literal">TRUE</span>, sep = <span class="string">"\t"</span>, stringsAsFactors = <span class="literal">F</span>)</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">state</th>
+<th style="text-align:right">murder</th>
+<th style="text-align:right">Forcible_rate</th>
+<th style="text-align:right">Robbery</th>
+<th style="text-align:right">aggravated_assult</th>
+<th style="text-align:right">burglary</th>
+<th style="text-align:right">larceny_theft</th>
+<th style="text-align:right">motor_vehicle_theft</th>
+<th style="text-align:right">population</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Alabama</td>
+<td style="text-align:right">8.2</td>
+<td style="text-align:right">34.3</td>
+<td style="text-align:right">141.4</td>
+<td style="text-align:right">247.8</td>
+<td style="text-align:right">953.8</td>
+<td style="text-align:right">2650.0</td>
+<td style="text-align:right">288.3</td>
+<td style="text-align:right">4627851</td>
+</tr>
+<tr>
+<td style="text-align:left">Alaska</td>
+<td style="text-align:right">4.8</td>
+<td style="text-align:right">81.1</td>
+<td style="text-align:right">80.9</td>
+<td style="text-align:right">465.1</td>
+<td style="text-align:right">622.5</td>
+<td style="text-align:right">2599.1</td>
+<td style="text-align:right">391.0</td>
+<td style="text-align:right">686293</td>
+</tr>
+<tr>
+<td style="text-align:left">Arizona</td>
+<td style="text-align:right">7.5</td>
+<td style="text-align:right">33.8</td>
+<td style="text-align:right">144.4</td>
+<td style="text-align:right">327.4</td>
+<td style="text-align:right">948.4</td>
+<td style="text-align:right">2965.2</td>
+<td style="text-align:right">924.4</td>
+<td style="text-align:right">6500180</td>
+</tr>
+<tr>
+<td style="text-align:left">Arkansas</td>
+<td style="text-align:right">6.7</td>
+<td style="text-align:right">42.9</td>
+<td style="text-align:right">91.1</td>
+<td style="text-align:right">386.8</td>
+<td style="text-align:right">1084.6</td>
+<td style="text-align:right">2711.2</td>
+<td style="text-align:right">262.1</td>
+<td style="text-align:right">2855390</td>
+</tr>
+<tr>
+<td style="text-align:left">California</td>
+<td style="text-align:right">6.9</td>
+<td style="text-align:right">26.0</td>
+<td style="text-align:right">176.1</td>
+<td style="text-align:right">317.3</td>
+<td style="text-align:right">693.3</td>
+<td style="text-align:right">1916.5</td>
+<td style="text-align:right">712.8</td>
+<td style="text-align:right">36756666</td>
+</tr>
+<tr>
+<td style="text-align:left">Colorado</td>
+<td style="text-align:right">3.7</td>
+<td style="text-align:right">43.4</td>
+<td style="text-align:right">84.6</td>
+<td style="text-align:right">264.7</td>
+<td style="text-align:right">744.8</td>
+<td style="text-align:right">2735.2</td>
+<td style="text-align:right">559.5</td>
+<td style="text-align:right">4861515</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(gtable)</div><div class="line"></div><div class="line">plot_pie &lt;- <span class="keyword">function</span>(i) &#123;</div><div class="line">    df &lt;- gather(crime[i, ], type, value, murder:motor_vehicle_theft)</div><div class="line">    ggplot(df, aes(x = <span class="number">1</span>, value, fill = type)) +</div><div class="line">        geom_col() + coord_polar(theta = <span class="string">'y'</span>) +</div><div class="line">        ggtitle(crime[i, <span class="string">"state"</span>]) +</div><div class="line">        theme_void() + theme_transparent() +</div><div class="line">        theme(legend.position = <span class="string">"none"</span>,</div><div class="line">              plot.title = element_text(size = rel(<span class="number">6</span>), hjust = <span class="number">0.5</span>))</div><div class="line">&#125;</div><div class="line"></div><div class="line">pies &lt;- sapply(<span class="number">1</span>:nrow(crime), <span class="keyword">function</span>(i) &#123;</div><div class="line">    outfile &lt;- paste0(<span class="string">"crime_"</span>, i, <span class="string">".png"</span>)</div><div class="line">    plot_pie(i) + ggsave(outfile, bg = <span class="string">"transparent"</span>)</div><div class="line">    outfile</div><div class="line">&#125;)</div><div class="line"></div><div class="line">radius &lt;- sqrt(crime$population / pi)</div><div class="line">crime$radius &lt;- <span class="number">0.2</span> * radius/max(radius)</div><div class="line">crime$pie &lt;- pies</div><div class="line"></div><div class="line">leg1 &lt;- gtable_filter(</div><div class="line">    ggplot_gtable(</div><div class="line">        ggplot_build(plot_pie(<span class="number">1</span>) + theme(legend.position = <span class="string">"right"</span>))</div><div class="line">    ), <span class="string">"guide-box"</span>)</div><div class="line"></div><div class="line">ggplot(crime, aes(murder, Robbery)) +</div><div class="line">  geom_image(aes(image = pie, size = I(radius))) +</div><div class="line">  geom_subview(leg1, x = <span class="number">8.8</span>, y = <span class="number">50</span>)</div></pre></td></tr></table></figure>
+<p><img src="/stylus/images/R/ggimage/us_crime.png" alt="嵌套式绘图演示：用饼图来画气泡图"></p>
+<p>我们还可以每次只画一个州的数据，制作成动图。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">plot_crime &lt;- <span class="keyword">function</span>(i) &#123;</div><div class="line">    o &lt;- paste0(i, <span class="string">".png"</span>)</div><div class="line">    ggplot(crime, aes(murder, Robbery)) + geom_blank() +</div><div class="line">        geom_image(data = crime[i, ], aes(image = pie, size = I(radius))) +</div><div class="line">        geom_subview(p, leg1, x = <span class="number">8.8</span>, y = <span class="number">50</span>) + ggsave(o)</div><div class="line">    o</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">library</span>(magick)</div><div class="line"><span class="keyword">library</span>(purrr)</div><div class="line">order(crime$murder, decreasing = <span class="literal">F</span>) %&gt;%</div><div class="line">    map(plot_crime) %&gt;%</div><div class="line">    map(image_read) %&gt;%</div><div class="line">    image_join() %&gt;%</div><div class="line">    image_animate(fps = <span class="number">2</span>) %&gt;%</div><div class="line">    image_write(<span class="string">"crime.gif"</span>)</div></pre></td></tr></table></figure>
+<p><img src="/stylus/images/R/ggimage/us_crime.gif" alt="嵌套式绘图演示，动图版本"></p>
+<p><code>geom_subview</code>可以图上嵌图，并不需要保存为图片，但对于<strong>ggplot2</strong>来讲，保存图片也是有好处的，因为<strong>ggplot2</strong>画图，点线是在数据空间上，随着我们保存图片的大小是按比例缩小或放大的，但文字是在像素空间上，和画图空间并不相关。所以当我们嵌图时缩小了画图窗口之后，字体会显得格外大，微调起来也比较繁琐，这时候保存为合适尺寸的图片，再用<code>geom_image</code>来加上去，显然就轻松得多。</p>
+<h3 id="其它来自R社区的例子"><a href="#其它来自R社区的例子" class="headerlink" title="其它来自R社区的例子"></a>其它来自R社区的例子</h3><p>SAS博客对<code>M&amp;M</code>巧克力的<a href="http://blogs.sas.com/content/iml/2017/02/20/proportion-of-colors-mandms.html" target="_blank" rel="external">颜色分布做了分析</a>，通过模拟估计不同颜色的置信区间。这个<a href="http://rpubs.com/hrbrmstr/mms" target="_blank" rel="external">分析被翻译成R</a>，并产生下图：</p>
+<p><img src="/stylus/images/R/ggimage/mm.png" alt="M&amp;M例子展示"></p>
+<p>其中垂直片段|是真实值，水平片段当然就是置信空间了，而估计值用了<strong>ggimage</strong>来画不同颜色的巧克力。</p>
+<p>另一个例子是<a href="https://rpubs.com/bhaskarvk/disney" target="_blank" rel="external">迪斯尼电影主人公名字的流行程度</a>:</p>
+<p><img src="/stylus/images/R/ggimage/Screenshot3.png" alt="迪斯尼例子展示"></p>
+<p>最近我还添加了<code>geom_pokemon</code>图层，让大家可以用pokemon来画图，比如：</p>
+<p><img src="/stylus/images/R/ggimage/geom_pokemon.png" alt="pokemon例子展示"></p>
+<p><strong>ggimage</strong>是通用的包，所以可以被应用于不同的领域/场景中，起码可以让我们画出更好玩的图出来，后续我有时间的话，会写一个<code>draw_key_image</code>的函数，实现使用图片来当legend key的功能。</p>
+<p>最后祝大家玩得开心！不要把图画得太有魔性哦:)</p>
+<p><img src="/stylus/images/R/ggimage/Screenshot2.png" alt="推特截屏"></p>
+<blockquote>
+<p>感谢大为和太云的校稿，特别是大为提出很多修改意见以及给出了用R画R的例子。</p>
+</blockquote>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://stackoverflow.com/questions/9917049/inserting-an-image-to-ggplot2" target="_blank" rel="external">https://stackoverflow.com/questions/9917049/inserting-an-image-to-ggplot2</a></li>
+<li><a href="https://www.r-bloggers.com/add-a-background-png-image-to-ggplot2/" target="_blank" rel="external">https://www.r-bloggers.com/add-a-background-png-image-to-ggplot2/</a></li>
+<li><a href="https://github.com/GuangchuangYu/ggimage" target="_blank" rel="external">https://github.com/GuangchuangYu/ggimage</a></li>
+<li><a href="https://github.com/Gibbsdavidl/CatterPlots" target="_blank" rel="external">https://github.com/Gibbsdavidl/CatterPlots</a></li>
+<li><a href="https://github.com/sckott/rphylopic" target="_blank" rel="external">https://github.com/sckott/rphylopic</a></li>
+<li><a href="https://github.com/baptiste/ggflags" target="_blank" rel="external">https://github.com/baptiste/ggflags</a></li>
+<li><a href="http://blog.revolutionanalytics.com/2017/02/catterplots-plots-with-cats.html" target="_blank" rel="external">http://blog.revolutionanalytics.com/2017/02/catterplots-plots-with-cats.html</a></li>
+<li><a href="http://blogs.sas.com/content/iml/2017/02/20/proportion-of-colors-mandms.html" target="_blank" rel="external">http://blogs.sas.com/content/iml/2017/02/20/proportion-of-colors-mandms.html</a></li>
+<li><a href="http://rpubs.com/hrbrmstr/mms" target="_blank" rel="external">http://rpubs.com/hrbrmstr/mms</a></li>
+<li><a href="https://rpubs.com/bhaskarvk/disney" target="_blank" rel="external">https://rpubs.com/bhaskarvk/disney</a></li>
+<li><a href="https://cran.r-project.org/package=scatterpie" target="_blank" rel="external">https://cran.r-project.org/package=scatterpie</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/stylus/tags/R/" rel="tag"># R</a>
+          
+            <a href="/stylus/tags/图形/" rel="tag"># 图形</a>
+          
+            <a href="/stylus/tags/ggplot2/" rel="tag"># ggplot2</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/stylus/2017/03/28/mathjax/" rel="next" title="Hexo 的 NexT 主题中使用 Mathjax">
+                <i class="fa fa-chevron-left"></i> Hexo 的 NexT 主题中使用 Mathjax
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/stylus/images/avatar.png"
+               alt="Hao Peng" />
+          <p class="site-author-name" itemprop="name">Hao Peng</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/stylus/archives">
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/stylus/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/stylus/tags/index.html">
+                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/stylus/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/your-user-name" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/your-user-name" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://macshuo.com/" title="MacTalk" target="_blank">MacTalk</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://example.com/" title="Title" target="_blank">Title</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#导言"><span class="nav-number">1.</span> <span class="nav-text">导言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图上嵌图片"><span class="nav-number">2.</span> <span class="nav-text">图上嵌图片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实例分析"><span class="nav-number">4.</span> <span class="nav-text">实例分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ggimage"><span class="nav-number">4.1.</span> <span class="nav-text">ggimage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用R图标来画R形状"><span class="nav-number">4.1.1.</span> <span class="nav-text">用R图标来画R形状</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套式绘图"><span class="nav-number">4.1.2.</span> <span class="nav-text">嵌套式绘图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它来自R社区的例子"><span class="nav-number">4.1.3.</span> <span class="nav-text">其它来自R社区的例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.2.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  Powered by <a href="https://hexo.io/">Hexo</a> &amp; <a href="https://github.com/iissnan/hexo-theme-next">NexT</a> on GitHub |
+  
+  Copyright  2005 - 
+  <span itemprop="copyrightYear">2017</span>
+  by 
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"><a href="mailto:haopeng.yn@gmail.com">Hao Peng</a></span>
+</div>
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/stylus/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/stylus/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/stylus/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/stylus/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/stylus/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/stylus/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://peng-howard-github-io.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://peng-howard.github.io/stylus/stylus/2017/03/29/ggimage/';
+          this.page.identifier = '2017/03/29/ggimage/';
+          this.page.title = 'ggimage：ggplot2中愉快地使用图片z';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://peng-howard-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/stylus/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {equationNumbers: {autoNumber: ["AMS"], useLabelIds: true}},
+        "HTML-CSS": {linebreaks: {automatic: true}},
+        SVG: {linebreaks: {automatic: true}}
+    });
+	</script>
+	
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+  
+
+</body>
+</html>

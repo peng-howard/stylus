@@ -1684,7 +1684,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #40c2ff;
+  background: #c9ffd5;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2734,6 +2734,14 @@ pre code {
   color: #0f0 !important;
   border-bottom-color: #0f0 !important;
 }
+.active a {
+  color: #bbb !important;
+  border-bottom-color: #bbb !important;
+}
+.active a:hover {
+  color: #0f0 !important;
+  border-bottom-color: #0f0 !important;
+}
 .active-current a {
   color: #2dbe60 !important;
   border-bottom-color: #2dbe60 !important;
@@ -2823,6 +2831,11 @@ em {
   display: block;
   text-align: center;
   font-style: normal;
+}
+table {
+  border-collapse: separate !important;
+  border-bottom: none;
+  table-layout: auto;
 }
 ::selection {
   background-color: #000;
