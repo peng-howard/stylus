@@ -92,7 +92,7 @@ hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的
 1 与Markdown的冲突解决
 原文地址：http://blog.csdn.net/emptyset110/article/details/50123231
 hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的时候下划线_是被escape掉并且换">
-<meta property="og:updated_time" content="2017-04-16T17:44:13.690Z">
+<meta property="og:updated_time" content="2017-04-16T18:20:36.064Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo 的 NexT 主题中使用 Mathjax、脚注、表情、pre 环境">
 <meta name="twitter:description" content="Mathjax 指令参考：http://docs.mathjax.org/en/latest/tex.html
@@ -462,6 +462,9 @@ Here is a footnote reference,[^1] and another.[^longnote]
 belong to the previous footnote.
 </pre>
 <p>这个例子中，“Subsequent...”也是脚注的一部分，因此脚注的结束符号将在“footnote.”之后。</p>
+<blockquote>
+<p><strong>提醒</strong>：与 Hexo 默认的 Markdown 引擎相比，<a href="https://github.com/celsomiranda/hexo-renderer-markdown-it" target="_blank" rel="external">Markdown-it</a> 引擎要严格一些：默认的引擎可以解释 html 中的 md 部分，但 Markdown-it 在遇到 html 中的 md 时，会跳过去。当然，不选择默认引擎的重要原因是默认引擎没有脚注支持。</p>
+</blockquote>
 
       
     </div>

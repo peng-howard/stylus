@@ -50,7 +50,7 @@
     <link href="http://peng-howard.github.io/stylus/2017/03/28/mathjax/"/>
     <id>http://peng-howard.github.io/stylus/2017/03/28/mathjax/</id>
     <published>2017-03-27T16:00:00.000Z</published>
-    <updated>2017-04-16T17:44:13.690Z</updated>
+    <updated>2017-04-16T18:20:36.064Z</updated>
     
     <summary type="html">
     
@@ -492,25 +492,22 @@
   </entry>
   
   <entry>
-    <title>Matlab统计学工具箱</title>
-    <link href="http://peng-howard.github.io/stylus/2012/12/04/matlab-statistics-toolbox/"/>
-    <id>http://peng-howard.github.io/stylus/2012/12/04/matlab-statistics-toolbox/</id>
+    <title>R中如何取消科学计数法z</title>
+    <link href="http://peng-howard.github.io/stylus/2012/12/04/cancel-scientific-notation-in-r/"/>
+    <id>http://peng-howard.github.io/stylus/2012/12/04/cancel-scientific-notation-in-r/</id>
     <published>2012-12-03T16:00:00.000Z</published>
-    <updated>2017-04-12T16:42:13.527Z</updated>
+    <updated>2017-03-27T17:05:50.131Z</updated>
     
     <summary type="html">
     
-      &lt;div&gt;
-&lt;div id=&quot;leftDivPre&quot; style=&quot;float:left; margin-right: 1em; padding-right: 1em; border-right: solid 3px #ddd;&quot;&gt;
-表1 概率密度函数
-&lt;pre&gt;函数名     
+      &lt;p&gt;原文地址：&lt;a href=&quot;http://bbs.pinggu.org/thread-1403060-1-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://bbs.pinggu.org/thread-1403060-1-1.html
     
     </summary>
     
-      <category term="Matlab" scheme="http://peng-howard.github.io/stylus/categories/Matlab/"/>
+      <category term="R" scheme="http://peng-howard.github.io/stylus/categories/R/"/>
     
     
-      <category term="Matlab" scheme="http://peng-howard.github.io/stylus/tags/Matlab/"/>
+      <category term="R" scheme="http://peng-howard.github.io/stylus/tags/R/"/>
     
   </entry>
   
