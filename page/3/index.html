@@ -580,7 +580,7 @@
 <li>可以将<code>ezplot()</code>和<code>legend()</code>的结果赋给某个变量，再通过<code>set()</code>函数对图像对象或者<code>legend</code>对象进行字体大小、颜色等的操作；</li>
 <li><code>latex()</code>函数可以用于将指定的符号表达式转换成LaTeX语法格式；</li>
 <li><code>sym()</code>函数可以用于将某个数值对象转换成符号表达式以供<code>latex()</code>函数使用；</li>
-<li><code>title</code>、<code>xlabel</code>、<code>ylabel</code>、<code>zlabel</code>、<code>textbox</code>和<code>text</code>等函数可以利用<code>&#39;Interpreter&#39;</code>,<code>&#39;latex&#39;</code>加载LaTeX格式；</li>
+<li><code>title</code>、<code>xlabel</code>、<code>ylabel</code>、<code>zlabel</code>、<code>textbox</code>和<code>text</code>等函数可以利用<code>'Interpreter'</code>,<code>'latex'</code>加载LaTeX格式；</li>
 <li>因为<code>Legend</code>没有<code>Interpreter</code>属性，所以如果要在其中使用LaTeX，必须获取对应的文字句柄，并对文字对象设置<code>String</code>和<code>Interpreter</code>属性，关于这一点可以参考：<a href="http://www.mathworks.com/matlabcentral/newsreader/view_thread/254118">http://www.mathworks.com/matlabcentral/newsreader/view_thread/254118</a>和<a href="http://sites.google.com/site/sleepingwalking/matlab/latex-in-legend">http://sites.google.com/site/sleepingwalking/matlab/latex-in-legend</a>，从下面的示例可以看到，<code>String</code>不一定必要；</li>
 <li>将图像插入LaTeX文档时，建议不要使用<code>pdf</code>格式，而是使用<code>eps</code>格式，否则得到的图像结果锯齿感会比较明显。</li>
 </ol>
@@ -1378,7 +1378,7 @@
 <li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=68913" target="_blank" rel="external">判断某个命令是否已经用过</a></li>
 </ul>
 <blockquote>
-<p>判断是否已经定义用<code>\ifdefined</code>或者<code>\ifcsname</code>，如果没有eTeX支持也可以用<code>\ifx\foo\undefined</code>或者 LaTeX 内核的<code>\@ifundefined</code>。  </p>
+<p>判断是否已经定义用<code>\ifdefined</code>或者<code>\ifcsname</code>，如果没有eTeX支持也可以用<code>\ifx\foo\undefined</code>或者 LaTeX 内核的<code>\@ifundefined</code>。</p>
 <p>判断是否用过一遍，可以在\foo的定义中设置一个全局变量，然后在后面检测。</p>
 </blockquote>
 <ul>
@@ -1393,7 +1393,8 @@
 <li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=4520" target="_blank" rel="external">\renewcommand<code>*</code>的作用</a></li>
 </ul>
 <blockquote>
-<p><code>\renewcommand</code>所带参数可以包含用\par或空行表示的新段落；<br><code>\renewcommand*</code>不行</p>
+<p><code>\renewcommand</code>所带参数可以包含用\par或空行表示的新段落；<br>
+<code>\renewcommand*</code>不行</p>
 </blockquote>
 <ul>
 <li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=64550" target="_blank" rel="external"><code>\string</code>的作用</a></li>
@@ -1570,7 +1571,8 @@
 \trans@languagepath -&gt;\languagename
                                     ,English
 l.226 \end{frame}
-</code></pre><p>解决方法有两种：</p>
+</code></pre>
+<p>解决方法有两种：</p>
 <ul>
 <li>在导言区添加 <code>\usepackage[english]{babel}</code>;</li>
 <li>在线升级到最新版本。</li>

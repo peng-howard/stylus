@@ -80,22 +80,25 @@
 
 
 
-<meta name="description" content="1 eval函数用法简介原文地址：http://www.ilovematlab.cn/thread-53554-1-1.html
+<meta name="description" content="1 eval函数用法简介
+原文地址：http://www.ilovematlab.cn/thread-53554-1-1.html
 eval(expression)用于执行其参数中包含的expression。例如，把August1.mat到August3.mat加载到MATLAB workspace：
-1234for d=1:3   s = [&apos;load August&apos; int2str(d) &apos;.m">
+1234for d=1:3   s = [&apos;load August&apos; int2str(d) &apos;.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Matlab中的eval与feval函数">
 <meta property="og:url" content="http://peng-howard.github.io/stylus/2012/12/07/matlab-eval-feval/index.html">
 <meta property="og:site_name" content="语千 ~ 刻一">
-<meta property="og:description" content="1 eval函数用法简介原文地址：http://www.ilovematlab.cn/thread-53554-1-1.html
+<meta property="og:description" content="1 eval函数用法简介
+原文地址：http://www.ilovematlab.cn/thread-53554-1-1.html
 eval(expression)用于执行其参数中包含的expression。例如，把August1.mat到August3.mat加载到MATLAB workspace：
-1234for d=1:3   s = [&apos;load August&apos; int2str(d) &apos;.m">
+1234for d=1:3   s = [&apos;load August&apos; int2str(d) &apos;.">
 <meta property="og:updated_time" content="2017-04-16T14:13:12.415Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Matlab中的eval与feval函数">
-<meta name="twitter:description" content="1 eval函数用法简介原文地址：http://www.ilovematlab.cn/thread-53554-1-1.html
+<meta name="twitter:description" content="1 eval函数用法简介
+原文地址：http://www.ilovematlab.cn/thread-53554-1-1.html
 eval(expression)用于执行其参数中包含的expression。例如，把August1.mat到August3.mat加载到MATLAB workspace：
-1234for d=1:3   s = [&apos;load August&apos; int2str(d) &apos;.m">
+1234for d=1:3   s = [&apos;load August&apos; int2str(d) &apos;.">
 
 
 
@@ -417,34 +420,39 @@ eval(expression)用于执行其参数中包含的expression。例如，把August
       
 
       
-        <h1 id="eval函数用法简介">1 eval函数用法简介</h1><p>原文地址：<a href="http://www.ilovematlab.cn/thread-53554-1-1.html" target="_blank" rel="external">http://www.ilovematlab.cn/thread-53554-1-1.html</a></p>
+        <h1>1 eval函数用法简介</h1>
+<p>原文地址：<a href="http://www.ilovematlab.cn/thread-53554-1-1.html" target="_blank" rel="external">http://www.ilovematlab.cn/thread-53554-1-1.html</a></p>
 <p><code>eval(expression)</code>用于执行其参数中包含的<code>expression</code>。例如，把<code>August1.mat</code>到<code>August3.mat</code>加载到<code>MATLAB workspace</code>：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> d=<span class="number">1</span>:<span class="number">3</span></div><div class="line">   s = [<span class="string">'load August'</span> int2str(d) <span class="string">'.mat'</span>]</div><div class="line">   eval(s)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>上面的部分代码也可以写成<code>s = [&#39;load August&#39;, int2str(d), &#39;.mat&#39;]</code>，也就是中间用逗号隔开，这样才能把三部分合成一个字符串，以下是被执行的<code>s</code>语句：</p>
+<p>上面的部分代码也可以写成<code>s = ['load August', int2str(d), '.mat']</code>，也就是中间用逗号隔开，这样才能把三部分合成一个字符串，以下是被执行的<code>s</code>语句：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">s =</div><div class="line">   load August1.mat</div><div class="line">s =</div><div class="line">   load August2.mat</div><div class="line">s =</div><div class="line">   load August3.mat</div></pre></td></tr></table></figure>
-<h1 id="feval函数用法简介">2 feval函数用法简介</h1><p>原文地址：<a href="http://www.madio.net/thread-170200-1-1.html" target="_blank" rel="external">http://www.madio.net/thread-170200-1-1.html</a></p>
+<h1>2 feval函数用法简介</h1>
+<p>原文地址：<a href="http://www.madio.net/thread-170200-1-1.html" target="_blank" rel="external">http://www.madio.net/thread-170200-1-1.html</a></p>
 <p><code>[y1,..,yn] = FEVAL(F,x1,...,xn)</code>，<code>F</code>是需要使用函数的函数名，或者句柄(见下面程序注释)；<code>xi</code>是函数的参数，<code>yi</code>是函数的返回值。</p>
 <p>举例，假设需要调用的函数<code>foo</code>定义如下：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span>=<span class="title">foo</span><span class="params">(a,b)</span></span></div><div class="line">x=a*b;</div></pre></td></tr></table></figure>
 <p>若在<code>main</code>函数中用<code>feval</code>调用<code>foo</code>，可以有以下几种方式：</p>
 <blockquote>
 <ol>
-<li><code>result=feval(&#39;foo&#39;,3,15);</code></li>
+<li><code>result=feval('foo',3,15);</code></li>
 <li><code>result=feval(@foo,3,16); % 这里@foo是函数foo的句柄</code></li>
 <li>若调用的函数要作为<code>main</code>的参数，则</li>
 </ol>
 </blockquote>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">result</span>=<span class="title">main</span><span class="params">(f)</span></span></div><div class="line">result=feval(f,<span class="number">3</span>,<span class="number">10</span>);</div></pre></td></tr></table></figure>
-<p>然后调用<code>main</code>时将<code>&#39;foo&#39;</code>传入即可：</p>
+<p>然后调用<code>main</code>时将<code>'foo'</code>传入即可：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;main(<span class="string">'foo'</span>);</div></pre></td></tr></table></figure>
-<h1 id="feval和eval的区别">3 feval和eval的区别</h1><p>原文地址：<a href="http://powerelite.blog.163.com/blog/static/42965891201272725641245/" target="_blank" rel="external">http://powerelite.blog.163.com/blog/static/42965891201272725641245/</a></p>
-<p><code>feval</code>和<code>eval</code>运行区别之一：<code>feval</code>的<code>FN</code>不能是表达式，其<code>FN</code><strong>只接受函数名</strong>。函数<code>eval</code>给MATLAB提供<strong>宏</strong>的能力，该函数提供了将用户创建的函数名传给其它函数能力，以便求值。函数<code>feval</code>与<code>eval</code>类似，但在用法上有更多的限制。<code>feval(&#39;fun&#39;,x)</code>求由字符串<code>&#39;fun&#39;</code>给定的函数值，其输入参量是变量<code>x</code>，即<code>feval_r(&#39;fun&#39;,x)</code>等价于求<code>fun(x)</code>值，注意下面代码中的运行错误解决方法见上面<code>feval</code>函数的三种使用方法。</p>
+<h1>3 feval和eval的区别</h1>
+<p>原文地址：<a href="http://powerelite.blog.163.com/blog/static/42965891201272725641245/" target="_blank" rel="external">http://powerelite.blog.163.com/blog/static/42965891201272725641245/</a></p>
+<p><code>feval</code>和<code>eval</code>运行区别之一：<code>feval</code>的<code>FN</code>不能是表达式，其<code>FN</code><strong>只接受函数名</strong>。函数<code>eval</code>给MATLAB提供<strong>宏</strong>的能力，该函数提供了将用户创建的函数名传给其它函数能力，以便求值。函数<code>feval</code>与<code>eval</code>类似，但在用法上有更多的限制。<code>feval('fun',x)</code>求由字符串<code>'fun'</code>给定的函数值，其输入参量是变量<code>x</code>，即<code>feval_r('fun',x)</code>等价于求<code>fun(x)</code>值，注意下面代码中的运行错误解决方法见上面<code>feval</code>函数的三种使用方法。</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">format short</div><div class="line">x=<span class="built_in">pi</span>/<span class="number">4</span>;</div><div class="line">Ve=eval(<span class="string">'1+sin(x)'</span>) </div><div class="line">Ve =</div><div class="line">    <span class="number">1.7071</span> </div><div class="line">Vf=feval(<span class="string">'1+sin(x)'</span>,x) </div><div class="line">??? Error using ==&gt; feval</div><div class="line">Invalid <span class="function"><span class="keyword">function</span> <span class="title">name</span> '1+<span class="title">sin</span><span class="params">(x)</span>'.</span></div></pre></td></tr></table></figure>
-<h1 id="关于带参数的积分问题">4 关于带参数的积分问题</h1><p>原文地址：<a href="http://forum.chinavib.com/thread-42369-1-1.html" target="_blank" rel="external">http://forum.chinavib.com/thread-42369-1-1.html</a></p>
+<h1>4 关于带参数的积分问题</h1>
+<p>原文地址：<a href="http://forum.chinavib.com/thread-42369-1-1.html" target="_blank" rel="external">http://forum.chinavib.com/thread-42369-1-1.html</a></p>
 <p>有不少人常问带参数的积分问题该如何处理,现举一个例子，希望能起到抛砖引玉的作用。</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">%%%--------------------------------------------%%%</span></div><div class="line">例如以下问题:</div><div class="line">函数为 y=<span class="built_in">sin</span>(k.*x).*x.^<span class="number">2</span>，对x积分，</div><div class="line">积分区域为【<span class="number">1</span>，<span class="number">5</span>】，目的是要画 k 和 y 的图形.</div><div class="line"><span class="comment">%%%============================================%%%</span></div><div class="line"><span class="comment">%%% 作k的一个循环, k作为 inline函数的参数即可.</span></div><div class="line">clear all</div><div class="line">k=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">5</span>);</div><div class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="built_in">length</span>(k)</div><div class="line">    kk=k(<span class="built_in">i</span>);</div><div class="line">    fun=strcat(<span class="string">'sin('</span>,num2str(kk),<span class="string">'*x).*x.^2'</span>);</div><div class="line">    y(<span class="built_in">i</span>)=quadl(inline(fun),<span class="number">1</span>,<span class="number">5</span>);</div><div class="line"><span class="keyword">end</span></div><div class="line">plot(k,y)</div><div class="line"><span class="comment">%%%============================================%%%</span></div></pre></td></tr></table></figure>
 <p><strong>注意</strong>：这个程序的特别意义在于，对于任何复杂的、无显式积分表达式的带参数积分问题具有通用性，我主要是针对此而写的。</p>
-<h1 id="Matlab中函数调用及feval函数，带参数积分问题">5 Matlab中函数调用及feval函数，带参数积分问题</h1><p>原文地址：<a href="http://www.ilovematlab.cn/thread-36666-1-1.html" target="_blank" rel="external">http://www.ilovematlab.cn/thread-36666-1-1.html</a></p>
+<h1>5 Matlab中函数调用及feval函数，带参数积分问题</h1>
+<p>原文地址：<a href="http://www.ilovematlab.cn/thread-36666-1-1.html" target="_blank" rel="external">http://www.ilovematlab.cn/thread-36666-1-1.html</a></p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">InlineSubAnonymousNestedDemo</span></span></div><div class="line"><span class="comment">% 带参数的积分问题</span></div><div class="line"><span class="comment">% 例如</span></div><div class="line"><span class="comment">% 函数为 y=sin(k.*x).*x.^2，对x积分，</span></div><div class="line"><span class="comment">% 积分区域为【1，5】，目的是要画 k 和 y 的图形.</span></div><div class="line"><span class="comment">% 例子意义在于,对于一些复杂的、无显式积分表达式的带参数积分问题具有通用性</span></div><div class="line"><span class="comment">% 问题来源于振动论坛原xjzuo版主发的一个帖子；</span></div><div class="line"><span class="comment">% 原帖地址：http://www.chinavib.com/forum/thread-42369-1-2.html%% 用inline解决</span></div><div class="line">tic;</div><div class="line">k=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">5</span>);</div><div class="line">y1 = <span class="built_in">zeros</span>(<span class="built_in">size</span>(k));</div><div class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="built_in">length</span>(k)</div><div class="line">    kk=k(<span class="built_in">i</span>);</div><div class="line">    fun=inline([<span class="string">'sin('</span>,num2str(kk),<span class="string">'*x).*x.^2'</span>]);</div><div class="line">    y1(<span class="built_in">i</span>)=quadl(fun,<span class="number">0</span>,<span class="number">5</span>);</div><div class="line"><span class="keyword">end</span></div><div class="line">time = toc;</div><div class="line"><span class="built_in">disp</span>([<span class="string">'用inline方法的时间是：'</span>,num2str(time),<span class="string">'秒!'</span>])<span class="comment">%% 用anonymous function 解决</span></div><div class="line">tic;</div><div class="line">f=@(k) quadl(@(x)  <span class="built_in">sin</span>(k.*x).*x.^<span class="number">2</span>,<span class="number">0</span>,<span class="number">5</span>);</div><div class="line">kk=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">5</span>);</div><div class="line">y2=<span class="built_in">zeros</span>(<span class="built_in">size</span>(kk));</div><div class="line"><span class="keyword">for</span> ii=<span class="number">1</span>:<span class="built_in">length</span>(kk)</div><div class="line">y2(ii)=f(kk(ii));</div><div class="line"><span class="keyword">end</span></div><div class="line">time = toc;</div><div class="line"><span class="built_in">disp</span>([<span class="string">'用anonymous function方法的时间是：'</span>,num2str(time),<span class="string">'秒!'</span>])<span class="comment">%% 用nested function解决</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">y</span> = <span class="title">ParaInteg</span><span class="params">(k)</span></span></div><div class="line">y=quadl(@(x) <span class="built_in">sin</span>(k.*x).*x.^<span class="number">2</span> ,<span class="number">0</span>,<span class="number">5</span>);</div><div class="line"><span class="keyword">end</span></div><div class="line">tic;</div><div class="line">kk=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">5</span>);</div><div class="line">y3=<span class="built_in">zeros</span>(<span class="built_in">size</span>(kk));</div><div class="line"><span class="keyword">for</span> ii=<span class="number">1</span>:<span class="built_in">length</span>(kk)</div><div class="line">y3(ii)=ParaInteg(kk(ii));</div><div class="line"><span class="keyword">end</span></div><div class="line">time = toc;</div><div class="line"><span class="built_in">disp</span>([<span class="string">'用nested function方法的时间是：'</span>,num2str(time),<span class="string">'秒!'</span>])<span class="comment">%% 用 arrayfun + anonymous function 解决</span></div><div class="line">tic;y4 = arrayfun(@(k) quadl(@(x)  <span class="built_in">sin</span>(k.*x).*x.^<span class="number">2</span>,<span class="number">0</span>,<span class="number">5</span>),<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">5</span>));time = toc;</div><div class="line"><span class="built_in">disp</span>([<span class="string">'用arrayfun + anonymous function方法的时间是：'</span>,num2str(time),<span class="string">'秒!'</span>])</div><div class="line">plot(kk,y2);</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
       
     </div>
@@ -489,8 +497,8 @@ eval(expression)用于执行其参数中包含的expression。例如，把August
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/stylus/2012/12/05/r-reg-exp/" rel="next" title="R中正则表达式简介z">
-                <i class="fa fa-chevron-left"></i> R中正则表达式简介z
+              <a href="/stylus/2012/12/05/r-string-grep/" rel="next" title="R中字符串处理和grep的用法z">
+                <i class="fa fa-chevron-left"></i> R中字符串处理和grep的用法z
               </a>
             
           </div>
@@ -691,7 +699,7 @@ eval(expression)用于执行其参数中包含的expression。例如，把August
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#eval函数用法简介"><span class="nav-text">1 eval函数用法简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#feval函数用法简介"><span class="nav-text">2 feval函数用法简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#feval和eval的区别"><span class="nav-text">3 feval和eval的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于带参数的积分问题"><span class="nav-text">4 关于带参数的积分问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Matlab中函数调用及feval函数，带参数积分问题"><span class="nav-text">5 Matlab中函数调用及feval函数，带参数积分问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">1 eval函数用法简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">2 feval函数用法简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">3 feval和eval的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">4 关于带参数的积分问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">5 Matlab中函数调用及feval函数，带参数积分问题</span></a></li></ol></div>
             
 
           </div>

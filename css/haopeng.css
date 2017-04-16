@@ -176,6 +176,16 @@ p {
   margin-top: 0.8em;
   margin-bottom: 0.8em;
 }
+/* 脚注 */
+ol.footnotes-list li {
+  margin-top: 0em;
+  margin-bottom: 0.3em;
+}
+ol.footnotes-list li p {
+  line-height: 1em;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
 /* 默认的公式比周围的文字大，难看；另外用 em 和 px 似乎不起作用(也可能是大小不正确) */
 .MathJax {
   font-size: 10px !important;

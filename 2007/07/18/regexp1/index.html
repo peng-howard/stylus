@@ -424,48 +424,63 @@
 <p><strong>参考资料</strong>：<a href="http://www.geany.org/manual/gtk/glib/glib-regex-syntax.html" target="_blank" rel="external">http://www.geany.org/manual/gtk/glib/glib-regex-syntax.html</a></p>
 </blockquote>
 <p>说明，只是大概思想，如果真想对一篇很长的文本分段，直接这么做肯定不行。</p>
-<p>表达式：<code>&lt;h1&gt;(.(?!&lt;h1&gt;))+\r\n</code>，注意环境为.NET 2.0，设置匹配的 Options 为<code>SingleLine</code>。</p>
+<p>表达式：<code>&lt;h1&gt;(.(?!&lt;h1&gt;))+\r\n</code>，<a href="http://xn--siqp4ws5gvwm5hi.NET" target="_blank" rel="external">注意环境为.NET</a> 2.0，设置匹配的 Options 为<code>SingleLine</code>。</p>
 <a id="more"></a>
-<h1 id="文本">1 文本</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>第一百八十一章　正文<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>第一百八十三章　正文<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>第一百八十二章　正文<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
-<h1 id="结果">2 结果</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">(&lt;h1&gt;第一百八十一章　正文&lt;/h1&gt;</div><div class="line">&lt;p&gt;asdf&lt;/p&gt;</div><div class="line">&lt;p&gt;asdf&lt;/p&gt;</div><div class="line">&lt;p&gt;asdf&lt;/p&gt;</div><div class="line">) (&gt;)</div><div class="line"></div><div class="line">------- NEXT MATCH -------</div><div class="line">(&lt;h1&gt;第一百八十三章　正文&lt;/h1&gt;</div><div class="line">&lt;p&gt;asdf&lt;/p&gt;</div><div class="line">&lt;p&gt;asdf&lt;/p&gt;</div><div class="line">&lt;p&gt;asdf&lt;/p&gt;</div><div class="line">) (&gt;)</div><div class="line"></div><div class="line">------- NEXT MATCH -------</div><div class="line">(&lt;h1&gt;第一百八十二章　正文&lt;/h1&gt;</div><div class="line">&lt;p&gt;asdf&lt;/p&gt;</div><div class="line">&lt;p&gt;asdf&lt;/p&gt;</div><div class="line">) (&gt;)</div><div class="line"></div><div class="line">------- NEXT MATCH -------</div></pre></td></tr></table></figure>
-<h1 id="参考表达式">3 参考表达式</h1><p><code>string strReg=@&quot;((?&lt;!深圳市).(?!深圳市))+&quot;;</code></p>
+<h1>1 文本</h1>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>第一百八十一章　正文<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>第一百八十三章　正文<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>第一百八十二章　正文<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
+<h1>2 结果</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">(&lt;h1&gt;第一百八十一章　正文&lt;/h1&gt;</div><div class="line">&lt;p&gt;asdf&lt;/p&gt;</div><div class="line">&lt;p&gt;asdf&lt;/p&gt;</div><div class="line">&lt;p&gt;asdf&lt;/p&gt;</div><div class="line">) (&gt;)</div><div class="line"></div><div class="line">------- NEXT MATCH -------</div><div class="line">(&lt;h1&gt;第一百八十三章　正文&lt;/h1&gt;</div><div class="line">&lt;p&gt;asdf&lt;/p&gt;</div><div class="line">&lt;p&gt;asdf&lt;/p&gt;</div><div class="line">&lt;p&gt;asdf&lt;/p&gt;</div><div class="line">) (&gt;)</div><div class="line"></div><div class="line">------- NEXT MATCH -------</div><div class="line">(&lt;h1&gt;第一百八十二章　正文&lt;/h1&gt;</div><div class="line">&lt;p&gt;asdf&lt;/p&gt;</div><div class="line">&lt;p&gt;asdf&lt;/p&gt;</div><div class="line">) (&gt;)</div><div class="line"></div><div class="line">------- NEXT MATCH -------</div></pre></td></tr></table></figure>
+<h1>3 参考表达式</h1>
+<p><code>string strReg=@&quot;((?&lt;!深圳市).(?!深圳市))+&quot;;</code></p>
 <hr>
-
-<h1 id="参考资料">4 参考资料</h1><p><a href="http://www.geany.org/manual/gtk/glib/glib-regex-syntax.html" target="_blank" rel="external">http://www.geany.org/manual/gtk/glib/glib-regex-syntax.html</a></p>
-<p>An assertion is a test on the characters following or preceding the current matching point that does not actually consume any characters. The simple assertions coded as \b, \B, \A, \Z, \z, ^ and $ are described above. More complicated assertions are coded </p>
+<h1>4 参考资料</h1>
+<p><a href="http://www.geany.org/manual/gtk/glib/glib-regex-syntax.html" target="_blank" rel="external">http://www.geany.org/manual/gtk/glib/glib-regex-syntax.html</a></p>
+<p>An assertion is a test on the characters following or preceding the current matching point that does not actually consume any characters. The simple assertions coded as \b, \B, \A, \Z, \z, ^ and $ are described above. More complicated assertions are coded</p>
 <p>as subpatterns. There are two kinds: those that look ahead of the current position in the subject string, and those that look behind it.</p>
 <p>An assertion subpattern is matched in the normal way, except that it does not cause the current matching position to be changed. Lookahead assertions start with (?= for positive assertions and (?! for negative assertions. For example,</p>
 <pre><code>\w+(?=;)
-</code></pre><p>matches a word followed by a semicolon, but does not include the semicolon in the match, and</p>
+</code></pre>
+<p>matches a word followed by a semicolon, but does not include the semicolon in the match, and</p>
 <pre><code>foo(?!bar)
-</code></pre><p>matches any occurrence of &quot;foo&quot; that is not followed by &quot;bar&quot;. Note that the apparently similar pattern</p>
+</code></pre>
+<p>matches any occurrence of &quot;foo&quot; that is not followed by &quot;bar&quot;. Note that the apparently similar pattern</p>
 <pre><code>(?!foo)bar
-</code></pre><p>does not find an occurrence of &quot;bar&quot; that is preceded by something other than &quot;foo&quot;; it finds any occurrence of &quot;bar&quot; whatsoever, because the assertion (?!foo) is always TRUE when the next three characters are &quot;bar&quot;. A lookbehind assertion is needed to </p>
+</code></pre>
+<p>does not find an occurrence of &quot;bar&quot; that is preceded by something other than &quot;foo&quot;; it finds any occurrence of &quot;bar&quot; whatsoever, because the assertion (?!foo) is always TRUE when the next three characters are &quot;bar&quot;. A lookbehind assertion is needed to</p>
 <p>achieve this effect. Lookbehind assertions start with (?&lt;= for positive assertions and (?&lt;! for negative assertions. For example,</p>
 <pre><code>(?&lt;!foo)bar
-</code></pre><p>does find an occurrence of &quot;bar&quot; that is not preceded by &quot;foo&quot;. The contents of a lookbehind assertion are restricted such that all the strings it matches must have a fixed length. However, if there are several alternatives, they do not all have to have </p>
+</code></pre>
+<p>does find an occurrence of &quot;bar&quot; that is not preceded by &quot;foo&quot;. The contents of a lookbehind assertion are restricted such that all the strings it matches must have a fixed length. However, if there are several alternatives, they do not all have to have</p>
 <p>the same fixed length. Thus</p>
 <pre><code>(?&lt;=bullock|donkey)
-</code></pre><p>is permitted, but</p>
+</code></pre>
+<p>is permitted, but</p>
 <pre><code>(?&lt;!dogs?|cats?)
-</code></pre><p>causes an error at compile time. Branches that match different length strings are permitted only at the top level of a lookbehind assertion. This is an extension compared with Perl 5.005, which requires all branches to match the same length of string. An </p>
+</code></pre>
+<p>causes an error at compile time. Branches that match different length strings are permitted only at the top level of a lookbehind assertion. This is an extension compared with Perl 5.005, which requires all branches to match the same length of string. An</p>
 <p>assertion such as</p>
 <pre><code>(?&lt;=ab(c|de))
-</code></pre><p>is not permitted, because its single top-level branch can match two different lengths, but it is acceptable if rewritten to use two top-level branches:</p>
+</code></pre>
+<p>is not permitted, because its single top-level branch can match two different lengths, but it is acceptable if rewritten to use two top-level branches:</p>
 <pre><code>(?&lt;=abc|abde)
-</code></pre><p>The implementation of lookbehind assertions is, for each alternative, to temporarily move the current position back by the fixed width and then try to match. If there are insufficient characters before the current position, the match is deemed to fail. </p>
+</code></pre>
+<p>The implementation of lookbehind assertions is, for each alternative, to temporarily move the current position back by the fixed width and then try to match. If there are insufficient characters before the current position, the match is deemed to fail.</p>
 <p>Lookbehinds in conjunction with once-only subpatterns can be particularly useful for matching at the ends of strings; an example is given at the end of the section on once-only subpatterns.</p>
 <p>Several assertions (of any sort) may occur in succession. For example,</p>
 <pre><code>(?&lt;=\d{3})(?&lt;!999)foo
-</code></pre><p>matches &quot;foo&quot; preceded by three digits that are not &quot;999&quot;. Notice that each of the assertions is applied independently at the same point in the subject string. First there is a check that the previous three characters are all digits, then there is a check </p>
-<p>that the same three characters are not &quot;999&quot;. This pattern does not match &quot;foo&quot; preceded by six characters, the first of which are digits and the last three of which are not &quot;999&quot;. For example, it doesn&#39;t match &quot;123abcfoo&quot;. A pattern to do that is</p>
+</code></pre>
+<p>matches &quot;foo&quot; preceded by three digits that are not &quot;999&quot;. Notice that each of the assertions is applied independently at the same point in the subject string. First there is a check that the previous three characters are all digits, then there is a check</p>
+<p>that the same three characters are not &quot;999&quot;. This pattern does not match &quot;foo&quot; preceded by six characters, the first of which are digits and the last three of which are not &quot;999&quot;. For example, it doesn't match &quot;123abcfoo&quot;. A pattern to do that is</p>
 <pre><code>(?&lt;=\d{3}...)(?&lt;!999)foo
-</code></pre><p>This time the first assertion looks at the preceding six characters, checking that the first three are digits, and then the second assertion checks that the preceding three characters are not &quot;999&quot;.</p>
+</code></pre>
+<p>This time the first assertion looks at the preceding six characters, checking that the first three are digits, and then the second assertion checks that the preceding three characters are not &quot;999&quot;.</p>
 <p>Assertions can be nested in any combination. For example,</p>
 <pre><code>(?&lt;=(?&lt;!foo)bar)baz
-</code></pre><p>matches an occurrence of &quot;baz&quot; that is preceded by &quot;bar&quot; which in turn is not preceded by &quot;foo&quot;, while</p>
+</code></pre>
+<p>matches an occurrence of &quot;baz&quot; that is preceded by &quot;bar&quot; which in turn is not preceded by &quot;foo&quot;, while</p>
 <pre><code>(?&lt;=\d{3}(?!999)...)foo
-</code></pre><p>is another pattern which matches &quot;foo&quot; preceded by three digits and any three characters that are not &quot;999&quot;.</p>
+</code></pre>
+<p>is another pattern which matches &quot;foo&quot; preceded by three digits and any three characters that are not &quot;999&quot;.</p>
 <p>Assertion subpatterns are not capturing subpatterns, and may not be repeated, because it makes no sense to assert the same thing several times. If any kind of assertion contains capturing subpatterns within it, these are counted for the purposes of numbering the capturing subpatterns in the whole pattern. However, substring capturing is carried out only for positive assertions, because it does not make sense for negative assertions.</p>
 
       
@@ -519,8 +534,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/stylus/2007/07/18/regexp/" rel="prev" title="几个正则表达式">
-                几个正则表达式 <i class="fa fa-chevron-right"></i>
+              <a href="/stylus/2007/07/18/matlab-current-default-folder/" rel="prev" title="设置MATLAB中Current Folder的默认文件夹">
+                设置MATLAB中Current Folder的默认文件夹 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -711,7 +726,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文本"><span class="nav-text">1 文本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结果"><span class="nav-text">2 结果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考表达式"><span class="nav-text">3 参考表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-text">4 参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">1 文本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">2 结果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">3 参考表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">4 参考资料</span></a></li></ol></div>
             
 
           </div>
