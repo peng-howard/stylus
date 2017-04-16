@@ -1684,7 +1684,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6c2924;
+  background: #55fffb;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2570,6 +2570,10 @@ article.post-type-normal {
 a.post-title-link span {
   font-size: 18px !important;
 }
+h1 {
+  font-size: 36px;
+  color: #2dbe60;
+}
 h2 {
   font-size: 28px;
   color: #2dbe60;
@@ -2578,6 +2582,18 @@ h3 {
   font-size: 24px;
 }
 h4 {
+  font-size: 20px;
+}
+h1 code {
+  font-size: 36px;
+}
+h2 code {
+  font-size: 28px;
+}
+h3 code {
+  font-size: 24px;
+}
+h4 code {
   font-size: 20px;
 }
 .headband {

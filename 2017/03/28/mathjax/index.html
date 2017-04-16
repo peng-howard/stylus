@@ -81,21 +81,21 @@
 
 
 <meta name="description" content="Mathjax 指令参考：http://docs.mathjax.org/en/latest/tex.html
-与Markdown的冲突解决原文地址：http://blog.csdn.net/emptyset110/article/details/50123231
-hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的时候下划线_是被escape掉并且换成了&amp;">
+1 与Markdown的冲突解决原文地址：http://blog.csdn.net/emptyset110/article/details/50123231
+hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的时候下划线_是被escape掉并且换成">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo 的 NexT 主题中使用 Mathjax">
 <meta property="og:url" content="http://peng-howard.github.io/stylus/2017/03/28/mathjax/index.html">
 <meta property="og:site_name" content="语千 ~ 刻一">
 <meta property="og:description" content="Mathjax 指令参考：http://docs.mathjax.org/en/latest/tex.html
-与Markdown的冲突解决原文地址：http://blog.csdn.net/emptyset110/article/details/50123231
-hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的时候下划线_是被escape掉并且换成了&amp;">
-<meta property="og:updated_time" content="2017-03-29T15:37:50.016Z">
+1 与Markdown的冲突解决原文地址：http://blog.csdn.net/emptyset110/article/details/50123231
+hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的时候下划线_是被escape掉并且换成">
+<meta property="og:updated_time" content="2017-04-16T13:45:04.917Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo 的 NexT 主题中使用 Mathjax">
 <meta name="twitter:description" content="Mathjax 指令参考：http://docs.mathjax.org/en/latest/tex.html
-与Markdown的冲突解决原文地址：http://blog.csdn.net/emptyset110/article/details/50123231
-hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的时候下划线_是被escape掉并且换成了&amp;">
+1 与Markdown的冲突解决原文地址：http://blog.csdn.net/emptyset110/article/details/50123231
+hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的时候下划线_是被escape掉并且换成">
 
 
 
@@ -418,7 +418,7 @@ hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的
 
       
         <p>Mathjax 指令参考：<a href="http://docs.mathjax.org/en/latest/tex.html" target="_blank" rel="external">http://docs.mathjax.org/en/latest/tex.html</a></p>
-<h2 id="与Markdown的冲突解决"><a href="#与Markdown的冲突解决" class="headerlink" title="与Markdown的冲突解决"></a>与Markdown的冲突解决</h2><p>原文地址：<a href="http://blog.csdn.net/emptyset110/article/details/50123231" target="_blank" rel="external">http://blog.csdn.net/emptyset110/article/details/50123231</a></p>
+<h1 id="与Markdown的冲突解决">1 与Markdown的冲突解决</h1><p>原文地址：<a href="http://blog.csdn.net/emptyset110/article/details/50123231" target="_blank" rel="external">http://blog.csdn.net/emptyset110/article/details/50123231</a></p>
 <p>hexo先用<code>marked.js</code>渲染，然后再交给MathJax渲染。在<code>marked.js</code>渲染的时候下划线<code>_</code>是被escape掉并且换成了<code>&lt;em&gt;</code>标签，即斜体字，另外LaTeX中的<code>\\</code>也会被转义成一个<code>\</code>，这样会导致MathJax渲染时不认为它是一个换行符了。</p>
 <p>修改<code>marked.js</code>源码的方式来避开这些问题 </p>
 <ul>
@@ -434,10 +434,10 @@ em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,1
 em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</code>
 </pre>
 
-<h2 id="支持带编号的公式"><a href="#支持带编号的公式" class="headerlink" title="支持带编号的公式"></a>支持带编号的公式</h2><p>在原有的<code>themes\next\layout\_third-party.mathjax.swig</code>中添加如下内容：</p>
+<h1 id="支持带编号的公式">2 支持带编号的公式</h1><p>在原有的<code>themes\next\layout\_third-party.mathjax.swig</code>中添加如下内容：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/x-mathjax-config&quot;&gt;</div><div class="line">   MathJax.Hub.Config(&#123;</div><div class="line">       TeX: &#123;equationNumbers: &#123;autoNumber: [&quot;AMS&quot;], useLabelIds: true&#125;&#125;,</div><div class="line">       &quot;HTML-CSS&quot;: &#123;linebreaks: &#123;automatic: true&#125;&#125;,</div><div class="line">       SVG: &#123;linebreaks: &#123;automatic: true&#125;&#125;</div><div class="line">   &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
 <p>之后可以像 LaTeX 一样添加<code>\label{}</code>以及<code>\eqref{}, \ref{}</code>。</p>
-<h2 id="其它内容"><a href="#其它内容" class="headerlink" title="其它内容"></a>其它内容</h2><p>本模板提供了一个<code>&lt;pre class=&quot;white&quot;&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;</code>的环境用于生成背景为白色的代码环境，注意<code>&lt;pre&gt;</code>与<code>&lt;code&gt;</code>之间可以换行，但<code>&lt;code&gt;</code>与文本之间要紧密相联；还提供了<code>&lt;pre class=&quot;center&quot;&gt;&lt;/pre&gt;</code>用于生成文字居中效果，不需要在行与行之间换行！</p>
+<h1 id="其它内容">3 其它内容</h1><p>本模板提供了一个<code>&lt;pre class=&quot;white&quot;&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;</code>的环境用于生成背景为白色的代码环境，注意<code>&lt;pre&gt;</code>与<code>&lt;code&gt;</code>之间可以换行，但<code>&lt;code&gt;</code>与文本之间要紧密相联；还提供了<code>&lt;pre class=&quot;center&quot;&gt;&lt;/pre&gt;</code>用于生成文字居中效果，不需要在行与行之间换行！</p>
 
       
     </div>
@@ -575,7 +575,7 @@ em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</code>
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -686,7 +686,7 @@ em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</code>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#与Markdown的冲突解决"><span class="nav-number">1.</span> <span class="nav-text">与Markdown的冲突解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支持带编号的公式"><span class="nav-number">2.</span> <span class="nav-text">支持带编号的公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它内容"><span class="nav-number">3.</span> <span class="nav-text">其它内容</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#与Markdown的冲突解决"><span class="nav-text">1 与Markdown的冲突解决</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#支持带编号的公式"><span class="nav-text">2 支持带编号的公式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其它内容"><span class="nav-text">3 其它内容</span></a></li></ol></div>
             
 
           </div>

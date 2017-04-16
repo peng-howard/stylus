@@ -5,7 +5,7 @@
   <link href="/stylus/atom.xml" rel="self"/>
   
   <link href="http://peng-howard.github.io/stylus/"/>
-  <updated>2017-04-13T04:18:31.066Z</updated>
+  <updated>2017-04-16T12:59:19.030Z</updated>
   <id>http://peng-howard.github.io/stylus/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://peng-howard.github.io/stylus/2017/03/29/ggimage/"/>
     <id>http://peng-howard.github.io/stylus/2017/03/29/ggimage/</id>
     <published>2017-03-28T16:00:00.000Z</published>
-    <updated>2017-04-13T04:18:31.066Z</updated>
+    <updated>2017-04-16T12:59:19.030Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
 &lt;p&gt;作者简介：余光创，香港大学公共卫生学院，生物信息学博士生。&lt;/p&gt;
 &lt;p&gt;博客：&lt;a href=&quot;https://guangchuangyu.github.io&quot;&gt;https://guangchuangyu.github.io&lt;/a&gt;， 公众号：biobabble&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h1 id=&quot;导言&quot;&gt;&lt;a href=&quot;#导言&quot; class=&quot;headerlink&quot; title=&quot;导言&quot;&gt;&lt;/a&gt;导言&lt;/h1&gt;&lt;p&gt;本文介绍了&lt;strong&gt;ggimage&lt;/strong&gt;包，允许在&lt;strong&gt;ggplot2&lt;/strong&gt;作图时嵌入图片，并支持&lt;code&gt;aes&lt;/code&gt;映射，可以把离散型变量映射到不同图片。目前有几个包可以使用图片嵌入做图，但都是针对特定的场景，这里使用&lt;strong&gt;ggimage&lt;/strong&gt;来展示在这些特定领域里的应用，&lt;strong&gt;ggimage&lt;/strong&gt;的设计是通用的，并不被特定场景所限定，文末又介绍了用R图标来画出R、用饼图来画气泡图等实例。&lt;/p&gt;
+&lt;h1 id=&quot;导言&quot;&gt;1 导言&lt;/h1&gt;&lt;p&gt;本文介绍了&lt;strong&gt;ggimage&lt;/strong&gt;包，允许在&lt;strong&gt;ggplot2&lt;/strong&gt;作图时嵌入图片，并支持&lt;code&gt;aes&lt;/code&gt;映射，可以把离散型变量映射到不同图片。目前有几个包可以使用图片嵌入做图，但都是针对特定的场景，这里使用&lt;strong&gt;ggimage&lt;/strong&gt;来展示在这些特定领域里的应用，&lt;strong&gt;ggimage&lt;/strong&gt;的设计是通用的，并不被特定场景所限定，文末又介绍了用R图标来画出R、用饼图来画气泡图等实例。&lt;/p&gt;
     
     </summary>
     
@@ -49,7 +49,7 @@
     <link href="http://peng-howard.github.io/stylus/2017/03/28/mathjax/"/>
     <id>http://peng-howard.github.io/stylus/2017/03/28/mathjax/</id>
     <published>2017-03-27T16:00:00.000Z</published>
-    <updated>2017-03-29T15:37:50.016Z</updated>
+    <updated>2017-04-16T13:45:04.917Z</updated>
     
     <summary type="html">
     
@@ -73,7 +73,7 @@
     <link href="http://peng-howard.github.io/stylus/2017/03/25/bias-variance-tradeoff/"/>
     <id>http://peng-howard.github.io/stylus/2017/03/25/bias-variance-tradeoff/</id>
     <published>2017-03-25T03:33:41.000Z</published>
-    <updated>2017-03-30T03:20:10.064Z</updated>
+    <updated>2017-04-16T14:09:05.473Z</updated>
     
     <summary type="html">
     
@@ -98,7 +98,7 @@
     <link href="http://peng-howard.github.io/stylus/2017/03/22/floats-in-LaTeX-handle-overfull-floats/"/>
     <id>http://peng-howard.github.io/stylus/2017/03/22/floats-in-LaTeX-handle-overfull-floats/</id>
     <published>2017-03-22T14:34:24.000Z</published>
-    <updated>2017-03-29T16:33:45.347Z</updated>
+    <updated>2017-04-16T14:10:04.450Z</updated>
     
     <summary type="html">
     
@@ -122,13 +122,13 @@
     <link href="http://peng-howard.github.io/stylus/2017/03/11/floats-in-LaTeX-basic/"/>
     <id>http://peng-howard.github.io/stylus/2017/03/11/floats-in-LaTeX-basic/</id>
     <published>2017-03-11T07:34:10.000Z</published>
-    <updated>2017-03-28T15:28:10.804Z</updated>
+    <updated>2017-04-16T14:09:49.956Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;&lt;strong&gt;原文地址&lt;/strong&gt;：&lt;a href=&quot;http://liam0205.me/2017/03/11/floats-in-LaTeX-basic/&quot;&gt;http://liam0205.me/2017/03/11/floats-in-LaTeX-basic/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;此篇介绍一下 LaTeX 中的浮动体基本概念，以及最常见的几个问题。&lt;/p&gt;
-&lt;h2 id=&quot;浮动体是什么&quot;&gt;&lt;a href=&quot;#浮动体是什么&quot; class=&quot;headerlink&quot; title=&quot;浮动体是什么&quot;&gt;&lt;/a&gt;浮动体是什么&lt;/h2&gt;&lt;p&gt;在实际撰写文稿的过程中，我们可能会碰到一些占据篇幅较大，但同时又不方便分页的内容。（比如图片和表格，通常属于这样的类型）此时，我们通常会希望将它们&lt;strong&gt;放在别的地方&lt;/strong&gt;，避免页面空间不够而强行置入这些内容导致 overfull vbox 或者大片的空白。此外，因为被放在别的地方，所以，我们通常需要对这些内容做一个&lt;strong&gt;简单的描述&lt;/strong&gt;，确保读者在看到这些大块的内容时，不至于无从下手去理解。同时，因为此类内容被放在别的地方，所以在文中引述它们时，我们无法用「下图」、「上表」之类的相对位置来引述他们。于是，我们需要对它们进行编号，方便在文中引用。&lt;/p&gt;
+&lt;h1 id=&quot;浮动体是什么&quot;&gt;1 浮动体是什么&lt;/h1&gt;&lt;p&gt;在实际撰写文稿的过程中，我们可能会碰到一些占据篇幅较大，但同时又不方便分页的内容。（比如图片和表格，通常属于这样的类型）此时，我们通常会希望将它们&lt;strong&gt;放在别的地方&lt;/strong&gt;，避免页面空间不够而强行置入这些内容导致 overfull vbox 或者大片的空白。此外，因为被放在别的地方，所以，我们通常需要对这些内容做一个&lt;strong&gt;简单的描述&lt;/strong&gt;，确保读者在看到这些大块的内容时，不至于无从下手去理解。同时，因为此类内容被放在别的地方，所以在文中引述它们时，我们无法用「下图」、「上表」之类的相对位置来引述他们。于是，我们需要对它们进行编号，方便在文中引用。&lt;/p&gt;
     
     </summary>
     
@@ -146,12 +146,12 @@
     <link href="http://peng-howard.github.io/stylus/2016/09/23/JS-CSS-WebAgent/"/>
     <id>http://peng-howard.github.io/stylus/2016/09/23/JS-CSS-WebAgent/</id>
     <published>2016-09-22T16:00:00.000Z</published>
-    <updated>2017-04-12T14:43:48.147Z</updated>
+    <updated>2017-04-16T14:10:39.719Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;&lt;strong&gt;原文地址&lt;/strong&gt;：&lt;a href=&quot;http://blog.csdn.net/duchao123duchao/article/details/52638506&quot;&gt;http://blog.csdn.net/duchao123duchao/article/details/52638506&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;1-根据分辨率提供不同的-CSS-样式&quot;&gt;&lt;a href=&quot;#1-根据分辨率提供不同的-CSS-样式&quot; class=&quot;headerlink&quot; title=&quot;1. 根据分辨率提供不同的 CSS 样式&quot;&gt;&lt;/a&gt;1. 根据分辨率提供不同的 CSS 样式&lt;/h2&gt;&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;@&lt;span class=&quot;keyword&quot;&gt;media&lt;/span&gt; screen and (min-width: &lt;span class=&quot;number&quot;&gt;320px&lt;/span&gt;) and (max-width: &lt;span class=&quot;number&quot;&gt;480px&lt;/span&gt;)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	在这里写小屏幕设备的样式&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;@&lt;span class=&quot;keyword&quot;&gt;media&lt;/span&gt; only screen and (min-width: &lt;span class=&quot;number&quot;&gt;321px&lt;/span&gt;) and (max-width: &lt;span class=&quot;number&quot;&gt;1024px&lt;/span&gt;)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	这里写宽度大于321&lt;span class=&quot;selector-tag&quot;&gt;px&lt;/span&gt;小于1024&lt;span class=&quot;selector-tag&quot;&gt;px&lt;/span&gt;的样式(一般是平板电脑)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;@&lt;span class=&quot;keyword&quot;&gt;media&lt;/span&gt; only screen and (min-width: &lt;span class=&quot;number&quot;&gt;1029px&lt;/span&gt;)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	这里写&lt;span class=&quot;selector-tag&quot;&gt;pc&lt;/span&gt;客户端的样式&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&quot;根据分辨率提供不同的-CSS-样式&quot;&gt;1 根据分辨率提供不同的 CSS 样式&lt;/h1&gt;&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;@&lt;span class=&quot;keyword&quot;&gt;media&lt;/span&gt; screen and (min-width: &lt;span class=&quot;number&quot;&gt;320px&lt;/span&gt;) and (max-width: &lt;span class=&quot;number&quot;&gt;480px&lt;/span&gt;)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	在这里写小屏幕设备的样式&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;@&lt;span class=&quot;keyword&quot;&gt;media&lt;/span&gt; only screen and (min-width: &lt;span class=&quot;number&quot;&gt;321px&lt;/span&gt;) and (max-width: &lt;span class=&quot;number&quot;&gt;1024px&lt;/span&gt;)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	这里写宽度大于321&lt;span class=&quot;selector-tag&quot;&gt;px&lt;/span&gt;小于1024&lt;span class=&quot;selector-tag&quot;&gt;px&lt;/span&gt;的样式(一般是平板电脑)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;@&lt;span class=&quot;keyword&quot;&gt;media&lt;/span&gt; only screen and (min-width: &lt;span class=&quot;number&quot;&gt;1029px&lt;/span&gt;)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	这里写&lt;span class=&quot;selector-tag&quot;&gt;pc&lt;/span&gt;客户端的样式&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -169,7 +169,7 @@
     <link href="http://peng-howard.github.io/stylus/2013/07/15/parallel-coordinate-plot-andrews-curves/"/>
     <id>http://peng-howard.github.io/stylus/2013/07/15/parallel-coordinate-plot-andrews-curves/</id>
     <published>2013-07-14T16:00:00.000Z</published>
-    <updated>2017-03-28T15:15:18.629Z</updated>
+    <updated>2017-04-16T14:10:55.764Z</updated>
     
     <summary type="html">
     
@@ -206,11 +206,11 @@
     <link href="http://peng-howard.github.io/stylus/2013/07/10/filter/"/>
     <id>http://peng-howard.github.io/stylus/2013/07/10/filter/</id>
     <published>2013-07-09T16:00:00.000Z</published>
-    <updated>2017-03-28T15:02:37.849Z</updated>
+    <updated>2017-04-16T14:11:33.739Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;参考资料：&quot;&gt;&lt;a href=&quot;#参考资料：&quot; class=&quot;headerlink&quot; title=&quot;参考资料：&quot;&gt;&lt;/a&gt;参考资料：&lt;/h2&gt;&lt;ol&gt;
+      &lt;h1 id=&quot;参考资料：&quot;&gt;1 参考资料：&lt;/h1&gt;&lt;ol&gt;
 &lt;li&gt;滤波(filter)：&lt;a href=&quot;http://baike.baidu.com/view/162707.htm&quot;&gt;http://baike.baidu.com/view/162707.htm&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;增益(gain)：&lt;a href=&quot;http://baike.baidu.com/view/343150.htm&quot;&gt;http://baike.baidu.com/view/343150.htm&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;低通滤波(Low-pass filter)：&lt;a href=&quot;http://baike.baidu.com/view/1669798.htm&quot;&gt;http://baike.baidu.com/view/1669798.htm&lt;/a&gt;&lt;/li&gt;
@@ -254,12 +254,12 @@
     <link href="http://peng-howard.github.io/stylus/2013/06/25/quantile/"/>
     <id>http://peng-howard.github.io/stylus/2013/06/25/quantile/</id>
     <published>2013-06-24T16:00:00.000Z</published>
-    <updated>2017-03-30T03:20:45.682Z</updated>
+    <updated>2017-04-16T14:11:50.830Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;分位数在统计学是中一个比较简单和容易理解的概念，大部分初级的统计学教材中都会有相应的介绍。但实际在理解这个概念的时候，要注意连续情形下与分位数相关的几个概念之间的联系与区别。&lt;/p&gt;
-&lt;h2 id=&quot;离散情形&quot;&gt;&lt;a href=&quot;#离散情形&quot; class=&quot;headerli
+&lt;h1 id=&quot;离散情形&quot;&gt;1 离散情形&lt;/h1&gt;&lt;p&gt;举一个例子，将100名同学的期末考
     
     </summary>
     
@@ -271,15 +271,35 @@
   </entry>
   
   <entry>
+    <title>CSS: block、inline 和 inline-block 概念和区别z</title>
+    <link href="http://peng-howard.github.io/stylus/2013/06/16/CSS-block-inline/"/>
+    <id>http://peng-howard.github.io/stylus/2013/06/16/CSS-block-inline/</id>
+    <published>2013-06-15T16:00:00.000Z</published>
+    <updated>2017-04-16T13:40:11.005Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;原文地址&lt;/strong&gt;：&lt;a href=&quot;http://www.cnblogs.com/KeithWang/p/3139517.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/Kei
+    
+    </summary>
+    
+      <category term="网页编程" scheme="http://peng-howard.github.io/stylus/categories/%E7%BD%91%E9%A1%B5%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="CSS" scheme="http://peng-howard.github.io/stylus/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>R的应用领域包介绍z</title>
     <link href="http://peng-howard.github.io/stylus/2013/06/09/r-packages-introduction/"/>
     <id>http://peng-howard.github.io/stylus/2013/06/09/r-packages-introduction/</id>
     <published>2013-06-08T16:00:00.000Z</published>
-    <updated>2017-03-28T03:57:38.092Z</updated>
+    <updated>2017-04-16T14:12:32.062Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Analysis-of-Pharmacokinetic-Data-药物-代谢-动力学数据分析&quot;&gt;&lt;a href=&quot;#Analysis-of-Pharmacokinetic-Data-药物-代谢-动力学数据分析&quot; class=&quot;headerlink&quot; title=&quot;Analysis of Pharmacokinetic Data 药物(代谢)动力学数据分析&quot;&gt;&lt;/a&gt;Analysis of Pharmacokinetic Data 药物(代谢)动力学数据分析&lt;/h2&gt;&lt;ul&gt;
+      &lt;h1 id=&quot;Analysis-of-Pharmacokinetic-Data-药物-代谢-动力学数据分析&quot;&gt;1 Analysis of Pharmacokinetic Data 药物(代谢)动力学数据分析&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;网址&lt;/strong&gt;：&lt;a href=&quot;http://cran.r-project.org/web/views/Pharmacokinetics.html&quot;&gt;http://cran.r-project.org/web/views/Pharmacokinetics.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;维护人员&lt;/strong&gt;：Suzette Blanchard&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;版本&lt;/strong&gt;：2008-02-15&lt;/li&gt;
@@ -374,11 +394,11 @@
     <link href="http://peng-howard.github.io/stylus/2012/12/07/matlab-eval-feval/"/>
     <id>http://peng-howard.github.io/stylus/2012/12/07/matlab-eval-feval/</id>
     <published>2012-12-06T16:00:00.000Z</published>
-    <updated>2017-03-28T03:00:19.832Z</updated>
+    <updated>2017-04-16T14:13:12.415Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;eval函数用法简介&quot;&gt;&lt;a href=&quot;#eval函数用法简介&quot; class=&quot;headerlink&quot; title=&quot;eval函数用法简介&quot;&gt;&lt;/a&gt;eval函数用法简介&lt;/h2&gt;&lt;p&gt;原文地址：&lt;a href=&quot;http://www.ilovematlab.c
+      &lt;h1 id=&quot;eval函数用法简介&quot;&gt;1 eval函数用法简介&lt;/h1&gt;&lt;p&gt;原文地址：&lt;a href=&quot;http://www.ilovematlab.cn/thread-53554-1-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http:/
     
     </summary>
     
@@ -388,6 +408,29 @@
       <category term="Matlab" scheme="http://peng-howard.github.io/stylus/tags/Matlab/"/>
     
       <category term="eval" scheme="http://peng-howard.github.io/stylus/tags/eval/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R中正则表达式简介z</title>
+    <link href="http://peng-howard.github.io/stylus/2012/12/05/r-reg-exp/"/>
+    <id>http://peng-howard.github.io/stylus/2012/12/05/r-reg-exp/</id>
+    <published>2012-12-04T16:00:00.000Z</published>
+    <updated>2017-03-27T16:49:16.099Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;原文地址：&lt;a href=&quot;http://jliblog.com/archives/28&quot;&gt;http://jliblog.com/archives/28&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;R中的&lt;code&gt;grep、grepl、sub、gsub、regexpr、gregexpr&lt;/code&gt;等函数都使用正则表达式的规则进行匹配。默认是&lt;code&gt;egrep&lt;/code&gt;的规则，也可以选用Perl语言的规则。在这里，我们以R中的&lt;code&gt;sub&lt;/code&gt;函数为例（因为该函数可以返回替换字符串后的具体内容）介绍正则表达式的用法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="正则表达式" scheme="http://peng-howard.github.io/stylus/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+    
+      <category term="正则表达式" scheme="http://peng-howard.github.io/stylus/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+      <category term="R" scheme="http://peng-howard.github.io/stylus/tags/R/"/>
     
   </entry>
   
@@ -419,29 +462,6 @@
   </entry>
   
   <entry>
-    <title>R中正则表达式简介z</title>
-    <link href="http://peng-howard.github.io/stylus/2012/12/05/r-reg-exp/"/>
-    <id>http://peng-howard.github.io/stylus/2012/12/05/r-reg-exp/</id>
-    <published>2012-12-04T16:00:00.000Z</published>
-    <updated>2017-03-27T16:49:16.099Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;原文地址：&lt;a href=&quot;http://jliblog.com/archives/28&quot;&gt;http://jliblog.com/archives/28&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;R中的&lt;code&gt;grep、grepl、sub、gsub、regexpr、gregexpr&lt;/code&gt;等函数都使用正则表达式的规则进行匹配。默认是&lt;code&gt;egrep&lt;/code&gt;的规则，也可以选用Perl语言的规则。在这里，我们以R中的&lt;code&gt;sub&lt;/code&gt;函数为例（因为该函数可以返回替换字符串后的具体内容）介绍正则表达式的用法。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="正则表达式" scheme="http://peng-howard.github.io/stylus/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-    
-      <category term="正则表达式" scheme="http://peng-howard.github.io/stylus/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-      <category term="R" scheme="http://peng-howard.github.io/stylus/tags/R/"/>
-    
-  </entry>
-  
-  <entry>
     <title>R的内存管理和垃圾清理z</title>
     <link href="http://peng-howard.github.io/stylus/2012/12/05/r-mem-gc/"/>
     <id>http://peng-howard.github.io/stylus/2012/12/05/r-mem-gc/</id>
@@ -452,26 +472,6 @@
     
       &lt;p&gt;原文地址：&lt;a href=&quot;http://jliblog.com/archives/276&quot;&gt;http://jliblog.com/archives/276&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;写R程序的人，相信都会遇到过&lt;code&gt;“cannot allocate vector of size”&lt;/code&gt;或者&lt;code&gt;“无法分配大小为…的矢量”&lt;/code&gt;这样的错误。原因很简单，基本都是产生一个大矩阵等对象时发生的，最干脆的解决办法有两种，第一种是加大内存换64位系统，第二种是改变算法避免如此大的对象。第一种办法，是最好的办法，不过大对象的需求是没有止尽的，终究不是长久之道。第二种办法是最好的思路，无论多么大的对象都是可以弄小的，无非就是分而治之、时间换空间等，对算法的研究也是没有止尽的。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="R" scheme="http://peng-howard.github.io/stylus/categories/R/"/>
-    
-    
-      <category term="R" scheme="http://peng-howard.github.io/stylus/tags/R/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R中如何取消科学计数法z</title>
-    <link href="http://peng-howard.github.io/stylus/2012/12/04/cancel-scientific-notation-in-r/"/>
-    <id>http://peng-howard.github.io/stylus/2012/12/04/cancel-scientific-notation-in-r/</id>
-    <published>2012-12-03T16:00:00.000Z</published>
-    <updated>2017-03-27T17:05:50.131Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;原文地址：&lt;a href=&quot;http://bbs.pinggu.org/thread-1403060-1-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://bbs.pinggu.org/thread-1403060-1-1.html
     
     </summary>
     

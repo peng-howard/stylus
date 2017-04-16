@@ -102,7 +102,7 @@
 基于三维曲面（如三维曲面图）">
 <meta property="og:image" content="https://cssdpq.bn1.livefilestore.com/y2pvkki2cktl093Pl_BxKM-ZZ8RQ_u-6xQnlTubo23_SXYLGCCLvKy0HTC_tR7UpgB_1h5cVOsZCiZvi7rLWzq2ydWmMGy9_4byGLUhP5db-MQ/Iris%20%E6%95%B0%E6%8D%AE%E7%9A%84%E8%BD%AE%E5%BB%93%E5%9B%BE(Parallel%20Coordinate%20Plots">
 <meta property="og:image" content="https://cssdpq.bn1.livefilestore.com/y2pi1WtDEA1hzK6vfvFjDtdWP9FS4yzejGHptqXptD2HA1txjcmsmQ74JW_wF-AeYh1Yo0JpecJafME8aKbO5FF3eAyxPV_kSs2HAA-2jH6ZdI/Iris%20%E6%95%B0%E6%8D%AE%E7%9A%84%E8%B0%83%E5%92%8C%E6%9B%B2%E7%BA%BF%E5%9B%BE.png?psid=1">
-<meta property="og:updated_time" content="2017-03-28T15:15:18.629Z">
+<meta property="og:updated_time" content="2017-04-16T14:10:55.764Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="调和曲线图和轮廓图的比较z">
 <meta name="twitter:description" content="原文地址：http://cos.name/2009/03/parallel-coordinates-and-andrews-curve/#more-704
@@ -446,14 +446,14 @@
 </ol>
 <p>其思想是将高维数据映射到低维空间（三维以下）内，尽量使信息损失最少，同时又能利于肉眼辨识。调和曲线图和轮廓图(即平行坐标图)都是多元数据的可视化方法，它们基于“线”的形式，将多元数据表示出来，对于聚类分析有很好的帮助。</p>
 <a id="more"></a>
-<h2 id="轮廓图"><a href="#轮廓图" class="headerlink" title="轮廓图"></a>轮廓图</h2><p>轮廓图的思想非常简单、直观，它是在横坐标上取$p$个点，依次表示各个指标(即变量)；横坐标上则对应各个指标的值(或者经过标准化变换后的值)，然后将每一组数据对应的点依次连接即可。</p>
+<h1 id="轮廓图">1 轮廓图</h1><p>轮廓图的思想非常简单、直观，它是在横坐标上取$p$个点，依次表示各个指标(即变量)；横坐标上则对应各个指标的值(或者经过标准化变换后的值)，然后将每一组数据对应的点依次连接即可。</p>
 <p><code>lattice</code>包中的<code>parallel()</code>函数可以轻松绘出轮廓图。利用<code>iris</code>数据，以下代码可以画出其轮廓图。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(lattice)</div><div class="line">data(iris)</div><div class="line">parallel(~iris[<span class="number">1</span>:<span class="number">4</span>], iris, groups = Species,</div><div class="line">    horizontal.axis = <span class="literal">FALSE</span>, scales = list(x = list(rot = <span class="number">90</span>)))</div></pre></td></tr></table></figure>
 <p><img src="https://cssdpq.bn1.livefilestore.com/y2pvkki2cktl093Pl_BxKM-ZZ8RQ_u-6xQnlTubo23_SXYLGCCLvKy0HTC_tR7UpgB_1h5cVOsZCiZvi7rLWzq2ydWmMGy9_4byGLUhP5db-MQ/Iris%20%E6%95%B0%E6%8D%AE%E7%9A%84%E8%BD%AE%E5%BB%93%E5%9B%BE(Parallel%20Coordinate%20Plots" alt="">.png?psid=1)</p>
 <p style="text-align: center">图1 Iris 数据的轮廓图(Parallel Coordinate Plots)</p>
 
 <p>观察上图，可以发现同一品种的鸢尾花的轮廓图粗略地聚集在一起。</p>
-<h2 id="调和曲线图"><a href="#调和曲线图" class="headerlink" title="调和曲线图"></a>调和曲线图</h2><p>调和曲线图的思想和傅立叶变换十分相似，是根据三角变换方法将$p$维空间的点映射到二维平面上的曲线上。假设$X_r$是$p$维数据的第$r$个观测值，即</p>
+<h1 id="调和曲线图">2 调和曲线图</h1><p>调和曲线图的思想和傅立叶变换十分相似，是根据三角变换方法将$p$维空间的点映射到二维平面上的曲线上。假设$X_r$是$p$维数据的第$r$个观测值，即</p>
 <p>$$X_r^T=(x_{r1},\dotsc,x_{rp})$$</p>
 <p>则对应的调和曲线是</p>
 <p>$$f_r(t)=\frac{x_{r1}}{\sqrt{2}} +x_{r2}\sin t+x_{r3}\cos t+x_{r4}\sin 2 t+x_{r5} \cos 2 t+\cdots$$</p>
@@ -464,7 +464,7 @@
 <p style="text-align: center">图2 Iris 数据的调和曲线图</p>
 
 <p>观察上图，同样可以发现同一品种鸢尾花数据的调和曲线图基本上扭在一起。同第一幅图比较后，发现第二幅图更加清楚明白，事实上Andrews证明了调和曲线图有许多良好性质。</p>
-<h2 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h2><p>轮廓图和调和曲线图有着相近的功能，而技巧大有不同。轮廓图简单却现得粗糙，调和曲线图公式复杂却十分精细。从这一个侧面可以发现直观的统计思想固然重要，但存在很多种不可能通过直观思想得到的、而又非常精细、美妙的方法，此时倍受众多统计学家责难的数学显得优雅而又强大。</p>
+<h1 id="讨论">3 讨论</h1><p>轮廓图和调和曲线图有着相近的功能，而技巧大有不同。轮廓图简单却现得粗糙，调和曲线图公式复杂却十分精细。从这一个侧面可以发现直观的统计思想固然重要，但存在很多种不可能通过直观思想得到的、而又非常精细、美妙的方法，此时倍受众多统计学家责难的数学显得优雅而又强大。</p>
 <hr>
 
 <blockquote>
@@ -475,8 +475,7 @@
 <strong>魏太云</strong>：快很多呢，没有一个显式循环，十分方便:)。调和曲线图的确很好地将数学融进了图形，可谓鬼斧神工啊。</p>
 <p><hr>
 <strong>fasterr</strong>：<code>andrews.curve(x, col=c(‘red’, ‘green3′, ‘blue’))</code>可是画出来的不是很一样：《统计建模与R软件》版的调和曲线的颜色比较友好，相近族类的颜色一样、不同类的颜色不同。
-<code>andrews.curve()</code>绘制的曲线颜色是是交替的（一次red，一次green3, 一次blue，依次循环使用），而不是颜色按类聚集，这样画出来的色彩整体很凌乱（颜色重叠后就更变味了）。
-传入什么控制参数<code>andrews.curve()</code>也能得到一样的效果么？</p>
+<code>andrews.curve()</code>绘制的曲线颜色是是交替的（一次red，一次green3, 一次blue，依次循环使用），而不是颜色按类聚集，这样画出来的色彩整体很凌乱（颜色重叠后就更变味了）。传入什么控制参数<code>andrews.curve()</code>也能得到一样的效果么？</p>
 </blockquote>
 
       
@@ -619,7 +618,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -730,7 +729,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#轮廓图"><span class="nav-number">1.</span> <span class="nav-text">轮廓图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调和曲线图"><span class="nav-number">2.</span> <span class="nav-text">调和曲线图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#讨论"><span class="nav-number">3.</span> <span class="nav-text">讨论</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#轮廓图"><span class="nav-text">1 轮廓图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#调和曲线图"><span class="nav-text">2 调和曲线图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#讨论"><span class="nav-text">3 讨论</span></a></li></ol></div>
             
 
           </div>

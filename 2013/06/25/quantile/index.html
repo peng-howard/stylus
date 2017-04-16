@@ -81,18 +81,18 @@
 
 
 <meta name="description" content="分位数在统计学是中一个比较简单和容易理解的概念，大部分初级的统计学教材中都会有相应的介绍。但实际在理解这个概念的时候，要注意连续情形下与分位数相关的几个概念之间的联系与区别。
-离散情形举一个例子，将100名同学的期末考试总分成绩所组成的向量$\mathbf{x}$按从小到大的规则进行排序，生成一个新的顺序统计量$\mathbf{x}^\prime$，那么$\mathbf{x}$的$1/4$分位数指">
+1 离散情形举一个例子，将100名同学的期末考试总分成绩所组成的向量$\mathbf{x}$按从小到大的规则进行排序，生成一个新的顺序统计量$\mathbf{x}^\prime$，那么$\mathbf{x}$的$1/4$分位">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分位点与分位数 z">
 <meta property="og:url" content="http://peng-howard.github.io/stylus/2013/06/25/quantile/index.html">
 <meta property="og:site_name" content="语千 ~ 刻一">
 <meta property="og:description" content="分位数在统计学是中一个比较简单和容易理解的概念，大部分初级的统计学教材中都会有相应的介绍。但实际在理解这个概念的时候，要注意连续情形下与分位数相关的几个概念之间的联系与区别。
-离散情形举一个例子，将100名同学的期末考试总分成绩所组成的向量$\mathbf{x}$按从小到大的规则进行排序，生成一个新的顺序统计量$\mathbf{x}^\prime$，那么$\mathbf{x}$的$1/4$分位数指">
-<meta property="og:updated_time" content="2017-03-30T03:20:45.682Z">
+1 离散情形举一个例子，将100名同学的期末考试总分成绩所组成的向量$\mathbf{x}$按从小到大的规则进行排序，生成一个新的顺序统计量$\mathbf{x}^\prime$，那么$\mathbf{x}$的$1/4$分位">
+<meta property="og:updated_time" content="2017-04-16T14:11:50.830Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分位点与分位数 z">
 <meta name="twitter:description" content="分位数在统计学是中一个比较简单和容易理解的概念，大部分初级的统计学教材中都会有相应的介绍。但实际在理解这个概念的时候，要注意连续情形下与分位数相关的几个概念之间的联系与区别。
-离散情形举一个例子，将100名同学的期末考试总分成绩所组成的向量$\mathbf{x}$按从小到大的规则进行排序，生成一个新的顺序统计量$\mathbf{x}^\prime$，那么$\mathbf{x}$的$1/4$分位数指">
+1 离散情形举一个例子，将100名同学的期末考试总分成绩所组成的向量$\mathbf{x}$按从小到大的规则进行排序，生成一个新的顺序统计量$\mathbf{x}^\prime$，那么$\mathbf{x}$的$1/4$分位">
 
 
 
@@ -415,8 +415,8 @@
 
       
         <p>分位数在统计学是中一个比较简单和容易理解的概念，大部分初级的统计学教材中都会有相应的介绍。但实际在理解这个概念的时候，要注意连续情形下与分位数相关的几个概念之间的联系与区别。</p>
-<h2 id="离散情形"><a href="#离散情形" class="headerlink" title="离散情形"></a>离散情形</h2><p>举一个例子，将100名同学的期末考试总分成绩所组成的向量$\mathbf{x}$按从小到大的规则进行排序，生成一个新的顺序统计量$\mathbf{x}^\prime$，那么$\mathbf{x}$的$1/4$分位数指的是$\mathbf{x}^\prime$第25号位上的那个数字，同理可知中位数以及$3/4$分位数等。</p>
-<h2 id="连续情形"><a href="#连续情形" class="headerlink" title="连续情形"></a>连续情形</h2><p>以正态分布为例，$1/4$分位数指的是$\mathrm{Pr}(X\leqslant x)=1/4$对应的$x$值，类似的，标准正态分布中中位数对应的$x$为0。</p>
+<h1 id="离散情形">1 离散情形</h1><p>举一个例子，将100名同学的期末考试总分成绩所组成的向量$\mathbf{x}$按从小到大的规则进行排序，生成一个新的顺序统计量$\mathbf{x}^\prime$，那么$\mathbf{x}$的$1/4$分位数指的是$\mathbf{x}^\prime$第25号位上的那个数字，同理可知中位数以及$3/4$分位数等。</p>
+<h1 id="连续情形">2 连续情形</h1><p>以正态分布为例，$1/4$分位数指的是$\mathrm{Pr}(X\leqslant x)=1/4$对应的$x$值，类似的，标准正态分布中中位数对应的$x$为0。</p>
 <p>从上面的例子可以看出，分位点确定的基础是在离散情形下将样本数量标准化为1，而在连续情形下则是将x坐标轴的可用长度标准化为1(对于正态分布和t分布而言，原始长度为$-\infty$到$+\infty$之间的全部范围。</p>
 <blockquote>
 <p>在连续情形下，若考虑的置信系数是左单侧的，那么置信系数$\alpha$对应的下$\alpha$分位点的$x$值与$\alpha$分位数以及$\mathrm{Pr}(X\leqslant x)=\alpha$中的$x$实际上指向同一个$x$值。</p>
@@ -464,8 +464,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/stylus/2013/06/09/r-packages-introduction/" rel="next" title="R的应用领域包介绍z">
-                <i class="fa fa-chevron-left"></i> R的应用领域包介绍z
+              <a href="/stylus/2013/06/16/CSS-block-inline/" rel="next" title="CSS: block、inline 和 inline-block 概念和区别z">
+                <i class="fa fa-chevron-left"></i> CSS: block、inline 和 inline-block 概念和区别z
               </a>
             
           </div>
@@ -555,7 +555,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -666,7 +666,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#离散情形"><span class="nav-number">1.</span> <span class="nav-text">离散情形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连续情形"><span class="nav-number">2.</span> <span class="nav-text">连续情形</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#离散情形"><span class="nav-text">1 离散情形</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连续情形"><span class="nav-text">2 连续情形</span></a></li></ol></div>
             
 
           </div>
