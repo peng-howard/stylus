@@ -1479,7 +1479,7 @@ l.21 \begin{Ventry}{Return values}
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/12/05/r-reg-exp/">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/12/05/r-mem-gc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hao Peng">
@@ -1501,8 +1501,8 @@ l.21 \begin{Ventry}{Return values}
             
               
                 
-                <a class="post-title-link" href="/stylus/2012/12/05/r-reg-exp/" itemprop="url">
-                  R中正则表达式简介z
+                <a class="post-title-link" href="/stylus/2012/12/05/r-mem-gc/" itemprop="url">
+                  R的内存管理和垃圾清理z
                 </a>
               
             
@@ -1541,8 +1541,8 @@ l.21 \begin{Ventry}{Return values}
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/正则表达式/" itemprop="url" rel="index">
-                    <span itemprop="name">正则表达式</span>
+                  <a href="/stylus/categories/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
                   </a>
                 </span>
 
@@ -1559,9 +1559,9 @@ l.21 \begin{Ventry}{Return values}
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/stylus/2012/12/05/r-reg-exp/#comments" itemprop="discussionUrl">
+                <a href="/stylus/2012/12/05/r-mem-gc/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2012/12/05/r-reg-exp/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2012/12/05/r-mem-gc/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1588,11 +1588,11 @@ l.21 \begin{Ventry}{Return values}
 
       
         
-          <p>原文地址：<a href="http://jliblog.com/archives/28">http://jliblog.com/archives/28</a></p>
-<p>R中的<code>grep、grepl、sub、gsub、regexpr、gregexpr</code>等函数都使用正则表达式的规则进行匹配。默认是<code>egrep</code>的规则，也可以选用Perl语言的规则。在这里，我们以R中的<code>sub</code>函数为例（因为该函数可以返回替换字符串后的具体内容）介绍正则表达式的用法。</p>
+          <p>原文地址：<a href="http://jliblog.com/archives/276">http://jliblog.com/archives/276</a></p>
+<p>写R程序的人，相信都会遇到过<code>“cannot allocate vector of size”</code>或者<code>“无法分配大小为…的矢量”</code>这样的错误。原因很简单，基本都是产生一个大矩阵等对象时发生的，最干脆的解决办法有两种，第一种是加大内存换64位系统，第二种是改变算法避免如此大的对象。第一种办法，是最好的办法，不过大对象的需求是没有止尽的，终究不是长久之道。第二种办法是最好的思路，无论多么大的对象都是可以弄小的，无非就是分而治之、时间换空间等，对算法的研究也是没有止尽的。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/stylus/2012/12/05/r-reg-exp/#more" rel="contents">
+            <a class="btn" href="/stylus/2012/12/05/r-mem-gc/#more" rel="contents">
               阅读全文
             </a>
           </div>
@@ -1799,7 +1799,7 @@ l.21 \begin{Ventry}{Return values}
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/12/05/r-mem-gc/">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/12/05/r-reg-exp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hao Peng">
@@ -1821,8 +1821,8 @@ l.21 \begin{Ventry}{Return values}
             
               
                 
-                <a class="post-title-link" href="/stylus/2012/12/05/r-mem-gc/" itemprop="url">
-                  R的内存管理和垃圾清理z
+                <a class="post-title-link" href="/stylus/2012/12/05/r-reg-exp/" itemprop="url">
+                  R中正则表达式简介z
                 </a>
               
             
@@ -1861,8 +1861,8 @@ l.21 \begin{Ventry}{Return values}
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/R/" itemprop="url" rel="index">
-                    <span itemprop="name">R</span>
+                  <a href="/stylus/categories/正则表达式/" itemprop="url" rel="index">
+                    <span itemprop="name">正则表达式</span>
                   </a>
                 </span>
 
@@ -1879,9 +1879,9 @@ l.21 \begin{Ventry}{Return values}
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/stylus/2012/12/05/r-mem-gc/#comments" itemprop="discussionUrl">
+                <a href="/stylus/2012/12/05/r-reg-exp/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2012/12/05/r-mem-gc/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2012/12/05/r-reg-exp/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1908,11 +1908,11 @@ l.21 \begin{Ventry}{Return values}
 
       
         
-          <p>原文地址：<a href="http://jliblog.com/archives/276">http://jliblog.com/archives/276</a></p>
-<p>写R程序的人，相信都会遇到过<code>“cannot allocate vector of size”</code>或者<code>“无法分配大小为…的矢量”</code>这样的错误。原因很简单，基本都是产生一个大矩阵等对象时发生的，最干脆的解决办法有两种，第一种是加大内存换64位系统，第二种是改变算法避免如此大的对象。第一种办法，是最好的办法，不过大对象的需求是没有止尽的，终究不是长久之道。第二种办法是最好的思路，无论多么大的对象都是可以弄小的，无非就是分而治之、时间换空间等，对算法的研究也是没有止尽的。</p>
+          <p>原文地址：<a href="http://jliblog.com/archives/28">http://jliblog.com/archives/28</a></p>
+<p>R中的<code>grep、grepl、sub、gsub、regexpr、gregexpr</code>等函数都使用正则表达式的规则进行匹配。默认是<code>egrep</code>的规则，也可以选用Perl语言的规则。在这里，我们以R中的<code>sub</code>函数为例（因为该函数可以返回替换字符串后的具体内容）介绍正则表达式的用法。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/stylus/2012/12/05/r-mem-gc/#more" rel="contents">
+            <a class="btn" href="/stylus/2012/12/05/r-reg-exp/#more" rel="contents">
               阅读全文
             </a>
           </div>
