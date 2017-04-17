@@ -26,6 +26,8 @@ a.post-title-link:hover {
 }
 /* 存档页中文章标题与时间对齐 */
 .post-title-link span {
+  font-size: 18px !important;
+  padding-left: 2em;
   display: block;
 }
 /* 缩小年内部每篇文章之间的间距 */
@@ -39,10 +41,6 @@ article.post-type-normal {
 /* 首页标题的下划线效果 */
 .post-title-link::before {
   background-color: #2dbe60 !important; /* 下划线不是 underline, text-decoratioin, border-bottom，而是 bg-color */
-}
-/* 分类页用 */
-a.post-title-link span {
-  font-size: 18px !important;
 }
 h1 {
   font-size: 36px;

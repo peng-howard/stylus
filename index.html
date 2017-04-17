@@ -1310,6 +1310,184 @@ belong to the previous footnote.
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2014/09/22/ss/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2014/09/22/ss/" itemprop="url">
+                  写给非专业人士看的 Shadowsocks 简介
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-09-22T00:00:00+08:00">
+                2014-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/软件应用/" itemprop="url" rel="index">
+                    <span itemprop="name">软件应用</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2014/09/22/ss/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2014/09/22/ss/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这个文章来源于一个朋友在科学上网的过程中，搞不清楚 Shadowsocks 的配置问题，在这里我想按照我对 Shadowsocks 的理解简单梳理一下，以便一些非专业人士也能了解。</p>
+<h1>1 long long ago…</h1>
+<p>在很久很久以前，我们访问各种网站都是简单而直接的，用户的请求通过互联网发送到服务提供方，服务提供方直接将信息反馈给用户</p>
+<p><img src="/stylus/images/shadowsocks/whats-shadowsocks-01.png" alt=""></p>
+<h1>2 when evil comes</h1>
+<p>然后有一天，GFW 就出现了，他像一个收过路费的强盗一样夹在了在用户和服务之间，每当用户需要获取信息，都经过了 GFW，GFW将它不喜欢的内容统统过滤掉，于是客户当触发 GFW 的过滤规则的时候，就会收到<code>Connection Reset</code>这样的响应内容，而无法接收到正常的内容</p>
+<p><img src="/stylus/images/shadowsocks/whats-shadowsocks-02.png" alt=""></p>
+<h1>3 ssh tunnel</h1>
+<p>聪明的人们想到了利用境外服务器代理的方法来绕过 GFW 的过滤，其中包含了各种HTTP代理服务、Socks服务、VPN服务… 其中以 ssh tunnel 的方法比较有代表性</p>
+<ul>
+<li><code>1)</code> 首先用户和境外服务器基于 ssh 建立起一条加密的通道；</li>
+<li><code>2-3)</code> 用户通过建立起的隧道进行代理，通过 ssh server 向真实的服务发起请求；</li>
+<li><code>4-5)</code> 服务通过 ssh server，再通过创建好的隧道返回给用户。</li>
+</ul>
+<p><img src="/stylus/images/shadowsocks/whats-shadowsocks-03.png" alt=""></p>
+<p>由于 ssh 本身就是基于 RSA 加密技术，所以 GFW 无法从数据传输的过程中的加密数据内容进行关键词分析，避免了被重置链接的问题，但由于创建隧道和数据传输的过程中，<code>ssh 本身的特征是明显的</code>，所以 GFW 一度通过分析连接的特征进行干扰，导致 ssh 存在被定向进行干扰的问题</p>
+<h1>4 shadowsocks</h1>
+<p>于是 <a href="https://github.com/clowwindy/shadowsocks" target="_blank" rel="external">clowwindy</a> 同学分享并开源了他的解决方案。</p>
+<p>简单理解的话，shadowsocks 是将原来 ssh 创建的 Socks5 协议拆开成 server 端和 client 端，所以下面这个原理图基本上和利用 ssh tunnel 大致类似。</p>
+<ul>
+<li><code>6)</code> 客户端发出的请求基于 Socks5 协议跟 ss-local 端进行通讯，由于这个 ss-local 一般是本机或路由器或局域网的其他机器，不经过 GFW，所以解决了上面被 GFW 通过特征分析进行干扰的问题；</li>
+<li><code>5)</code> ss-local 和 ss-server 两端通过多种可选的加密方法进行通讯，经过 GFW 的时候是常规的TCP包，没有明显的特征码而且 GFW 也无法对通讯数据进行解密；</li>
+<li><code>3、4)</code> ss-server 将收到的加密数据进行解密，还原原来的请求，再发送到用户需要访问的服务，获取响应原路返回。</li>
+</ul>
+<p><img src="/stylus/images/shadowsocks/whats-shadowsocks-04.png" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2013/07/15/parallel-coordinate-plot-andrews-curves/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1789,169 +1967,6 @@ belong to the previous footnote.
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2013/06/25/quantile/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hao Peng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/stylus/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="语千 ~ 刻一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/stylus/2013/06/25/quantile/" itemprop="url">
-                  分位点与分位数 z
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-06-25T00:00:00+08:00">
-                2013-06-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/统计学/" itemprop="url" rel="index">
-                    <span itemprop="name">统计学</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/stylus/2013/06/25/quantile/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2013/06/25/quantile/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>分位数在统计学是中一个比较简单和容易理解的概念，大部分初级的统计学教材中都会有相应的介绍。但实际在理解这个概念的时候，要注意连续情形下与分位数相关的几个概念之间的联系与区别。</p>
-<h1>1 离散情形</h1>
-<p>举一个例子，将100名同学的期末考试总分成绩所组成的向量$\mathbf{x}$按从小到大的规则进行排序，生成一个新的顺序统计量$\mathbf{x}<sup>\prime$，那么$\mathbf{x}$的$1/4$分位数指的是$\mathbf{x}</sup>\prime$第25号位上的那个数字，同理可知中位数以及$3/4$分位数等。</p>
-<h1>2 连续情形</h1>
-<p>以正态分布为例，$1/4$分位数指的是$\mathrm{Pr}(X\leqslant x)=1/4$对应的$x$值，类似的，标准正态分布中中位数对应的$x$为0。</p>
-<p>从上面的例子可以看出，分位点确定的基础是在离散情形下将样本数量标准化为1，而在连续情形下则是将x坐标轴的可用长度标准化为1(对于正态分布和t分布而言，原始长度为$-\infty$到$+\infty$之间的全部范围。</p>
-<blockquote>
-<p>在连续情形下，若考虑的置信系数是左单侧的，那么置信系数$\alpha$对应的下$\alpha$分位点的$x$值与$\alpha$分位数以及$\mathrm{Pr}(X\leqslant x)=\alpha$中的$x$实际上指向同一个$x$值。</p>
-</blockquote>
-<p>这个值在大部分统计软件中对应的命令以<code>q</code>开头，比如R中的<code>qnorm</code>命令。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2001,7 +2016,7 @@ belong to the previous footnote.
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2023,7 +2038,7 @@ belong to the previous footnote.
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

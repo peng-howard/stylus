@@ -304,6 +304,170 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2011/11/12/pgfpages-slides-4-in-1-changing-margins/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2011/11/12/pgfpages-slides-4-in-1-changing-margins/" itemprop="url">
+                  用 pgfpages 生成 slides 的 4 in 1 版式效果
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2011-11-12T00:00:00+08:00">
+                2011-11-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/LaTeX/" itemprop="url" rel="index">
+                    <span itemprop="name">LaTeX</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2011/11/12/pgfpages-slides-4-in-1-changing-margins/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2011/11/12/pgfpages-slides-4-in-1-changing-margins/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Getting a 4 in 1 pdf Slides document and “Changing PDF Margins With The pdfpages Package”</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">[a4paper, landscape]</span><span class="string">&#123;article&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">[final]</span><span class="string">&#123;pdfpages&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">includepdf</span><span class="string">[nup=2x2,pages=-, delta=15 15, offset=20 0, frame, scale=0.92,%</span></span></div><div class="line">    turn=false]<span class="string">&#123;slides.pdf&#125;</span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="comment">% offset=20 0 为偏移横向的内容，给左边留一定的空白用于装订；</span></div><div class="line"><span class="comment">% 不使用 offset 的纵向偏移，否则虽然下方有空白，但天头没有；</span></div><div class="line"><span class="comment">% 解决纵向留空使用了 scale 选项，直接缩小页面的尺寸，产生自动纵向留白。</span></div></pre></td></tr></table></figure>
+<p>用 Beamer 做的 Slides，最刚开始用 Acrobat 打印机生成幻灯片的四合一效果，但发现 Acrobat 打印过程中会对图片的质量造成一定的损伤。</p>
+<p>后来发现<code>psnup</code>工具可以实现<strong>4 in 1</strong>的效果，但试验之后感觉速度和方便程度都很欠缺，需要先将 pdf 文件转换 ps 文件，光是这个过程就太漫长，受不了；另外就是该工具提供的选项看起来不是很舒服。</p>
+<p>最后回想起其实 LaTeX 自带的<code>pgfpages</code>宏包可以完成这个任务，又回头查了了下 Beam User Guide，发现 Beamer 中也尝试过使用该宏包。但是 Beamer 中的<code>\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]</code>类命令我不能直接在 Beamer 之外用，而<code>pgfpages</code>中的<code>delta</code>与<code>offset</code>组合工作还存在问题(见上面的代码注释)，最后发现<code>\includepdf</code>的<code>scale</code>选项配合<code>delta</code>与<code>offset</code>就可以完美的达到想要的效果，问题搞定！</p>
+<p>PS：事实上<code>pgfpages</code>宏包的手册中没有对<code>scale</code>选项进行专门的说明，这个选项其实源于<code>graphicsx</code>宏包的<code>\includegraphic</code>命令，解决上面问题的思路来自下面的资料：</p>
+<ul>
+<li><a href="http://magic.aladdin.cs.cmu.edu/2007/11/13/changing-pdf-margins-with-the-pdfpages-package/" target="_blank" rel="external">http://magic.aladdin.cs.cmu.edu/2007/11/13/changing-pdf-margins-with-the-pdfpages-package/</a></li>
+<li><a href="http://www.tardis.ed.ac.uk/~ajcd/psutils/psnup.html" target="_blank" rel="external">http://www.tardis.ed.ac.uk/~ajcd/psutils/psnup.html</a></li>
+<li><a href="http://apps.hi.baidu.com/share/detail/21414399" target="_blank" rel="external">http://apps.hi.baidu.com/share/detail/21414399</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2011/11/10/word-footnote/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1634,7 +1798,7 @@ I have tried <a href="http://social.answers.microsoft.com/Forums/en-US/w7securit
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2007/07/18/tikz-dvipdfm-not-work/">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2007/07/18/regexp1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hao Peng">
@@ -1656,8 +1820,8 @@ I have tried <a href="http://social.answers.microsoft.com/Forums/en-US/w7securit
             
               
                 
-                <a class="post-title-link" href="/stylus/2007/07/18/tikz-dvipdfm-not-work/" itemprop="url">
-                  latex+dvipdfmx编译pgf图形无效的解决方法z
+                <a class="post-title-link" href="/stylus/2007/07/18/regexp1/" itemprop="url">
+                  多段文本分段
                 </a>
               
             
@@ -1696,8 +1860,8 @@ I have tried <a href="http://social.answers.microsoft.com/Forums/en-US/w7securit
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/LaTeX/" itemprop="url" rel="index">
-                    <span itemprop="name">LaTeX</span>
+                  <a href="/stylus/categories/正则表达式/" itemprop="url" rel="index">
+                    <span itemprop="name">正则表达式</span>
                   </a>
                 </span>
 
@@ -1714,9 +1878,9 @@ I have tried <a href="http://social.answers.microsoft.com/Forums/en-US/w7securit
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/stylus/2007/07/18/tikz-dvipdfm-not-work/#comments" itemprop="discussionUrl">
+                <a href="/stylus/2007/07/18/regexp1/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2007/07/18/tikz-dvipdfm-not-work/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2007/07/18/regexp1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1743,180 +1907,18 @@ I have tried <a href="http://social.answers.microsoft.com/Forums/en-US/w7securit
 
       
         
-          
-            <p>原文地址：<a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=76106&amp;extra=&amp;page=1" target="_blank" rel="external">http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=76106&amp;extra=&amp;page=1</a></p>
-<blockquote>
-<p>最好的方法是升级<code>expl3</code>宏包</p>
+          <blockquote>
+<p><strong>参考资料</strong>：<a href="http://www.geany.org/manual/gtk/glib/glib-regex-syntax.html">http://www.geany.org/manual/gtk/glib/glib-regex-syntax.html</a></p>
 </blockquote>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">[cs4size,openany,twoside,UTF8]</span><span class="string">&#123;ctexbook&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">[]</span><span class="string">&#123;graphicx&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">pgfsysdriver</span><span class="string">&#123;pgfsys-dvipdfm.def&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;tikz&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;tikzpicture&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">draw</span></span> (2,2) circle (10ex);</div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;tikzpicture&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2007/07/18/matlab-current-default-folder/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hao Peng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/stylus/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="语千 ~ 刻一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/stylus/2007/07/18/matlab-current-default-folder/" itemprop="url">
-                  设置MATLAB中Current Folder的默认文件夹
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-07-18T00:00:00+08:00">
-                2007-07-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/Matlab/" itemprop="url" rel="index">
-                    <span itemprop="name">Matlab</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/stylus/2007/07/18/matlab-current-default-folder/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2007/07/18/matlab-current-default-folder/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>原文地址：<a href="http://www.yueye.org/2011/set-matlab-current-default-folder.html" target="_blank" rel="external">http://www.yueye.org/2011/set-matlab-current-default-folder.html</a></p>
-<p>在我们使用MATLAB的过程中，其<code>Current Folder</code>面板会给我们带来一定的便利性。但遗憾的是，MATLAB自身没有提供友好的设置界面，以供用户自如地设置Current Folder面板上的起始文件夹。这就给我们带来了一定的不便，毕竟每次启动MATLAB后都重新在Current Folder中设置到我们想要的文件夹地址会耗费一定的时间，也会影响我们的心情。</p>
-<p>那么，我们应该如何在MATLAB中设置Current Folder面板上的<strong>起始文件夹</strong>位置呢？</p>
-<p>在以前的MATLAB版本中，我们可以通过右击MATLAB安装目录下MATLAB快捷方式而在其弹出的对话框中通过设置快捷方式的起始位置而对Current Folder面板上的起始文件夹进行设置。但自从MATLAB进入R2010和R2011后，我们已经不能通过这样的设置来实现我们想要的效果。但MATLAB自身提供了另一种方式，虽然不太友好，但毕竟一次设置永久受益，还是让我们来一起设置一下吧。</p>
-<p>首先，思考选择一个你要设置的文件夹路径，比如你可以保持一贯的传统，而设置为“MATLAB\R2011a\work\”文件夹；</p>
-<p>接着，让我们进入MATLAB的安装目录下的<code>“MATLAB\R2011a\toolbox\local”</code>文件夹下，在local文件夹下新建一个名为<code>startup</code>的.m文件，在其中输入如下内容：</p>
-<pre><code>cd D:\Program Files\MATLAB\R2011a\work
-</code></pre>
-<p>其中<code>cd</code>后面的内容为你要设置的起始文件夹路径。</p>
-<p>需要注意的是，这里的路径不需要用引号引起来，也不需要做任何处理。编写好<code>startup.m</code>文件并保存后，再次启动MATLAB，可以看到，MATLAB的Current Folder面板上的起始文件夹已经变成了我们设置的路径。</p>
-<p>这里还有一点需要特别说明的是，如果你要设置的<strong>路径包含中文名</strong>，比如<code>“D:\我的文档\MATLAB”</code>，则在编写好如下所示的<code>startup.m</code>文件内容：</p>
-<pre><code>cd D:\我的文档\MATLAB
-</code></pre>
-<p>之后，还需要将该文件的编码修改为<code>Unicode</code>，MATLAB才能正常识别，从而你的设置才能正常发挥作用，MATLAB启动时，Current Folder面板上的起始文件夹初始地址才能变成设置的效果。</p>
-
-          
+<p>说明，只是大概思想，如果真想对一篇很长的文本分段，直接这么做肯定不行。</p>
+<p>表达式：<code>&lt;h1&gt;(.(?!&lt;h1&gt;))+\r\n</code>，<a href="http://xn--siqp4ws5gvwm5hi.NET">注意环境为.NET</a> 2.0，设置匹配的 Options 为<code>SingleLine</code>。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/stylus/2007/07/18/regexp1/#more" rel="contents">
+              阅读全文
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1998,7 +2000,7 @@ I have tried <a href="http://social.answers.microsoft.com/Forums/en-US/w7securit
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2020,7 +2022,7 @@ I have tried <a href="http://social.answers.microsoft.com/Forums/en-US/w7securit
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

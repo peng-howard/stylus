@@ -304,6 +304,169 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2013/06/25/quantile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2013/06/25/quantile/" itemprop="url">
+                  分位点与分位数 z
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-06-25T00:00:00+08:00">
+                2013-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/统计学/" itemprop="url" rel="index">
+                    <span itemprop="name">统计学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2013/06/25/quantile/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2013/06/25/quantile/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>分位数在统计学是中一个比较简单和容易理解的概念，大部分初级的统计学教材中都会有相应的介绍。但实际在理解这个概念的时候，要注意连续情形下与分位数相关的几个概念之间的联系与区别。</p>
+<h1>1 离散情形</h1>
+<p>举一个例子，将100名同学的期末考试总分成绩所组成的向量$\mathbf{x}$按从小到大的规则进行排序，生成一个新的顺序统计量$\mathbf{x}<sup>\prime$，那么$\mathbf{x}$的$1/4$分位数指的是$\mathbf{x}</sup>\prime$第25号位上的那个数字，同理可知中位数以及$3/4$分位数等。</p>
+<h1>2 连续情形</h1>
+<p>以正态分布为例，$1/4$分位数指的是$\mathrm{Pr}(X\leqslant x)=1/4$对应的$x$值，类似的，标准正态分布中中位数对应的$x$为0。</p>
+<p>从上面的例子可以看出，分位点确定的基础是在离散情形下将样本数量标准化为1，而在连续情形下则是将x坐标轴的可用长度标准化为1(对于正态分布和t分布而言，原始长度为$-\infty$到$+\infty$之间的全部范围。</p>
+<blockquote>
+<p>在连续情形下，若考虑的置信系数是左单侧的，那么置信系数$\alpha$对应的下$\alpha$分位点的$x$值与$\alpha$分位数以及$\mathrm{Pr}(X\leqslant x)=\alpha$中的$x$实际上指向同一个$x$值。</p>
+</blockquote>
+<p>这个值在大部分统计软件中对应的命令以<code>q</code>开头，比如R中的<code>qnorm</code>命令。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2013/06/16/CSS-block-inline/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1786,163 +1949,6 @@ l.21 \begin{Ventry}{Return values}
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/12/04/cancel-scientific-notation-in-r/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hao Peng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/stylus/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="语千 ~ 刻一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/stylus/2012/12/04/cancel-scientific-notation-in-r/" itemprop="url">
-                  R中如何取消科学计数法z
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-12-04T00:00:00+08:00">
-                2012-12-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/R/" itemprop="url" rel="index">
-                    <span itemprop="name">R</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/stylus/2012/12/04/cancel-scientific-notation-in-r/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2012/12/04/cancel-scientific-notation-in-r/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>原文地址：<a href="http://bbs.pinggu.org/thread-1403060-1-1.html" target="_blank" rel="external">http://bbs.pinggu.org/thread-1403060-1-1.html</a></p>
-<blockquote>
-<p>R应该会自动的把太大和太小的数用科学计数法来表示，一般的数应该就是直接表示吧。</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="number">10</span>^seq(<span class="number">1</span>:<span class="number">5</span>)</div><div class="line">[<span class="number">1</span>] <span class="number">1e+01</span> <span class="number">1e+02</span> <span class="number">1e+03</span> <span class="number">1e+04</span> <span class="number">1e+05</span></div><div class="line">&gt; options(scipen=<span class="number">200</span>)</div><div class="line">&gt; <span class="number">10</span>^seq(<span class="number">1</span>:<span class="number">5</span>)</div><div class="line">[<span class="number">1</span>]     <span class="number">10</span>    <span class="number">100</span>   <span class="number">1000</span>  <span class="number">10000</span> <span class="number">100000</span></div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1992,7 +1998,7 @@ l.21 \begin{Ventry}{Return values}
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2014,7 +2020,7 @@ l.21 \begin{Ventry}{Return values}
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
