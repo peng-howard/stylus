@@ -421,7 +421,7 @@ hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的
 
       
         <p>Mathjax 指令参考：<a href="http://docs.mathjax.org/en/latest/tex.html" target="_blank" rel="external">http://docs.mathjax.org/en/latest/tex.html</a></p>
-<h1>1 与Markdown的冲突解决</h1>
+<h1 id="与markdown的冲突解决">1 与Markdown的冲突解决</h1>
 <p>原文地址：<a href="http://blog.csdn.net/emptyset110/article/details/50123231" target="_blank" rel="external">http://blog.csdn.net/emptyset110/article/details/50123231</a></p>
 <p>hexo先用<code>marked.js</code>渲染，然后再交给MathJax渲染。在<code>marked.js</code>渲染的时候下划线<code>_</code>是被escape掉并且换成了<code>&lt;em&gt;</code>标签，即斜体字，另外LaTeX中的<code>\\</code>也会被转义成一个<code>\</code>，这样会导致MathJax渲染时不认为它是一个换行符了。</p>
 <p>修改<code>marked.js</code>源码的方式来避开这些问题</p>
@@ -438,11 +438,11 @@ em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,1
 <code>escape: /^\\([`*\[\]()# +\-.!_>])/,1
 em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</code>
 </pre>
-<h1>2 支持带编号的公式</h1>
+<h1 id="支持带编号的公式">2 支持带编号的公式</h1>
 <p>在原有的<code>themes\next\layout\_third-party.mathjax.swig</code>中添加如下内容：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/x-mathjax-config&quot;&gt;</div><div class="line">   MathJax.Hub.Config(&#123;</div><div class="line">       TeX: &#123;equationNumbers: &#123;autoNumber: [&quot;AMS&quot;], useLabelIds: true&#125;&#125;,</div><div class="line">       &quot;HTML-CSS&quot;: &#123;linebreaks: &#123;automatic: true&#125;&#125;,</div><div class="line">       SVG: &#123;linebreaks: &#123;automatic: true&#125;&#125;</div><div class="line">   &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
 <p>之后可以像 LaTeX 一样添加<code>\label{}</code>以及<code>\eqref{}, \ref{}</code>。</p>
-<h1>3 其它内容</h1>
+<h1 id="其它内容">3 其它内容</h1>
 <p>本模板提供了一个<code>&lt;pre class=&quot;white&quot;&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;</code>的环境用于生成背景为白色的代码环境，注意<code>&lt;pre&gt;</code>与<code>&lt;code&gt;</code>之间可以换行，但<code>&lt;code&gt;</code>与文本之间要紧密相联；还提供了<code>&lt;pre class=&quot;center&quot;&gt;&lt;/pre&gt;</code>用于生成文字居中效果，不需要在行与行之间换行！</p>
 <p>下面是 emoji 和脚注的示例（注意用```...```生成的代码有行号，而用 4 个空格生成的没有。）：</p>
 <pre class="white">
@@ -713,7 +713,7 @@ belong to the previous footnote.
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">1 与Markdown的冲突解决</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">2 支持带编号的公式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">3 其它内容</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#与markdown的冲突解决"><span class="nav-text">1 与Markdown的冲突解决</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#支持带编号的公式"><span class="nav-text">2 支持带编号的公式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其它内容"><span class="nav-text">3 其它内容</span></a></li></ol></div>
             
 
           </div>
