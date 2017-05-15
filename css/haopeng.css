@@ -30,10 +30,14 @@
   font-weight: 400;
   src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url("/stylus/lib/fonts/source-sans-pro-regular.woff2") format('woff2'), url("/stylus/lib/fonts/source-sans-pro-regular.woff") format('woff');
 }
+body,
+.post-body {
+  font-size: 19px;
+  font-family: 'Alegreya', 'Palatino Linotype', 'Book Antiqua', Palatino, 'source-han-serif-sc', 'Source Han Serif SC', 'Source Han Serif CN', 'Source Han Serif TC', 'Source Han Serif TW', 'Source Han Serif', 'Songti SC', '仿宋', 'FangSong', 'NSimSun', 'Microsoft YaHei', serif !important;
+  color: #333;
+}
 body {
   background: #f3f3f3 url("/stylus/images/bg.png") repeat;
-  font-family: 'Alegreya', 'Palatino Linotype', 'Book Antiqua', Palatino, 'source-han-serif-sc', 'Source Han Serif SC', 'Source Han Serif CN', 'Source Han Serif TC', 'Source Han Serif TW', 'Source Han Serif', 'Songti SC', '仿宋', 'FangSong', 'NSimSun', 'Microsoft YaHei', serif !important;
-  font-size: 18px;
 }
 /* 正文标题 */
 .post-title {
@@ -43,11 +47,13 @@ body {
 }
 a.post-title-link {
   font-size: 42px !important;
-  color: #2dbe60 !important;
+  color: #333 !important;
   font-weight: bold !important;
 }
 a.post-title-link:hover {
   text-decoration: none !important;
+  background: transparent;
+  border-top: none;
 }
 /* 存档页中文章标题与时间对齐 */
 .post-title-link span {
@@ -65,11 +71,17 @@ article.post-type-normal {
 }
 /* 首页标题的下划线效果 */
 .post-title-link::before {
-  background-color: #2dbe60 !important; /* 下划线不是 underline, text-decoratioin, border-bottom，而是 bg-color */
+  background-color: #aceac8 !important; /* 下划线不是 underline, text-decoratioin, border-bottom，而是 bg-color */
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Alegreya', 'Palatino Linotype', 'Book Antiqua', Palatino, 'source-han-serif-sc', 'Source Han Serif SC', 'Source Han Serif CN', 'Source Han Serif TC', 'Source Han Serif TW', 'Source Han Serif', 'Songti SC', '仿宋', 'FangSong', 'NSimSun', 'Microsoft YaHei', serif !important;
 }
 h1 {
   font-size: 36px;
-  color: #2dbe60;
+  color: #333 !important;
 }
 h2 {
   font-size: 28px;
@@ -93,6 +105,16 @@ h3 code {
 h4 code {
   font-size: 20px;
 }
+a:link,
+a:visited {
+  border-bottom: solid 3px #aceac8;
+}
+a:hover {
+  color: #555;
+  border-bottom: solid 3px #aceac8;
+  background-color: #aceac8;
+  border-top: solid 1px #aceac8;
+}
 .headband {
   display: none;
 }
@@ -106,9 +128,12 @@ h4 code {
 /* display: none; */
   color: #555;
   background-color: transparent;
+  border: none !important;
 }
 .brand:hover {
   color: #2dbe60;
+  background: transparent;
+  border: none;
 }
 .brand span.site-title {
   font-size: 24px;
@@ -129,19 +154,25 @@ header#header {
 .site-brand-wrapper {
   display: inline-block;
   float: left;
+  padding-top: 18px;
+}
+.menu {
+  float: right;
 }
 .menu li {
-  float: right !important; /* 此时导航栏顺序刚好颠倒，需要在配置文件中也颠倒一次 */
+  float: left !important; /* 此时导航栏顺序刚好颠倒，需要在配置文件中也颠倒一次 */
   margin-right: 0px !important;
   margin-left: 2em !important;
 }
 .menu li a {
-  font-size: 16px !important;
-  font-weight: bold;
+  font-size: 18px !important;
+  color: #222;
 }
 .menu li a:hover {
   border-bottom: solid 2px #aaa !important;
-  color: #555;
+  color: #222;
+  background: transparent;
+  border-top: none;
 }
 a.brand {
   padding: 0px; /* 默认有 40px */
@@ -190,11 +221,11 @@ a.brand {
   display: inline;
 }
 .category-list-item a {
-  margin-top: -2em;
+  margin-top: -38px;
   padding: 0.7em 1em;
   display: block;
   font-size: 18px;
-  color: #2dbe60;
+  color: #333;
   font-weight: bold;
   border-bottom: dashed 1px #ccc !important;
 }
@@ -203,6 +234,7 @@ a.brand {
   color: #2dbe60;
   font-weight: bold;
   background-color: #e3e3e3;
+  border-top: none;
 }
 span.category-list-count {
   float: right;
@@ -250,7 +282,6 @@ ol.footnotes-list li p {
 }
 /* > 开始引用内容对应的样式 */
 blockquote {
-  font-family: 'Source Sans Pro', Tahoma, Geneva, 'STKaiti', 'KaiTi', '楷体', 'SimKai', 'DFKai-SB', 'NSimSun', serif;
   border-radius: 5px;
   border-left: solid 8px #ccc;
   border-right: solid 1px #ccc;
@@ -259,30 +290,31 @@ blockquote {
   background-color: #f8f8f8;
   padding-top: 0px;
   margin-bottom: 20px;
+  font-family: 'Alegreya', 'Palatino Linotype', 'Book Antiqua', Palatino, 'STKaiti', 'KaiTi', '楷体', 'SimKai', 'DFKai-SB', 'NSimSun', serif;
 }
 blockquote p {
   margin: 10px 0;
 }
 /* 用一个 tab 缩进产生的 pre 效果 */
 code {
-  font-family: 'PT Mono', 'STKaiti', 'KaiTi', 'SimKai', monospace !important;
   font-size: 16px;
   border-radius: 5px;
   padding: 3px 4px;
   color: #090;
   background-color: #f2f9f4;
+  font-family: 'PT Mono', 'STKaiti', 'KaiTi', 'SimKai', monospace;
 }
 pre {
-  font-family: 'PT Mono', 'STKaiti', 'KaiTi', 'SimKai', monospace !important;
   font-size: 14px !important;
   border: solid 1px #ccc;
   border-radius: 5px;
 /* knitr 会专门做一个没有底色的css，所以这里不会起作用 background-color: #333; */
   padding: 20px 25px;
   overflow-x: hidden;
+  font-family: 'PT Mono', 'STKaiti', 'KaiTi', 'SimKai', monospace;
 }
 pre.white {
-  font-size: 15px;
+  font-size: 17px !important;
   background-color: #fefefe;
 }
 pre.center {
@@ -300,7 +332,13 @@ pre code {
   color: #000;
   white-space: pre-wrap; /* 让 code 标记中的内容过宽时自动换行，不能用 normal，否则换行符也消失了 */
 }
+.sidebar-nav-toc,
+.sidebar-nav-overview,
+.links-of-blogroll-title {
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif !important;
+}
 .sidebar-nav .sidebar-nav-active {
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif !important;
   color: #2dbe60 !important;
   border-bottom-color: #2dbe60 !important;
 }
@@ -309,21 +347,61 @@ pre code {
   border-bottom-color: #0f0 !important;
 }
 /* 右侧 toc 当前 */
+.feed-link a:link {
+/* RSS */
+  border: solid 1px #f46123;
+}
+.links-of-author-item a:link,
+.links-of-blogroll-item a:link {
+/* 个人信息、友情链接 */
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif !important;
+  border-bottom: solid 1px #555;
+}
+.links-of-author-item a:hover,
+.links-of-blogroll-item a:hover {
+  border-bottom: solid 1px #555;
+  background: transparent;
+  border-top: none;
+}
+.site-state-item a:link {
+/* 文章数等 */
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif !important;
+  border: none;
+}
+.site-state-item a:hover {
+  border: none;
+  background: transparent;
+}
+a.nav-link {
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif !important;
+  border-bottom: solid 1px #555 !important;
+}
+a.nav-link:hover {
+  background: transparent;
+  border-top: none;
+  border-bottom: solid 1px #ccc !important;
+}
 .active a {
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif !important;
   color: #bbb !important;
-  border-bottom-color: #bbb !important;
+  border-bottom: solid 1px #bbb !important;
 }
 .active a:hover {
   color: #0f0 !important;
   border-bottom-color: #0f0 !important;
+  background: transparent;
+  border-top: none;
 }
 .active-current a {
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif !important;
   color: #2dbe60 !important;
-  border-bottom-color: #2dbe60 !important;
+  border-bottom: solid 1px #2dbe60 !important;
 }
 .active-current a:hover {
   color: #0f0 !important;
   border-bottom-color: #0f0 !important;
+  background: transparent;
+  border-top: none;
 }
 .sidebar-toggle {
   background-color: #bcbcbc !important;
@@ -346,10 +424,11 @@ strong {
 }
 /* 阅读更多 */
 .btn {
-  border-color: #bbb;
+  border: solid 2px #bbb !important;
   background-color: #f7f7f7 !important;
   color: #000 !important;
   border-radius: 5px !important;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif !important;
 }
 .btn:hover {
   border-color: #2dbe60 !important;
@@ -370,7 +449,6 @@ a.page-number:hover {
   background-color: #ccc !important;
   transition: none;
   color: #fff;
-  font-weight: bold;
 }
 /* 正文标签 */
 .post-tags a {
@@ -378,12 +456,26 @@ a.page-number:hover {
   border: solid 2px #bbb;
   padding: 2px 4px;
   border-radius: 5px;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif !important;
 }
 .post-tags a:hover {
   background-color: #f0fad2;
   border: solid 2px #2dbe60;
   padding: 2px 4px;
   border-radius: 5px;
+}
+.post-nav-item a:link {
+  font-size: 16px;
+  border: none !important;
+}
+.post-nav-item a:hover {
+  color: #222;
+  background: transparent;
+}
+.post-time {
+/* 存档页时间 */
+  font-size: 13px;
+  font-family: Galdeano, Helvetica, "Microsoft YaHei", sans-serif;
 }
 /* 版权部分 */
 .copyright {
@@ -396,6 +488,8 @@ a.page-number:hover {
 }
 .copyright a:hover {
   color: #236e25;
+  background: transparent;
+  border-top: none;
 }
 .copyright .with-love {
   font-size: 15px;

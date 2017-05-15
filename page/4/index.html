@@ -182,32 +182,12 @@
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-links">
-          <a href="/stylus/links" rel="section">
+        <li class="menu-item menu-item-categories">
+          <a href="/stylus/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            链接
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/stylus/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/stylus/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
+            分类
           </a>
         </li>
       
@@ -222,12 +202,32 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/stylus/categories" rel="section">
+        <li class="menu-item menu-item-tags">
+          <a href="/stylus/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            分类
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/stylus/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/stylus/links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
+            
+            链接
           </a>
         </li>
       
@@ -284,6 +284,173 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/11/18/matlab-current-default-folder/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2012/11/18/matlab-current-default-folder/" itemprop="url">
+                  设置MATLAB中Current Folder的默认文件夹
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-11-18T00:00:00+08:00">
+                2012-11-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/Matlab/" itemprop="url" rel="index">
+                    <span itemprop="name">Matlab</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2012/11/18/matlab-current-default-folder/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2012/11/18/matlab-current-default-folder/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>原文地址：<a href="http://www.yueye.org/2011/set-matlab-current-default-folder.html" target="_blank" rel="external">http://www.yueye.org/2011/set-matlab-current-default-folder.html</a></p>
+<p>在我们使用MATLAB的过程中，其<code>Current Folder</code>面板会给我们带来一定的便利性。但遗憾的是，MATLAB自身没有提供友好的设置界面，以供用户自如地设置Current Folder面板上的起始文件夹。这就给我们带来了一定的不便，毕竟每次启动MATLAB后都重新在Current Folder中设置到我们想要的文件夹地址会耗费一定的时间，也会影响我们的心情。</p>
+<p>那么，我们应该如何在MATLAB中设置Current Folder面板上的<strong>起始文件夹</strong>位置呢？</p>
+<p>在以前的MATLAB版本中，我们可以通过右击MATLAB安装目录下MATLAB快捷方式而在其弹出的对话框中通过设置快捷方式的起始位置而对Current Folder面板上的起始文件夹进行设置。但自从MATLAB进入R2010和R2011后，我们已经不能通过这样的设置来实现我们想要的效果。但MATLAB自身提供了另一种方式，虽然不太友好，但毕竟一次设置永久受益，还是让我们来一起设置一下吧。</p>
+<p>首先，思考选择一个你要设置的文件夹路径，比如你可以保持一贯的传统，而设置为“MATLAB\R2011a\work\”文件夹；</p>
+<p>接着，让我们进入MATLAB的安装目录下的<code>“MATLAB\R2011a\toolbox\local”</code>文件夹下，在local文件夹下新建一个名为<code>startup</code>的.m文件，在其中输入如下内容：</p>
+<pre><code>cd D:\Program Files\MATLAB\R2011a\work
+</code></pre>
+<p>其中<code>cd</code>后面的内容为你要设置的起始文件夹路径。</p>
+<p>需要注意的是，这里的路径不需要用引号引起来，也不需要做任何处理。编写好<code>startup.m</code>文件并保存后，再次启动MATLAB，可以看到，MATLAB的Current Folder面板上的起始文件夹已经变成了我们设置的路径。</p>
+<p>这里还有一点需要特别说明的是，如果你要设置的<strong>路径包含中文名</strong>，比如<code>“D:\我的文档\MATLAB”</code>，则在编写好如下所示的<code>startup.m</code>文件内容：</p>
+<pre><code>cd D:\我的文档\MATLAB
+</code></pre>
+<p>之后，还需要将该文件的编码修改为<code>Unicode</code>，MATLAB才能正常识别，从而你的设置才能正常发挥作用，MATLAB启动时，Current Folder面板上的起始文件夹初始地址才能变成设置的效果。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -1753,166 +1920,6 @@ l.226 \end{frame}
 <li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=47893" target="_blank" rel="external">Asymptote 中文资源导引</a></li>
 <li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=40680" target="_blank" rel="external">PGF/TikZ 学习帖汇总</a></li>
 </ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2011/11/03/lsset-highlight-blackslash/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hao Peng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/stylus/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="语千 ~ 刻一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/stylus/2011/11/03/lsset-highlight-blackslash/" itemprop="url">
-                  listings排源代码，如何让反斜杠高亮显示？z
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2011-11-03T00:00:00+08:00">
-                2011-11-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/LaTeX/" itemprop="url" rel="index">
-                    <span itemprop="name">LaTeX</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/stylus/2011/11/03/lsset-highlight-blackslash/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2011/11/03/lsset-highlight-blackslash/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>原文地址：<a href="http://bbs.chinatex.org/forum.php?mod=viewthread&amp;tid=7282&amp;extra=page%3D1" target="_blank" rel="external">http://bbs.chinatex.org/forum.php?mod=viewthread&amp;tid=7282&amp;extra=page%3D1</a></p>
-<p>原始出处：<a href="http://tex.stackexchange.com/questions/17774/listings-package-can-i-include-a-backslash-in-language-keyword-begin-for" target="_blank" rel="external">http://tex.stackexchange.com/questions/17774/listings-package-can-i-include-a-backslash-in-language-keyword-begin-for</a></p>
-<p><img src="https://cssdpq.bn1.livefilestore.com/y2pGqgY27OrXetmEiHWF5D3gNxS0mky6ut1_scRtpvFnd9A82ruV-sovfRSWmNGMNIh00yUqvodbvdRcnGsI_AfnpKNdeEMSCCb_hUYTmSM4Ik/latex-listings-1.png?psid=1" alt="latex-listings-1"></p>
-<p>如第一幅图所示，高亮的结果是有问题的，也不太好看，实际，我们需要用<code>texcsstyle</code>来设置即可，有关该指令的作用参考<code>listings</code>宏包的手册或<a href="http://www.chinatex.org/archives/620" target="_blank" rel="external">http://www.chinatex.org/archives/620</a>，这里的<strong>cs</strong>即控制序列。</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">&#123;article&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">[T1]</span><span class="string">&#123;fontenc&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">[scaled=0.82]</span><span class="string">&#123;beramono&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;listings,xcolor&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;lstlisting&#125;</span><span class="string">[basicstyle=\small\ttfamily,language=&#123;[LaTeX]</span></span>TeX&#125;,</div><div class="line">                   texcsstyle=*<span class="tag">\<span class="name">color</span><span class="string">&#123;red&#125;</span></span><span class="tag">\<span class="name">bfseries</span></span>,</div><div class="line">                   keywordstyle=<span class="tag">\<span class="name">color</span><span class="string">&#123;blue&#125;</span></span><span class="tag">\<span class="name">bfseries</span></span>,</div><div class="line">                   morekeywords=alignat,moretexcs=intertext]</div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;alignat*&#125;</span><span class="string">&#123;4&#125;</span></span></div><div class="line">   y &amp;= -4   &amp;+ 3 &amp;+4     &amp;-7      <span class="tag">\<span class="name">\</span></span></div><div class="line">   y &amp;=      &amp;+ 3 &amp;       &amp;-7      <span class="tag">\<span class="name">\</span></span></div><div class="line">   <span class="tag">\<span class="name">intertext</span><span class="string">&#123;Therefore&#125;</span></span></div><div class="line">   a &amp;= b    &amp;d   &amp;= cccc &amp;e  &amp;= d <span class="tag">\<span class="name">\</span></span></div><div class="line">   a &amp;= bbbb &amp;d   &amp;= c    &amp;e  &amp;= d</div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;alignat*&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;lstlisting&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div></pre></td></tr></table></figure>
-<p>正确的演示效果如下图所示：</p>
-<p><img src="https://cssdpq.bn1.livefilestore.com/y2p4k8SF1VY5eeAauY0fr03aQdOpyp0-L7T3e9FMWXAd0-s8BPXRRzlH95Byg38xMAOtvUQMJxIo4trGdxDmDPp6u4n8VPF6H1CDE-BG8orSjY/latex-listings-2.png?psid=1" alt="latex-listings-2"></p>
 
           
         

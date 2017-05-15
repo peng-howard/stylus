@@ -102,7 +102,7 @@
 基于三维曲面（如三维曲面图）">
 <meta property="og:image" content="https://cssdpq.bn1.livefilestore.com/y2pvkki2cktl093Pl_BxKM-ZZ8RQ_u-6xQnlTubo23_SXYLGCCLvKy0HTC_tR7UpgB_1h5cVOsZCiZvi7rLWzq2ydWmMGy9_4byGLUhP5db-MQ/Iris%20%E6%95%B0%E6%8D%AE%E7%9A%84%E8%BD%AE%E5%BB%93%E5%9B%BE(Parallel%20Coordinate%20Plots).png?psid=1">
 <meta property="og:image" content="https://cssdpq.bn1.livefilestore.com/y2pi1WtDEA1hzK6vfvFjDtdWP9FS4yzejGHptqXptD2HA1txjcmsmQ74JW_wF-AeYh1Yo0JpecJafME8aKbO5FF3eAyxPV_kSs2HAA-2jH6ZdI/Iris%20%E6%95%B0%E6%8D%AE%E7%9A%84%E8%B0%83%E5%92%8C%E6%9B%B2%E7%BA%BF%E5%9B%BE.png?psid=1">
-<meta property="og:updated_time" content="2017-04-16T14:10:55.764Z">
+<meta property="og:updated_time" content="2017-05-15T17:56:24.928Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="调和曲线图和轮廓图的比较z">
 <meta name="twitter:description" content="原文地址：http://cos.name/2009/03/parallel-coordinates-and-andrews-curve/#more-704
@@ -208,32 +208,12 @@
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-links">
-          <a href="/stylus/links" rel="section">
+        <li class="menu-item menu-item-categories">
+          <a href="/stylus/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            链接
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/stylus/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/stylus/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
+            分类
           </a>
         </li>
       
@@ -248,12 +228,32 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/stylus/categories" rel="section">
+        <li class="menu-item menu-item-tags">
+          <a href="/stylus/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            分类
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/stylus/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/stylus/links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
+            
+            链接
           </a>
         </li>
       
@@ -465,11 +465,16 @@
 <p>里面都是以矩阵的形式做的运算，不过我没有测试，不知道速度会不会快一些。对于调和曲线图，观测$X_i$和$X_j$的欧式距离正好是曲线垂直距离的积分，这是数学性质和图形性质能够结合的关键。</p>
 </blockquote>
 <hr>
-> **魏太云**：快很多呢，没有一个显式循环，十分方便:)。调和曲线图的确很好地将数学融进了图形，可谓鬼斧神工啊。
+<blockquote>
+<p><strong>魏太云</strong>：快很多呢，没有一个显式循环，十分方便:)。调和曲线图的确很好地将数学融进了图形，可谓鬼斧神工啊。</p>
+</blockquote>
 <hr>
-> **fasterr**：`andrews.curve(x, col=c(‘red’, ‘green3′, ‘blue’))`可是画出来的不是很一样：《统计建模与R软件》版的调和曲线的颜色比较友好，相近族类的颜色一样、不同类的颜色不同。
-> `andrews.curve()`绘制的曲线颜色是是交替的（一次red，一次green3, 一次blue，依次循环使用），而不是颜色按类聚集，这样画出来的色彩整体很凌乱（颜色重叠后就更变味了）。
-> 传入什么控制参数`andrews.curve()`也能得到一样的效果么？
+<blockquote>
+<p><strong>fasterr</strong>：<code>andrews.curve(x, col=c(‘red’, ‘green3′, ‘blue’))</code>可是画出来的不是很一样：《统计建模与R软件》版的调和曲线的颜色比较友好，相近族类的颜色一样、不同类的颜色不同。
+<code>andrews.curve()</code>绘制的曲线颜色是是交替的（一次red，一次green3, 一次blue，依次循环使用），而不是颜色按类聚集，这样画出来的色彩整体很凌乱（颜色重叠后就更变味了）。
+传入什么控制参数<code>andrews.curve()</code>也能得到一样的效果么？</p>
+</blockquote>
+
       
     </div>
 
