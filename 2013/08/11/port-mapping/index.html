@@ -1,0 +1,1052 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next muse" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/stylus/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+<link href="/stylus/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/stylus/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="端口映射,内网,外网," />
+
+
+
+
+
+  <link rel="alternate" href="/stylus/atom.xml" title="语千 ~ 刻一" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/stylus/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="首先要做的事情如下：
+
+确认你内网的路由器是否支持端口映射功能
+如果你的路由器支持端口映射功能，在你本机安装远程控制软件
+远程控制软件安装后，设置路由器，输入远程控制软件的端口和你本机ip，做端口映射
+在你本机安装花生壳之类的动态域名软件
+测试成功后，你在外网打开远程软件控制端，输入动态域名就可以访问你自己电脑了
+
+1 端口映射（Port Mapping）
+如果你是 ADSL、MODEM 或光纤等">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络：从外网访问局域网内主机(端口映射)z">
+<meta property="og:url" content="http://peng-howard.github.io/stylus/2013/08/11/port-mapping/index.html">
+<meta property="og:site_name" content="语千 ~ 刻一">
+<meta property="og:description" content="首先要做的事情如下：
+
+确认你内网的路由器是否支持端口映射功能
+如果你的路由器支持端口映射功能，在你本机安装远程控制软件
+远程控制软件安装后，设置路由器，输入远程控制软件的端口和你本机ip，做端口映射
+在你本机安装花生壳之类的动态域名软件
+测试成功后，你在外网打开远程软件控制端，输入动态域名就可以访问你自己电脑了
+
+1 端口映射（Port Mapping）
+如果你是 ADSL、MODEM 或光纤等">
+<meta property="og:updated_time" content="2017-05-14T14:08:49.796Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网络：从外网访问局域网内主机(端口映射)z">
+<meta name="twitter:description" content="首先要做的事情如下：
+
+确认你内网的路由器是否支持端口映射功能
+如果你的路由器支持端口映射功能，在你本机安装远程控制软件
+远程控制软件安装后，设置路由器，输入远程控制软件的端口和你本机ip，做端口映射
+在你本机安装花生壳之类的动态域名软件
+测试成功后，你在外网打开远程软件控制端，输入动态域名就可以访问你自己电脑了
+
+1 端口映射（Port Mapping）
+如果你是 ADSL、MODEM 或光纤等">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/stylus/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://peng-howard.github.io/stylus/2013/08/11/port-mapping/"/>
+
+
+
+
+
+  <title> 网络：从外网访问局域网内主机(端口映射)z | 语千 ~ 刻一 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/stylus/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">语千 ~ 刻一</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/stylus/links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
+            
+            链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/stylus/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/stylus/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/stylus/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/stylus/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2013/08/11/port-mapping/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                网络：从外网访问局域网内主机(端口映射)z
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-08-11T00:00:00+08:00">
+                2013-08-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/网络/" itemprop="url" rel="index">
+                    <span itemprop="name">网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2013/08/11/port-mapping/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2013/08/11/port-mapping/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>首先要做的事情如下：</p>
+<ol>
+<li>确认你内网的路由器是否支持端口映射功能</li>
+<li>如果你的路由器支持端口映射功能，在你本机安装远程控制软件</li>
+<li>远程控制软件安装后，设置路由器，输入远程控制软件的端口和你本机ip，做端口映射</li>
+<li>在你本机安装花生壳之类的动态域名软件</li>
+<li>测试成功后，你在外网打开远程软件控制端，输入动态域名就可以访问你自己电脑了</li>
+</ol>
+<h1 id="端口映射-port-mapping">1 端口映射（Port Mapping）</h1>
+<p>如果你是 ADSL、MODEM 或光纤等宽带接入用户，想在公司或单位内部建一个服务器或 WEB 站点，并且想让互联网上的用户访问你的服务器，那么你就会遇到端口映射问题。
+通常情况下，路由器都有防火墙功能，互联网用户只能访问到你的路由器WAN口(接 ADSL 的电话线口或路由宽带外网口)，而访问不到内部服务器。要想让互联网用户访问到你建的服务器，就要在路由器上做一个转发设置，也就是端口映射设置，让互联网用户发送的请求到达路由器后,再转发到你建立的服务器或 WEB 站点。这就是端口映射。由于各个路由器厂商所取功能名称不一样，有的叫虚拟服务器，有的叫NAT设置(BitComet 中常见问题)端口映射。
+其实做端口映射设置很简单，例如要映射一台内网 IP 地址为 192.168.0.66 的WEB服务器，只需把WEB服务器的 IP 地址 192.168.0.66 和 TCP 端口 80 填入到路由器的端口映射表中就OK了。</p>
+<p>关于打开端口映射后的安全问题：设置了端口映射后，互联网用户能够通过设置好映射的端口，跳过路由器防火墙访问到你的服务器，在通过攻击你服务器上的漏洞控制你的主机，所以打开端口映射后有必要在你的服务器上再挂一个防火墙也确保安全性。</p>
+<p><strong>花生壳</strong>是一套完全免费的动态域名解析服务客户端软件。当您安装并注册该项服务，无论您在任何地点、任何时间、使用任何线路，均可利用这一服务建立拥有固定域名和最大自主权的互联网主机。“花生壳”支持的线路包括普通电话线、ISDN、ADSL、有线电视网络、双绞线到户的宽带网和其它任何能够提供互联网真实IP的接入服务线路，而无论连接获得的 IP 属于动态还是静态。</p>
+<h1 id="动态域名">2 动态域名</h1>
+<p>用户每次上网得到新的动态分配的 IP 地址之后，安装在用户计算机里的动态域名软件就会把这个IP地址发送到动态域名解析服务器，更新域名解析数据库。Internet 上的其他人要访问这个域名的时候，动态域名解析服务器会返回正确的IP地址给他。这叫动态域名。</p>
+<p>因为绝大部分 Internet 用户上网的时候分配到的 IP 地址都是动态的，用传统的静态域名解析方法，用户想把自己上网的计算机做成一个有固定域名的网站，是不可能的。而有了动态域名，这个美梦就可以成真。用户可以申请一个域名，利用动态域名解析服务，把域名与自己上网的计算机绑定在一起，这样就可以在家里或公司里搭建自己的网站，非常方便。</p>
+<p>端口映射（Port Mapping/Port Forwarding）有点类似服务重定向, 所以有些路由器(Router)中也称为虚拟服务器(Virtual Server)。为了描述方便，下面的叙述中统一称为[端口映射]。</p>
+<p>采用端口映射的方法，可以实现从 Internet 到局域网内部机器的特定端口服务的访问。</p>
+<p>端口映射的实现方式可以分为纯软件和软硬结合方式。以纯软件方式实现端口映射功能软件有很多, 比如, MS Windows9x/200/XP 下的 PortTunnel 专门针对 HTTP、FTP、SMTP 服务的端口映射，提供了较多的参数设置，在相应的标签菜单下调整。又如各种版本的Linux 操作系统本身就支持端口映射，只需要网络管理员做相应的设置和调整即可实现。而以软硬结合方式实现端口映射功能的，主要常见于各种路由器(提供网关路由功能) 。</p>
+<h1 id="各种路由器-router-中如何实现端口映射">3 各种路由器(Router)中如何实现端口映射</h1>
+<p>一般路由器中有个端口映射（Port Mapping）或者虚拟服务器(Virtual Server)的设置。用户需要在路由器(Router)的“管理界面”中相应的端口映射界面中, 设置好相应的需要映射的端口, 协议,内网地址等, 才能生效。设置的方法可能会因为路由器(Router)不同的品牌和型号，在设置的方法上也会有所不同。端口映射支持的网络协议有TCP/UDP/两者, 所以进行端口映射设置时, 如果不熟悉, 可以选择两者都支持。</p>
+<h2 id="举例说明">3.1 举例说明</h2>
+<p>以某路由器(Router)为例，在启用其路由功能之后，网络拓扑图如下：</p>
+<p>这里假定路由器(Router)默认 IP 内网地址为 192.168.1.1，内网中电脑一般可以设置成为 192.168.1.X（X=2~254），在内网中某一台电脑上打开 IE，在地址栏输入 <a href="http://192.168.1.1" target="_blank" rel="external">http://192.168.1.1</a>，输入初始用户名、密码，之后就可以看到设置界面了。</p>
+<p>针对邮件服务器要做如下设置：进入“端口映射”，在端口填入 25, 协议中选择： TCP, IP 地址： 192.168.1.x (x 为安装邮件服务器电脑的局域网IP 地址），同样方法设置 110(pop3),6080(webmail) 端口等。 以上假定用户内网段地址为: 192.168.1.0。设置好后, 就实现了端口映射功能了, 发往路由器的邮件就会自动转发到指定的内网主机上 (192.168.1.x)。</p>
+<p>同样, 如果想设置特殊端口, 比如: <code>6000</code>。 在端口填入<code>6000</code>, 协议中选择： <code>ALL</code>(或根据具体情况选择), IP 地址：192.168.1.x(x 为内网段地址<code>1~254</code>)。</p>
+<p>设置好后, 发往路由器 6000 端口的任何数据就会自动转发到主机 192.168.1.x 的端口 6000 上了。</p>
+<p>以上说明没有针对具体路由器。 具体情况, 请查阅您的路由器说明书，看看如何作端口映射。</p>
+<hr>
+<p>参考：</p>
+<ol>
+<li><a href="http://www.hrtl.com.cn/News_398.aspx" target="_blank" rel="external">http://www.hrtl.com.cn/News_398.aspx</a></li>
+<li><a href="https://my.oschina.net/eicyan/blog/209440" target="_blank" rel="external">https://my.oschina.net/eicyan/blog/209440</a></li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/stylus/tags/端口映射/" rel="tag"><i class="fa fa-fw fa-tag"></i> 端口映射</a>
+          
+            <a href="/stylus/tags/内网/" rel="tag"><i class="fa fa-fw fa-tag"></i> 内网</a>
+          
+            <a href="/stylus/tags/外网/" rel="tag"><i class="fa fa-fw fa-tag"></i> 外网</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/stylus/2013/07/15/parallel-coordinate-plot-andrews-curves/" rel="next" title="调和曲线图和轮廓图的比较z">
+                <i class="fa fa-chevron-left"></i> 调和曲线图和轮廓图的比较z
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/stylus/2014/02/04/lstlistings-numbering/" rel="prev" title="语法高亮：如何在文本复制时自动忽略行号z">
+                语法高亮：如何在文本复制时自动忽略行号z <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/stylus/images/avatar.png"
+               alt="Hao Peng" />
+          <p class="site-author-name" itemprop="name">Hao Peng</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/stylus/archives">
+                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/stylus/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/stylus/tags/index.html">
+                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/stylus/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/your-user-name" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/your-user-name" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://macshuo.com/" title="MacTalk" target="_blank">MacTalk</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://example.com/" title="Title" target="_blank">Title</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#端口映射-port-mapping"><span class="nav-text">1 端口映射（Port Mapping）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态域名"><span class="nav-text">2 动态域名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#各种路由器-router-中如何实现端口映射"><span class="nav-text">3 各种路由器(Router)中如何实现端口映射</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#举例说明"><span class="nav-text">3.1 举例说明</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  Powered by <a href="https://hexo.io/">Hexo</a> &amp; <a href="https://github.com/iissnan/hexo-theme-next">NexT</a> on GitHub |
+  
+  Copyright  2005 - 
+  <span itemprop="copyrightYear">2017</span>
+  by 
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"><a href="mailto:haopeng.yn@gmail.com">Hao Peng</a></span>
+</div>
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/stylus/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/stylus/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/stylus/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/stylus/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/stylus/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/stylus/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://peng-howard-github-io.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://peng-howard.github.io/stylus/stylus/2013/08/11/port-mapping/';
+          this.page.identifier = '2013/08/11/port-mapping/';
+          this.page.title = '网络：从外网访问局域网内主机(端口映射)z';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://peng-howard-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/stylus/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {equationNumbers: {autoNumber: ["AMS"], useLabelIds: true}},
+        "HTML-CSS": {linebreaks: {automatic: true}},
+        SVG: {linebreaks: {automatic: true}}
+    });
+	</script>
+	
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+  
+
+</body>
+</html>

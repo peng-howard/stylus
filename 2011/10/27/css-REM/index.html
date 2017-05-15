@@ -1,0 +1,1034 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next muse" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/stylus/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+<link href="/stylus/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/stylus/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CSS," />
+
+
+
+
+
+  <link rel="alternate" href="/stylus/atom.xml" title="语千 ~ 刻一" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/stylus/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="原文地址：http://www.w3cplus.com/css3/define-font-size-with-css3-rem
+在Web中使用什么单位来定义页面的字体大小，至今天为止都还在激烈的争论着，有人说PX做为单位好，有人说EM优点多，还有人在说百分比方便，以至于出现了CSS Font-Size: em vs. px vs. pt vs. percent这样的PK大局。不幸的是，仍然有不同的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3：REM、行高、基线及元素间距z">
+<meta property="og:url" content="http://peng-howard.github.io/stylus/2011/10/27/css-REM/index.html">
+<meta property="og:site_name" content="语千 ~ 刻一">
+<meta property="og:description" content="原文地址：http://www.w3cplus.com/css3/define-font-size-with-css3-rem
+在Web中使用什么单位来定义页面的字体大小，至今天为止都还在激烈的争论着，有人说PX做为单位好，有人说EM优点多，还有人在说百分比方便，以至于出现了CSS Font-Size: em vs. px vs. pt vs. percent这样的PK大局。不幸的是，仍然有不同的">
+<meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/css/emTable.png">
+<meta property="og:updated_time" content="2017-04-17T12:27:53.383Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3：REM、行高、基线及元素间距z">
+<meta name="twitter:description" content="原文地址：http://www.w3cplus.com/css3/define-font-size-with-css3-rem
+在Web中使用什么单位来定义页面的字体大小，至今天为止都还在激烈的争论着，有人说PX做为单位好，有人说EM优点多，还有人在说百分比方便，以至于出现了CSS Font-Size: em vs. px vs. pt vs. percent这样的PK大局。不幸的是，仍然有不同的">
+<meta name="twitter:image" content="http://peng-howard.github.io/stylus/stylus/images/css/emTable.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/stylus/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://peng-howard.github.io/stylus/2011/10/27/css-REM/"/>
+
+
+
+
+
+  <title> CSS3：REM、行高、基线及元素间距z | 语千 ~ 刻一 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/stylus/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">语千 ~ 刻一</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/stylus/links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
+            
+            链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/stylus/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/stylus/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/stylus/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/stylus/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2011/10/27/css-REM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS3：REM、行高、基线及元素间距z
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2011-10-27T00:00:00+08:00">
+                2011-10-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/网页编程/" itemprop="url" rel="index">
+                    <span itemprop="name">网页编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2011/10/27/css-REM/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2011/10/27/css-REM/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>原文地址</strong>：<a href="http://www.w3cplus.com/css3/define-font-size-with-css3-rem" target="_blank" rel="external">http://www.w3cplus.com/css3/define-font-size-with-css3-rem</a></p>
+<p>在Web中使用什么<a href="http://www.w3.org/Style/Examples/007/units.en.html" target="_blank" rel="external">单位</a>来定义页面的字体大小，至今天为止都还在激烈的争论着，有人说<a href="http://inamidst.com/stuff/notes/csspx" target="_blank" rel="external">PX</a>做为单位好，有人说<a href="http://jontangerine.com/log/2007/09/the-incredible-em-and-elastic-layouts-with-css" target="_blank" rel="external">EM</a>优点多，还有人在说<a href="http://css-discuss.incutio.com/wiki/Using_Percent" target="_blank" rel="external">百分比</a>方便，以至于出现了<a href="http://kyleschaeffer.com/best-practices/css-font-size-em-vs-px-vs-pt-vs/" target="_blank" rel="external">CSS Font-Size: em vs. px vs. pt vs. percent</a>这样的PK大局。不幸的是，仍然有不同的利弊，使各种技术都不太理想，但又无法不去用。真是进也难，退也难呀。</p>
+<p>最近在学习em的相关知识的时候，无意之间让我拾得一宝，就是使用<strong>rem</strong>来设置Web页面的字体大小。让我一下子就来劲了，一口气看完并测试了一回，还真是爽歪歪的呀。师傅说好东西不能吃独食，于我就在这里给大家吹吹这个从没见过的<strong>REM</strong>。</p>
+<p>在详细介绍<strong>rem</strong>之前，我们先一起来回顾一下我们常用的两种记量单位，也是备受争论的两个：</p>
+<ol>
+<li>PX为单位</li>
+<li>EM为单位</li>
+</ol>
+<h1 id="px为单位">1 PX为单位</h1>
+<p>在Web页面初期制作中，我们都是使用“px”来设置我们的文本，因为他比较稳定和精确。但是这种方法存在一个问题，当用户在浏览器中浏览我们制作的Web页面时，他改变了浏览器的字体大小，这时会使用我们的Web页面布局被打破。这样对于那些关心自己网站可用性的用户来说，就是一个大问题了。因此，这时就提出了使用<code>em</code>来定义Web页面的字体。</p>
+<h1 id="em为单位">2 em为单位</h1>
+<p>前面也说了，使用是“px”为单位是比较方便，而又一致，但在浏览器中放大或缩放浏览页面时会存在一个问题，要解决这个问题，我们可以使用“em”单位。<a href="http://clagnut.com/about" target="_blank" rel="external">Richard Rutter'</a>在《<a href="http://clagnut.com/blog/348/" target="_blank" rel="external">How to size text using ems</a>》一文中有做过详细的介绍，追至早一点，<a href="http://www.alistapart.com/authors/r/rrutter" target="_blank" rel="external">Richard Rutter</a>也在《<a href="http://www.alistapart.com/articles/howtosizetextincss/" target="_blank" rel="external">How to Size Text in CSS</a>》中进行过深入的剖析。</p>
+<p>这种技术需要一个参考点，一般都是以<code>&lt;body&gt;</code>的“font-size”为基准。比如说我们使用“1em”等于“10px”来改变默认值“1em=16px”，这样一来，我们设置字体大小相当于“14px”时，只需要将其值设置为“1.4em”。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">62.5%</span>; <span class="comment">/*10 ÷ 16 × 100% = 62.5%*/</span></div><div class="line">&#125;</div><div class="line"><span class="selector-tag">h1</span> &#123;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">2.4em</span>; <span class="comment">/*2.4em × 10 = 24px */</span></div><div class="line">&#125;</div><div class="line"><span class="selector-tag">p</span>	&#123;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">1.4em</span>; <span class="comment">/*1.4em × 10 = 14px */</span></div><div class="line">&#125;</div><div class="line"><span class="selector-tag">li</span> &#123;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">1.4em</span>; <span class="comment">/*1.4 × ? = 14px ? */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>为什么“li”的“1.4em”是不是“14px”将是一个问号呢？如果你了解过“em”后，你会觉得这个问题是多问的。前面也简单的介绍过一回，在使用“em”作单位时，一定需要知道其父元素的设置，因为“em”就是一个相对值，而且是一个相对于父元素的值，其真正的计算公式是：</p>
+<pre><code>1 ÷ 父元素的font-size × 需要转换的像素值 = em值
+</code></pre>
+<p>这样的情况下“1.4em”可以是“14px”,也可以是“20px”，或者说是“24px”，总之是一个不确定值，那么解决这样的问题，要么你知道其父元素的值，要么呢在任何子元素中都使用“1em”。这样一来可能又不是我们所需要的方法。</p>
+<p>这里我只是简单的介绍了一个这两个单位的使用，具体一点的大家可以参阅：</p>
+<ol>
+<li><a href="http://kyleschaeffer.com/category/best-practices/" title="View all posts in Best Practices" target="_blank" rel="external">Best Practices</a>的站长<a href="kyleschaeffer.com/about-me/">Kyle</a>的《<a href="http://kyleschaeffer.com/best-practices/css-font-size-em-vs-px-vs-pt-vs/" target="_blank" rel="external">CSS Font-Size: em vs. px vs. pt vs. percent</a>》</li>
+<li><a href="http://www.hubbers.com/index.php/converting-px-into-percentage-and-em-for-relative-css-font-sizes/" target="_blank" rel="external">Converting px into percentage and em for relative CSS font sizes</a></li>
+<li><a href="http://css-discuss.incutio.com/wiki/Em_Vs_Percent_Widths" target="_blank" rel="external">Em Vs Percent Widths</a></li>
+<li><a href="http://www.guistuff.com/css/css_units.html" target="_blank" rel="external">CSS: Units of Measurement</a></li>
+<li><a href="http://webdesign.about.com/bio/Jennifer-Kyrnin-5105.htm" target="_blank" rel="external">Jennifer Kyrnin</a>的<a href="http://webdesign.about.com/cs/typemeasurements/a/aa042803a.htm" target="_blank" rel="external">Using Points, Pixels, Ems, or Percentages for CSS Fonts</a></li>
+</ol>
+<h1 id="rem为单位">3 Rem为单位</h1>
+<p><a href="http://www.w3.org/TR/css3-values/" target="_blank" rel="external">CSS3</a>的出现，他同时引进了一些新的<a href="http://www.w3.org/TR/css3-values/#rem-unit" target="_blank" rel="external">单位</a>，包括我们今天所说的<a href="http://www.w3.org/TR/css3-values/#rem-unit" target="_blank" rel="external">rem</a>。在<a href="http://www.w3.org/TR/css3-values/#rem-unit" target="_blank" rel="external">W3C</a>官网上是这样描述<a href="http://www.w3.org/TR/css3-values/#rem-unit" target="_blank" rel="external">rem</a>的——<strong>“font size of the root element”</strong>。下面我们就一起来详细的了解<a href="http://www.w3.org/TR/css3-values/#rem-unit" target="_blank" rel="external">rem</a>。</p>
+<p>前面说了“em”是相对于其父元素来设置字体大小的，这样就会存在一个问题，进行任何元素设置，都有可能需要知道他父元素的大小，在我们多次使用时，就会带来无法预知的错误风险。而<a href="http://www.w3.org/TR/css3-values/#rem-unit" target="_blank" rel="external">rem</a>是相对于根元素<html>，这样就意味着，我们只需要在根元素确定一个参考值，在根元素中设置多大的字体，这完全可以根据您自己的需，大家也可以参考下图：</html></p>
+<p><img src="/stylus/images/css/emTable.png" alt=""></p>
+<p>我们来看一个简单的代码实例：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">html</span> &#123;<span class="attribute">font-size</span>: <span class="number">62.5%</span>;<span class="comment">/*10 ÷ 16 × 100% = 62.5%*/</span>&#125;</div><div class="line"><span class="selector-tag">body</span> &#123;<span class="attribute">font-size</span>: <span class="number">1.4rem</span>;<span class="comment">/*1.4 × 10px = 14px */</span>&#125;</div><div class="line"><span class="selector-tag">h1</span> &#123; <span class="attribute">font-size</span>: <span class="number">2.4rem</span>;<span class="comment">/*2.4 × 10px = 24px*/</span>&#125;</div></pre></td></tr></table></figure>
+<p>我在根元素<html>中定义了一个基本字体大小为62.5%（也就是10px。设置这个值主要方便计算，如果没有设置，将是以“16px”为基准 ）。从上面的计算结果，我们使用“rem”就像使用“px”一样的方便，而且同时解决了“px”和“em”两者不同之处。</html></p>
+<h1 id="浏览器的兼容性">4 浏览器的兼容性</h1>
+<p><a href="http://www.w3.org/TR/css3-values/#rem-unit" target="_blank" rel="external"><strong>rem</strong></a>是<a href="http://www.w3.org/TR/css3-values/" target="_blank" rel="external">CSS3</a>新引进来的一个度量单位，大家心里肯定会觉得心灰意冷呀，担心浏览器的支持情况。其实大家不用害怕，你可能会惊讶，支持的浏览器还是蛮多的，比如：<a href="http://firefox.com" target="_blank" rel="external">Mozilla Firefox 3.6+</a>、<a href="http://apple.com/safari/" target="_blank" rel="external">Apple Safari 5+</a>、<a href="http://google.com/chrome" target="_blank" rel="external">Google Chrome</a>、<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home" target="_blank" rel="external">IE9+</a>和<a href="http://www.opera.com/" target="_blank" rel="external">Opera11+</a>。只是可怜的IE6-8无法，你们就把他们当透明了吧，我向来都是如此。</p>
+<p>不过使用单位设置字体，可不能完全不考虑IE了，如果你想使用这个REM，但也想兼容IE下的效果，可你可考虑“px”和“rem”一起使用，用&quot;px&quot;来实现IE6-8下的效果，然后使用“Rem”来实现代浏览器的效果。就让IE6-8不能随文字的改变而改变吧，谁让这个Ie6-8这么老呢？哈。。。。大家不仿试试，还蛮有意思，说不定这个就是主流的度量单位了。</p>
+<h1 id="行高-基线-元素间距相关资料">5 行高、基线、元素间距相关资料</h1>
+<ul>
+<li><code>inline-block</code>元素<code>vertical-align</code>的问题分析：<a href="http://www.cnblogs.com/zxjwlh/p/6219896.html" target="_blank" rel="external">http://www.cnblogs.com/zxjwlh/p/6219896.html</a></li>
+<li>深入理解CSS中的行高与基线：<a href="http://blog.csdn.net/lulujiajiawenwen/article/details/8245201" target="_blank" rel="external">http://blog.csdn.net/lulujiajiawenwen/article/details/8245201</a></li>
+<li>CSS <code>line-height</code>与<code>vertical-align:baseline</code>：<a href="http://www.cnblogs.com/cc156676/p/5676237.html" target="_blank" rel="external">http://www.cnblogs.com/cc156676/p/5676237.html</a></li>
+<li>去除<code>inline-block</code>元素间间距的 N 种方法：<a href="http://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-去除间距/</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/stylus/tags/CSS/" rel="tag"><i class="fa fa-fw fa-tag"></i> CSS</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/stylus/2011/02/26/windows-opti-master/" rel="next" title="使用Windows优化大师导致Win7出现的两个问题">
+                <i class="fa fa-chevron-left"></i> 使用Windows优化大师导致Win7出现的两个问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/stylus/2011/11/03/lsset-highlight-blackslash/" rel="prev" title="listings排源代码，如何让反斜杠高亮显示？z">
+                listings排源代码，如何让反斜杠高亮显示？z <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/stylus/images/avatar.png"
+               alt="Hao Peng" />
+          <p class="site-author-name" itemprop="name">Hao Peng</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/stylus/archives">
+                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/stylus/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/stylus/tags/index.html">
+                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/stylus/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/your-user-name" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/your-user-name" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://macshuo.com/" title="MacTalk" target="_blank">MacTalk</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://example.com/" title="Title" target="_blank">Title</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#px为单位"><span class="nav-text">1 PX为单位</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#em为单位"><span class="nav-text">2 em为单位</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rem为单位"><span class="nav-text">3 Rem为单位</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器的兼容性"><span class="nav-text">4 浏览器的兼容性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#行高-基线-元素间距相关资料"><span class="nav-text">5 行高、基线、元素间距相关资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  Powered by <a href="https://hexo.io/">Hexo</a> &amp; <a href="https://github.com/iissnan/hexo-theme-next">NexT</a> on GitHub |
+  
+  Copyright  2005 - 
+  <span itemprop="copyrightYear">2017</span>
+  by 
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"><a href="mailto:haopeng.yn@gmail.com">Hao Peng</a></span>
+</div>
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/stylus/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/stylus/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/stylus/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/stylus/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/stylus/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/stylus/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/stylus/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://peng-howard-github-io.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://peng-howard.github.io/stylus/stylus/2011/10/27/css-REM/';
+          this.page.identifier = '2011/10/27/css-REM/';
+          this.page.title = 'CSS3：REM、行高、基线及元素间距z';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://peng-howard-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/stylus/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {equationNumbers: {autoNumber: ["AMS"], useLabelIds: true}},
+        "HTML-CSS": {linebreaks: {automatic: true}},
+        SVG: {linebreaks: {automatic: true}}
+    });
+	</script>
+	
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+  
+
+</body>
+</html>

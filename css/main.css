@@ -1684,7 +1684,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #78b50e;
+  background: #ffe701;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2538,8 +2538,33 @@ embed {
   src: url("/stylus/lib/font-Galdeano/galdeano-webfont.woff2") format('woff2'), url("/stylus/lib/font-Galdeano/galdeano-webfont.woff") format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
+@font-face {
+  font-family: 'Alegreya';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Alegreya'), local('Alegreya-Regular'), url("/stylus/lib/fonts/alegreya-regular.woff2") format('woff2'), url("/stylus/lib/fonts/alegreya-regular.woff") format('woff');
+}
+@font-face {
+  font-family: 'Alegreya';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Alegreya Italic'), local('Alegreya-Italic'), url("/stylus/lib/fonts/alegreya-italic.woff2") format('woff2'), url("/stylus/lib/fonts/alegreya-italic.woff") format('woff');
+}
+@font-face {
+  font-family: 'PT Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('PT Mono'), local('PTMono-Regular'), url("/stylus/lib/fonts/pt-mono-regular.woff2") format('woff2'), url("/stylus/lib/fonts/pt-mono-regular.woff") format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url("/stylus/lib/fonts/source-sans-pro-regular.woff2") format('woff2'), url("/stylus/lib/fonts/source-sans-pro-regular.woff") format('woff');
+}
 body {
   background: #f3f3f3 url("/stylus/images/bg.png") repeat;
+  font-family: 'Alegreya', 'Palatino Linotype', 'Book Antiqua', Palatino, 'source-han-serif-sc', 'Source Han Serif SC', 'Source Han Serif CN', 'Source Han Serif TC', 'Source Han Serif TW', 'Source Han Serif', 'Songti SC', '仿宋', 'FangSong', 'NSimSun', 'Microsoft YaHei', serif !important;
   font-size: 18px;
 }
 .post-title {
@@ -2602,7 +2627,7 @@ h4 code {
   padding: 0;
 }
 .brand {
-  margin-top: 45px;
+  margin-top: 0px;
 /* display: none; */
   color: #555;
   background-color: transparent;
@@ -2614,22 +2639,37 @@ h4 code {
   font-size: 24px;
   font-weight: bold;
 }
+header#header {
+  margin-top: 0px !important;
+  background-color: rgba(0,0,0,0.06);
+  min-height: 40px;
+  padding-top: 3px;
+  padding-bottom: 38px;
+  border-bottom: solid 1px #e1e1e1;
+}
+#menu li a i,
+#menu li a br {
+  display: none;
+}
+.site-brand-wrapper {
+  display: inline-block;
+  float: left;
+}
+.menu li {
+  float: right !important; /* 此时导航栏顺序刚好颠倒，需要在配置文件中也颠倒一次 */
+  margin-right: 0px !important;
+  margin-left: 2em !important;
+}
 .menu li a {
-  border: solid 2px #bbb !important;
-  background-color: #fefefe;
-  border-radius: 50%;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  width: 60px;
-  margin: 20px;
+  font-size: 16px !important;
+  font-weight: bold;
 }
 .menu li a:hover {
-  color: #2dbe60;
-  border-color: #2dbe60 !important;
-  background-color: #f0fad2;
-  font-weight: bold;
-  transition-property: all;
-  transition-duration: 0.5s;
+  border-bottom: solid 2px #aaa !important;
+  color: #555;
+}
+a.brand {
+  padding: 0px; /* 默认有 40px */
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   .menu-item-icon {
@@ -2646,6 +2686,7 @@ h4 code {
     padding-left: 0px;
   }
 }
+*
 .category-list-item {
   display: inline;
 }
@@ -2704,6 +2745,7 @@ ol.footnotes-list li p {
   font-size: 10px !important;
 }
 blockquote {
+  font-family: 'Source Sans Pro', Tahoma, Geneva, 'STKaiti', 'KaiTi', '楷体', 'SimKai', 'DFKai-SB', 'NSimSun', serif;
   border-radius: 5px;
   border-left: solid 8px #ccc;
   border-right: solid 1px #ccc;
@@ -2717,6 +2759,7 @@ blockquote p {
   margin: 10px 0;
 }
 code {
+  font-family: 'PT Mono', 'STKaiti', 'KaiTi', 'SimKai', monospace !important;
   font-size: 16px;
   border-radius: 5px;
   padding: 3px 4px;
@@ -2724,7 +2767,8 @@ code {
   background-color: #f2f9f4;
 }
 pre {
-  font-size: 15px;
+  font-family: 'PT Mono', 'STKaiti', 'KaiTi', 'SimKai', monospace !important;
+  font-size: 14px !important;
   border: solid 1px #ccc;
   border-radius: 5px;
 /* knitr 会专门做一个没有底色的css，所以这里不会起作用 background-color: #333; */
