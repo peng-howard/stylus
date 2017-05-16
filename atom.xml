@@ -183,11 +183,11 @@
     
       <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/tags/LaTeX/"/>
     
+      <category term="lstlistings" scheme="http://peng-howard.github.io/stylus/tags/lstlistings/"/>
+    
       <category term="语法高亮" scheme="http://peng-howard.github.io/stylus/tags/%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE/"/>
     
       <category term="highlight" scheme="http://peng-howard.github.io/stylus/tags/highlight/"/>
-    
-      <category term="lstlistings" scheme="http://peng-howard.github.io/stylus/tags/lstlistings/"/>
     
   </entry>
   
@@ -305,11 +305,11 @@
     
       <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/tags/LaTeX/"/>
     
+      <category term="lstlistings" scheme="http://peng-howard.github.io/stylus/tags/lstlistings/"/>
+    
       <category term="语法高亮" scheme="http://peng-howard.github.io/stylus/tags/%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE/"/>
     
       <category term="highlight" scheme="http://peng-howard.github.io/stylus/tags/highlight/"/>
-    
-      <category term="lstlistings" scheme="http://peng-howard.github.io/stylus/tags/lstlistings/"/>
     
   </entry>
   
