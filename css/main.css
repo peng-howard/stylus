@@ -1684,7 +1684,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ad4001;
+  background: #11c885;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2790,6 +2790,7 @@ ol.footnotes-list li p {
   font-size: 10px !important;
 }
 blockquote {
+  color: #000;
   border-radius: 5px;
   border-left: solid 8px #ccc;
   border-right: solid 1px #ccc;
@@ -2821,19 +2822,20 @@ pre {
   font-family: 'PT Mono', 'STKaiti', 'KaiTi', 'SimKai', monospace;
 }
 pre.white {
+  color: #000;
   font-size: 17px !important;
   background-color: #fefefe;
 }
 pre.center {
   text-align: center !important;
   line-height: 2em;
-  font-size: 18px;
+  font-size: 19px !important;
   border: none;
   background-color: transparent;
   padding: 0px;
 }
 pre code {
-  font-size: 15px;
+  font-size: 17px;
   padding: 0px; /* 段落中的 code 左边的 padding=4px 会导致 pre 中的 code 第一行左边相对下面的其它行有一个向右的偏移 */
   background-color: transparent;
   color: #000;

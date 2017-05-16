@@ -96,7 +96,7 @@
     <link href="http://peng-howard.github.io/stylus/2017/03/25/bias-variance-tradeoff/"/>
     <id>http://peng-howard.github.io/stylus/2017/03/25/bias-variance-tradeoff/</id>
     <published>2017-03-25T03:33:41.000Z</published>
-    <updated>2017-04-16T14:09:05.473Z</updated>
+    <updated>2017-05-16T08:49:10.612Z</updated>
     
     <summary type="html">
     
@@ -183,11 +183,11 @@
     
       <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/tags/LaTeX/"/>
     
+      <category term="lstlistings" scheme="http://peng-howard.github.io/stylus/tags/lstlistings/"/>
+    
       <category term="语法高亮" scheme="http://peng-howard.github.io/stylus/tags/%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE/"/>
     
       <category term="highlight" scheme="http://peng-howard.github.io/stylus/tags/highlight/"/>
-    
-      <category term="lstlistings" scheme="http://peng-howard.github.io/stylus/tags/lstlistings/"/>
     
   </entry>
   
@@ -305,11 +305,11 @@
     
       <category term="LaTeX" scheme="http://peng-howard.github.io/stylus/tags/LaTeX/"/>
     
+      <category term="lstlistings" scheme="http://peng-howard.github.io/stylus/tags/lstlistings/"/>
+    
       <category term="语法高亮" scheme="http://peng-howard.github.io/stylus/tags/%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE/"/>
     
       <category term="highlight" scheme="http://peng-howard.github.io/stylus/tags/highlight/"/>
-    
-      <category term="lstlistings" scheme="http://peng-howard.github.io/stylus/tags/lstlistings/"/>
     
   </entry>
   

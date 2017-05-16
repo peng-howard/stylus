@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/MachineLearning/bias-variance-tend.png">
 <meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/MachineLearning/error-curve.png">
 <meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/MachineLearning/Machine-Learning-Workflow.png">
-<meta property="og:updated_time" content="2017-04-16T14:09:05.473Z">
+<meta property="og:updated_time" content="2017-05-16T08:49:10.612Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="谈谈 Bias-Variance Tradeoff z">
 <meta name="twitter:description" content="原文地址：http://liam0205.me/2017/03/25/bias-variance-tradeoff/
@@ -435,16 +435,16 @@
 <p>$$y = f(X) + \epsilon.$$</p>
 <p>偏差和方差则需要在统计上做对应的定义。</p>
 <ul>
-<li>**偏差（bias）**描述的是通过学习拟合出来的结果之期望，与真实规律之间的差距，记作 $\text{Bias}(X) = E[\hat f(X)] - f(X)$。</li>
-<li>**方差（variance）**即是统计学中的定义，描述的是通过学习拟合出来的结果自身的不稳定性，记作 $\text{Var}(X) = E\Bigl[\hat f(X) - E[\hat f(X)]\Bigr]$。</li>
+<li><strong>偏差</strong>（bias）描述的是通过学习拟合出来的结果之期望，与真实规律之间的差距，记作 $\text{Bias}(X) = E[\hat f(X)] - f(X)$。</li>
+<li><strong>方差</strong>（variance）即是统计学中的定义，描述的是通过学习拟合出来的结果自身的不稳定性，记作 $\text{Var}(X) = E\Bigl[\hat f(X) - E[\hat f(X)]\Bigr]$。</li>
 </ul>
 <p>以均方误差为例，有如下推论</p>
 <p>\begin{equation}
 \begin{aligned}
-\text{Err}(X) &amp;{}= E\Bigl[\bigl(y - \hat f(X)\bigr)^2\Bigr] \
-&amp;{}= E\Bigl[\bigl(f(X) + \epsilon - \hat f(X)\bigr)^2\Bigr] \
-&amp;{}= \left(E[\hat{f}(X)]-f(X)\right)^2 + E\left[\left(\hat{f}(X)-E[\hat{f}(X)]\right)^2\right] +\sigma_\epsilon^2 \
-&amp;{}= \text{Bias}^2 + \text{Variance} + \text{Random Error}.
+\text{Err}(X) &amp;= E\Bigl[\bigl(y - \hat f(X)\bigr)^2\Bigr] \
+&amp;= E\Bigl[\bigl(f(X) + \epsilon - \hat f(X)\bigr)^2\Bigr] \
+&amp;= \left(E[\hat{f}(X)]-f(X)\right)^2 + E\left[\left(\hat{f}(X)-E[\hat{f}(X)]\right)^2\right] +\sigma_\epsilon^2 \
+&amp;= \text{Bias}^2 + \text{Variance} + \text{Random Error}.
 \end{aligned}
 \label{eq:err-comp}
 \end{equation}</p>
