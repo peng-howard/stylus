@@ -123,6 +123,19 @@ a:hover {
 }
 /* 导航栏部分 1. 超链接效果；2. 字体；3. 背景颜色 */
 /* 博客名称 */
+.site-nav-toggle {
+  top: 19px;
+}
+@media (max-width: 767px) {
+  .custom-logo-site-title {
+    position: absolute;
+    right: 20px;
+    top: 17px;
+  }
+  .site-nav {
+    background-color: #f6f6f6;
+  }
+}
 .brand {
   margin-top: 0px;
 /* display: none; */
@@ -476,6 +489,15 @@ a.page-number:hover {
 /* 存档页时间 */
   font-size: 13px;
   font-family: Galdeano, Helvetica, "Microsoft YaHei", sans-serif;
+}
+/* 图片预览右上角的 X */
+a.fancybox-close:link,
+a.fancybox-nav:link {
+  border-bottom: none !important;
+}
+a.fancybox-close:hover,
+a.fancybox-nav:hover {
+  background-color: transparent;
 }
 /* 版权部分 */
 .copyright {

@@ -1684,7 +1684,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #360bff;
+  background: #ad4001;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2648,6 +2648,19 @@ a:hover {
 .header-inner {
   padding: 0;
 }
+.site-nav-toggle {
+  top: 19px;
+}
+@media (max-width: 767px) {
+  .custom-logo-site-title {
+    position: absolute;
+    right: 20px;
+    top: 17px;
+  }
+  .site-nav {
+    background-color: #f6f6f6;
+  }
+}
 .brand {
   margin-top: 0px;
 /* display: none; */
@@ -2966,6 +2979,14 @@ a.page-number:hover {
 /* 存档页时间 */
   font-size: 13px;
   font-family: Galdeano, Helvetica, "Microsoft YaHei", sans-serif;
+}
+a.fancybox-close:link,
+a.fancybox-nav:link {
+  border-bottom: none !important;
+}
+a.fancybox-close:hover,
+a.fancybox-nav:hover {
+  background-color: transparent;
 }
 .copyright {
   font-family: Galdeano, Helvetica, "Microsoft YaHei", sans-serif;
