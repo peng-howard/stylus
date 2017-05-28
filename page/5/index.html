@@ -296,6 +296,513 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2011/11/12/pgfpages-slides-4-in-1-changing-margins/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2011/11/12/pgfpages-slides-4-in-1-changing-margins/" itemprop="url">
+                  用 pgfpages 生成 slides 的 4 in 1 版式效果
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2011-11-12T00:00:00+08:00">
+                2011-11-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/LaTeX/" itemprop="url" rel="index">
+                    <span itemprop="name">LaTeX</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2011/11/12/pgfpages-slides-4-in-1-changing-margins/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2011/11/12/pgfpages-slides-4-in-1-changing-margins/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Getting a 4 in 1 pdf Slides document and “Changing PDF Margins With The pdfpages Package”</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">[a4paper, landscape]</span><span class="string">&#123;article&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">[final]</span><span class="string">&#123;pdfpages&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">includepdf</span><span class="string">[nup=2x2,pages=-, delta=15 15, offset=20 0, frame, scale=0.92,%</span></span></div><div class="line">    turn=false]<span class="string">&#123;slides.pdf&#125;</span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="comment">% offset=20 0 为偏移横向的内容，给左边留一定的空白用于装订；</span></div><div class="line"><span class="comment">% 不使用 offset 的纵向偏移，否则虽然下方有空白，但天头没有；</span></div><div class="line"><span class="comment">% 解决纵向留空使用了 scale 选项，直接缩小页面的尺寸，产生自动纵向留白。</span></div></pre></td></tr></table></figure>
+<p>用 Beamer 做的 Slides，最刚开始用 Acrobat 打印机生成幻灯片的四合一效果，但发现 Acrobat 打印过程中会对图片的质量造成一定的损伤。</p>
+<p>后来发现<code>psnup</code>工具可以实现<strong>4 in 1</strong>的效果，但试验之后感觉速度和方便程度都很欠缺，需要先将 pdf 文件转换 ps 文件，光是这个过程就太漫长，受不了；另外就是该工具提供的选项看起来不是很舒服。</p>
+<p>最后回想起其实 LaTeX 自带的<code>pgfpages</code>宏包可以完成这个任务，又回头查了了下 Beam User Guide，发现 Beamer 中也尝试过使用该宏包。但是 Beamer 中的<code>\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]</code>类命令我不能直接在 Beamer 之外用，而<code>pgfpages</code>中的<code>delta</code>与<code>offset</code>组合工作还存在问题(见上面的代码注释)，最后发现<code>\includepdf</code>的<code>scale</code>选项配合<code>delta</code>与<code>offset</code>就可以完美的达到想要的效果，问题搞定！</p>
+<p>PS：事实上<code>pgfpages</code>宏包的手册中没有对<code>scale</code>选项进行专门的说明，这个选项其实源于<code>graphicsx</code>宏包的<code>\includegraphic</code>命令，解决上面问题的思路来自下面的资料：</p>
+<ul>
+<li><a href="http://magic.aladdin.cs.cmu.edu/2007/11/13/changing-pdf-margins-with-the-pdfpages-package/" class="uri" target="_blank" rel="external">http://magic.aladdin.cs.cmu.edu/2007/11/13/changing-pdf-margins-with-the-pdfpages-package/</a></li>
+<li><a href="http://www.tardis.ed.ac.uk/~ajcd/psutils/psnup.html" class="uri" target="_blank" rel="external">http://www.tardis.ed.ac.uk/~ajcd/psutils/psnup.html</a></li>
+<li><a href="http://apps.hi.baidu.com/share/detail/21414399" class="uri" target="_blank" rel="external">http://apps.hi.baidu.com/share/detail/21414399</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2011/11/10/word-footnote/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2011/11/10/word-footnote/" itemprop="url">
+                  如何在 Word 中分栏状态下正确的输入脚注？
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2011-11-10T00:00:00+08:00">
+                2011-11-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/计算机-软件应用/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机 - 软件应用</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2011/11/10/word-footnote/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2011/11/10/word-footnote/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在论文排版中，在题目或作者处插入了脚注后，再对正文分栏时；或者先分栏，再在题目或作者处插入脚注，分栏后的正文就跑到下一页上去了。</p>
+<p>稿件格式的要求示意图如下：</p>
+<div class="figure">
+<img src="https://cssdpq.bn1.livefilestore.com/y2pnvi9MBSCA5XA7cPaxPdso3UgOSbD9M7WNk_OXZQZqMJdjGegFSbTLKHaFt7brBL6uqCk-8atcJL5FLAEYjm7kgee4J6h16Q3FA_J3-_QqHg/word-footnote.jpg?psid=1" alt="Word脚注">
+<p class="caption">Word脚注</p>
+</div>
+<p>解决方案：</p>
+<ul>
+<li>word 2003：“工具”→“选项”→“兼容性”→“选项”→“按照 word 6.x/95/97 的方式排放脚注”；</li>
+<li>word 2007：“左上角圆形图标”→“word选项”→“在左边列中点高级”→在右边的“兼容性选项”下点“版式选项”，展开版式选项，勾选按“word 6.x/95/97的方式排安排脚注”。</li>
+</ul>
+<p>经过以上操作后，分栏后，加入脚注或者加入脚注后再分栏，正文跑到第二页的问题就可以解决了。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2011/11/07/latex-solution/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2011/11/07/latex-solution/" itemprop="url">
+                  LaTeX问题贴收集
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2011-11-07T00:00:00+08:00">
+                2011-11-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/LaTeX/" itemprop="url" rel="index">
+                    <span itemprop="name">LaTeX</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2011/11/07/latex-solution/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2011/11/07/latex-solution/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="各类问题">1 各类问题</h1>
+<ol style="list-style-type: decimal">
+<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=66884" target="_blank" rel="external">TeX Live 2011 中的 ConTeXt MkIV 配置(包括 Linux 和 Win7)</a></li>
+<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=68146" target="_blank" rel="external">中文书籍模板示例 (《线性代数》的文档类)</a></li>
+<li><a href="http://tex.stackexchange.com/questions/33823/what-does-ifx-1-stand-for" target="_blank" rel="external">What does \#1\ stand for?</a></li>
+<li><a href="http://tex.stackexchange.com/questions/23860/how-to-include-a-picture-over-two-pages-left-part-on-left-side-right-on-right" target="_blank" rel="external">How to include a picture over two pages, left part on left side, right on right (for books)?</a></li>
+<li><a href="http://stackoverflow.com/questions/2814714/how-to-change-title-in-listings" target="_blank" rel="external">How to change title in listings?</a></li>
+<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=53451" target="_blank" rel="external">代码环境跨页问题(一个比较完善的 Listings 设置示例)</a></li>
+<li><a href="http://blog.sina.com.cn/s/blog_5e16f1770102dqp3.html" target="_blank" rel="external">用listings包实现左边代码右边输出</a></li>
+<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=65152" target="_blank" rel="external">高中数学试卷举例</a></li>
+<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=47672" target="_blank" rel="external">多种期刊的统一模板</a></li>
+<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=27695" target="_blank" rel="external">我的beamer幻灯片模板</a></li>
+<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=30379" target="_blank" rel="external">多子图分页</a></li>
+<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=43574" target="_blank" rel="external">学习底层命令的参考书目</a></li>
+<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=9528" target="_blank" rel="external">如何实现重复</a></li>
+<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=28273" target="_blank" rel="external">抛砖引玉谈“脆弱”</a></li>
+<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=53606" target="_blank" rel="external">LaTeX的循环里面怎样定义命令</a></li>
+<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=68523" target="_blank" rel="external">这种改中文标点 catcode 的方法靠谱么</a></li>
+<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=62688" target="_blank" rel="external">生成可展开的改变大小写命令</a></li>
+</ol>
+<h1 id="重要模块">2 重要模块</h1>
+<ol style="list-style-type: decimal">
+<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=47893" target="_blank" rel="external">Asymptote 中文资源导引</a></li>
+<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=40680" target="_blank" rel="external">PGF/TikZ 学习帖汇总</a></li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2011/11/03/lsset-highlight-blackslash/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -407,12 +914,18 @@
         
           
             <p>原文地址：<a href="http://bbs.chinatex.org/forum.php?mod=viewthread&amp;tid=7282&amp;extra=page%3D1" target="_blank" rel="external">http://bbs.chinatex.org/forum.php?mod=viewthread&amp;tid=7282&amp;extra=page%3D1</a></p>
-<p>原始出处：<a href="http://tex.stackexchange.com/questions/17774/listings-package-can-i-include-a-backslash-in-language-keyword-begin-for" target="_blank" rel="external">http://tex.stackexchange.com/questions/17774/listings-package-can-i-include-a-backslash-in-language-keyword-begin-for</a></p>
-<p><img src="https://cssdpq.bn1.livefilestore.com/y2pGqgY27OrXetmEiHWF5D3gNxS0mky6ut1_scRtpvFnd9A82ruV-sovfRSWmNGMNIh00yUqvodbvdRcnGsI_AfnpKNdeEMSCCb_hUYTmSM4Ik/latex-listings-1.png?psid=1" alt="latex-listings-1"></p>
-<p>如第一幅图所示，高亮的结果是有问题的，也不太好看，实际，我们需要用<code>texcsstyle</code>来设置即可，有关该指令的作用参考<code>listings</code>宏包的手册或<a href="http://www.chinatex.org/archives/620" target="_blank" rel="external">http://www.chinatex.org/archives/620</a>，这里的<strong>cs</strong>即控制序列。</p>
+<p>原始出处：<a href="http://tex.stackexchange.com/questions/17774/listings-package-can-i-include-a-backslash-in-language-keyword-begin-for" class="uri" target="_blank" rel="external">http://tex.stackexchange.com/questions/17774/listings-package-can-i-include-a-backslash-in-language-keyword-begin-for</a></p>
+<div class="figure">
+<img src="https://cssdpq.bn1.livefilestore.com/y2pGqgY27OrXetmEiHWF5D3gNxS0mky6ut1_scRtpvFnd9A82ruV-sovfRSWmNGMNIh00yUqvodbvdRcnGsI_AfnpKNdeEMSCCb_hUYTmSM4Ik/latex-listings-1.png?psid=1" alt="latex-listings-1">
+<p class="caption">latex-listings-1</p>
+</div>
+<p>如第一幅图所示，高亮的结果是有问题的，也不太好看，实际，我们需要用<code>texcsstyle</code>来设置即可，有关该指令的作用参考<code>listings</code>宏包的手册或<a href="http://www.chinatex.org/archives/620" class="uri" target="_blank" rel="external">http://www.chinatex.org/archives/620</a>，这里的<strong>cs</strong>即控制序列。</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">&#123;article&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">[T1]</span><span class="string">&#123;fontenc&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">[scaled=0.82]</span><span class="string">&#123;beramono&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;listings,xcolor&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;lstlisting&#125;</span><span class="string">[basicstyle=\small\ttfamily,language=&#123;[LaTeX]</span></span>TeX&#125;,</div><div class="line">                   texcsstyle=*<span class="tag">\<span class="name">color</span><span class="string">&#123;red&#125;</span></span><span class="tag">\<span class="name">bfseries</span></span>,</div><div class="line">                   keywordstyle=<span class="tag">\<span class="name">color</span><span class="string">&#123;blue&#125;</span></span><span class="tag">\<span class="name">bfseries</span></span>,</div><div class="line">                   morekeywords=alignat,moretexcs=intertext]</div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;alignat*&#125;</span><span class="string">&#123;4&#125;</span></span></div><div class="line">   y &amp;= -4   &amp;+ 3 &amp;+4     &amp;-7      <span class="tag">\<span class="name">\</span></span></div><div class="line">   y &amp;=      &amp;+ 3 &amp;       &amp;-7      <span class="tag">\<span class="name">\</span></span></div><div class="line">   <span class="tag">\<span class="name">intertext</span><span class="string">&#123;Therefore&#125;</span></span></div><div class="line">   a &amp;= b    &amp;d   &amp;= cccc &amp;e  &amp;= d <span class="tag">\<span class="name">\</span></span></div><div class="line">   a &amp;= bbbb &amp;d   &amp;= c    &amp;e  &amp;= d</div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;alignat*&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;lstlisting&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div></pre></td></tr></table></figure>
 <p>正确的演示效果如下图所示：</p>
-<p><img src="https://cssdpq.bn1.livefilestore.com/y2p4k8SF1VY5eeAauY0fr03aQdOpyp0-L7T3e9FMWXAd0-s8BPXRRzlH95Byg38xMAOtvUQMJxIo4trGdxDmDPp6u4n8VPF6H1CDE-BG8orSjY/latex-listings-2.png?psid=1" alt="latex-listings-2"></p>
+<div class="figure">
+<img src="https://cssdpq.bn1.livefilestore.com/y2p4k8SF1VY5eeAauY0fr03aQdOpyp0-L7T3e9FMWXAd0-s8BPXRRzlH95Byg38xMAOtvUQMJxIo4trGdxDmDPp6u4n8VPF6H1CDE-BG8orSjY/latex-listings-2.png?psid=1" alt="latex-listings-2">
+<p class="caption">latex-listings-2</p>
+</div>
 
           
         
@@ -518,8 +1031,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/网页编程/" itemprop="url" rel="index">
-                    <span itemprop="name">网页编程</span>
+                  <a href="/stylus/categories/计算机-网页编程/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机 - 网页编程</span>
                   </a>
                 </span>
 
@@ -565,52 +1078,21 @@
 
       
         
-          
-            <p><strong>原文地址</strong>：<a href="http://www.w3cplus.com/css3/define-font-size-with-css3-rem" target="_blank" rel="external">http://www.w3cplus.com/css3/define-font-size-with-css3-rem</a></p>
-<p>在Web中使用什么<a href="http://www.w3.org/Style/Examples/007/units.en.html" target="_blank" rel="external">单位</a>来定义页面的字体大小，至今天为止都还在激烈的争论着，有人说<a href="http://inamidst.com/stuff/notes/csspx" target="_blank" rel="external">PX</a>做为单位好，有人说<a href="http://jontangerine.com/log/2007/09/the-incredible-em-and-elastic-layouts-with-css" target="_blank" rel="external">EM</a>优点多，还有人在说<a href="http://css-discuss.incutio.com/wiki/Using_Percent" target="_blank" rel="external">百分比</a>方便，以至于出现了<a href="http://kyleschaeffer.com/best-practices/css-font-size-em-vs-px-vs-pt-vs/" target="_blank" rel="external">CSS Font-Size: em vs. px vs. pt vs. percent</a>这样的PK大局。不幸的是，仍然有不同的利弊，使各种技术都不太理想，但又无法不去用。真是进也难，退也难呀。</p>
+          <p><strong>原文地址</strong>：<a href="http://www.w3cplus.com/css3/define-font-size-with-css3-rem" class="uri">http://www.w3cplus.com/css3/define-font-size-with-css3-rem</a></p>
+<p>在Web中使用什么<a href="http://www.w3.org/Style/Examples/007/units.en.html">单位</a>来定义页面的字体大小，至今天为止都还在激烈的争论着，有人说<a href="http://inamidst.com/stuff/notes/csspx">PX</a>做为单位好，有人说<a href="http://jontangerine.com/log/2007/09/the-incredible-em-and-elastic-layouts-with-css">EM</a>优点多，还有人在说<a href="http://css-discuss.incutio.com/wiki/Using_Percent">百分比</a>方便，以至于出现了<a href="http://kyleschaeffer.com/best-practices/css-font-size-em-vs-px-vs-pt-vs/">CSS Font-Size: em vs. px vs. pt vs. percent</a>这样的PK大局。不幸的是，仍然有不同的利弊，使各种技术都不太理想，但又无法不去用。真是进也难，退也难呀。</p>
 <p>最近在学习em的相关知识的时候，无意之间让我拾得一宝，就是使用<strong>rem</strong>来设置Web页面的字体大小。让我一下子就来劲了，一口气看完并测试了一回，还真是爽歪歪的呀。师傅说好东西不能吃独食，于我就在这里给大家吹吹这个从没见过的<strong>REM</strong>。</p>
 <p>在详细介绍<strong>rem</strong>之前，我们先一起来回顾一下我们常用的两种记量单位，也是备受争论的两个：</p>
-<ol>
-<li>PX为单位</li>
-<li>EM为单位</li>
+<ol style="list-style-type: decimal">
+<li>PX 为单位</li>
+<li>EM 为单位</li>
 </ol>
-<h1 id="px为单位">1 PX为单位</h1>
-<p>在Web页面初期制作中，我们都是使用“px”来设置我们的文本，因为他比较稳定和精确。但是这种方法存在一个问题，当用户在浏览器中浏览我们制作的Web页面时，他改变了浏览器的字体大小，这时会使用我们的Web页面布局被打破。这样对于那些关心自己网站可用性的用户来说，就是一个大问题了。因此，这时就提出了使用<code>em</code>来定义Web页面的字体。</p>
-<h1 id="em为单位">2 em为单位</h1>
-<p>前面也说了，使用是“px”为单位是比较方便，而又一致，但在浏览器中放大或缩放浏览页面时会存在一个问题，要解决这个问题，我们可以使用“em”单位。<a href="http://clagnut.com/about" target="_blank" rel="external">Richard Rutter'</a>在《<a href="http://clagnut.com/blog/348/" target="_blank" rel="external">How to size text using ems</a>》一文中有做过详细的介绍，追至早一点，<a href="http://www.alistapart.com/authors/r/rrutter" target="_blank" rel="external">Richard Rutter</a>也在《<a href="http://www.alistapart.com/articles/howtosizetextincss/" target="_blank" rel="external">How to Size Text in CSS</a>》中进行过深入的剖析。</p>
-<p>这种技术需要一个参考点，一般都是以<code>&lt;body&gt;</code>的“font-size”为基准。比如说我们使用“1em”等于“10px”来改变默认值“1em=16px”，这样一来，我们设置字体大小相当于“14px”时，只需要将其值设置为“1.4em”。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">62.5%</span>; <span class="comment">/*10 ÷ 16 × 100% = 62.5%*/</span></div><div class="line">&#125;</div><div class="line"><span class="selector-tag">h1</span> &#123;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">2.4em</span>; <span class="comment">/*2.4em × 10 = 24px */</span></div><div class="line">&#125;</div><div class="line"><span class="selector-tag">p</span>	&#123;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">1.4em</span>; <span class="comment">/*1.4em × 10 = 14px */</span></div><div class="line">&#125;</div><div class="line"><span class="selector-tag">li</span> &#123;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">1.4em</span>; <span class="comment">/*1.4 × ? = 14px ? */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>为什么“li”的“1.4em”是不是“14px”将是一个问号呢？如果你了解过“em”后，你会觉得这个问题是多问的。前面也简单的介绍过一回，在使用“em”作单位时，一定需要知道其父元素的设置，因为“em”就是一个相对值，而且是一个相对于父元素的值，其真正的计算公式是：</p>
-<pre><code>1 ÷ 父元素的font-size × 需要转换的像素值 = em值
-</code></pre>
-<p>这样的情况下“1.4em”可以是“14px”,也可以是“20px”，或者说是“24px”，总之是一个不确定值，那么解决这样的问题，要么你知道其父元素的值，要么呢在任何子元素中都使用“1em”。这样一来可能又不是我们所需要的方法。</p>
-<p>这里我只是简单的介绍了一个这两个单位的使用，具体一点的大家可以参阅：</p>
-<ol>
-<li><a href="http://kyleschaeffer.com/category/best-practices/" title="View all posts in Best Practices" target="_blank" rel="external">Best Practices</a>的站长<a href="kyleschaeffer.com/about-me/">Kyle</a>的《<a href="http://kyleschaeffer.com/best-practices/css-font-size-em-vs-px-vs-pt-vs/" target="_blank" rel="external">CSS Font-Size: em vs. px vs. pt vs. percent</a>》</li>
-<li><a href="http://www.hubbers.com/index.php/converting-px-into-percentage-and-em-for-relative-css-font-sizes/" target="_blank" rel="external">Converting px into percentage and em for relative CSS font sizes</a></li>
-<li><a href="http://css-discuss.incutio.com/wiki/Em_Vs_Percent_Widths" target="_blank" rel="external">Em Vs Percent Widths</a></li>
-<li><a href="http://www.guistuff.com/css/css_units.html" target="_blank" rel="external">CSS: Units of Measurement</a></li>
-<li><a href="http://webdesign.about.com/bio/Jennifer-Kyrnin-5105.htm" target="_blank" rel="external">Jennifer Kyrnin</a>的<a href="http://webdesign.about.com/cs/typemeasurements/a/aa042803a.htm" target="_blank" rel="external">Using Points, Pixels, Ems, or Percentages for CSS Fonts</a></li>
-</ol>
-<h1 id="rem为单位">3 Rem为单位</h1>
-<p><a href="http://www.w3.org/TR/css3-values/" target="_blank" rel="external">CSS3</a>的出现，他同时引进了一些新的<a href="http://www.w3.org/TR/css3-values/#rem-unit" target="_blank" rel="external">单位</a>，包括我们今天所说的<a href="http://www.w3.org/TR/css3-values/#rem-unit" target="_blank" rel="external">rem</a>。在<a href="http://www.w3.org/TR/css3-values/#rem-unit" target="_blank" rel="external">W3C</a>官网上是这样描述<a href="http://www.w3.org/TR/css3-values/#rem-unit" target="_blank" rel="external">rem</a>的——<strong>“font size of the root element”</strong>。下面我们就一起来详细的了解<a href="http://www.w3.org/TR/css3-values/#rem-unit" target="_blank" rel="external">rem</a>。</p>
-<p>前面说了“em”是相对于其父元素来设置字体大小的，这样就会存在一个问题，进行任何元素设置，都有可能需要知道他父元素的大小，在我们多次使用时，就会带来无法预知的错误风险。而<a href="http://www.w3.org/TR/css3-values/#rem-unit" target="_blank" rel="external">rem</a>是相对于根元素<html>，这样就意味着，我们只需要在根元素确定一个参考值，在根元素中设置多大的字体，这完全可以根据您自己的需，大家也可以参考下图：</html></p>
-<p><img src="/stylus/images/css/emTable.png" alt=""></p>
-<p>我们来看一个简单的代码实例：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">html</span> &#123;<span class="attribute">font-size</span>: <span class="number">62.5%</span>;<span class="comment">/*10 ÷ 16 × 100% = 62.5%*/</span>&#125;</div><div class="line"><span class="selector-tag">body</span> &#123;<span class="attribute">font-size</span>: <span class="number">1.4rem</span>;<span class="comment">/*1.4 × 10px = 14px */</span>&#125;</div><div class="line"><span class="selector-tag">h1</span> &#123; <span class="attribute">font-size</span>: <span class="number">2.4rem</span>;<span class="comment">/*2.4 × 10px = 24px*/</span>&#125;</div></pre></td></tr></table></figure>
-<p>我在根元素<html>中定义了一个基本字体大小为62.5%（也就是10px。设置这个值主要方便计算，如果没有设置，将是以“16px”为基准 ）。从上面的计算结果，我们使用“rem”就像使用“px”一样的方便，而且同时解决了“px”和“em”两者不同之处。</html></p>
-<h1 id="浏览器的兼容性">4 浏览器的兼容性</h1>
-<p><a href="http://www.w3.org/TR/css3-values/#rem-unit" target="_blank" rel="external"><strong>rem</strong></a>是<a href="http://www.w3.org/TR/css3-values/" target="_blank" rel="external">CSS3</a>新引进来的一个度量单位，大家心里肯定会觉得心灰意冷呀，担心浏览器的支持情况。其实大家不用害怕，你可能会惊讶，支持的浏览器还是蛮多的，比如：<a href="http://firefox.com" target="_blank" rel="external">Mozilla Firefox 3.6+</a>、<a href="http://apple.com/safari/" target="_blank" rel="external">Apple Safari 5+</a>、<a href="http://google.com/chrome" target="_blank" rel="external">Google Chrome</a>、<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home" target="_blank" rel="external">IE9+</a>和<a href="http://www.opera.com/" target="_blank" rel="external">Opera11+</a>。只是可怜的IE6-8无法，你们就把他们当透明了吧，我向来都是如此。</p>
-<p>不过使用单位设置字体，可不能完全不考虑IE了，如果你想使用这个REM，但也想兼容IE下的效果，可你可考虑“px”和“rem”一起使用，用&quot;px&quot;来实现IE6-8下的效果，然后使用“Rem”来实现代浏览器的效果。就让IE6-8不能随文字的改变而改变吧，谁让这个Ie6-8这么老呢？哈。。。。大家不仿试试，还蛮有意思，说不定这个就是主流的度量单位了。</p>
-<h1 id="行高-基线-元素间距相关资料">5 行高、基线、元素间距相关资料</h1>
-<ul>
-<li><code>inline-block</code>元素<code>vertical-align</code>的问题分析：<a href="http://www.cnblogs.com/zxjwlh/p/6219896.html" target="_blank" rel="external">http://www.cnblogs.com/zxjwlh/p/6219896.html</a></li>
-<li>深入理解CSS中的行高与基线：<a href="http://blog.csdn.net/lulujiajiawenwen/article/details/8245201" target="_blank" rel="external">http://blog.csdn.net/lulujiajiawenwen/article/details/8245201</a></li>
-<li>CSS <code>line-height</code>与<code>vertical-align:baseline</code>：<a href="http://www.cnblogs.com/cc156676/p/5676237.html" target="_blank" rel="external">http://www.cnblogs.com/cc156676/p/5676237.html</a></li>
-<li>去除<code>inline-block</code>元素间间距的 N 种方法：<a href="http://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-去除间距/</a></li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/stylus/2011/10/27/css-REM/#more" rel="contents">
+              阅读全文
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -675,7 +1157,7 @@
               
                 
                 <a class="post-title-link" href="/stylus/2011/02/26/windows-opti-master/" itemprop="url">
-                  使用Windows优化大师导致Win7出现的两个问题
+                  使用 Windows 优化大师导致 Win7 出现的两个问题
                 </a>
               
             
@@ -714,8 +1196,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/软件应用/" itemprop="url" rel="index">
-                    <span itemprop="name">软件应用</span>
+                  <a href="/stylus/categories/计算机-软件应用/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机 - 软件应用</span>
                   </a>
                 </span>
 
@@ -763,40 +1245,30 @@
         
           
             <h1 id="其他用户">1 “其他用户”</h1>
-<p>该问题是在使用Windows优化大师进行注册表清理的时候导致的问题。目前官方没有给出相应的解决方法。该问题的描述见如下地址：<a href="http://social.answers.microsoft.com/Forums/en-US/w7security/thread/63cea659-f6a0-412d-a0b1-952a26c1df44" target="_blank" rel="external">http://social.answers.microsoft.com/Forums/en-US/w7security/thread/63cea659-f6a0-412d-a0b1-952a26c1df44</a>；该问题的解决方法见如下地址：<a href="http://jonhoo.wordpress.com/2010/06/24/windows-7-login-screen-only-showing-last-logged-on-user-and-other-user/" target="_blank" rel="external">http://jonhoo.wordpress.com/2010/06/24/windows-7-login-screen-only-showing-last-logged-on-user-and-other-user/</a>。请在按操作进行这前根据解决方案的步骤备份好注册表。</p>
+<p>该问题是在使用Windows优化大师进行注册表清理的时候导致的问题。目前官方没有给出相应的解决方法。该问题的描述见如下地址：<a href="http://social.answers.microsoft.com/Forums/en-US/w7security/thread/63cea659-f6a0-412d-a0b1-952a26c1df44" class="uri" target="_blank" rel="external">http://social.answers.microsoft.com/Forums/en-US/w7security/thread/63cea659-f6a0-412d-a0b1-952a26c1df44</a>；该问题的解决方法见如下地址：<a href="http://jonhoo.wordpress.com/2010/06/24/windows-7-login-screen-only-showing-last-logged-on-user-and-other-user/" class="uri" target="_blank" rel="external">http://jonhoo.wordpress.com/2010/06/24/windows-7-login-screen-only-showing-last-logged-on-user-and-other-user/</a>。请在按操作进行这前根据解决方案的步骤备份好注册表。</p>
 <blockquote>
-<p>Ever since my initial install of Windows 7, there has been one thing nagging me. The Windows welcome screen only ever displayed the avatar for the last logged on user and a blank image with the label “Other users”. When the latter was clicked, two text fields would appear prompting for username and password.<br>
-I have tried <a href="http://social.answers.microsoft.com/Forums/en-US/w7security/thread/63cea659-f6a0-412d-a0b1-952a26c1df44" target="_blank" rel="external">numerous solutions</a>, but none have worked until very recently when a user with the nickname “SaySay” came up with the following <a href="http://social.answers.microsoft.com/Forums/en-US/w7security/thread/63cea659-f6a0-412d-a0b1-952a26c1df44#9c76b69e-02e2-4f9f-9c09-19edd0f9dea5" target="_blank" rel="external">solution</a>:</p>
-</blockquote>
-<blockquote>
+<p>Ever since my initial install of Windows 7, there has been one thing nagging me. The Windows welcome screen only ever displayed the avatar for the last logged on user and a blank image with the label “Other users”. When the latter was clicked, two text fields would appear prompting for username and password.</p>
+<p>I have tried <a href="http://social.answers.microsoft.com/Forums/en-US/w7security/thread/63cea659-f6a0-412d-a0b1-952a26c1df44" target="_blank" rel="external">numerous solutions</a>, but none have worked until very recently when a user with the nickname “SaySay” came up with the following <a href="http://social.answers.microsoft.com/Forums/en-US/w7security/thread/63cea659-f6a0-412d-a0b1-952a26c1df44#9c76b69e-02e2-4f9f-9c09-19edd0f9dea5" target="_blank" rel="external">solution</a>:</p>
 <blockquote>
 <p><strong>Legal disclaimer</strong>: Modifying REGISTRY settings incorrectly can cause serious problems that may prevent your computer from booting properly. Neither I nor Microsoft can guarantee that any problems resulting from the configuring of REGISTRY settings can be solved. Modifications of these settings are at your own risk</p>
 </blockquote>
-</blockquote>
-<blockquote>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Open regedit：</li>
-</ol>
-</blockquote>
-<pre><code>1. `Press Windows+R`
-2. `Type regedit + enter`
-</code></pre>
-<ol>
-<li>Navigate to [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList]</li>
+<li><code>Press Windows+R</code></li>
+<li><code>Type regedit + enter</code></li>
+<li>Navigate to [HKEY_LOCAL_MACHINENT]</li>
 <li>You will probably want to right-click on “ProfileList” and click export to save the entire subtree in case something goes wrong.</li>
 <li>You will find several subfolders or “keys” named something like “S-1-x-xx…”, open them one at the time</li>
-<li>Each should contain at least the three value-sets, “Flags”, “ProfileImagePath” and “State”, some will contain more
-<ol>
+<li>Each should contain at least the three value-sets, “Flags”, “ProfileImagePath” and “State”, some will contain more</li>
 <li>Look at the end of ProfileImagePath for the name of the user represented by the key</li>
 <li>You will usually have one for each user on the system, and one for each of the three system entries ‘systemprofile’, ‘LocalService’ and ’NetworkService’</li>
-</ol>
-</li>
-<li>Delete any key (i.e. the whole “S-1-x-xx” folder) that does not contain at least those three values</li>
+<li>Delete any key (i.e. the whole “S-1-x-xx” folder) that does not contain at least those three values</li>
 <li>The welcome screen should now work as expected, showing the avatar for all registered users; enjoy!</li>
 </ol>
+</blockquote>
 <h1 id="computer-management-snapin-launcher-已停止工作">2 “Computer Management Snapin Launcher 已停止工作”</h1>
-<p>这个是在安装了最新版的Windows优化大师后产生的问题。Uninstall该软件之后问题就解决。</p>
-<p>说明：现在的Windows优化大师已经不如从前，可以选择的优化软件也比较多。个人不推荐随意用各种软件来修改系统的设置。其实不经济进行软件的各种安装与反安装的话，系统也不怎么需要进行优化。</p>
+<p>这个是在安装了最新版的 Windows 优化大师后产生的问题。Uninstall 该软件之后问题就解决。</p>
+<p>说明：现在的 Windows 优化大师已经不如从前，可以选择的优化软件也比较多。个人不推荐随意用各种软件来修改系统的设置。其实不经济进行软件的各种安装与反安装的话，系统也不怎么需要进行优化。</p>
 
           
         
@@ -950,22 +1422,21 @@ I have tried <a href="http://social.answers.microsoft.com/Forums/en-US/w7securit
       
         
           
-            <p><strong>原文地址</strong>：<a href="http://stackoverflow.com/questions/1304315/highlighting-a-chunk-of-code-within-a-lstlisting" target="_blank" rel="external">http://stackoverflow.com/questions/1304315/highlighting-a-chunk-of-code-within-a-lstlisting</a></p>
+            <p><strong>原文地址</strong>：<a href="http://stackoverflow.com/questions/1304315/highlighting-a-chunk-of-code-within-a-lstlisting" class="uri" target="_blank" rel="external">http://stackoverflow.com/questions/1304315/highlighting-a-chunk-of-code-within-a-lstlisting</a></p>
 <blockquote>
-<p><strong>基本思路</strong>：在<code>lstlisting</code>环境中使用 escape character，同时用<code>\colorbox</code>生成背景颜色<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>。</p>
+<p><strong>基本思路</strong>：在<code>lstlisting</code>环境中使用 escape character，同时用<code>\colorbox</code>生成背景颜色<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>。</p>
 </blockquote>
 <p>在导言区中添加如下代码：</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;color&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">definecolor</span><span class="string">&#123;light-gray&#125;</span><span class="string">&#123;gray&#125;</span><span class="string">&#123;0.80&#125;</span></span></div></pre></td></tr></table></figure>
-<p>之后在正文中按如下方法给部分代码添加背景颜色<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>：</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;lstlisting&#125;</span><span class="string">[escapechar=!]</span></span></div><div class="line">def mult(m: Matrix[Int], n: Matrix[Int]) &#123;</div><div class="line">val p = !<span class="tag">\<span class="name">colorbox</span><span class="string">&#123;light-gray&#125;</span><span class="string">&#123;new MatrixInt&#125;</span></span>!(m.rows, n.cols)</div><div class="line">&#125;</div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;lstlisting&#125;</span></span></div></pre></td></tr></table></figure><hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><code>realboxes</code>包提供的是<code>Colorbox</code>，<a href="https://tex.stackexchange.com/questions/357227/adding-background-color-to-verb-or-lstinline-command-without-colorbox" target="_blank" rel="external">这个地址</a>给出了一个具体的示例。 <a href="#fnref1" class="footnote-backref">↩</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p>注意在<code>!</code>之间的部分。 <a href="#fnref2" class="footnote-backref">↩</a></p>
-</li>
+<p>之后在正文中按如下方法给部分代码添加背景颜色<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;lstlisting&#125;</span><span class="string">[escapechar=!]</span></span></div><div class="line">def mult(m: Matrix[Int], n: Matrix[Int]) &#123;</div><div class="line">val p = !<span class="tag">\<span class="name">colorbox</span><span class="string">&#123;light-gray&#125;</span><span class="string">&#123;new MatrixInt&#125;</span></span>!(m.rows, n.cols)</div><div class="line">&#125;</div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;lstlisting&#125;</span></span></div></pre></td></tr></table></figure>
+<div class="footnotes">
+<hr>
+<ol>
+<li id="fn1"><p><code>realboxes</code>包提供的是<code>Colorbox</code>，<a href="https://tex.stackexchange.com/questions/357227/adding-background-color-to-verb-or-lstinline-command-without-colorbox" target="_blank" rel="external">这个地址</a>给出了一个具体的示例。<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>注意在<code>!</code>之间的部分。<a href="#fnref2">↩</a></p></li>
 </ol>
-</section>
+</div>
 
           
         
@@ -1123,6 +1594,7 @@ I have tried <a href="http://social.answers.microsoft.com/Forums/en-US/w7securit
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">[a4paper]</span><span class="string">&#123;book&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;ctex,CJKnumb&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">renewcommand</span></span><span class="tag">\<span class="name">thepart</span><span class="string">&#123;&#125;</span></span><span class="tag">\<span class="name">renewcommand</span></span><span class="tag">\<span class="name">partname</span><span class="string">&#123;第\CJKnumber&#123;\arabic&#123;part&#125;</span></span>&#125;部分&#125;</div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;CJK*&#125;</span><span class="string">&#123;GBK&#125;</span><span class="string">&#123;xihei&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">part</span><span class="string">[asfd]</span><span class="string">&#123;test asdf&#125;</span></span></div><div class="line">asdf asdfasfd</div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;CJK*&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div></pre></td></tr></table></figure>
 <p>在<code>documentclass</code>为<code>beamer</code>时解决方法如下(该方法由黄正华老师提供，但要注意选择不同的theme时，要根据实际情况改变<code>partpage</code>中<code>beamercolorbox</code>的具体参数，换句话说，这个解决方法与上面的方法不同，它不具有通用性)：</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">[CJK]</span><span class="string">&#123;beamer&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;CJK,CJKnumb&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usetheme</span><span class="string">&#123;Madrid&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;CJK*&#125;</span><span class="string">&#123;GBK&#125;</span><span class="string">&#123;kai&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">renewcommand</span></span><span class="tag">\<span class="name">partname</span><span class="string">&#123;第\CJKnumber&#123;\value&#123;part&#125;</span></span>&#125;部分&#125;</div><div class="line"><span class="tag">\<span class="name">defbeamertemplate*</span><span class="string">&#123;part page&#125;</span><span class="string">&#123;mypartpage&#125;</span><span class="string">[1]</span><span class="string">[]</span></span> &#123;</div><div class="line">	<span class="tag">\<span class="name">begin</span><span class="string">&#123;centering&#125;</span></span> &#123;</div><div class="line">		<span class="tag">\<span class="name">usebeamerfont</span><span class="string">&#123;part name&#125;</span></span><span class="tag">\<span class="name">usebeamercolor</span><span class="string">[fg]</span><span class="string">&#123;part name&#125;</span></span><span class="tag">\<span class="name">partname</span></span>&#125;</div><div class="line">		<span class="tag">\<span class="name">vskip</span></span>1em<span class="tag">\<span class="name">par</span></span></div><div class="line">		<span class="tag">\<span class="name">begin</span><span class="string">&#123;beamercolorbox&#125;</span><span class="string">[rounded=true,shadow=true,sep=8pt,center,#1]</span><span class="string">&#123;part title&#125;</span></span></div><div class="line">			<span class="tag">\<span class="name">usebeamerfont</span><span class="string">&#123;part title&#125;</span></span><span class="tag">\<span class="name">insertpart</span></span><span class="tag">\<span class="name">par</span></span></div><div class="line">		<span class="tag">\<span class="name">end</span><span class="string">&#123;beamercolorbox&#125;</span></span> </div><div class="line">	<span class="tag">\<span class="name">end</span><span class="string">&#123;centering&#125;</span></span></div><div class="line">&#125;</div><div class="line"><span class="tag">\<span class="name">setbeamertemplate</span><span class="string">&#123;part page&#125;</span><span class="string">[mypartpage]</span><span class="string">[]</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">title</span><span class="string">&#123;test&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">date</span><span class="string">&#123;&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">part</span><span class="string">[asfd]</span><span class="string">&#123;test asdf&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">frame</span><span class="string">&#123;\partpage&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;CJK*&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div></pre></td></tr></table></figure>
+
           
         
       
@@ -1227,8 +1699,8 @@ I have tried <a href="http://social.answers.microsoft.com/Forums/en-US/w7securit
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/软件应用/" itemprop="url" rel="index">
-                    <span itemprop="name">软件应用</span>
+                  <a href="/stylus/categories/计算机-软件应用/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机 - 软件应用</span>
                   </a>
                 </span>
 
@@ -1278,7 +1750,7 @@ I have tried <a href="http://social.answers.microsoft.com/Forums/en-US/w7securit
             <p>在删除文件或文件夹时，Windows系统错误提示：<code>无法删除****，找不到指定文件，请确定指定的路径及文件名是否正确</code>的解决方法……</p>
 <p>经常有人会碰到这个问题，网上找了很多版本的解决方法都没有用，用一些 360 文件粉碎，优化大师粉碎也不行，但这一个方法需非常有效，一试就成功，收藏下来。</p>
 <p>具体方法如下，请一步步进行，一定可以解决你的难题。</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>启用一个 cmd；</li>
 <li>到要删除的文件(夹)的上一层目录下；</li>
 <li>运行命令：<code>dir /x</code>，然后记下要删除的文件(夹)对应行的第三列(记作 比如：<code>alixixi~com</code>)；</li>
@@ -1439,493 +1911,15 @@ I have tried <a href="http://social.answers.microsoft.com/Forums/en-US/w7securit
         
           
             <blockquote>
-<p><strong>下载地址</strong>：<a href="http://elevatorlady.ca/" target="_blank" rel="external">http://elevatorlady.ca/</a></p>
-<p><strong>破解</strong>：<a href="http://ssfighter.blog.com.cn/archives/2007/2296454.shtml" target="_blank" rel="external">http://ssfighter.blog.com.cn/archives/2007/2296454.shtml</a></p>
+<p><strong>下载地址</strong>：<a href="http://elevatorlady.ca/" class="uri" target="_blank" rel="external">http://elevatorlady.ca/</a></p>
+<p><strong>破解</strong>：<a href="http://ssfighter.blog.com.cn/archives/2007/2296454.shtml" class="uri" target="_blank" rel="external">http://ssfighter.blog.com.cn/archives/2007/2296454.shtml</a></p>
 </blockquote>
 <p>演示：</p>
-<p><img src="/stylus/images/Aurora.png" alt="aurora"></p>
+<div class="figure">
+<img src="/stylus/images/Aurora.png" alt="aurora">
+<p class="caption">aurora</p>
+</div>
 <p>懒人的最佳选择。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2007/12/18/Outlook-pst/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hao Peng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/stylus/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="语千 ~ 刻一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/stylus/2007/12/18/Outlook-pst/" itemprop="url">
-                  Outlook 解决找不到 Outlook.pst z
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-12-18T00:00:00+08:00">
-                2007-12-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/软件应用/" itemprop="url" rel="index">
-                    <span itemprop="name">软件应用</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/stylus/2007/12/18/Outlook-pst/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2007/12/18/Outlook-pst/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>找不到文件<code>C:\Documents and Settings\Administrator\Local Settings\Application Data\Microsoft\Outlook\Outlook.pst</code>，要求定位该文件：</p>
-<ol>
-<li>开始 –&gt; 运行 –&gt; cmd（我建议用“附件”中的“命令提示行”，因为“cmd”下可能不支持长文件名和空格路径</li>
-<li>在DOS下，用 <code>&quot;cd xxx&quot;</code> 切换到 Outlook.exe 可执行文件目录下（安装目录如：<code>C:\Program Files\Microsoft Office\OFFICE12</code>）</li>
-<li>使用命令 <code>outlook /importprf .\.prf</code> 进行初始化 Outlook 数据文件。</li>
-<li>初始化安装 Outlook 启动时，需要新建一电子邮件帐户界面[能到这里来的基本都不打算恢复邮件了吧？呵呵- -！]</li>
-</ol>
-<p>PS：该命令即：<code>outlook_/importprf_.\.prf</code> 其中<code>“_”</code>即空格键！</p>
-<hr>
-<p>我在安装 Outlook Connector 时，由于网络原因，下载新版本的 Connector（<code>OLC.msi</code>）失败，导致 Outlook 无法打开，使用上面的方法重新创建<code>outlook.pst</code>文件时，提示<code>msncon.dll</code>找不到，解决方法就是找到最新版的 Outlook Connector（如果你的Office不是正版，用迅雷搜 Outlook Connector试试）安装后就好。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2007/07/18/tikz-dvipdfm-not-work/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hao Peng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/stylus/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="语千 ~ 刻一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/stylus/2007/07/18/tikz-dvipdfm-not-work/" itemprop="url">
-                  latex+dvipdfmx编译pgf图形无效的解决方法z
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-07-18T00:00:00+08:00">
-                2007-07-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/LaTeX/" itemprop="url" rel="index">
-                    <span itemprop="name">LaTeX</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/stylus/2007/07/18/tikz-dvipdfm-not-work/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2007/07/18/tikz-dvipdfm-not-work/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>原文地址：<a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=76106&amp;extra=&amp;page=1" target="_blank" rel="external">http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=76106&amp;extra=&amp;page=1</a></p>
-<blockquote>
-<p>最好的方法是升级<code>expl3</code>宏包</p>
-</blockquote>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">[cs4size,openany,twoside,UTF8]</span><span class="string">&#123;ctexbook&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">[]</span><span class="string">&#123;graphicx&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">pgfsysdriver</span><span class="string">&#123;pgfsys-dvipdfm.def&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;tikz&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;tikzpicture&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">draw</span></span> (2,2) circle (10ex);</div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;tikzpicture&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2007/07/18/regexp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hao Peng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/stylus/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="语千 ~ 刻一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/stylus/2007/07/18/regexp/" itemprop="url">
-                  几个正则表达式
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-07-18T00:00:00+08:00">
-                2007-07-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/正则表达式/" itemprop="url" rel="index">
-                    <span itemprop="name">正则表达式</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/stylus/2007/07/18/regexp/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2007/07/18/regexp/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>网络上的小说总是格式比较糟糕，需要进行整理才看起来舒服一些。</p>
-<p>整理的过程中也遇到一些问题，我用的是 VS2005、C#，C# 对正则的支持很到位，甚至包含一些其它语言如 Perl 所没有的特殊功能，下面是相关表达式：</p>
-<h1 id="删除空行">1 删除空行</h1>
-<p><code>[\s　]*(?=\r\n)</code>，要注意这个表达式中包含了一个全角的空格。在 Editplus 中还推荐了另一种写法，不过没有采用，是这样的：<code>^[ \t]*\n</code>（注意 <code>\t</code> 前有一个空格，当然愿意的话也可以和第一种一样包含一个全角空格），这种写法用C#的正则表达式测试器来测试的时候并不有效。而前一种写法在 Editplus 中则好像不能够支持，另外 Editplus 好像对<code>?=、?!、?&lt;=、?&lt;!</code>这几种高级部分内容的支持也不存在。</p>
-<p>当然Editplus的最大好处之一就是能够同时替换打开的多个文件，这点真的比较有用。</p>
-<h1 id="双引号问题">2 双引号问题</h1>
-<p>在小说中经常由于排版原因会出现<code>““</code>这样两个连续的起始直角双引号，这时候要注意表达式的写法，如果直接用<code>(“.+)“</code>这样写法会导致匹配出现错误，本来想非贪婪是否能够解决，似乎没有什么作用，只好取个巧，用下面的表达式完成：<code>(“[^“]+)“</code>，这个表达式 Editplus 也支持，所以效果还是不错的。</p>
-<p>此外，Frontpage2003 对于正则也提供简单支持，只是它的语法与传统的正则语法有些出入，提供的功能也比较简单，但对于简单的工作它还是有很大作用的，配合它提供的“html代码格式重新设置”功能，可以简化许多通过程序也比较不容易完成的任务。</p>
 
           
         
@@ -2009,7 +2003,7 @@ I have tried <a href="http://social.answers.microsoft.com/Forums/en-US/w7securit
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2020,7 +2014,7 @@ I have tried <a href="http://social.answers.microsoft.com/Forums/en-US/w7securit
             
             <div class="site-state-item site-state-categories">
               <a href="/stylus/categories/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2031,7 +2025,7 @@ I have tried <a href="http://social.answers.microsoft.com/Forums/en-US/w7securit
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -82,29 +82,29 @@
 
 <meta name="description" content="原文地址：http://stackoverflow.com/questions/1304315/highlighting-a-chunk-of-code-within-a-lstlisting
 
-基本思路：在lstlisting环境中使用 escape character，同时用\colorbox生成背景颜色[1]。
+基本思路：在lstlisting环境中使用 escape character，同时用\colorbox生成背景颜色1。
 
 在导言区中添加如下代码：
-12\usepackage&amp;#123;color&amp;#">
+12\usepackage&amp;#123;colo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="语法高亮：给部分代码添加背景颜色">
 <meta property="og:url" content="http://peng-howard.github.io/stylus/2010/02/24/highlight-chunk/index.html">
 <meta property="og:site_name" content="语千 ~ 刻一">
 <meta property="og:description" content="原文地址：http://stackoverflow.com/questions/1304315/highlighting-a-chunk-of-code-within-a-lstlisting
 
-基本思路：在lstlisting环境中使用 escape character，同时用\colorbox生成背景颜色[1]。
+基本思路：在lstlisting环境中使用 escape character，同时用\colorbox生成背景颜色1。
 
 在导言区中添加如下代码：
-12\usepackage&amp;#123;color&amp;#">
+12\usepackage&amp;#123;colo">
 <meta property="og:updated_time" content="2017-05-14T13:34:01.688Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="语法高亮：给部分代码添加背景颜色">
 <meta name="twitter:description" content="原文地址：http://stackoverflow.com/questions/1304315/highlighting-a-chunk-of-code-within-a-lstlisting
 
-基本思路：在lstlisting环境中使用 escape character，同时用\colorbox生成背景颜色[1]。
+基本思路：在lstlisting环境中使用 escape character，同时用\colorbox生成背景颜色1。
 
 在导言区中添加如下代码：
-12\usepackage&amp;#123;color&amp;#">
+12\usepackage&amp;#123;colo">
 
 
 
@@ -418,22 +418,21 @@
       
 
       
-        <p><strong>原文地址</strong>：<a href="http://stackoverflow.com/questions/1304315/highlighting-a-chunk-of-code-within-a-lstlisting" target="_blank" rel="external">http://stackoverflow.com/questions/1304315/highlighting-a-chunk-of-code-within-a-lstlisting</a></p>
+        <p><strong>原文地址</strong>：<a href="http://stackoverflow.com/questions/1304315/highlighting-a-chunk-of-code-within-a-lstlisting" class="uri" target="_blank" rel="external">http://stackoverflow.com/questions/1304315/highlighting-a-chunk-of-code-within-a-lstlisting</a></p>
 <blockquote>
-<p><strong>基本思路</strong>：在<code>lstlisting</code>环境中使用 escape character，同时用<code>\colorbox</code>生成背景颜色<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>。</p>
+<p><strong>基本思路</strong>：在<code>lstlisting</code>环境中使用 escape character，同时用<code>\colorbox</code>生成背景颜色<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>。</p>
 </blockquote>
 <p>在导言区中添加如下代码：</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;color&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">definecolor</span><span class="string">&#123;light-gray&#125;</span><span class="string">&#123;gray&#125;</span><span class="string">&#123;0.80&#125;</span></span></div></pre></td></tr></table></figure>
-<p>之后在正文中按如下方法给部分代码添加背景颜色<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>：</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;lstlisting&#125;</span><span class="string">[escapechar=!]</span></span></div><div class="line">def mult(m: Matrix[Int], n: Matrix[Int]) &#123;</div><div class="line">val p = !<span class="tag">\<span class="name">colorbox</span><span class="string">&#123;light-gray&#125;</span><span class="string">&#123;new MatrixInt&#125;</span></span>!(m.rows, n.cols)</div><div class="line">&#125;</div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;lstlisting&#125;</span></span></div></pre></td></tr></table></figure><hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><code>realboxes</code>包提供的是<code>Colorbox</code>，<a href="https://tex.stackexchange.com/questions/357227/adding-background-color-to-verb-or-lstinline-command-without-colorbox" target="_blank" rel="external">这个地址</a>给出了一个具体的示例。 <a href="#fnref1" class="footnote-backref">↩</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p>注意在<code>!</code>之间的部分。 <a href="#fnref2" class="footnote-backref">↩</a></p>
-</li>
+<p>之后在正文中按如下方法给部分代码添加背景颜色<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;lstlisting&#125;</span><span class="string">[escapechar=!]</span></span></div><div class="line">def mult(m: Matrix[Int], n: Matrix[Int]) &#123;</div><div class="line">val p = !<span class="tag">\<span class="name">colorbox</span><span class="string">&#123;light-gray&#125;</span><span class="string">&#123;new MatrixInt&#125;</span></span>!(m.rows, n.cols)</div><div class="line">&#125;</div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;lstlisting&#125;</span></span></div></pre></td></tr></table></figure>
+<div class="footnotes">
+<hr>
+<ol>
+<li id="fn1"><p><code>realboxes</code>包提供的是<code>Colorbox</code>，<a href="https://tex.stackexchange.com/questions/357227/adding-background-color-to-verb-or-lstinline-command-without-colorbox" target="_blank" rel="external">这个地址</a>给出了一个具体的示例。<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>注意在<code>!</code>之间的部分。<a href="#fnref2">↩</a></p></li>
 </ol>
-</section>
+</div>
 
       
     </div>
@@ -492,8 +491,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/stylus/2011/02/26/windows-opti-master/" rel="prev" title="使用Windows优化大师导致Win7出现的两个问题">
-                使用Windows优化大师导致Win7出现的两个问题 <i class="fa fa-chevron-right"></i>
+              <a href="/stylus/2011/02/26/windows-opti-master/" rel="prev" title="使用 Windows 优化大师导致 Win7 出现的两个问题">
+                使用 Windows 优化大师导致 Win7 出现的两个问题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -564,7 +563,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -575,7 +574,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/stylus/categories/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -586,7 +585,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

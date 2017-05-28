@@ -92,7 +92,7 @@
 
 说明，只是大概思想，如果真想对一篇很长的文本分段，直接这么做肯定不行。
 表达式：&amp;lt;h1&amp;gt;(.(?!&amp;lt;h1&amp;gt;))+\r\n，注意环境为.NET 2.0，设置匹配的 Options 为SingleLine。">
-<meta property="og:updated_time" content="2017-04-16T14:14:38.486Z">
+<meta property="og:updated_time" content="2017-05-28T12:42:52.564Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多段文本分段">
 <meta name="twitter:description" content="参考资料：http://www.geany.org/manual/gtk/glib/glib-regex-syntax.html
@@ -366,8 +366,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/正则表达式/" itemprop="url" rel="index">
-                    <span itemprop="name">正则表达式</span>
+                  <a href="/stylus/categories/计算机-正则表达式/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机 - 正则表达式</span>
                   </a>
                 </span>
 
@@ -413,10 +413,10 @@
 
       
         <blockquote>
-<p><strong>参考资料</strong>：<a href="http://www.geany.org/manual/gtk/glib/glib-regex-syntax.html" target="_blank" rel="external">http://www.geany.org/manual/gtk/glib/glib-regex-syntax.html</a></p>
+<p><strong>参考资料</strong>：<a href="http://www.geany.org/manual/gtk/glib/glib-regex-syntax.html" class="uri" target="_blank" rel="external">http://www.geany.org/manual/gtk/glib/glib-regex-syntax.html</a></p>
 </blockquote>
 <p>说明，只是大概思想，如果真想对一篇很长的文本分段，直接这么做肯定不行。</p>
-<p>表达式：<code>&lt;h1&gt;(.(?!&lt;h1&gt;))+\r\n</code>，<a href="http://xn--siqp4ws5gvwm5hi.NET" target="_blank" rel="external">注意环境为.NET</a> 2.0，设置匹配的 Options 为<code>SingleLine</code>。</p>
+<p>表达式：<code>&lt;h1&gt;(.(?!&lt;h1&gt;))+\r\n</code>，注意环境为.NET 2.0，设置匹配的 Options 为<code>SingleLine</code>。</p>
 <a id="more"></a>
 <h1 id="文本">1 文本</h1>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>第一百八十一章　正文<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>第一百八十三章　正文<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>第一百八十二章　正文<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>asdf<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -426,53 +426,41 @@
 <p><code>string strReg=@&quot;((?&lt;!深圳市).(?!深圳市))+&quot;;</code></p>
 <hr>
 <h1 id="参考资料">4 参考资料</h1>
-<p><a href="http://www.geany.org/manual/gtk/glib/glib-regex-syntax.html" target="_blank" rel="external">http://www.geany.org/manual/gtk/glib/glib-regex-syntax.html</a></p>
-<p>An assertion is a test on the characters following or preceding the current matching point that does not actually consume any characters. The simple assertions coded as \b, \B, \A, \Z, \z, ^ and $ are described above. More complicated assertions are coded</p>
+<p><a href="http://www.geany.org/manual/gtk/glib/glib-regex-syntax.html" class="uri" target="_blank" rel="external">http://www.geany.org/manual/gtk/glib/glib-regex-syntax.html</a></p>
+<p>An assertion is a test on the characters following or preceding the current matching point that does not actually consume any characters. The simple assertions coded as , , , , , ^ and $ are described above. More complicated assertions are coded</p>
 <p>as subpatterns. There are two kinds: those that look ahead of the current position in the subject string, and those that look behind it.</p>
 <p>An assertion subpattern is matched in the normal way, except that it does not cause the current matching position to be changed. Lookahead assertions start with (?= for positive assertions and (?! for negative assertions. For example,</p>
-<pre><code>\w+(?=;)
-</code></pre>
+<pre><code>\w+(?=;)</code></pre>
 <p>matches a word followed by a semicolon, but does not include the semicolon in the match, and</p>
-<pre><code>foo(?!bar)
-</code></pre>
-<p>matches any occurrence of &quot;foo&quot; that is not followed by &quot;bar&quot;. Note that the apparently similar pattern</p>
-<pre><code>(?!foo)bar
-</code></pre>
-<p>does not find an occurrence of &quot;bar&quot; that is preceded by something other than &quot;foo&quot;; it finds any occurrence of &quot;bar&quot; whatsoever, because the assertion (?!foo) is always TRUE when the next three characters are &quot;bar&quot;. A lookbehind assertion is needed to</p>
+<pre><code>foo(?!bar)</code></pre>
+<p>matches any occurrence of “foo” that is not followed by “bar”. Note that the apparently similar pattern</p>
+<pre><code>(?!foo)bar</code></pre>
+<p>does not find an occurrence of “bar” that is preceded by something other than “foo”; it finds any occurrence of “bar” whatsoever, because the assertion (?!foo) is always TRUE when the next three characters are “bar”. A lookbehind assertion is needed to</p>
 <p>achieve this effect. Lookbehind assertions start with (?&lt;= for positive assertions and (?&lt;! for negative assertions. For example,</p>
-<pre><code>(?&lt;!foo)bar
-</code></pre>
-<p>does find an occurrence of &quot;bar&quot; that is not preceded by &quot;foo&quot;. The contents of a lookbehind assertion are restricted such that all the strings it matches must have a fixed length. However, if there are several alternatives, they do not all have to have</p>
+<pre><code>(?&lt;!foo)bar</code></pre>
+<p>does find an occurrence of “bar” that is not preceded by “foo”. The contents of a lookbehind assertion are restricted such that all the strings it matches must have a fixed length. However, if there are several alternatives, they do not all have to have</p>
 <p>the same fixed length. Thus</p>
-<pre><code>(?&lt;=bullock|donkey)
-</code></pre>
+<pre><code>(?&lt;=bullock|donkey)</code></pre>
 <p>is permitted, but</p>
-<pre><code>(?&lt;!dogs?|cats?)
-</code></pre>
+<pre><code>(?&lt;!dogs?|cats?)</code></pre>
 <p>causes an error at compile time. Branches that match different length strings are permitted only at the top level of a lookbehind assertion. This is an extension compared with Perl 5.005, which requires all branches to match the same length of string. An</p>
 <p>assertion such as</p>
-<pre><code>(?&lt;=ab(c|de))
-</code></pre>
+<pre><code>(?&lt;=ab(c|de))</code></pre>
 <p>is not permitted, because its single top-level branch can match two different lengths, but it is acceptable if rewritten to use two top-level branches:</p>
-<pre><code>(?&lt;=abc|abde)
-</code></pre>
+<pre><code>(?&lt;=abc|abde)</code></pre>
 <p>The implementation of lookbehind assertions is, for each alternative, to temporarily move the current position back by the fixed width and then try to match. If there are insufficient characters before the current position, the match is deemed to fail.</p>
 <p>Lookbehinds in conjunction with once-only subpatterns can be particularly useful for matching at the ends of strings; an example is given at the end of the section on once-only subpatterns.</p>
 <p>Several assertions (of any sort) may occur in succession. For example,</p>
-<pre><code>(?&lt;=\d{3})(?&lt;!999)foo
-</code></pre>
-<p>matches &quot;foo&quot; preceded by three digits that are not &quot;999&quot;. Notice that each of the assertions is applied independently at the same point in the subject string. First there is a check that the previous three characters are all digits, then there is a check</p>
-<p>that the same three characters are not &quot;999&quot;. This pattern does not match &quot;foo&quot; preceded by six characters, the first of which are digits and the last three of which are not &quot;999&quot;. For example, it doesn't match &quot;123abcfoo&quot;. A pattern to do that is</p>
-<pre><code>(?&lt;=\d{3}...)(?&lt;!999)foo
-</code></pre>
-<p>This time the first assertion looks at the preceding six characters, checking that the first three are digits, and then the second assertion checks that the preceding three characters are not &quot;999&quot;.</p>
+<pre><code>(?&lt;=\d{3})(?&lt;!999)foo</code></pre>
+<p>matches “foo” preceded by three digits that are not “999”. Notice that each of the assertions is applied independently at the same point in the subject string. First there is a check that the previous three characters are all digits, then there is a check</p>
+<p>that the same three characters are not “999”. This pattern does not match “foo” preceded by six characters, the first of which are digits and the last three of which are not “999”. For example, it doesn’t match “123abcfoo”. A pattern to do that is</p>
+<pre><code>(?&lt;=\d{3}...)(?&lt;!999)foo</code></pre>
+<p>This time the first assertion looks at the preceding six characters, checking that the first three are digits, and then the second assertion checks that the preceding three characters are not “999”.</p>
 <p>Assertions can be nested in any combination. For example,</p>
-<pre><code>(?&lt;=(?&lt;!foo)bar)baz
-</code></pre>
-<p>matches an occurrence of &quot;baz&quot; that is preceded by &quot;bar&quot; which in turn is not preceded by &quot;foo&quot;, while</p>
-<pre><code>(?&lt;=\d{3}(?!999)...)foo
-</code></pre>
-<p>is another pattern which matches &quot;foo&quot; preceded by three digits and any three characters that are not &quot;999&quot;.</p>
+<pre><code>(?&lt;=(?&lt;!foo)bar)baz</code></pre>
+<p>matches an occurrence of “baz” that is preceded by “bar” which in turn is not preceded by “foo”, while</p>
+<pre><code>(?&lt;=\d{3}(?!999)...)foo</code></pre>
+<p>is another pattern which matches “foo” preceded by three digits and any three characters that are not “999”.</p>
 <p>Assertion subpatterns are not capturing subpatterns, and may not be repeated, because it makes no sense to assert the same thing several times. If any kind of assertion contains capturing subpatterns within it, these are counted for the purposes of numbering the capturing subpatterns in the whole pattern. However, substring capturing is carried out only for positive assertions, because it does not make sense for negative assertions.</p>
 
       
@@ -516,14 +504,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/stylus/2007/07/18/regexp/" rel="next" title="几个正则表达式">
+                <i class="fa fa-chevron-left"></i> 几个正则表达式
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/stylus/2007/07/18/regexp/" rel="prev" title="几个正则表达式">
-                几个正则表达式 <i class="fa fa-chevron-right"></i>
+              <a href="/stylus/2007/07/18/tikz-dvipdfm-not-work/" rel="prev" title="latex+dvipdfmx编译pgf图形无效的解决方法z">
+                latex+dvipdfmx编译pgf图形无效的解决方法z <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -603,7 +595,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -614,7 +606,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/stylus/categories/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -625,7 +617,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

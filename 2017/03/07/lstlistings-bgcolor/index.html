@@ -81,18 +81,18 @@
 
 
 <meta name="description" content="原文地址：https://tex.stackexchange.com/questions/357227/adding-background-color-to-verb-or-lstinline-command-without-colorbox
-比较推荐的方法是用xparse宏包提供的DeclareDocumentCommand，使用这种方法的好处是用这种方法定义的命令\ccmd在使用方式上与\ve">
+比较推荐的方法是用xparse宏包提供的DeclareDocumentCommand，使用这种方法的好处是用这种方法定义的命令\ccmd在使用方式上与\v">
 <meta property="og:type" content="article">
 <meta property="og:title" content="语法高亮：在 lstinline 中给行内代码添加背景颜色">
 <meta property="og:url" content="http://peng-howard.github.io/stylus/2017/03/07/lstlistings-bgcolor/index.html">
 <meta property="og:site_name" content="语千 ~ 刻一">
 <meta property="og:description" content="原文地址：https://tex.stackexchange.com/questions/357227/adding-background-color-to-verb-or-lstinline-command-without-colorbox
-比较推荐的方法是用xparse宏包提供的DeclareDocumentCommand，使用这种方法的好处是用这种方法定义的命令\ccmd在使用方式上与\ve">
+比较推荐的方法是用xparse宏包提供的DeclareDocumentCommand，使用这种方法的好处是用这种方法定义的命令\ccmd在使用方式上与\v">
 <meta property="og:updated_time" content="2017-05-14T13:46:24.296Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="语法高亮：在 lstinline 中给行内代码添加背景颜色">
 <meta name="twitter:description" content="原文地址：https://tex.stackexchange.com/questions/357227/adding-background-color-to-verb-or-lstinline-command-without-colorbox
-比较推荐的方法是用xparse宏包提供的DeclareDocumentCommand，使用这种方法的好处是用这种方法定义的命令\ccmd在使用方式上与\ve">
+比较推荐的方法是用xparse宏包提供的DeclareDocumentCommand，使用这种方法的好处是用这种方法定义的命令\ccmd在使用方式上与\v">
 
 
 
@@ -406,15 +406,15 @@
       
 
       
-        <p><strong>原文地址</strong>：<a href="https://tex.stackexchange.com/questions/357227/adding-background-color-to-verb-or-lstinline-command-without-colorbox" target="_blank" rel="external">https://tex.stackexchange.com/questions/357227/adding-background-color-to-verb-or-lstinline-command-without-colorbox</a></p>
+        <p><strong>原文地址</strong>：<a href="https://tex.stackexchange.com/questions/357227/adding-background-color-to-verb-or-lstinline-command-without-colorbox" class="uri" target="_blank" rel="external">https://tex.stackexchange.com/questions/357227/adding-background-color-to-verb-or-lstinline-command-without-colorbox</a></p>
 <p>比较推荐的方法是用<code>xparse</code>宏包提供的<code>DeclareDocumentCommand</code>，使用这种方法的好处是用这种方法定义的命令<code>\ccmd</code>在使用方式上与<code>\verb</code>命令非常相似，可以用<code>{...}</code>来包含参数，也可以用<code>|...|</code>或者<code>!...!</code>等来包含参数。</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">&#123;article&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;xcolor,xparse&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;listings&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">definecolor</span><span class="string">&#123;cmdbg&#125;</span><span class="string">&#123;rgb&#125;</span><span class="string">&#123;0.8,0.8,0.8&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">lstset</span><span class="string">&#123;%</span></span></div><div class="line">	basicstyle=\ttfamily,</div><div class="line">	breaklines = true,</div><div class="line">	backgroundcolor=\color&#123;cmdbg&#125;,</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;realboxes&#125;</span></span>	<span class="comment">% 提供 \Colorbox</span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">DeclareDocumentCommand</span><span class="string">&#123;\ccmd&#125;</span><span class="string">&#123;v&#125;</span><span class="string">&#123;% 参数 v 表示工作方法类似于 \verb</span></span></div><div class="line">    \Colorbox&#123;cmdbg&#125;<span class="string">&#123;\csname lstinline\endcsname!#1!&#125;</span><span class="comment">%</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"></div><div class="line"><span class="comment">% demo using \lstinline only</span></div><div class="line">This is <span class="tag">\<span class="name">lstinline</span></span>|my code|</div><div class="line"></div><div class="line"><span class="comment">% demo using \lstinline and \Colorbox</span></div><div class="line">This is <span class="tag">\<span class="name">Colorbox</span><span class="string">&#123;cmdbg&#125;</span><span class="string">&#123;\lstinline|my code|&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">clist</span><span class="string">&#123;my code&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div></pre></td></tr></table></figure>
 <p>问题是：</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>将其中的<code>article</code>改成<code>ctexbook</code>或者<code>ctexart</code>之后，由<code>\ccmd{\my code}</code>指令生成的效果中<code>\my code</code>中的<code>\</code>会消失掉，只显示<code>my code</code>，而直接用<code>\Colorbox{cmdbg}{\lstinline|\my code|}</code>生成的效果中<code>\</code>不会消失，仍然正确显示为<code>\my code</code>。这说明 ctex 与<code>xparse</code>之间存在冲突。</li>
 </ol>
 <p>也试过更新 ctex 包和 l3 相关的包后再试，但是更新总遇到问题，所以暂时放弃，不清楚是否有直接的方法可以 hack。</p>
-<ol start="2">
+<ol start="2" style="list-style-type: decimal">
 <li>用<code>xpatch</code>方法在<code>\lstinline</code>上挂一个<code>\Colorbox</code>也可以，但是这种做法将导致<code>\lstinline</code>内的内容无法断行，不清楚前面使用<code>xparse</code>的方法是否也存在这一问题。</li>
 </ol>
 
@@ -465,8 +465,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/stylus/2016/09/23/JS-CSS-WebAgent/" rel="next" title="根据浏览器类型、屏幕分辨率调用不同的样式文件z">
-                <i class="fa fa-chevron-left"></i> 根据浏览器类型、屏幕分辨率调用不同的样式文件z
+              <a href="/stylus/2016/10/26/markdown-in-pandoc/" rel="next" title="Pandoc 中的 Markdown 语法z">
+                <i class="fa fa-chevron-left"></i> Pandoc 中的 Markdown 语法z
               </a>
             
           </div>
@@ -547,7 +547,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -558,7 +558,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/stylus/categories/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -569,7 +569,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

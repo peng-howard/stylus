@@ -82,21 +82,21 @@
 
 <meta name="description" content="原文地址：https://www.zhihu.com/question/26916597
 虽然宏展开这方面有更好的解决方案，如etoolbox和 LaTeX3，但是想把底层这些东西弄懂，就举当前 CTAN 上的ctex1.02d里的一个替换宏名的例子：
-12345678\def\CTEX@replacecommand#1#2#3&amp;#123;%  \expandafter\expandafter\e">
+12345678\def\CTEX@replacecommand#1#2#3&amp;#123;%  \expandafter\expandafter">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多个 \expandafter 的展开过程是怎样的？">
 <meta property="og:url" content="http://peng-howard.github.io/stylus/2014/12/05/expandafter/index.html">
 <meta property="og:site_name" content="语千 ~ 刻一">
 <meta property="og:description" content="原文地址：https://www.zhihu.com/question/26916597
 虽然宏展开这方面有更好的解决方案，如etoolbox和 LaTeX3，但是想把底层这些东西弄懂，就举当前 CTAN 上的ctex1.02d里的一个替换宏名的例子：
-12345678\def\CTEX@replacecommand#1#2#3&amp;#123;%  \expandafter\expandafter\e">
+12345678\def\CTEX@replacecommand#1#2#3&amp;#123;%  \expandafter\expandafter">
 <meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/LaTeX/df8adb1665b8d2388dd9897471712d28_b.jpg">
 <meta property="og:updated_time" content="2017-04-17T14:52:35.409Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多个 \expandafter 的展开过程是怎样的？">
 <meta name="twitter:description" content="原文地址：https://www.zhihu.com/question/26916597
 虽然宏展开这方面有更好的解决方案，如etoolbox和 LaTeX3，但是想把底层这些东西弄懂，就举当前 CTAN 上的ctex1.02d里的一个替换宏名的例子：
-12345678\def\CTEX@replacecommand#1#2#3&amp;#123;%  \expandafter\expandafter\e">
+12345678\def\CTEX@replacecommand#1#2#3&amp;#123;%  \expandafter\expandafter">
 <meta name="twitter:image" content="http://peng-howard.github.io/stylus/stylus/images/LaTeX/df8adb1665b8d2388dd9897471712d28_b.jpg">
 
 
@@ -411,7 +411,7 @@
       
 
       
-        <p><strong>原文地址</strong>：<a href="https://www.zhihu.com/question/26916597" target="_blank" rel="external">https://www.zhihu.com/question/26916597</a></p>
+        <p><strong>原文地址</strong>：<a href="https://www.zhihu.com/question/26916597" class="uri" target="_blank" rel="external">https://www.zhihu.com/question/26916597</a></p>
 <p>虽然宏展开这方面有更好的解决方案，如<code>etoolbox</code>和 LaTeX3，但是想把底层这些东西弄懂，就举当前 CTAN 上的<code>ctex1.02d</code>里的一个替换宏名的例子：</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">CTEX</span></span>@replacecommand#1#2#3&#123;<span class="comment">%</span></div><div class="line">  <span class="tag">\<span class="name">expandafter</span></span><span class="tag">\<span class="name">expandafter</span></span><span class="tag">\<span class="name">expandafter</span></span><span class="tag">\<span class="name">let</span></span><span class="tag">\<span class="name">expandafter</span></span></div><div class="line">    <span class="tag">\<span class="name">csname</span></span> #1#3<span class="tag">\<span class="name">expandafter</span></span><span class="tag">\<span class="name">endcsname</span></span></div><div class="line">    <span class="tag">\<span class="name">csname</span></span> #2#3<span class="tag">\<span class="name">endcsname</span></span></div><div class="line">  <span class="tag">\<span class="name">expandafter</span></span><span class="tag">\<span class="name">expandafter</span></span><span class="tag">\<span class="name">expandafter</span></span><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">expandafter</span></span></div><div class="line">    <span class="tag">\<span class="name">csname</span></span> #2#3<span class="tag">\<span class="name">expandafter</span></span><span class="tag">\<span class="name">endcsname</span></span></div><div class="line">    &#123;<span class="tag">\<span class="name">csname</span></span> #1#3<span class="tag">\<span class="name">endcsname</span></span>&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -431,20 +431,20 @@
 \expandafter\expandafter\expandafter\A\expandafter\B\C
 </pre>
 <p>它的效果是先展开<code>\C</code>，然后是<code>\B</code>，最后是<code>\A</code>。我们首先来分析一下这个定式：</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>展开第一个<code>\expandafter</code>，于是按定义，我们知道效果是第二个<code>\expandafter</code>后面跟上「第三个<code>\expandafter</code>的展开」。即</li>
 </ol>
 <pre class="white">
 ②\expandafter①\expandafter\A\expandafter\B\C
 </pre>
 <p>其中用数字<code>①②</code>标出展开顺序。</p>
-<ol start="2">
+<ol start="2" style="list-style-type: decimal">
 <li>下面先展开前面<code>①</code>标出的<code>\expandafter</code>，按定义，知道效果是<code>\A</code>后面跟上「最后一个<code>\expandafter</code>的展开」。即变成：</li>
 </ol>
 <pre class="white">
 ②\expandafter\A①\expandafter\B\C
 </pre>
-<ol start="3">
+<ol start="3" style="list-style-type: decimal">
 <li>然后<code>\expandafter\B\C</code>展开一步你已经懂了，相当于先展开<code>\C</code>然后前面放上<code>\B</code>。所以得到：</li>
 </ol>
 <pre class="white">
@@ -454,7 +454,7 @@
 <pre class="white">
 \expandafter\A\B「\C的展开」
 </pre>
-<ol start="4">
+<ol start="4" style="list-style-type: decimal">
 <li>然后又展开<code>\expandafter\A\B</code>，就是先展开<code>\B</code>，前面再放上<code>\A</code>。最后总结一下，我们就知道，这个展开定式：</li>
 </ol>
 <pre class="white">
@@ -468,9 +468,9 @@
 <p>第一行就是<code>7</code>个<code>\expandafter</code>，有点吓人是么？注意<code>\expandafter</code>是跳着生效的，所以上面的代码的一轮展开之后，就变成了</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">ep</span></span><span class="tag">\<span class="name">ep</span></span><span class="tag">\<span class="name">ep</span></span><span class="tag">\<span class="name">A</span></span></div><div class="line"><span class="tag">\<span class="name">ep</span></span><span class="tag">\<span class="name">B</span></span></div><div class="line"><span class="tag">\<span class="name">C</span></span></div><div class="line">「<span class="tag">\<span class="name">D</span></span> 的展开」</div></pre></td></tr></table></figure>
 <p>是不是有点眼熟？所以其实就是把<code>\A\B\C\D</code>这<code>4</code>个记号的展开顺序逆转一遍。现在你可以考虑：如果要逆转<code>5</code>个记号<code>\A\B\C\D\E</code>的展开顺序，一共需要用几个<code>\expandafter</code>？很有规律性不是么？最后推介 TUGboat 1988 年的一篇很早的文章，叫《A Tutorial on <code>\expandafter</code>》，希望你会喜欢：</p>
-<p><a href="https://www.tug.org/TUGboat/tb09-1/tb20bechtolsheim.pdf" target="_blank" rel="external">https://www.tug.org/TUGboat/tb09-1/tb20bechtolsheim.pdf</a></p>
+<p>https://www.tug.org/TUGboat/tb09-1/tb20bechtolsheim.pdf</p>
 <h1 id="李清">2 李清</h1>
-<p>多个<code>\expandafter</code>也是按照顺序展开的。<a href="https://www.zhihu.com/people/2ae8b3af01d40abc77ebeda7ecc350a9" target="_blank" rel="external">@李阿玲</a>已经推荐了很好的资料，作为例子，我们来看看<code>\CTEX@replacecommand{CTEX}{CJK}{underlinesep}</code>的展开过程。代入参数后，就展开成</p>
+<p>多个<code>\expandafter</code>也是按照顺序展开的。<span class="citation">[@李阿玲]</span>(https://www.zhihu.com/people/2ae8b3af01d40abc77ebeda7ecc350a9)已经推荐了很好的资料，作为例子，我们来看看<code>\CTEX@replacecommand{CTEX}{CJK}{underlinesep}</code>的展开过程。代入参数后，就展开成</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">expandafter</span></span><span class="tag">\<span class="name">expandafter</span></span></div><div class="line"><span class="tag">\<span class="name">expandafter</span></span><span class="tag">\<span class="name">let</span></span></div><div class="line"><span class="tag">\<span class="name">expandafter</span></span><span class="tag">\<span class="name">csname</span></span> CTEXunderlinesep<span class="tag">\<span class="name">expandafter</span></span><span class="tag">\<span class="name">endcsname</span></span></div><div class="line">  <span class="tag">\<span class="name">csname</span></span> CJKunderlinesep<span class="tag">\<span class="name">endcsname</span></span></div><div class="line"><span class="tag">\<span class="name">expandafter</span></span><span class="tag">\<span class="name">expandafter</span></span></div><div class="line"><span class="tag">\<span class="name">expandafter</span></span><span class="tag">\<span class="name">def</span></span></div><div class="line"><span class="tag">\<span class="name">expandafter</span></span><span class="tag">\<span class="name">csname</span></span> CJKunderlinesep<span class="tag">\<span class="name">expandafter</span></span><span class="tag">\<span class="name">endcsname</span><span class="string">&#123;%</span></span></div><div class="line">  \csname CTEXunderlinesep\endcsname&#125;</div></pre></td></tr></table></figure>
 <p>只看前面四行，后面的类似。首先被执行的是左边一列的<code>\expandafter</code>，但其实没有什么意义，因为最后的是</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">expandafter</span></span><span class="tag">\<span class="name">csname</span></span> C</div></pre></td></tr></table></figure>
@@ -480,15 +480,18 @@
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">csname</span></span> CJKunderlinesep<span class="tag">\<span class="name">endcsname</span></span></div></pre></td></tr></table></figure>
 <p>展开成 <code>\CJKunderlinesep</code>。最后就得到了结果</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">let</span></span><span class="tag">\<span class="name">CTEXunderlinesep</span></span><span class="tag">\<span class="name">CJKunderlinesep</span></span></div></pre></td></tr></table></figure>
-<p>按照顺序慢慢看就可以。动手写代码，还是使用封装好的工具吧，不然有时候写起来是很费劲的。你可以感受一下下面的例子（<a href="http://latex-project.org/papers/expl3-boolexpr-example.pdf%EF%BC%89%EF%BC%9A" target="_blank" rel="external">http://latex-project.org/papers/expl3-boolexpr-example.pdf）：</a></p>
-<p><img src="/stylus/images/LaTeX/df8adb1665b8d2388dd9897471712d28_b.jpg" alt=""></p>
+<p>按照顺序慢慢看就可以。动手写代码，还是使用封装好的工具吧，不然有时候写起来是很费劲的。你可以感受一下下面的例子（http://latex-project.org/papers/expl3-boolexpr-example.pdf）：</p>
+<div class="figure">
+<img src="/stylus/images/LaTeX/df8adb1665b8d2388dd9897471712d28_b.jpg">
+
+</div>
 <h1 id="孟晨">3 孟晨</h1>
 <p>答案分成两个部分。第一个部分讲怎么<strong>看</strong>：怎样判断一堆<code>\expandafter</code>修饰的代码的展开顺序；第二个部分讲怎么<strong>写</strong>：怎么根据展开顺序的需要来写<code>\expandafter</code>。以下讨论用<code>\ep</code>代表<code>\expandafter</code>，即</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">let</span></span><span class="tag">\<span class="name">ep</span></span><span class="tag">\<span class="name">expandafter</span></span></div></pre></td></tr></table></figure>
 <p>有时为了方便，用<code>\ep1</code>代表代码串中第一个<code>\expandafter</code>。</p>
-<h2 id="1">3.1 1</h2>
+<h2 id="section">3.1 1</h2>
 <p>判断的步骤如下：</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>划掉<code>\ep</code>；</li>
 <li>跳过一个记号；</li>
 <li>如果该记号是<code>\ep</code>，回到<code>1</code>；如果该记号不是<code>\ep</code>，展开它，然后找到代码片段里第一个没有被划掉的<code>\ep</code>，回到<code>1</code>。</li>
@@ -497,7 +500,7 @@
 <p>Ex.1</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">ep</span></span>1<span class="tag">\<span class="name">ep</span></span>2<span class="tag">\<span class="name">ep</span></span>3<span class="tag">\<span class="name">A</span></span></div><div class="line"><span class="tag">\<span class="name">ep</span></span>4<span class="tag">\<span class="name">B</span></span></div><div class="line"><span class="tag">\<span class="name">C</span></span></div></pre></td></tr></table></figure>
 <p>步骤：</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>划掉<code>\ep1</code>，跳到<code>\ep3</code>；</li>
 <li>划掉<code>\ep3</code>，跳到<code>\ep4</code>；</li>
 <li>划掉<code>\ep4</code>，跳到<code>\C</code>，展开<code>\C</code>，跳到<code>\ep2</code>；</li>
@@ -508,7 +511,7 @@
 <p>Ex.2</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">ep</span></span>1<span class="tag">\<span class="name">ep</span></span>2<span class="tag">\<span class="name">ep</span></span>3<span class="tag">\<span class="name">ep</span></span>4<span class="tag">\<span class="name">ep</span></span>5<span class="tag">\<span class="name">ep</span></span>6<span class="tag">\<span class="name">ep</span></span>7<span class="tag">\<span class="name">A</span></span></div><div class="line"><span class="tag">\<span class="name">ep</span></span>8<span class="tag">\<span class="name">ep</span></span>9<span class="tag">\<span class="name">ep</span></span>10<span class="tag">\<span class="name">B</span></span></div><div class="line"><span class="tag">\<span class="name">ep</span></span>11<span class="tag">\<span class="name">C</span></span></div><div class="line"><span class="tag">\<span class="name">D</span></span></div></pre></td></tr></table></figure>
 <p>步骤：</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>划掉<code>\ep1</code>，跳到<code>\ep3</code>；</li>
 <li>划掉<code>\ep3</code>，跳到<code>\ep5</code>；</li>
 <li>划掉<code>\ep5</code>，跳到<code>\ep7</code>；</li>
@@ -518,11 +521,11 @@
 <li>划掉<code>\ep11</code>，跳到<code>\D</code>，展开<code>\D</code>，跳到<code>\ep2</code>；</li>
 </ol>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">% 整理一下，此时剩下的代码是</span></div><div class="line"><span class="tag">\<span class="name">ep</span></span>2<span class="tag">\<span class="name">ep</span></span>4<span class="tag">\<span class="name">ep</span></span>6<span class="tag">\<span class="name">A</span></span></div><div class="line"><span class="tag">\<span class="name">ep</span></span>9<span class="tag">\<span class="name">B</span></span></div><div class="line"><span class="tag">\<span class="name">C</span></span></div></pre></td></tr></table></figure>
-<p>根据<strong>Ex.1</strong>得到<code>C - B - A</code>的展开顺序。因此展开顺序是<code>D - C - B - A</code>。这正是<a href="https://www.zhihu.com/people/dae56e83a09288121be52a7cb6a6f8b6" target="_blank" rel="external">@刘海洋</a>前辈在答案中举出的例子。</p>
+<p>根据<strong>Ex.1</strong>得到<code>C - B - A</code>的展开顺序。因此展开顺序是<code>D - C - B - A</code>。这正是<span class="citation">[@刘海洋]</span>(https://www.zhihu.com/people/dae56e83a09288121be52a7cb6a6f8b6)前辈在答案中举出的例子。</p>
 <p>Ex.3</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">ep</span></span>1<span class="tag">\<span class="name">ep</span></span>2<span class="tag">\<span class="name">ep</span></span>3<span class="tag">\<span class="name">A</span></span></div><div class="line"><span class="tag">\<span class="name">ep</span></span>4<span class="tag">\<span class="name">ep</span></span>5<span class="tag">\<span class="name">ep</span></span>6<span class="tag">\<span class="name">B</span></span></div><div class="line"><span class="tag">\<span class="name">ep</span></span>7<span class="tag">\<span class="name">C</span></span></div><div class="line"><span class="tag">\<span class="name">D</span></span></div></pre></td></tr></table></figure>
 <p>步骤：</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>划掉<code>\ep1</code>，跳到<code>\ep3</code>；</li>
 <li>划掉<code>\ep3</code>，跳到<code>\ep4</code>；</li>
 <li>划掉<code>\ep4</code>，跳到<code>\ep6</code>；</li>
@@ -530,7 +533,7 @@
 <li>划掉<code>\ep7</code>，跳到<code>\D</code>，展开<code>\D</code>，跳到<code>\ep2</code>；</li>
 </ol>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">% 整理一下，此时剩下的代码是</span></div><div class="line"><span class="tag">\<span class="name">ep</span></span>2<span class="tag">\<span class="name">A</span></span></div><div class="line"><span class="tag">\<span class="name">ep</span></span>5<span class="tag">\<span class="name">B</span></span></div><div class="line"><span class="tag">\<span class="name">C</span></span></div></pre></td></tr></table></figure>
-<ol start="6">
+<ol start="6" style="list-style-type: decimal">
 <li>划掉<code>\ep2</code>，跳到<code>\ep5</code>；</li>
 <li>划掉<code>\ep5</code>，跳到<code>\C</code>，展开<code>\C</code>；</li>
 <li>展开剩下的<code>\A</code>和<code>\B</code>。因此展开顺序是<code>D - C - A - B</code>。</li>
@@ -673,7 +676,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -684,7 +687,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/stylus/categories/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -695,7 +698,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -784,7 +787,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#刘海洋"><span class="nav-text">1 刘海洋</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#李清"><span class="nav-text">2 李清</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#孟晨"><span class="nav-text">3 孟晨</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1"><span class="nav-text">3.1 1</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#刘海洋"><span class="nav-text">1 刘海洋</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#李清"><span class="nav-text">2 李清</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#孟晨"><span class="nav-text">3 孟晨</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#section"><span class="nav-text">3.1 1</span></a></li></ol></li></ol></div>
             
 
           </div>

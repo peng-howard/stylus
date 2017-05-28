@@ -82,13 +82,13 @@
 
 <meta name="description" content="此篇讨论很小的「一点」——关于如何正确排版微分算子。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自定义命令：在 LaTeX 中使用微分算子的正确姿势">
+<meta property="og:title" content="自定义命令：在 LaTeX 中使用微分算子的正确姿势z">
 <meta property="og:url" content="http://peng-howard.github.io/stylus/2017/05/01/the-correct-way-to-use-differential-operator/index.html">
 <meta property="og:site_name" content="语千 ~ 刻一">
 <meta property="og:description" content="此篇讨论很小的「一点」——关于如何正确排版微分算子。">
-<meta property="og:updated_time" content="2017-05-14T13:51:53.774Z">
+<meta property="og:updated_time" content="2017-05-28T12:54:36.535Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自定义命令：在 LaTeX 中使用微分算子的正确姿势">
+<meta name="twitter:title" content="自定义命令：在 LaTeX 中使用微分算子的正确姿势z">
 <meta name="twitter:description" content="此篇讨论很小的「一点」——关于如何正确排版微分算子。">
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <title> 自定义命令：在 LaTeX 中使用微分算子的正确姿势 | 语千 ~ 刻一 </title>
+  <title> 自定义命令：在 LaTeX 中使用微分算子的正确姿势z | 语千 ~ 刻一 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -319,7 +319,7 @@
             
             
               
-                自定义命令：在 LaTeX 中使用微分算子的正确姿势
+                自定义命令：在 LaTeX 中使用微分算子的正确姿势z
               
             
           </h1>
@@ -405,7 +405,7 @@
       
         <p>此篇讨论很小的「一点」——关于如何正确排版微分算子。</p>
 <a id="more"></a>
-<p>所谓微分算子，其英文名字叫做 differential operator，也就是 <code>$\mathrm{d} x$</code> 中的 $\mathrm{d}$。由于微分算子，形式上就是拉丁字母 <code>d</code>；并且中国人读起来也就是简单粗暴的「滴埃克斯」。所以，在书写 LaTeX 手稿时，很多人简单粗暴地将微分算子写作 <code>dx</code>，例如不定积分 <code>\int f(x)dx</code>。</p>
+<p>所谓微分算子，其英文名字叫做 differential operator，也就是 <code>$\mathrm{d} x$</code> 中的 <span class="math inline">\(\mathrm{d}\)</span>。由于微分算子，形式上就是拉丁字母 <code>d</code>；并且中国人读起来也就是简单粗暴的「滴埃克斯」。所以，在书写 LaTeX 手稿时，很多人简单粗暴地将微分算子写作 <code>dx</code>，例如不定积分 <code>\int f(x)dx</code>。</p>
 <p>我们说，数学算式是精美而珍贵的。在排版数学算式时，你不能马虎，应该小心谨慎。这也是为什么 Knuth 在设计 TeX 时，将数学式子都包含在美元符号 <code>$</code> 之间的原因。对待微分算子，我们也应该有这样的心态。</p>
 <p>粗话说：「如果没有标准，那所有的争执都是瞎扯淡」。正如单位制有所谓的 ISO 国际单位制一样，数学符号也有对应的 ISO 标准。数学符号的标准，首先是定义在 ISO 31-11 当中；而后这个标准被 ISO 80000-2:2009 取代。因此，此篇讨论的内容，都是基于 ISO 80000-2:2009 的。</p>
 <p>在 ISO 80000-2:2009 中，微分算子被描述为</p>
@@ -426,7 +426,7 @@
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">newcommand*</span><span class="string">&#123;\dif&#125;</span><span class="string">&#123;\mathop&#123;&#125;</span></span><span class="tag">\<span class="name">!</span></span><span class="tag">\<span class="name">mathrm</span><span class="string">&#123;d&#125;</span></span>&#125;</div></pre></td></tr></table></figure>
 <p>在这个定义中，拉丁字母 d 本身的特点得到了保留（比如基线是正常的）。此外，在 <code>\mathrm{d}</code> 的左边，插入了一个空白的 <code>\mathop{}</code>；其左边的空白保留，而右边与 <code>\mathrm{d}</code> 之间的距离，则由 <code>\!</code> 抑制。这样就达成了我们的目标。</p>
 <hr>
-<p>参考：<a href="http://www.tug.org/TUGboat/Articles/tb18-1/tb54becc.pdf#page=8" target="_blank" rel="external">http://www.tug.org/TUGboat/Articles/tb18-1/tb54becc.pdf#page=8</a></p>
+<p>参考：<a href="http://www.tug.org/TUGboat/Articles/tb18-1/tb54becc.pdf#page=8" class="uri" target="_blank" rel="external">http://www.tug.org/TUGboat/Articles/tb18-1/tb54becc.pdf#page=8</a></p>
 
       
     </div>
@@ -471,8 +471,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/stylus/2017/03/29/ggimage/" rel="next" title="ggimage：ggplot2中愉快地使用图片z">
-                <i class="fa fa-chevron-left"></i> ggimage：ggplot2中愉快地使用图片z
+              <a href="/stylus/2017/04/17/Hexo/" rel="next" title="用 Hexo+Github 搭建博客平台">
+                <i class="fa fa-chevron-left"></i> 用 Hexo+Github 搭建博客平台
               </a>
             
           </div>
@@ -558,7 +558,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -569,7 +569,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/stylus/categories/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -580,7 +580,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -798,7 +798,7 @@
         var disqus_config = function () {
           this.page.url = 'http://peng-howard.github.io/stylus/stylus/2017/05/01/the-correct-way-to-use-differential-operator/';
           this.page.identifier = '2017/05/01/the-correct-way-to-use-differential-operator/';
-          this.page.title = '自定义命令：在 LaTeX 中使用微分算子的正确姿势';
+          this.page.title = '自定义命令：在 LaTeX 中使用微分算子的正确姿势z';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://peng-howard-github-io.disqus.com/embed.js';

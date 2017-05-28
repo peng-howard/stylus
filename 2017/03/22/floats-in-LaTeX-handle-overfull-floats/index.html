@@ -81,13 +81,13 @@
 
 
 <meta name="description" content="原文地址：http://liam0205.me/2017/03/22/floats-in-LaTeX-handle-overfull-floats/
-前文说了，浮动体主要是处理高度比较大，又不方便分割的内容：比如图片和表格。实际上，此类内容除了在高度上可能很高，它们也可能很宽。LaTeX 在水平方向，会贴着版芯的左边边界，开始排列内容。因此，如果一张图片或者表格的宽度超过了版芯的宽度，那么看起来就">
+前文说了，浮动体主要是处理高度比较大，又不方便分割的内容：比如图片和表格。实际上，此类内容除了在高度上可能很高，它们也可能很宽。LaTeX 在水平方向，会贴着版芯的左边边界，开始排列内容。因此，如果一张图片或者表格的宽度超过了版芯的宽度，那么看起来">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LaTeX 中的浮动体：处理超宽问题">
 <meta property="og:url" content="http://peng-howard.github.io/stylus/2017/03/22/floats-in-LaTeX-handle-overfull-floats/index.html">
 <meta property="og:site_name" content="语千 ~ 刻一">
 <meta property="og:description" content="原文地址：http://liam0205.me/2017/03/22/floats-in-LaTeX-handle-overfull-floats/
-前文说了，浮动体主要是处理高度比较大，又不方便分割的内容：比如图片和表格。实际上，此类内容除了在高度上可能很高，它们也可能很宽。LaTeX 在水平方向，会贴着版芯的左边边界，开始排列内容。因此，如果一张图片或者表格的宽度超过了版芯的宽度，那么看起来就">
+前文说了，浮动体主要是处理高度比较大，又不方便分割的内容：比如图片和表格。实际上，此类内容除了在高度上可能很高，它们也可能很宽。LaTeX 在水平方向，会贴着版芯的左边边界，开始排列内容。因此，如果一张图片或者表格的宽度超过了版芯的宽度，那么看起来">
 <meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/LaTeX/overfull_01.png">
 <meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/LaTeX/overfull_02.png">
 <meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/LaTeX/overfull_03.png">
@@ -96,7 +96,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LaTeX 中的浮动体：处理超宽问题">
 <meta name="twitter:description" content="原文地址：http://liam0205.me/2017/03/22/floats-in-LaTeX-handle-overfull-floats/
-前文说了，浮动体主要是处理高度比较大，又不方便分割的内容：比如图片和表格。实际上，此类内容除了在高度上可能很高，它们也可能很宽。LaTeX 在水平方向，会贴着版芯的左边边界，开始排列内容。因此，如果一张图片或者表格的宽度超过了版芯的宽度，那么看起来就">
+前文说了，浮动体主要是处理高度比较大，又不方便分割的内容：比如图片和表格。实际上，此类内容除了在高度上可能很高，它们也可能很宽。LaTeX 在水平方向，会贴着版芯的左边边界，开始排列内容。因此，如果一张图片或者表格的宽度超过了版芯的宽度，那么看起来">
 <meta name="twitter:image" content="http://peng-howard.github.io/stylus/stylus/images/LaTeX/overfull_01.png">
 
 
@@ -411,14 +411,17 @@
       
 
       
-        <p><strong>原文地址</strong>：<a href="http://liam0205.me/2017/03/22/floats-in-LaTeX-handle-overfull-floats/" target="_blank" rel="external">http://liam0205.me/2017/03/22/floats-in-LaTeX-handle-overfull-floats/</a></p>
+        <p><strong>原文地址</strong>：<a href="http://liam0205.me/2017/03/22/floats-in-LaTeX-handle-overfull-floats/" class="uri" target="_blank" rel="external">http://liam0205.me/2017/03/22/floats-in-LaTeX-handle-overfull-floats/</a></p>
 <p><a href="/stylus/2017/03/11/floats-in-LaTeX-basic/">前文</a>说了，浮动体主要是处理高度比较大，又不方便分割的内容：比如图片和表格。实际上，此类内容除了在高度上可能很高，它们也可能很宽。LaTeX 在水平方向，会贴着版芯的左边边界，开始排列内容。因此，如果一张图片或者表格的宽度超过了版芯的宽度，那么看起来就像是没有居中，而是偏右。</p>
 <p>此篇我们讲一下如何处理此类情况。</p>
 <a id="more"></a>
 <h1 id="缩小">1 缩小</h1>
 <p>对付内容过大，最直接的办法，就是把它们缩小。对于图片，如果使用了 <code>graphicx</code> 宏包，我们可以使用 <code>width = \linewidth</code> 的参数将图片缩放到正好填满页面宽度的大小，避免「超宽」。对于表格等其他内容，我们可以使用 <code>graphicx</code> 提供的 <code>\resizebox</code> 命令来处理。</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">&#123;article&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;showframe&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;graphicx&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;table&#125;</span><span class="string">[!htb]</span></span></div><div class="line"><span class="tag">\<span class="name">centering</span></span></div><div class="line"><span class="tag">\<span class="name">caption</span><span class="string">&#123;Oh, this table is overfull!&#125;</span></span><span class="tag">\<span class="name">label</span><span class="string">&#123;tab:overfull&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">rule</span><span class="string">&#123;1.1\linewidth&#125;</span><span class="string">&#123;3cm&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;table&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;table&#125;</span><span class="string">[!htb]</span></span></div><div class="line"><span class="tag">\<span class="name">centering</span></span></div><div class="line"><span class="tag">\<span class="name">caption</span><span class="string">&#123;Imagine that this is a table.&#125;</span></span><span class="tag">\<span class="name">label</span><span class="string">&#123;tab:resized&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">resizebox</span><span class="string">&#123;\linewidth&#125;</span><span class="string">&#123;!&#125;</span><span class="string">&#123;\rule&#123;1.1\linewidth&#125;</span><span class="string">&#123;3cm&#125;</span></span>&#125;</div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;table&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;figure&#125;</span><span class="string">[!htb]</span></span></div><div class="line"><span class="tag">\<span class="name">centering</span></span></div><div class="line"><span class="tag">\<span class="name">includegraphics</span><span class="string">[width = \linewidth]</span><span class="string">&#123;example-image&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">caption</span><span class="string">&#123;A fit figure.&#125;</span></span><span class="tag">\<span class="name">label</span><span class="string">&#123;fig:example-image&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;figure&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div></pre></td></tr></table></figure>
-<p><img src="/stylus/images/LaTeX/overfull_01.png" alt="用缩小的办法处理超宽的内容"></p>
+<div class="figure">
+<img src="/stylus/images/LaTeX/overfull_01.png" alt="用缩小的办法处理超宽的内容">
+<p class="caption">用缩小的办法处理超宽的内容</p>
+</div>
 <h1 id="想办法居中">2 想办法居中</h1>
 <p>上述通过缩小解决问题，是一种办法。但是，在很多情况下，也会存在问题；比如</p>
 <ul>
@@ -429,7 +432,10 @@
 <p>实际上，大多数用户对于这类问题最大的诉求在于：为什么这些超宽的图表不局中了？所以，我们只要解决「居中」的问题，可能就覆盖了绝大部分用户的需求。而这些内容无法居中的原因，我们在介绍部分也说过了：LaTeX 在水平方向，会贴着版芯的左边边界，开始排列内容。因此，如果我们能让 LaTeX 不从版芯的最左边开始排列内容，就有可能解决这个问题。</p>
 <p>决定 LaTeX 从何处开始排列内容的，是 <code>\leftskip</code> 这个宏。在 LaTeX2e 中，它被默认定义为 <code>\z@</code>。也就是说，从版芯的左边边界处开始排列内容。我们可以修改这个宏，比如改为 <code>\setlength{\leftskip}{-20pt}</code>，那么 LaTeX 将从版芯左边边界左边的 <code>20pt</code> 的位置开始排列内容。</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">&#123;article&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;showframe&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;graphicx&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;table&#125;</span><span class="string">[!htb]</span></span></div><div class="line"><span class="tag">\<span class="name">centering</span></span></div><div class="line"><span class="tag">\<span class="name">caption</span><span class="string">&#123;Oh, this table is overfull!&#125;</span></span><span class="tag">\<span class="name">label</span><span class="string">&#123;tab:overfull&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">setlength</span><span class="string">&#123;\leftskip&#125;</span><span class="string">&#123;-20pt&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">rule</span><span class="string">&#123;1.1\linewidth&#125;</span><span class="string">&#123;3cm&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;table&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div></pre></td></tr></table></figure>
-<p><img src="/stylus/images/LaTeX/overfull_02.png" alt="leftskip 示例"></p>
+<div class="figure">
+<img src="/stylus/images/LaTeX/overfull_02.png" alt="leftskip 示例">
+<p class="caption">leftskip 示例</p>
+</div>
 <p>同理，我们有 <code>\rightskip</code>，用于确定水平方向排版的终止位置与版芯右边界之间的距离。</p>
 <p>我们知道，TeX 的 skip 是所谓的「弹簧」，允许在一定程度上进行缩放；而所谓的居中，实际上就是在版芯两侧，有两个力量相等的无限弹簧，同时向中间挤压内容。因此，我们不难得到对 <code>\leftskip</code> 和 <code>\rightskip</code> 的几个要求：</p>
 <ul>
@@ -441,7 +447,10 @@
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">setlength</span><span class="string">&#123;\leftskip&#125;</span><span class="string">&#123;0pt plus 1fil minus \marginparwidth&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">setlength</span><span class="string">&#123;\rightskip&#125;</span><span class="string">&#123;\leftskip&#125;</span></span></div></pre></td></tr></table></figure>
 <p>为了让它更好用，我们可以把他们收纳在一个新的命令当中（包含了一些额外的工作）：</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">&#123;article&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;showframe&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;graphicx&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">makeatletter</span></span></div><div class="line"><span class="tag">\<span class="name">newcommand*</span><span class="string">&#123;\centerfloat&#125;</span><span class="string">&#123;%</span></span></div><div class="line">  \parindent \z@</div><div class="line">  \leftskip \z@ \@plus 1fil \@minus \marginparwidth</div><div class="line">  \rightskip \leftskip</div><div class="line">  \parfillskip \z@skip&#125;</div><div class="line"><span class="tag">\<span class="name">makeatother</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;table&#125;</span><span class="string">[!htb]</span></span></div><div class="line"><span class="tag">\<span class="name">centerfloat</span></span></div><div class="line"><span class="tag">\<span class="name">caption</span><span class="string">&#123;Oh, this table is adjusted!&#125;</span></span><span class="tag">\<span class="name">label</span><span class="string">&#123;tab:adjusted&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">rule</span><span class="string">&#123;1.1\linewidth&#125;</span><span class="string">&#123;3cm&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;table&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div></pre></td></tr></table></figure>
-<p><img src="/stylus/images/LaTeX/overfull_03.png" alt="巧妙地设置 leftskip 及 rightskip"></p>
+<div class="figure">
+<img src="/stylus/images/LaTeX/overfull_03.png" alt="巧妙地设置 leftskip 及 rightskip">
+<p class="caption">巧妙地设置 leftskip 及 rightskip</p>
+</div>
 <p>当然，你也可以通过 <code>\makebox</code> 命令来达成目标，不过这样依然无法容纳含有类似 <code>\verb</code> 的内容：</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">&#123;article&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;showframe&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;graphicx&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;table&#125;</span><span class="string">[!htb]</span></span></div><div class="line"><span class="tag">\<span class="name">centering</span></span></div><div class="line"><span class="tag">\<span class="name">caption</span><span class="string">&#123;Oh, this table is adjusted!&#125;</span></span><span class="tag">\<span class="name">label</span><span class="string">&#123;tab:adjusted&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">makebox</span><span class="string">[0pt]</span><span class="string">[c]</span><span class="string">&#123;\rule&#123;1.1\linewidth&#125;</span><span class="string">&#123;3cm&#125;</span></span>&#125;</div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;table&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div></pre></td></tr></table></figure>
 <h1 id="使用-adjustbox-宏包">3 使用 adjustbox 宏包</h1>
@@ -453,7 +462,10 @@
 <p><code>rotating</code> 宏包提供了 <code>sidewaystable</code> 和 <code>sidewaysfigure</code> 环境（以及带 <code>*</code> 的版本，用于在双栏模式下通栏排版），分别作为对应 <code>table</code> 和 <code>figure</code> 的工具。使用这些环境，能使图表旋转 90° 摆放。</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">&#123;article&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;showframe&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;rotating&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;sidewaystable&#125;</span><span class="string">[!htb]</span></span></div><div class="line"><span class="tag">\<span class="name">centering</span></span></div><div class="line"><span class="tag">\<span class="name">caption</span><span class="string">&#123;Let's rock!&#125;</span></span><span class="tag">\<span class="name">label</span><span class="string">&#123;tab:rotated&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">rule</span><span class="string">&#123;0.8\linewidth&#125;</span><span class="string">&#123;3cm&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;sidewaystable&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div></pre></td></tr></table></figure>
 <p>需要注意的是，当旋转过来之后，「长宽」就交换了。因此，我们这里使用 <code>0.8\linewidth</code> 实际上是相对版芯的高度的 0.8 倍。此外，<code>rotating</code> 宏包默认将内容逆时针旋转了 90°，你也可以在调用宏包时传入 <code>clockwise</code> 参数，得到顺时针旋转的版本。</p>
-<p><img src="/stylus/images/LaTeX/overfull_04.png" alt="旋转、跳跃，我闭着眼"></p>
+<div class="figure">
+<img src="/stylus/images/LaTeX/overfull_04.png" alt="旋转、跳跃，我闭着眼">
+<p class="caption">旋转、跳跃，我闭着眼</p>
+</div>
 
       
     </div>
@@ -589,7 +601,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -600,7 +612,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/stylus/categories/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -611,7 +623,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

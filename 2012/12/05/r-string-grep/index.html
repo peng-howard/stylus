@@ -81,18 +81,18 @@
 
 
 <meta name="description" content="原文地址：http://jliblog.com/archives/26
-R通常被用来进行数值计算比较多，字符串处理相对较少，而且关于字符串的函数也不多，用得多的就是substr、strsplit、paste、regexpr这几个了。实际上R关于字符串处理的功能是非常强大的，因为它甚至可以直接使用Perl的正则表达式，这也是R的一个理念，作为语言就把向量计算做到极致，作为环境，就在各领域都集成最好的">
+R通常被用来进行数值计算比较多，字符串处理相对较少，而且关于字符串的函数也不多，用得多的就是substr、strsplit、paste、regexpr这几个了。实际上R关于字符串处理的功能是非常强大的，因为它甚至可以直接使用Perl的正则表达式，这也是R的一个理念，作为语言就把向量计算做到极致，作为环境，就在各领域都集成最好">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R中字符串处理和grep的用法z">
+<meta property="og:title" content="R 中字符串处理和 grep 的用法z">
 <meta property="og:url" content="http://peng-howard.github.io/stylus/2012/12/05/r-string-grep/index.html">
 <meta property="og:site_name" content="语千 ~ 刻一">
 <meta property="og:description" content="原文地址：http://jliblog.com/archives/26
-R通常被用来进行数值计算比较多，字符串处理相对较少，而且关于字符串的函数也不多，用得多的就是substr、strsplit、paste、regexpr这几个了。实际上R关于字符串处理的功能是非常强大的，因为它甚至可以直接使用Perl的正则表达式，这也是R的一个理念，作为语言就把向量计算做到极致，作为环境，就在各领域都集成最好的">
-<meta property="og:updated_time" content="2017-03-28T02:16:00.584Z">
+R通常被用来进行数值计算比较多，字符串处理相对较少，而且关于字符串的函数也不多，用得多的就是substr、strsplit、paste、regexpr这几个了。实际上R关于字符串处理的功能是非常强大的，因为它甚至可以直接使用Perl的正则表达式，这也是R的一个理念，作为语言就把向量计算做到极致，作为环境，就在各领域都集成最好">
+<meta property="og:updated_time" content="2017-05-28T15:09:25.006Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="R中字符串处理和grep的用法z">
+<meta name="twitter:title" content="R 中字符串处理和 grep 的用法z">
 <meta name="twitter:description" content="原文地址：http://jliblog.com/archives/26
-R通常被用来进行数值计算比较多，字符串处理相对较少，而且关于字符串的函数也不多，用得多的就是substr、strsplit、paste、regexpr这几个了。实际上R关于字符串处理的功能是非常强大的，因为它甚至可以直接使用Perl的正则表达式，这也是R的一个理念，作为语言就把向量计算做到极致，作为环境，就在各领域都集成最好的">
+R通常被用来进行数值计算比较多，字符串处理相对较少，而且关于字符串的函数也不多，用得多的就是substr、strsplit、paste、regexpr这几个了。实际上R关于字符串处理的功能是非常强大的，因为它甚至可以直接使用Perl的正则表达式，这也是R的一个理念，作为语言就把向量计算做到极致，作为环境，就在各领域都集成最好">
 
 
 
@@ -128,7 +128,7 @@ R通常被用来进行数值计算比较多，字符串处理相对较少，而�
 
 
 
-  <title> R中字符串处理和grep的用法z | 语千 ~ 刻一 </title>
+  <title> R 中字符串处理和 grep 的用法z | 语千 ~ 刻一 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -322,7 +322,7 @@ R通常被用来进行数值计算比较多，字符串处理相对较少，而�
             
             
               
-                R中字符串处理和grep的用法z
+                R 中字符串处理和 grep 的用法z
               
             
           </h1>
@@ -406,8 +406,9 @@ R通常被用来进行数值计算比较多，字符串处理相对较少，而�
       
 
       
-        <p>原文地址：<a href="http://jliblog.com/archives/26" target="_blank" rel="external">http://jliblog.com/archives/26</a></p>
+        <p>原文地址：<a href="http://jliblog.com/archives/26" class="uri" target="_blank" rel="external">http://jliblog.com/archives/26</a></p>
 <p>R通常被用来进行数值计算比较多，字符串处理相对较少，而且关于字符串的函数也不多，用得多的就是<code>substr、strsplit、paste、regexpr</code>这几个了。实际上R关于字符串处理的功能是非常强大的，因为它甚至可以直接使用Perl的正则表达式，这也是R的一个理念，作为语言就把向量计算做到极致，作为环境，就在各领域都集成最好的。R中有grep系列的函数，可以用最强大的方式处理字符串的所有问题。</p>
+<a id="more"></a>
 <p>grep的全称是global search regular expression and print out the line，是Unix下一种强大的文本搜索工具，可以通过正则表达式搜索文本，并把匹配的行打印出来，包括<code>grep</code>、<code>egrep</code>和<code>fgrep</code>（egrep是扩展的grep，fgrep是快速的搜寻方式并没有真正利用正则表达式）。Linux下使用GNU版的grep，该套规范也被广泛地使用，R中的grep函数就是其中之一。</p>
 <p>grep的核心就是正则表达式（Regular Expressions，通常缩写为regex），所谓<strong>正则表达式</strong>，就是用某种模式去匹配一类字符串的一个公式，很多文本编辑器或者程序语言都支持该方式进行字符串的操作，最开始是由上文介绍的Unix工具grep之类普及的，后来得到广泛应用。尤其是Perl语言中将正则表达式发挥到了极致。</p>
 <p>R中的正则表达式非常专业，从grep系列函数的参数就可以看出，有个参数<code>“extended”</code>，默认为T，表示使用扩展grep，也就是egrep，如果选择为F就表示基础的grep，不过该种方式不被R推荐，即使使用了也会出现警告，实际上grep能做的egrep也都能做，而且还要简单不少。我刚开始在egrep中使用总是不能通过，后来发现其实egrep中更简单，很多时候直接写在[]内就行。还有一个参数“perl”，默认为F，如果选择T表示使用Perl的正则表达式规则，功能更加强大，不过如果没有专门学过Perl语言的话用egrep也就够了。另一个参数<code>“fixed”</code>虽然描述的不是同一个东西，但是也很相关，选择之后就会进行精确的匹配，不再使用正则表达式的规则，在效率上会快很多，我觉得这个可能就是fgrep。R的帮助文档中也明确说明了这三个参数实际上代表了四种模式，常规grep、扩展grep、Perl正则表达式、精确匹配，使用者可以根据具体的含义选择自己需要的，如果参数设置互有冲突，会自动忽略后面的参数，并会在Warning中明确指出。</p>
@@ -462,8 +463,8 @@ R通常被用来进行数值计算比较多，字符串处理相对较少，而�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/stylus/2012/12/05/r-mem-gc/" rel="next" title="R的内存管理和垃圾清理z">
-                <i class="fa fa-chevron-left"></i> R的内存管理和垃圾清理z
+              <a href="/stylus/2012/12/04/matlab-statistics-toolbox/" rel="next" title="Matlab统计学工具箱">
+                <i class="fa fa-chevron-left"></i> Matlab统计学工具箱
               </a>
             
           </div>
@@ -472,8 +473,8 @@ R通常被用来进行数值计算比较多，字符串处理相对较少，而�
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/stylus/2012/12/07/matlab-eval-feval/" rel="prev" title="Matlab中的eval与feval函数">
-                Matlab中的eval与feval函数 <i class="fa fa-chevron-right"></i>
+              <a href="/stylus/2012/12/05/r-mem-gc/" rel="prev" title="R的内存管理和垃圾清理z">
+                R的内存管理和垃圾清理z <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -544,7 +545,7 @@ R通常被用来进行数值计算比较多，字符串处理相对较少，而�
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -555,7 +556,7 @@ R通常被用来进行数值计算比较多，字符串处理相对较少，而�
             
             <div class="site-state-item site-state-categories">
               <a href="/stylus/categories/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -566,7 +567,7 @@ R通常被用来进行数值计算比较多，字符串处理相对较少，而�
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -768,7 +769,7 @@ R通常被用来进行数值计算比较多，字符串处理相对较少，而�
         var disqus_config = function () {
           this.page.url = 'http://peng-howard.github.io/stylus/stylus/2012/12/05/r-string-grep/';
           this.page.identifier = '2012/12/05/r-string-grep/';
-          this.page.title = 'R中字符串处理和grep的用法z';
+          this.page.title = 'R 中字符串处理和 grep 的用法z';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://peng-howard-github-io.disqus.com/embed.js';

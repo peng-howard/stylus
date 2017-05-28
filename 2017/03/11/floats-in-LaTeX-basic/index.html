@@ -83,7 +83,7 @@
 <meta name="description" content="原文地址：http://liam0205.me/2017/03/11/floats-in-LaTeX-basic/
 此篇介绍一下 LaTeX 中的浮动体基本概念，以及最常见的几个问题。
 1 浮动体是什么
-在实际撰写文稿的过程中，我们可能会碰到一些占据篇幅较大，但同时又不方便分页的内容。（比如图片和表格，通常属于这样的类型）此时，我们通常会希望将它们放在别的地方，避免页面空间不够而强行置入这些内容导">
+在实际撰写文稿的过程中，我们可能会碰到一些占据篇幅较大，但同时又不方便分页的内容。（比如图片和表格，通常属于这样的类型）此时，我们通常会希望将它们放在别的地方，避免页面空间不够而强行置入这些">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LaTeX 中的浮动体：基础篇z">
 <meta property="og:url" content="http://peng-howard.github.io/stylus/2017/03/11/floats-in-LaTeX-basic/index.html">
@@ -91,14 +91,14 @@
 <meta property="og:description" content="原文地址：http://liam0205.me/2017/03/11/floats-in-LaTeX-basic/
 此篇介绍一下 LaTeX 中的浮动体基本概念，以及最常见的几个问题。
 1 浮动体是什么
-在实际撰写文稿的过程中，我们可能会碰到一些占据篇幅较大，但同时又不方便分页的内容。（比如图片和表格，通常属于这样的类型）此时，我们通常会希望将它们放在别的地方，避免页面空间不够而强行置入这些内容导">
+在实际撰写文稿的过程中，我们可能会碰到一些占据篇幅较大，但同时又不方便分页的内容。（比如图片和表格，通常属于这样的类型）此时，我们通常会希望将它们放在别的地方，避免页面空间不够而强行置入这些">
 <meta property="og:updated_time" content="2017-04-16T14:09:49.956Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LaTeX 中的浮动体：基础篇z">
 <meta name="twitter:description" content="原文地址：http://liam0205.me/2017/03/11/floats-in-LaTeX-basic/
 此篇介绍一下 LaTeX 中的浮动体基本概念，以及最常见的几个问题。
 1 浮动体是什么
-在实际撰写文稿的过程中，我们可能会碰到一些占据篇幅较大，但同时又不方便分页的内容。（比如图片和表格，通常属于这样的类型）此时，我们通常会希望将它们放在别的地方，避免页面空间不够而强行置入这些内容导">
+在实际撰写文稿的过程中，我们可能会碰到一些占据篇幅较大，但同时又不方便分页的内容。（比如图片和表格，通常属于这样的类型）此时，我们通常会希望将它们放在别的地方，避免页面空间不够而强行置入这些">
 
 
 
@@ -412,7 +412,7 @@
       
 
       
-        <p><strong>原文地址</strong>：<a href="http://liam0205.me/2017/03/11/floats-in-LaTeX-basic/" target="_blank" rel="external">http://liam0205.me/2017/03/11/floats-in-LaTeX-basic/</a></p>
+        <p><strong>原文地址</strong>：<a href="http://liam0205.me/2017/03/11/floats-in-LaTeX-basic/" class="uri" target="_blank" rel="external">http://liam0205.me/2017/03/11/floats-in-LaTeX-basic/</a></p>
 <p>此篇介绍一下 LaTeX 中的浮动体基本概念，以及最常见的几个问题。</p>
 <h1 id="浮动体是什么">1 浮动体是什么</h1>
 <p>在实际撰写文稿的过程中，我们可能会碰到一些占据篇幅较大，但同时又不方便分页的内容。（比如图片和表格，通常属于这样的类型）此时，我们通常会希望将它们<strong>放在别的地方</strong>，避免页面空间不够而强行置入这些内容导致 overfull vbox 或者大片的空白。此外，因为被放在别的地方，所以，我们通常需要对这些内容做一个<strong>简单的描述</strong>，确保读者在看到这些大块的内容时，不至于无从下手去理解。同时，因为此类内容被放在别的地方，所以在文中引述它们时，我们无法用「下图」、「上表」之类的相对位置来引述他们。于是，我们需要对它们进行编号，方便在文中引用。</p>
@@ -444,7 +444,7 @@
 <p>如果希望彻底禁止某个浮动体的浮动效果，可以使用 <code>float</code> 宏包提供的 <code>H</code> 位置选项。</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;float&#125;</span></span></div><div class="line"><span class="comment">% ...</span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;figure&#125;</span><span class="string">[H]</span></span></div><div class="line"><span class="comment">% ...</span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;table&#125;</span><span class="string">[H]</span></span></div><div class="line"><span class="comment">% ...</span></div></pre></td></tr></table></figure>
 <h1 id="浮动体过多报错">3 浮动体过多报错</h1>
-<p>LaTeX 是有<s>底线的</s>上限的。LaTeX 会把所有尚未确定位置的浮动体，放入 <code>\@freelist</code> 中暂存。而 <code>\@freelist</code> 默认情况下，最多能处理 18 个浮动体。因此，在某些极端情况下，如果 LaTeX 暂时无法处理的浮动体数目超过 18 个时，就会报错。</p>
+<p>LaTeX 是有<del>底线的</del>上限的。LaTeX 会把所有尚未确定位置的浮动体，放入 <code>\@freelist</code> 中暂存。而 <code>\@freelist</code> 默认情况下，最多能处理 18 个浮动体。因此，在某些极端情况下，如果 LaTeX 暂时无法处理的浮动体数目超过 18 个时，就会报错。</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">! LaTeX Error: Too many unprocessed floats.</div></pre></td></tr></table></figure>
 <p>此时有两种解决问题的思路：</p>
 <ul>
@@ -597,7 +597,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -608,7 +608,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/stylus/categories/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -619,7 +619,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

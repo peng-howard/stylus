@@ -83,10 +83,15 @@
 <meta name="description" content="原文地址：http://www.latexstudio.net/archives/765
 用listings包排版源代码时通常为了便于说明，会显示代码的行号，但是，我们在文档复制的时候却发现，复制代码的时候，同时会把行号也复制出来了，如下：
 
+
+
+
 我们想实现如下的复制，更便于读者提取文档中的源代码进行相关测试。
 
-我们可以使用accsupp包来实现，具体代码如下：
-123456789101112131">
+
+
+
+我们可以使用accsupp包来实现，具体代码如下：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="语法高亮：如何在文本复制时自动忽略行号z">
 <meta property="og:url" content="http://peng-howard.github.io/stylus/2014/02/04/lstlistings-numbering/index.html">
@@ -94,10 +99,15 @@
 <meta property="og:description" content="原文地址：http://www.latexstudio.net/archives/765
 用listings包排版源代码时通常为了便于说明，会显示代码的行号，但是，我们在文档复制的时候却发现，复制代码的时候，同时会把行号也复制出来了，如下：
 
+
+
+
 我们想实现如下的复制，更便于读者提取文档中的源代码进行相关测试。
 
-我们可以使用accsupp包来实现，具体代码如下：
-123456789101112131">
+
+
+
+我们可以使用accsupp包来实现，具体代码如下：">
 <meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/LaTeX/lstlistings/lstlistings-Numbering-1.png">
 <meta property="og:image" content="http://peng-howard.github.io/stylus/stylus/images/LaTeX/lstlistings/lstlistings-Numbering-2.png">
 <meta property="og:updated_time" content="2017-05-14T13:15:51.266Z">
@@ -106,10 +116,15 @@
 <meta name="twitter:description" content="原文地址：http://www.latexstudio.net/archives/765
 用listings包排版源代码时通常为了便于说明，会显示代码的行号，但是，我们在文档复制的时候却发现，复制代码的时候，同时会把行号也复制出来了，如下：
 
+
+
+
 我们想实现如下的复制，更便于读者提取文档中的源代码进行相关测试。
 
-我们可以使用accsupp包来实现，具体代码如下：
-123456789101112131">
+
+
+
+我们可以使用accsupp包来实现，具体代码如下：">
 <meta name="twitter:image" content="http://peng-howard.github.io/stylus/stylus/images/LaTeX/lstlistings/lstlistings-Numbering-1.png">
 
 
@@ -424,17 +439,23 @@
       
 
       
-        <p><strong>原文地址</strong>：<a href="http://www.latexstudio.net/archives/765" target="_blank" rel="external">http://www.latexstudio.net/archives/765</a></p>
+        <p><strong>原文地址</strong>：<a href="http://www.latexstudio.net/archives/765" class="uri" target="_blank" rel="external">http://www.latexstudio.net/archives/765</a></p>
 <p>用<code>listings</code>包排版源代码时通常为了便于说明，会显示代码的行号，但是，我们在文档复制的时候却发现，复制代码的时候，同时会把行号也复制出来了，如下：</p>
-<p><img src="/stylus/images/LaTeX/lstlistings/lstlistings-Numbering-1.png" alt=""></p>
+<div class="figure">
+<img src="/stylus/images/LaTeX/lstlistings/lstlistings-Numbering-1.png">
+
+</div>
 <p>我们想实现如下的复制，更便于读者提取文档中的源代码进行相关测试。</p>
-<p><img src="/stylus/images/LaTeX/lstlistings/lstlistings-Numbering-2.png" alt=""></p>
+<div class="figure">
+<img src="/stylus/images/LaTeX/lstlistings/lstlistings-Numbering-2.png">
+
+</div>
 <p>我们可以使用<code>accsupp</code>包来实现，具体代码如下：</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">&#123;article&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;xcolor&#125;</span></span><span class="comment">% http://ctan.org/pkg/xcolor</span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;listings&#125;</span></span><span class="comment">% http://ctan.org/pkg/listings</span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;accsupp&#125;</span></span><span class="comment">% http://ctan.org/pkg/accsupp</span></div><div class="line"><span class="tag">\<span class="name">renewcommand</span><span class="string">&#123;\thelstnumber&#125;</span><span class="string">&#123;% Line number printing mechanism</span></span></div><div class="line">	\protect\BeginAccSupp&#123;ActualText=&#123;&#125;&#125;<span class="tag">\<span class="name">arabic</span><span class="string">&#123;lstnumber&#125;</span></span><span class="tag">\<span class="name">protect</span></span><span class="tag">\<span class="name">EndAccSupp</span><span class="string">&#123;&#125;</span></span><span class="comment">%</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="tag">\<span class="name">lstset</span></span></div><div class="line">&#123;</div><div class="line">	language=&#123;[LaTeX]TeX&#125;,</div><div class="line">	numbers=left,</div><div class="line">	numbersep=1em,</div><div class="line">	numberstyle=<span class="tag">\<span class="name">tiny</span></span>,</div><div class="line">	frame=single,</div><div class="line">	framesep=<span class="tag">\<span class="name">fboxsep</span></span>,</div><div class="line">	framerule=<span class="tag">\<span class="name">fboxrule</span></span>,</div><div class="line">	rulecolor=<span class="tag">\<span class="name">color</span><span class="string">&#123;red&#125;</span></span>,</div><div class="line">	xleftmargin=<span class="tag">\<span class="name">dimexpr</span></span><span class="tag">\<span class="name">fboxsep</span></span>+<span class="tag">\<span class="name">fboxrule</span></span><span class="tag">\<span class="name">relax</span></span>,</div><div class="line">	xrightmargin=<span class="tag">\<span class="name">dimexpr</span></span><span class="tag">\<span class="name">fboxsep</span></span>+<span class="tag">\<span class="name">fboxrule</span></span><span class="tag">\<span class="name">relax</span></span>,</div><div class="line">	breaklines=true,</div><div class="line">	basicstyle=<span class="tag">\<span class="name">small</span></span><span class="tag">\<span class="name">tt</span></span>,</div><div class="line">	keywordstyle=<span class="tag">\<span class="name">color</span><span class="string">&#123;blue&#125;</span></span>,</div><div class="line">	commentstyle=<span class="tag">\<span class="name">color</span><span class="string">[rgb]</span><span class="string">&#123;0.13,0.54,0.13&#125;</span></span>,</div><div class="line">	backgroundcolor=<span class="tag">\<span class="name">color</span><span class="string">&#123;yellow!10&#125;</span></span>,</div><div class="line">	tabsize=2,</div><div class="line">	columns=flexible,</div><div class="line">	morekeywords=&#123;maketitle&#125;,</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;lstlisting&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">&#123;article&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;listings&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">title</span><span class="string">&#123;Sample Document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">author</span><span class="string">&#123;John Smith&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">date</span><span class="string">&#123;\today&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">maketitle</span></span></div><div class="line">Hello World!</div><div class="line"><span class="comment">% This is a comment.</span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;lstlisting&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div></pre></td></tr></table></figure>
-<p>需要说明的是，这一效果适用于 Adobe Reader PDF 阅读器，<s>sumatraPDF</s> 不适用，其他阅读器还未测试。</p>
+<p>需要说明的是，这一效果适用于 Adobe Reader PDF 阅读器，<del>sumatraPDF</del> 不适用，其他阅读器还未测试。</p>
 <ul>
-<li><a href="http://tex.stackexchange.com/questions/30783/how-to-make-text-copy-in-pdf-previewers-ignore-lineno-line-numbers" target="_blank" rel="external">http://tex.stackexchange.com/questions/30783/how-to-make-text-copy-in-pdf-previewers-ignore-lineno-line-numbers</a></li>
-<li><a href="http://tex.stackexchange.com/questions/57141/is-there-a-latex-trick-to-prevent-a-pdf-viewer-from-copying-the-line-number" target="_blank" rel="external">http://tex.stackexchange.com/questions/57141/is-there-a-latex-trick-to-prevent-a-pdf-viewer-from-copying-the-line-number</a></li>
+<li><a href="http://tex.stackexchange.com/questions/30783/how-to-make-text-copy-in-pdf-previewers-ignore-lineno-line-numbers" class="uri" target="_blank" rel="external">http://tex.stackexchange.com/questions/30783/how-to-make-text-copy-in-pdf-previewers-ignore-lineno-line-numbers</a></li>
+<li><a href="http://tex.stackexchange.com/questions/57141/is-there-a-latex-trick-to-prevent-a-pdf-viewer-from-copying-the-line-number" class="uri" target="_blank" rel="external">http://tex.stackexchange.com/questions/57141/is-there-a-latex-trick-to-prevent-a-pdf-viewer-from-copying-the-line-number</a></li>
 </ul>
 
       
@@ -494,8 +515,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/stylus/2014/09/22/ss/" rel="prev" title="写给非专业人士看的 Shadowsocks 简介">
-                写给非专业人士看的 Shadowsocks 简介 <i class="fa fa-chevron-right"></i>
+              <a href="/stylus/2014/08/03/pongzi-condition/" rel="prev" title="横截条件">
+                横截条件 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -566,7 +587,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -577,7 +598,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/stylus/categories/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -588,7 +609,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

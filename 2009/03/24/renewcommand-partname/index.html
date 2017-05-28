@@ -81,18 +81,18 @@
 
 
 <meta name="description" content="在documentclass为book时解决方法如下：
-123456789\documentclass[a4paper]&amp;#123;book&amp;#125;\usepackage&amp;#123;ctex,CJKnumb&amp;#125;\renewcommand\thepart&amp;#123;&amp;#125;\renewcommand\partname&amp;#123;第\CJKnumber&amp;#123;\arabic&amp;#12">
+123456789\documentclass[a4paper]&amp;#123;book&amp;#125;\usepackage&amp;#123;ctex,CJKnumb&amp;#125;\renewcommand\thepart&amp;#123;&amp;#125;\renewcommand\partname&amp;#123;第\CJKnumber&amp;#123;\arabic&amp;#1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="renewcommand partname 时的问题">
 <meta property="og:url" content="http://peng-howard.github.io/stylus/2009/03/24/renewcommand-partname/index.html">
 <meta property="og:site_name" content="语千 ~ 刻一">
 <meta property="og:description" content="在documentclass为book时解决方法如下：
-123456789\documentclass[a4paper]&amp;#123;book&amp;#125;\usepackage&amp;#123;ctex,CJKnumb&amp;#125;\renewcommand\thepart&amp;#123;&amp;#125;\renewcommand\partname&amp;#123;第\CJKnumber&amp;#123;\arabic&amp;#12">
+123456789\documentclass[a4paper]&amp;#123;book&amp;#125;\usepackage&amp;#123;ctex,CJKnumb&amp;#125;\renewcommand\thepart&amp;#123;&amp;#125;\renewcommand\partname&amp;#123;第\CJKnumber&amp;#123;\arabic&amp;#1">
 <meta property="og:updated_time" content="2017-03-28T02:39:11.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="renewcommand partname 时的问题">
 <meta name="twitter:description" content="在documentclass为book时解决方法如下：
-123456789\documentclass[a4paper]&amp;#123;book&amp;#125;\usepackage&amp;#123;ctex,CJKnumb&amp;#125;\renewcommand\thepart&amp;#123;&amp;#125;\renewcommand\partname&amp;#123;第\CJKnumber&amp;#123;\arabic&amp;#12">
+123456789\documentclass[a4paper]&amp;#123;book&amp;#125;\usepackage&amp;#123;ctex,CJKnumb&amp;#125;\renewcommand\thepart&amp;#123;&amp;#125;\renewcommand\partname&amp;#123;第\CJKnumber&amp;#123;\arabic&amp;#1">
 
 
 
@@ -410,6 +410,7 @@
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">[a4paper]</span><span class="string">&#123;book&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;ctex,CJKnumb&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">renewcommand</span></span><span class="tag">\<span class="name">thepart</span><span class="string">&#123;&#125;</span></span><span class="tag">\<span class="name">renewcommand</span></span><span class="tag">\<span class="name">partname</span><span class="string">&#123;第\CJKnumber&#123;\arabic&#123;part&#125;</span></span>&#125;部分&#125;</div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;CJK*&#125;</span><span class="string">&#123;GBK&#125;</span><span class="string">&#123;xihei&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">part</span><span class="string">[asfd]</span><span class="string">&#123;test asdf&#125;</span></span></div><div class="line">asdf asdfasfd</div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;CJK*&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div></pre></td></tr></table></figure>
 <p>在<code>documentclass</code>为<code>beamer</code>时解决方法如下(该方法由黄正华老师提供，但要注意选择不同的theme时，要根据实际情况改变<code>partpage</code>中<code>beamercolorbox</code>的具体参数，换句话说，这个解决方法与上面的方法不同，它不具有通用性)：</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">[CJK]</span><span class="string">&#123;beamer&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;CJK,CJKnumb&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usetheme</span><span class="string">&#123;Madrid&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;CJK*&#125;</span><span class="string">&#123;GBK&#125;</span><span class="string">&#123;kai&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">renewcommand</span></span><span class="tag">\<span class="name">partname</span><span class="string">&#123;第\CJKnumber&#123;\value&#123;part&#125;</span></span>&#125;部分&#125;</div><div class="line"><span class="tag">\<span class="name">defbeamertemplate*</span><span class="string">&#123;part page&#125;</span><span class="string">&#123;mypartpage&#125;</span><span class="string">[1]</span><span class="string">[]</span></span> &#123;</div><div class="line">	<span class="tag">\<span class="name">begin</span><span class="string">&#123;centering&#125;</span></span> &#123;</div><div class="line">		<span class="tag">\<span class="name">usebeamerfont</span><span class="string">&#123;part name&#125;</span></span><span class="tag">\<span class="name">usebeamercolor</span><span class="string">[fg]</span><span class="string">&#123;part name&#125;</span></span><span class="tag">\<span class="name">partname</span></span>&#125;</div><div class="line">		<span class="tag">\<span class="name">vskip</span></span>1em<span class="tag">\<span class="name">par</span></span></div><div class="line">		<span class="tag">\<span class="name">begin</span><span class="string">&#123;beamercolorbox&#125;</span><span class="string">[rounded=true,shadow=true,sep=8pt,center,#1]</span><span class="string">&#123;part title&#125;</span></span></div><div class="line">			<span class="tag">\<span class="name">usebeamerfont</span><span class="string">&#123;part title&#125;</span></span><span class="tag">\<span class="name">insertpart</span></span><span class="tag">\<span class="name">par</span></span></div><div class="line">		<span class="tag">\<span class="name">end</span><span class="string">&#123;beamercolorbox&#125;</span></span> </div><div class="line">	<span class="tag">\<span class="name">end</span><span class="string">&#123;centering&#125;</span></span></div><div class="line">&#125;</div><div class="line"><span class="tag">\<span class="name">setbeamertemplate</span><span class="string">&#123;part page&#125;</span><span class="string">[mypartpage]</span><span class="string">[]</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">title</span><span class="string">&#123;test&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">date</span><span class="string">&#123;&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">part</span><span class="string">[asfd]</span><span class="string">&#123;test asdf&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">frame</span><span class="string">&#123;\partpage&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;CJK*&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -537,7 +538,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -548,7 +549,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/stylus/categories/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -559,7 +560,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

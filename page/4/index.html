@@ -296,6 +296,494 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/12/04/cancel-scientific-notation-in-r/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2012/12/04/cancel-scientific-notation-in-r/" itemprop="url">
+                  R中如何取消科学计数法z
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-12-04T00:00:00+08:00">
+                2012-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2012/12/04/cancel-scientific-notation-in-r/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2012/12/04/cancel-scientific-notation-in-r/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>原文地址：<a href="http://bbs.pinggu.org/thread-1403060-1-1.html" class="uri" target="_blank" rel="external">http://bbs.pinggu.org/thread-1403060-1-1.html</a></p>
+<blockquote>
+<p>R应该会自动的把太大和太小的数用科学计数法来表示，一般的数应该就是直接表示吧。</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="number">10</span>^seq(<span class="number">1</span>:<span class="number">5</span>)</div><div class="line">[<span class="number">1</span>] <span class="number">1e+01</span> <span class="number">1e+02</span> <span class="number">1e+03</span> <span class="number">1e+04</span> <span class="number">1e+05</span></div><div class="line">&gt; options(scipen=<span class="number">200</span>)</div><div class="line">&gt; <span class="number">10</span>^seq(<span class="number">1</span>:<span class="number">5</span>)</div><div class="line">[<span class="number">1</span>]     <span class="number">10</span>    <span class="number">100</span>   <span class="number">1000</span>  <span class="number">10000</span> <span class="number">100000</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/11/23/matlab-ezplot-latex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2012/11/23/matlab-ezplot-latex/" itemprop="url">
+                  Matlab画二维图心得
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-11-23T00:00:00+08:00">
+                2012-11-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/Matlab/" itemprop="url" rel="index">
+                    <span itemprop="name">Matlab</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2012/11/23/matlab-ezplot-latex/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2012/11/23/matlab-ezplot-latex/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ol style="list-style-type: decimal">
+<li><code>plot()</code>函数主要用于已有坐标对的连接（包括单个坐标，利用这一点再加上修改<code>MarkSize</code>可以画出指定大小的圆点等各种符号）；</li>
+<li><code>ezplot()</code>既可以画普通函数的图像，也可以画隐函数图像，换句话说，对于给定的函数，<code>ezplot()</code>可以实现<code>plot()</code>的结果；</li>
+<li>根据<code>ezplot()</code>作隐函数图像的原理，<a href="http://www.ilovematlab.cn/thread-21438-1-1.html" class="uri">http://www.ilovematlab.cn/thread-21438-1-1.html</a>给出了一种用<code>ezplot()</code>同时画两条曲线的巧妙方法，但要注意该方法无法将两条曲线区分开来，因此可能会导致利用<code>legend()</code>添加图例的意图无法达到。</li>
+<li>添加多条曲线时要利用好<code>hold on</code>这一语句；</li>
+<li><code>axis</code>的刻度在默认情况下会自动根据给出的最后一次<code>ezplot()</code>进行调整，如果不希望画出的图像为自适应大小，需要在图像绘制完成后，手工指定axis的x轴与y轴最大、最小刻度；</li>
+<li>添加箭头可以用annotation完成，要注意其坐标是相对大小，在<code>[0,1]</code>之间，我个人比较喜欢PSTricks的箭头风格，因此也会考虑在PSTricks中对已生成的图像进行深加工；</li>
+<li>可以将<code>ezplot()</code>和<code>legend()</code>的结果赋给某个变量，再通过<code>set()</code>函数对图像对象或者<code>legend</code>对象进行字体大小、颜色等的操作；</li>
+<li><code>latex()</code>函数可以用于将指定的符号表达式转换成LaTeX语法格式；</li>
+<li><code>sym()</code>函数可以用于将某个数值对象转换成符号表达式以供<code>latex()</code>函数使用；</li>
+<li><code>title</code>、<code>xlabel</code>、<code>ylabel</code>、<code>zlabel</code>、<code>textbox</code>和<code>text</code>等函数可以利用<code>'Interpreter'</code>,<code>'latex'</code>加载LaTeX格式；</li>
+<li>因为<code>Legend</code>没有<code>Interpreter</code>属性，所以如果要在其中使用LaTeX，必须获取对应的文字句柄，并对文字对象设置<code>String</code>和<code>Interpreter</code>属性，关于这一点可以参考：<a href="http://www.mathworks.com/matlabcentral/newsreader/view_thread/254118" class="uri">http://www.mathworks.com/matlabcentral/newsreader/view_thread/254118</a>和<a href="http://sites.google.com/site/sleepingwalking/matlab/latex-in-legend" class="uri">http://sites.google.com/site/sleepingwalking/matlab/latex-in-legend</a>，从下面的示例可以看到，<code>String</code>不一定必要；</li>
+<li>将图像插入LaTeX文档时，建议不要使用<code>pdf</code>格式，而是使用<code>eps</code>格式，否则得到的图像结果锯齿感会比较明显。</li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/stylus/2012/11/23/matlab-ezplot-latex/#more" rel="contents">
+              阅读全文
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/11/21/apsrtable-knitr-latex-table/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2012/11/21/apsrtable-knitr-latex-table/" itemprop="url">
+                  apsrtable在knitr中生成LaTeX表格
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-11-21T00:00:00+08:00">
+                2012-11-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2012/11/21/apsrtable-knitr-latex-table/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2012/11/21/apsrtable-knitr-latex-table/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>原文地址：<a href="http://cos.name/cn/topic/108631" class="uri" target="_blank" rel="external">http://cos.name/cn/topic/108631</a></p>
+<p><code>apsrtable()</code>里有个<code>Sweave</code>参数，若设为<code>TRUE</code>，则生成<code>tabular</code>环境，若为默认的<code>FALSE</code>，则为<code>table</code>环境。</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;table&#125;</span><span class="string">[htbp]</span></span></div><div class="line"><span class="tag">\<span class="name">caption</span><span class="string">&#123;some text&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">label</span><span class="string">&#123;tb:ex&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">centering</span></span></div><div class="line">&lt;&lt;results='asis'&gt;&gt;=</div><div class="line">apsrtable(mod1, mod2, mod3, Sweave = TRUE)</div><div class="line">@</div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;table&#125;</span></span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>Yihui: 这大概就是最好的办法了吧……这参数名干嘛非得叫<code>Sweave</code>，明明意思是<code>tabular.only</code>。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/11/18/matlab-current-default-folder/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -406,19 +894,17 @@
       
         
           
-            <p>原文地址：<a href="http://www.yueye.org/2011/set-matlab-current-default-folder.html" target="_blank" rel="external">http://www.yueye.org/2011/set-matlab-current-default-folder.html</a></p>
+            <p>原文地址：<a href="http://www.yueye.org/2011/set-matlab-current-default-folder.html" class="uri" target="_blank" rel="external">http://www.yueye.org/2011/set-matlab-current-default-folder.html</a></p>
 <p>在我们使用MATLAB的过程中，其<code>Current Folder</code>面板会给我们带来一定的便利性。但遗憾的是，MATLAB自身没有提供友好的设置界面，以供用户自如地设置Current Folder面板上的起始文件夹。这就给我们带来了一定的不便，毕竟每次启动MATLAB后都重新在Current Folder中设置到我们想要的文件夹地址会耗费一定的时间，也会影响我们的心情。</p>
 <p>那么，我们应该如何在MATLAB中设置Current Folder面板上的<strong>起始文件夹</strong>位置呢？</p>
 <p>在以前的MATLAB版本中，我们可以通过右击MATLAB安装目录下MATLAB快捷方式而在其弹出的对话框中通过设置快捷方式的起始位置而对Current Folder面板上的起始文件夹进行设置。但自从MATLAB进入R2010和R2011后，我们已经不能通过这样的设置来实现我们想要的效果。但MATLAB自身提供了另一种方式，虽然不太友好，但毕竟一次设置永久受益，还是让我们来一起设置一下吧。</p>
-<p>首先，思考选择一个你要设置的文件夹路径，比如你可以保持一贯的传统，而设置为“MATLAB\R2011a\work\”文件夹；</p>
+<p>首先，思考选择一个你要设置的文件夹路径，比如你可以保持一贯的传统，而设置为“MATLAB2011a”文件夹；</p>
 <p>接着，让我们进入MATLAB的安装目录下的<code>“MATLAB\R2011a\toolbox\local”</code>文件夹下，在local文件夹下新建一个名为<code>startup</code>的.m文件，在其中输入如下内容：</p>
-<pre><code>cd D:\Program Files\MATLAB\R2011a\work
-</code></pre>
+<pre><code>cd D:\Program Files\MATLAB\R2011a\work</code></pre>
 <p>其中<code>cd</code>后面的内容为你要设置的起始文件夹路径。</p>
 <p>需要注意的是，这里的路径不需要用引号引起来，也不需要做任何处理。编写好<code>startup.m</code>文件并保存后，再次启动MATLAB，可以看到，MATLAB的Current Folder面板上的起始文件夹已经变成了我们设置的路径。</p>
 <p>这里还有一点需要特别说明的是，如果你要设置的<strong>路径包含中文名</strong>，比如<code>“D:\我的文档\MATLAB”</code>，则在编写好如下所示的<code>startup.m</code>文件内容：</p>
-<pre><code>cd D:\我的文档\MATLAB
-</code></pre>
+<pre><code>cd D:\我的文档\MATLAB</code></pre>
 <p>之后，还需要将该文件的编码修改为<code>Unicode</code>，MATLAB才能正常识别，从而你的设置才能正常发挥作用，MATLAB启动时，Current Folder面板上的起始文件夹初始地址才能变成设置的效果。</p>
 
           
@@ -574,11 +1060,11 @@
         
           
             <ul>
-<li>为什么Markdown+R有较大概率成为科技写作主流？<a href="http://www.yangzhiping.com/tech/r-markdown-knitr.html" target="_blank" rel="external">http://www.yangzhiping.com/tech/r-markdown-knitr.html</a></li>
-<li>Markdown语法说明：<a href="http://wowubuntu.com/markdown/" target="_blank" rel="external">http://wowubuntu.com/markdown/</a></li>
-<li>Markdown Wiki：<a href="http://en.wikipedia.org/wiki/Markdown" target="_blank" rel="external">http://en.wikipedia.org/wiki/Markdown</a></li>
-<li>Pandoc：<a href="http://johnmacfarlane.net/pandoc/" target="_blank" rel="external">http://johnmacfarlane.net/pandoc/</a></li>
-<li>如何高效利用GitHub：<a href="http://www.yangzhiping.com/tech/github.html" target="_blank" rel="external">http://www.yangzhiping.com/tech/github.html</a></li>
+<li>为什么Markdown+R有较大概率成为科技写作主流？<a href="http://www.yangzhiping.com/tech/r-markdown-knitr.html" class="uri" target="_blank" rel="external">http://www.yangzhiping.com/tech/r-markdown-knitr.html</a></li>
+<li>Markdown语法说明：<a href="http://wowubuntu.com/markdown/" class="uri" target="_blank" rel="external">http://wowubuntu.com/markdown/</a></li>
+<li>Markdown Wiki：<a href="http://en.wikipedia.org/wiki/Markdown" class="uri" target="_blank" rel="external">http://en.wikipedia.org/wiki/Markdown</a></li>
+<li>Pandoc：<a href="http://johnmacfarlane.net/pandoc/" class="uri" target="_blank" rel="external">http://johnmacfarlane.net/pandoc/</a></li>
+<li>如何高效利用GitHub：<a href="http://www.yangzhiping.com/tech/github.html" class="uri" target="_blank" rel="external">http://www.yangzhiping.com/tech/github.html</a></li>
 </ul>
 
           
@@ -685,8 +1171,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/软件应用/" itemprop="url" rel="index">
-                    <span itemprop="name">软件应用</span>
+                  <a href="/stylus/categories/计算机-软件应用/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机 - 软件应用</span>
                   </a>
                 </span>
 
@@ -738,7 +1224,7 @@
 <li><a href="http://download.microsoft.com/download/B/C/7/BC767024-747D-417A-BFCF-3C0806826140/MicrosoftFixit50154.msi" target="_blank" rel="external">Office 2007 卸载工具下载</a></li>
 <li><a href="http://download.microsoft.com/download/2/1/8/218C926D-9400-43D6-9E81-E236AD9ED2A5/MicrosoftFixit50450.msi" target="_blank" rel="external">Office 2010 卸载工具下载</a></li>
 </ul>
-<p>参考：<a href="http://support.microsoft.com/kb/290301" target="_blank" rel="external">http://support.microsoft.com/kb/290301</a></p>
+<p>参考：<a href="http://support.microsoft.com/kb/290301" class="uri" target="_blank" rel="external">http://support.microsoft.com/kb/290301</a></p>
 
           
         
@@ -892,8 +1378,9 @@
       
         
           
-            <p>原文地址：<a href="http://bbs.ctex.org/viewthread.php?tid=69755" target="_blank" rel="external">http://bbs.ctex.org/viewthread.php?tid=69755</a></p>
+            <p>原文地址：<a href="http://bbs.ctex.org/viewthread.php?tid=69755" class="uri" target="_blank" rel="external">http://bbs.ctex.org/viewthread.php?tid=69755</a></p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">&#123;article&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;amsmath&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">providecommand</span></span><span class="tag">\<span class="name">currentseclabel</span><span class="string">&#123;&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">newcommand</span></span><span class="tag">\<span class="name">seclabel</span><span class="string">[1]</span><span class="string">&#123;</span></span></div><div class="line">  \renewcommand\currentseclabel&#123;#1&#125;<span class="comment">%</span></div><div class="line">  <span class="tag">\<span class="name">label</span><span class="string">&#123;sec:#1&#125;</span></span>&#125;</div><div class="line"><span class="tag">\<span class="name">newcommand</span></span><span class="tag">\<span class="name">secref</span><span class="string">[1]</span><span class="string">&#123;</span></span></div><div class="line">  \ref&#123;sec:#1&#125;&#125;</div><div class="line"><span class="tag">\<span class="name">newcommand</span></span><span class="tag">\<span class="name">eqlabel</span><span class="string">[1]</span><span class="string">&#123;</span></span></div><div class="line">  \label&#123;eq:\currentseclabel:#1&#125;&#125;</div><div class="line"><span class="tag">\<span class="name">let</span></span><span class="tag">\<span class="name">saveeqref</span></span><span class="tag">\<span class="name">eqref</span></span></div><div class="line"><span class="tag">\<span class="name">renewcommand</span></span><span class="tag">\<span class="name">eqref</span><span class="string">[2]</span><span class="string">[\currentseclabel]</span><span class="string">&#123;</span></span></div><div class="line">  \saveeqref&#123;eq:#1:#2&#125;&#125;</div><div class="line"><span class="tag">\<span class="name">newcommand</span></span><span class="tag">\<span class="name">lasteqn</span><span class="string">&#123;(\theequation)&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">section</span><span class="string">&#123;Rectangle&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">seclabel</span><span class="string">&#123;rect&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;equation&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">eqlabel</span><span class="string">&#123;area&#125;</span></span></div><div class="line">A = ab</div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;equation&#125;</span></span>Area formula <span class="tag">\<span class="name">eqref</span><span class="string">&#123;area&#125;</span></span>.Previous equation <span class="tag">\<span class="name">lasteqn</span></span>.<span class="tag">\<span class="name">section</span><span class="string">&#123;Circle&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">seclabel</span><span class="string">&#123;circ&#125;</span></span></div><div class="line"></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;equation&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">eqlabel</span><span class="string">&#123;area&#125;</span></span></div><div class="line">A = <span class="tag">\<span class="name">pi</span></span> r^2</div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;equation&#125;</span></span></div><div class="line"></div><div class="line">Area formula <span class="tag">\<span class="name">eqref</span><span class="string">&#123;area&#125;</span></span>.<span class="tag">\<span class="name">section</span><span class="string">&#123;Summary&#125;</span></span>Area of rectangles see <span class="tag">\<span class="name">eqref</span><span class="string">[rect]</span><span class="string">&#123;area&#125;</span></span> in section~<span class="tag">\<span class="name">secref</span><span class="string">&#123;rect&#125;</span></span>;</div><div class="line">area of circles see <span class="tag">\<span class="name">eqref</span><span class="string">[circ]</span><span class="string">&#123;area&#125;</span></span> in section~<span class="tag">\<span class="name">secref</span><span class="string">&#123;circ&#125;</span></span>.</div><div class="line"></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div></pre></td></tr></table></figure>
+
           
         
       
@@ -1051,7 +1538,7 @@
 </ul>
 <blockquote>
 <p>判断是否已经定义用<code>\ifdefined</code>或者<code>\ifcsname</code>，如果没有eTeX支持也可以用<code>\ifx\foo\undefined</code>或者 LaTeX 内核的<code>\@ifundefined</code>。</p>
-<p>判断是否用过一遍，可以在\foo的定义中设置一个全局变量，然后在后面检测。</p>
+<p>判断是否用过一遍，可以在，然后在后面检测。</p>
 </blockquote>
 <ul>
 <li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=65712" target="_blank" rel="external"><code>\let</code>和<code>\xdef</code>有什么区别？</a></li>
@@ -1060,12 +1547,12 @@
 <p><code>\xdef</code>把定义中的内容完全展开，用来定义一个宏；<code>\let</code>让新宏与旧宏意义相同。<code>\xdef</code>就是<code>\global\edef</code>。<code>\let</code>没有<code>\global</code>的意思。</p>
 </blockquote>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">a</span><span class="string">&#123;foo&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">b</span><span class="string">&#123;\a&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">edef</span></span><span class="tag">\<span class="name">c</span><span class="string">&#123;\b&#125;</span></span> 得到的是 <span class="tag">\<span class="name">c</span></span> -&gt; foo</div><div class="line"><span class="tag">\<span class="name">let</span></span><span class="tag">\<span class="name">d</span></span><span class="tag">\<span class="name">b</span></span>    得到的是 <span class="tag">\<span class="name">d</span></span> -&gt; <span class="tag">\<span class="name">a</span></span></div></pre></td></tr></table></figure>
-<p>一个外链：<a href="http://tex.stackexchange.com/questions/8163/what-is-the-difference-between-let-and-edef" target="_blank" rel="external">What is the difference between \let and \edef</a></p>
+<p>一个外链：<a href="http://tex.stackexchange.com/questions/8163/what-is-the-difference-between-let-and-edef" target="_blank" rel="external">What is the difference between and </a></p>
 <ul>
-<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=4520" target="_blank" rel="external">\renewcommand<code>*</code>的作用</a></li>
+<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=4520" target="_blank" rel="external"><code>*</code>的作用</a></li>
 </ul>
 <blockquote>
-<p><code>\renewcommand</code>所带参数可以包含用\par或空行表示的新段落；<br>
+<p><code>\renewcommand</code>所带参数可以包含用；<br>
 <code>\renewcommand*</code>不行</p>
 </blockquote>
 <ul>
@@ -1081,7 +1568,7 @@
 <p>让制控命令顺序颠倒过来，后面的命令先起作用，下边是一个证明的例子：</p>
 </blockquote>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">test</span><span class="string">&#123;9999&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">makeatletter</span></span></div><div class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">testt</span></span>#1#2#3#4&#123;<span class="tag">\<span class="name">@</span></span>alph&#123;#1&#125;<span class="tag">\<span class="name">@</span></span>Alph&#123;#2&#125;<span class="tag">\<span class="name">@</span></span>Roman&#123;#3&#125;<span class="tag">\<span class="name">@</span></span>roman&#123;#4&#125;&#125;</div><div class="line"><span class="tag">\<span class="name">makeatother</span></span></div><div class="line"><span class="tag">\<span class="name">expandafter</span></span><span class="tag">\<span class="name">testt</span></span><span class="tag">\<span class="name">test</span></span></div></pre></td></tr></table></figure>
-<p>如果不加\expandafter的话：</p>
+<p>如果不加：</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">testt</span></span><span class="tag">\<span class="name">test</span></span></div></pre></td></tr></table></figure>
 <p>就会出错。</p>
 
@@ -1237,13 +1724,12 @@
       
         
           
-            <p>原文地址：<a href="http://hi.baidu.com/zjunmm/blog/item/0915d010d7ce2d175aaf53d1.html" target="_blank" rel="external">http://hi.baidu.com/zjunmm/blog/item/0915d010d7ce2d175aaf53d1.html</a></p>
+            <p>原文地址：<a href="http://hi.baidu.com/zjunmm/blog/item/0915d010d7ce2d175aaf53d1.html" class="uri" target="_blank" rel="external">http://hi.baidu.com/zjunmm/blog/item/0915d010d7ce2d175aaf53d1.html</a></p>
 <p>CTeX 2.9.0.152 下在 Beamer 中使用 <code>theorem</code>, <code>definitioin</code> 环境会出错：</p>
 <pre><code>! Undefined control sequence.
 \trans@languagepath -&gt;\languagename
                                     ,English
-l.226 \end{frame}
-</code></pre>
+l.226 \end{frame}</code></pre>
 <p>解决方法有两种：</p>
 <ul>
 <li>在导言区添加 <code>\usepackage[english]{babel}</code>;</li>
@@ -1402,7 +1888,7 @@ l.226 \end{frame}
       
         
           
-            <p>原文地址：<a href="http://hi.baidu.com/albertleemon/blog/item/a7f4d2e715772926b93820a3.html" target="_blank" rel="external">http://hi.baidu.com/albertleemon/blog/item/a7f4d2e715772926b93820a3.html</a></p>
+            <p>原文地址：<a href="http://hi.baidu.com/albertleemon/blog/item/a7f4d2e715772926b93820a3.html" class="uri" target="_blank" rel="external">http://hi.baidu.com/albertleemon/blog/item/a7f4d2e715772926b93820a3.html</a></p>
 <p>该宏包提供了许多选项，可使脚注命令<code>\footnote{注释}</code>生成多种样式的脚注。其中：</p>
 <ul>
 <li>perpage：为每页脚注单独编号；</li>
@@ -1418,510 +1904,6 @@ l.226 \end{frame}
 <li>norule：取消正文与脚注之间的一条短横线。</li>
 </ul>
 <p>PS：在使用 footmisc 宏包后，如果脚注的编号不对或者编号所在的位置有问题时，再编译一次即可解决。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2011/11/12/pgfpages-slides-4-in-1-changing-margins/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hao Peng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/stylus/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="语千 ~ 刻一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/stylus/2011/11/12/pgfpages-slides-4-in-1-changing-margins/" itemprop="url">
-                  用 pgfpages 生成 slides 的 4 in 1 版式效果
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2011-11-12T00:00:00+08:00">
-                2011-11-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/LaTeX/" itemprop="url" rel="index">
-                    <span itemprop="name">LaTeX</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/stylus/2011/11/12/pgfpages-slides-4-in-1-changing-margins/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2011/11/12/pgfpages-slides-4-in-1-changing-margins/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Getting a 4 in 1 pdf Slides document and “Changing PDF Margins With The pdfpages Package”</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">[a4paper, landscape]</span><span class="string">&#123;article&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">[final]</span><span class="string">&#123;pdfpages&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">includepdf</span><span class="string">[nup=2x2,pages=-, delta=15 15, offset=20 0, frame, scale=0.92,%</span></span></div><div class="line">    turn=false]<span class="string">&#123;slides.pdf&#125;</span></div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></div><div class="line"><span class="comment">% offset=20 0 为偏移横向的内容，给左边留一定的空白用于装订；</span></div><div class="line"><span class="comment">% 不使用 offset 的纵向偏移，否则虽然下方有空白，但天头没有；</span></div><div class="line"><span class="comment">% 解决纵向留空使用了 scale 选项，直接缩小页面的尺寸，产生自动纵向留白。</span></div></pre></td></tr></table></figure>
-<p>用 Beamer 做的 Slides，最刚开始用 Acrobat 打印机生成幻灯片的四合一效果，但发现 Acrobat 打印过程中会对图片的质量造成一定的损伤。</p>
-<p>后来发现<code>psnup</code>工具可以实现<strong>4 in 1</strong>的效果，但试验之后感觉速度和方便程度都很欠缺，需要先将 pdf 文件转换 ps 文件，光是这个过程就太漫长，受不了；另外就是该工具提供的选项看起来不是很舒服。</p>
-<p>最后回想起其实 LaTeX 自带的<code>pgfpages</code>宏包可以完成这个任务，又回头查了了下 Beam User Guide，发现 Beamer 中也尝试过使用该宏包。但是 Beamer 中的<code>\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]</code>类命令我不能直接在 Beamer 之外用，而<code>pgfpages</code>中的<code>delta</code>与<code>offset</code>组合工作还存在问题(见上面的代码注释)，最后发现<code>\includepdf</code>的<code>scale</code>选项配合<code>delta</code>与<code>offset</code>就可以完美的达到想要的效果，问题搞定！</p>
-<p>PS：事实上<code>pgfpages</code>宏包的手册中没有对<code>scale</code>选项进行专门的说明，这个选项其实源于<code>graphicsx</code>宏包的<code>\includegraphic</code>命令，解决上面问题的思路来自下面的资料：</p>
-<ul>
-<li><a href="http://magic.aladdin.cs.cmu.edu/2007/11/13/changing-pdf-margins-with-the-pdfpages-package/" target="_blank" rel="external">http://magic.aladdin.cs.cmu.edu/2007/11/13/changing-pdf-margins-with-the-pdfpages-package/</a></li>
-<li><a href="http://www.tardis.ed.ac.uk/~ajcd/psutils/psnup.html" target="_blank" rel="external">http://www.tardis.ed.ac.uk/~ajcd/psutils/psnup.html</a></li>
-<li><a href="http://apps.hi.baidu.com/share/detail/21414399" target="_blank" rel="external">http://apps.hi.baidu.com/share/detail/21414399</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2011/11/10/word-footnote/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hao Peng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/stylus/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="语千 ~ 刻一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/stylus/2011/11/10/word-footnote/" itemprop="url">
-                  如何在Word中分栏状态下正确的输入脚注？
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2011-11-10T00:00:00+08:00">
-                2011-11-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/软件应用/" itemprop="url" rel="index">
-                    <span itemprop="name">软件应用</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/stylus/2011/11/10/word-footnote/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2011/11/10/word-footnote/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在论文排版中，在题目或作者处插入了脚注后，再对正文分栏时；或者先分栏，再在题目或作者处插入脚注，分栏后的正文就跑到下一页上去了。</p>
-<p>稿件格式的要求示意图如下：</p>
-<p><img src="https://cssdpq.bn1.livefilestore.com/y2pnvi9MBSCA5XA7cPaxPdso3UgOSbD9M7WNk_OXZQZqMJdjGegFSbTLKHaFt7brBL6uqCk-8atcJL5FLAEYjm7kgee4J6h16Q3FA_J3-_QqHg/word-footnote.jpg?psid=1" alt="Word脚注"></p>
-<p>解决方案：</p>
-<ul>
-<li>word 2003：“工具”→“选项”→“兼容性”→“选项”→“按照word 6.x/95/97的方式排放脚注”；</li>
-<li>word 2007：“左上角圆形图标”→“word选项”→“在左边列中点高级”→在右边的“兼容性选项”下点“版式选项”，展开版式选项，勾选按“word 6.x/95/97的方式排安排脚注”。</li>
-</ul>
-<p>经过以上操作后，分栏后，加入脚注或者加入脚注后再分栏，正文跑到第二页的问题就可以解决了。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2011/11/07/latex-solution/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hao Peng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/stylus/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="语千 ~ 刻一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/stylus/2011/11/07/latex-solution/" itemprop="url">
-                  LaTeX问题贴收集
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2011-11-07T00:00:00+08:00">
-                2011-11-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/LaTeX/" itemprop="url" rel="index">
-                    <span itemprop="name">LaTeX</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/stylus/2011/11/07/latex-solution/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2011/11/07/latex-solution/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="各类问题">1 各类问题</h1>
-<ol>
-<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=66884" target="_blank" rel="external">TeX Live 2011 中的 ConTeXt MkIV 配置(包括 Linux 和 Win7)</a></li>
-<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=68146" target="_blank" rel="external">中文书籍模板示例 (《线性代数》的文档类)</a></li>
-<li><a href="http://tex.stackexchange.com/questions/33823/what-does-ifx-1-stand-for" target="_blank" rel="external">What does \ifx\#1\ stand for?</a></li>
-<li><a href="http://tex.stackexchange.com/questions/23860/how-to-include-a-picture-over-two-pages-left-part-on-left-side-right-on-right" target="_blank" rel="external">How to include a picture over two pages, left part on left side, right on right (for books)?</a></li>
-<li><a href="http://stackoverflow.com/questions/2814714/how-to-change-title-in-listings" target="_blank" rel="external">How to change title in listings?</a></li>
-<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=53451" target="_blank" rel="external">代码环境跨页问题(一个比较完善的 Listings 设置示例)</a></li>
-<li><a href="http://blog.sina.com.cn/s/blog_5e16f1770102dqp3.html" target="_blank" rel="external">用listings包实现左边代码右边输出</a></li>
-<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=65152" target="_blank" rel="external">高中数学试卷举例</a></li>
-<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=47672" target="_blank" rel="external">多种期刊的统一模板</a></li>
-<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=27695" target="_blank" rel="external">我的beamer幻灯片模板</a></li>
-<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=30379" target="_blank" rel="external">多子图分页</a></li>
-<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=43574" target="_blank" rel="external">学习底层命令的参考书目</a></li>
-<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=9528" target="_blank" rel="external">如何实现重复</a></li>
-<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=28273" target="_blank" rel="external">抛砖引玉谈“脆弱”</a></li>
-<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=53606" target="_blank" rel="external">LaTeX的循环里面怎样定义命令</a></li>
-<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=68523" target="_blank" rel="external">这种改中文标点 catcode 的方法靠谱么</a></li>
-<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=62688" target="_blank" rel="external">生成可展开的改变大小写命令</a></li>
-</ol>
-<h1 id="重要模块">2 重要模块</h1>
-<ol>
-<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=47893" target="_blank" rel="external">Asymptote 中文资源导引</a></li>
-<li><a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=40680" target="_blank" rel="external">PGF/TikZ 学习帖汇总</a></li>
-</ol>
 
           
         
@@ -2005,7 +1987,7 @@ l.226 \end{frame}
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2016,7 +1998,7 @@ l.226 \end{frame}
             
             <div class="site-state-item site-state-categories">
               <a href="/stylus/categories/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2027,7 +2009,7 @@ l.226 \end{frame}
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

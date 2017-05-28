@@ -62,7 +62,7 @@
 <link href="/stylus/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="LaTeX,Markdown,Mathjax," />
+  <meta name="keywords" content="LaTeX,Markdown,Mathjax,Hexo," />
 
 
 
@@ -81,24 +81,21 @@
 
 
 <meta name="description" content="Mathjax 指令参考：http://docs.mathjax.org/en/latest/tex.html
-1 与Markdown的冲突解决
-原文地址：http://blog.csdn.net/emptyset110/article/details/50123231
-hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的时候下划线_是被escape掉并且换">
+
+提醒：现在通过 Pandoc 解释 Hexo 下的 Markdown，基本上可以保证解释的结果能够与 Mathjax 良好兼容，但要注意 Pandoc 对 LaTeX 语法的支持中，行内公式和行间公式分别用$...$和$$...$$完成，不支持使用\(...\)和\[,...\]语">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo 的 NexT 主题中使用 Mathjax、脚注、表情、pre 环境">
+<meta property="og:title" content="Hexo 的 NexT 主题中的 pre 环境、Mathjax 公式编号">
 <meta property="og:url" content="http://peng-howard.github.io/stylus/2017/03/28/mathjax/index.html">
 <meta property="og:site_name" content="语千 ~ 刻一">
 <meta property="og:description" content="Mathjax 指令参考：http://docs.mathjax.org/en/latest/tex.html
-1 与Markdown的冲突解决
-原文地址：http://blog.csdn.net/emptyset110/article/details/50123231
-hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的时候下划线_是被escape掉并且换">
-<meta property="og:updated_time" content="2017-04-16T18:20:36.064Z">
+
+提醒：现在通过 Pandoc 解释 Hexo 下的 Markdown，基本上可以保证解释的结果能够与 Mathjax 良好兼容，但要注意 Pandoc 对 LaTeX 语法的支持中，行内公式和行间公式分别用$...$和$$...$$完成，不支持使用\(...\)和\[,...\]语">
+<meta property="og:updated_time" content="2017-05-28T14:52:56.393Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo 的 NexT 主题中使用 Mathjax、脚注、表情、pre 环境">
+<meta name="twitter:title" content="Hexo 的 NexT 主题中的 pre 环境、Mathjax 公式编号">
 <meta name="twitter:description" content="Mathjax 指令参考：http://docs.mathjax.org/en/latest/tex.html
-1 与Markdown的冲突解决
-原文地址：http://blog.csdn.net/emptyset110/article/details/50123231
-hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的时候下划线_是被escape掉并且换">
+
+提醒：现在通过 Pandoc 解释 Hexo 下的 Markdown，基本上可以保证解释的结果能够与 Mathjax 良好兼容，但要注意 Pandoc 对 LaTeX 语法的支持中，行内公式和行间公式分别用$...$和$$...$$完成，不支持使用\(...\)和\[,...\]语">
 
 
 
@@ -134,7 +131,7 @@ hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的
 
 
 
-  <title> Hexo 的 NexT 主题中使用 Mathjax、脚注、表情、pre 环境 | 语千 ~ 刻一 </title>
+  <title> Hexo 的 NexT 主题中的 pre 环境、Mathjax 公式编号 | 语千 ~ 刻一 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -328,7 +325,7 @@ hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的
             
             
               
-                Hexo 的 NexT 主题中使用 Mathjax、脚注、表情、pre 环境
+                Hexo 的 NexT 主题中的 pre 环境、Mathjax 公式编号
               
             
           </h1>
@@ -366,8 +363,8 @@ hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/LaTeX/" itemprop="url" rel="index">
-                    <span itemprop="name">LaTeX</span>
+                  <a href="/stylus/categories/计算机-软件应用/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机 - 软件应用</span>
                   </a>
                 </span>
 
@@ -412,51 +409,42 @@ hexo先用marked.js渲染，然后再交给MathJax渲染。在marked.js渲染的
       
 
       
-        <p>Mathjax 指令参考：<a href="http://docs.mathjax.org/en/latest/tex.html" target="_blank" rel="external">http://docs.mathjax.org/en/latest/tex.html</a></p>
-<h1 id="与markdown的冲突解决">1 与Markdown的冲突解决</h1>
-<p>原文地址：<a href="http://blog.csdn.net/emptyset110/article/details/50123231" target="_blank" rel="external">http://blog.csdn.net/emptyset110/article/details/50123231</a></p>
+        <p>Mathjax 指令参考：<a href="http://docs.mathjax.org/en/latest/tex.html" class="uri" target="_blank" rel="external">http://docs.mathjax.org/en/latest/tex.html</a></p>
+<blockquote>
+<p><strong>提醒</strong>：现在通过 Pandoc 解释 Hexo 下的 Markdown，基本上可以保证解释的结果能够与 Mathjax 良好兼容，但要注意 Pandoc 对 LaTeX 语法的支持中，行内公式和行间公式分别用<code>$...$</code>和<code>$$...$$</code>完成，不支持使用<code>\(...\)</code>和<code>\[,...\]</code>语法，当然<code>\begin{equation}...\end{equation}</code>还是可以正常使用的。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="支持带编号的公式">1 支持带编号的公式</h1>
+<p>在原有的<code>themes\next\layout\_third-party.mathjax.swig</code>中添加如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/x-mathjax-config&quot;&gt;</div><div class="line">   MathJax.Hub.Config(&#123;</div><div class="line">       TeX: &#123;equationNumbers: &#123;autoNumber: [&quot;AMS&quot;], useLabelIds: true&#125;&#125;,</div><div class="line">       &quot;HTML-CSS&quot;: &#123;linebreaks: &#123;automatic: true&#125;&#125;,</div><div class="line">       SVG: &#123;linebreaks: &#123;automatic: true&#125;&#125;</div><div class="line">   &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>之后可以像 LaTeX 一样添加<code>\label{}</code>以及<code>\eqref{}, \ref{}</code>。</p>
+<h1 id="pre-环境">2 pre 环境</h1>
+<p>本模板提供了一个<code>&lt;pre class=&quot;white&quot;&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;</code>的环境用于生成背景为白色的代码环境，注意<code>&lt;pre&gt;</code>与<code>&lt;code&gt;</code>之间可以换行，但<code>&lt;code&gt;</code>与文本之间要紧密相联；还提供了<code>&lt;pre class=&quot;center&quot;&gt;&lt;/pre&gt;</code>用于生成文字居中效果，不需要在行与行之间换行！</p>
+<p>由于<code>&gt;</code>和<code>```</code>生成的代码与 html 中的<code>&lt;pre&gt;</code>没有关系，因此无法通过 Pandoc 提供的代码额外属性添加功能添加<code>center</code>或者<code>white</code>，只能用手工方法自己添加 html 来生成上面两种特殊的<code>&lt;pre&gt;</code>环境，普通的<code>&lt;pre&gt;&lt;code&gt;</code>通过缩进 4 个空格的方式完成。</p>
+<p>下面是<code>emoji</code>和<code>脚注</code>的示例（注意用<code>```…```</code>生成的代码有行号，而用 4 个空格生成的没有。）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">:smile: :smirk: :relieved:</div><div class="line"></div><div class="line">Here is an inline note.^[Inlines notes are easier to write, since</div><div class="line">you don&apos;t have to pick an identifier and move down to type the</div><div class="line">note.]</div><div class="line"></div><div class="line">Here is a footnote reference,[^1] and another.[^longnote]</div><div class="line"> </div><div class="line">[^1]: Here is the footnote.</div><div class="line"> </div><div class="line">[^longnote]: Here&apos;s one with multiple blocks.</div><div class="line"> </div><div class="line">	Subsequent paragraphs are indented to show that they</div><div class="line">belong to the previous footnote.</div></pre></td></tr></table></figure>
+<p>这个例子中，“Subsequent…”也是脚注的一部分，因此脚注的结束符号将在“footnote.”之后。</p>
+<blockquote>
+<p><strong>提醒</strong>：与 Hexo 默认的 Markdown 引擎相比，<a href="https://github.com/celsomiranda/hexo-renderer-markdown-it" target="_blank" rel="external">Markdown-it</a> 引擎要严格一些：默认的引擎可以解释 html 中的 md 部分，但 Markdown-it 在遇到 html 中的 md 时，会跳过去。当然，不选择默认引擎的重要原因是默认引擎没有脚注支持。</p>
+</blockquote>
+<hr>
+<ol style="list-style-type: decimal">
+<li>根据<a href="/stylus/2017/04/17/Hexo/">这篇博客</a>的解释，原生的 Markdown 支持的内容最少，在 Pandoc 的 Markdown 扩展中，除了<code>&lt;script&gt;, &lt;style&gt;</code>之间的 html 内容，其它部分 html 中的 markdown 都可以得到正常的解释。因此上面提醒中的笔记实际上是非常不准确的；</li>
+<li><code>emoji</code>只在<code>Markdown-it</code>中可以得到支持，在 Pandoc 中并不支持。</li>
+</ol>
+<hr>
+<h1 id="与-markdown-的冲突解决使用-pandoc-后不再有问题">3 与 Markdown 的冲突解决（使用 Pandoc 后不再有问题）</h1>
+<p>原文地址：http://blog.csdn.net/emptyset110/article/details/50123231</p>
 <p>hexo先用<code>marked.js</code>渲染，然后再交给MathJax渲染。在<code>marked.js</code>渲染的时候下划线<code>_</code>是被escape掉并且换成了<code>&lt;em&gt;</code>标签，即斜体字，另外LaTeX中的<code>\\</code>也会被转义成一个<code>\</code>，这样会导致MathJax渲染时不认为它是一个换行符了。</p>
-<p>修改<code>marked.js</code>源码的方式来避开这些问题</p>
-<ul>
-<li>针对下划线的问题，取消<code>_</code>作为斜体转义，因为<code>marked.js</code>中<code>*</code>也是斜体的意思，所以取消掉<code>_</code>的转义并不影响我们使用markdown，只要我们习惯用<code>*</code>作为斜体字标记就行了。</li>
-<li>针对<code>marked.js</code>与Mathjax对于个别字符二次转义的问题，我们只要不让<code>marked.js</code>去转义<code>\\,\{,\}</code>在MathJax中有特殊用途的字符就行了。</li>
-</ul>
+<p>修改<code>marked.js</code>源码的方式来避开这些问题 - 针对下划线的问题，取消<code>_</code>作为斜体转义，因为<code>marked.js</code>中<code>*</code>也是斜体的意思，所以取消掉<code>_</code>的转义并不影响我们使用markdown，只要我们习惯用<code>*</code>作为斜体字标记就行了。 - 针对<code>marked.js</code>与Mathjax对于个别字符二次转义的问题，我们只要不让<code>marked.js</code>去转义<code>\\,\{,\}</code>在MathJax中有特殊用途的字符就行了。</p>
 <p>具体修改方式，用编辑器打开<code>marked.js</code>（在<code>./node_modules/marked/lib/</code>中），将其中的：</p>
 <pre><code>escape: /^\\([\\`*{}\[\]()# +\-.!_&gt;])/,1
-em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,1
-</code></pre>
+em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,1</code></pre>
 <p>替换成：</p>
 <pre class="white">
 <code>escape: /^\\([`*\[\]()# +\-.!_>])/,1
 em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</code>
 </pre>
-<h1 id="支持带编号的公式">2 支持带编号的公式</h1>
-<p>在原有的<code>themes\next\layout\_third-party.mathjax.swig</code>中添加如下内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/x-mathjax-config&quot;&gt;</div><div class="line">   MathJax.Hub.Config(&#123;</div><div class="line">       TeX: &#123;equationNumbers: &#123;autoNumber: [&quot;AMS&quot;], useLabelIds: true&#125;&#125;,</div><div class="line">       &quot;HTML-CSS&quot;: &#123;linebreaks: &#123;automatic: true&#125;&#125;,</div><div class="line">       SVG: &#123;linebreaks: &#123;automatic: true&#125;&#125;</div><div class="line">   &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>之后可以像 LaTeX 一样添加<code>\label{}</code>以及<code>\eqref{}, \ref{}</code>。</p>
-<h1 id="其它内容">3 其它内容</h1>
-<p>本模板提供了一个<code>&lt;pre class=&quot;white&quot;&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;</code>的环境用于生成背景为白色的代码环境，注意<code>&lt;pre&gt;</code>与<code>&lt;code&gt;</code>之间可以换行，但<code>&lt;code&gt;</code>与文本之间要紧密相联；还提供了<code>&lt;pre class=&quot;center&quot;&gt;&lt;/pre&gt;</code>用于生成文字居中效果，不需要在行与行之间换行！</p>
-<p>下面是 emoji 和脚注的示例（注意用```...```生成的代码有行号，而用 4 个空格生成的没有。）：</p>
-<pre class="white">
-:smile: :smirk: :relieved:
-
-Here is an inline note.^[Inlines notes are easier to write, since
-you don't have to pick an identifier and move down to type the
-note.]
-
-Here is a footnote reference,[^1] and another.[^longnote]
- 
-[^1]: Here is the footnote.
- 
-[^longnote]: Here's one with multiple blocks.
- 
-	Subsequent paragraphs are indented to show that they
-belong to the previous footnote.
-</pre>
-<p>这个例子中，“Subsequent...”也是脚注的一部分，因此脚注的结束符号将在“footnote.”之后。</p>
-<blockquote>
-<p><strong>提醒</strong>：与 Hexo 默认的 Markdown 引擎相比，<a href="https://github.com/celsomiranda/hexo-renderer-markdown-it" target="_blank" rel="external">Markdown-it</a> 引擎要严格一些：默认的引擎可以解释 html 中的 md 部分，但 Markdown-it 在遇到 html 中的 md 时，会跳过去。当然，不选择默认引擎的重要原因是默认引擎没有脚注支持。</p>
-</blockquote>
 
       
     </div>
@@ -491,6 +479,8 @@ belong to the previous footnote.
             <a href="/stylus/tags/Markdown/" rel="tag"><i class="fa fa-fw fa-tag"></i> Markdown</a>
           
             <a href="/stylus/tags/Mathjax/" rel="tag"><i class="fa fa-fw fa-tag"></i> Mathjax</a>
+          
+            <a href="/stylus/tags/Hexo/" rel="tag"><i class="fa fa-fw fa-tag"></i> Hexo</a>
           
         </div>
       
@@ -594,7 +584,7 @@ belong to the previous footnote.
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -605,7 +595,7 @@ belong to the previous footnote.
             
             <div class="site-state-item site-state-categories">
               <a href="/stylus/categories/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -616,7 +606,7 @@ belong to the previous footnote.
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -705,7 +695,7 @@ belong to the previous footnote.
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#与markdown的冲突解决"><span class="nav-text">1 与Markdown的冲突解决</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#支持带编号的公式"><span class="nav-text">2 支持带编号的公式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其它内容"><span class="nav-text">3 其它内容</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#支持带编号的公式"><span class="nav-text">1 支持带编号的公式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pre-环境"><span class="nav-text">2 pre 环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#与-markdown-的冲突解决使用-pandoc-后不再有问题"><span class="nav-text">3 与 Markdown 的冲突解决（使用 Pandoc 后不再有问题）</span></a></li></ol></div>
             
 
           </div>
@@ -834,7 +824,7 @@ belong to the previous footnote.
         var disqus_config = function () {
           this.page.url = 'http://peng-howard.github.io/stylus/stylus/2017/03/28/mathjax/';
           this.page.identifier = '2017/03/28/mathjax/';
-          this.page.title = 'Hexo 的 NexT 主题中使用 Mathjax、脚注、表情、pre 环境';
+          this.page.title = 'Hexo 的 NexT 主题中的 pre 环境、Mathjax 公式编号';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://peng-howard-github-io.disqus.com/embed.js';

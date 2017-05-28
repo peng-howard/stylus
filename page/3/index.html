@@ -296,6 +296,513 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2013/06/16/CSS-block-inline/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2013/06/16/CSS-block-inline/" itemprop="url">
+                  CSS: block、inline 和 inline-block 概念和区别z
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-06-16T00:00:00+08:00">
+                2013-06-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/计算机-网页编程/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机 - 网页编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2013/06/16/CSS-block-inline/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2013/06/16/CSS-block-inline/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>原文地址</strong>：<a href="http://www.cnblogs.com/KeithWang/p/3139517.html" class="uri" target="_blank" rel="external">http://www.cnblogs.com/KeithWang/p/3139517.html</a></p>
+<h1 id="总体概念">1 总体概念</h1>
+<ol style="list-style-type: decimal">
+<li><strong>block</strong>和<strong>inline</strong>这两个概念是简略的说法，完整确切的说应该是 block-level elements (<strong>块级元素</strong>) 和 inline elements (<strong>内联元素</strong>)。block元素通常被现实为独立的一块，会单独换一行；inline元素则前后不会产生换行，一系列inline元素都在一行内显示，直到该行排满。</li>
+<li>大体来说HTML元素各有其自身的布局级别（block元素还是inline元素）：
+<ul>
+<li>常见的块级元素有<code>DIV, FORM, TABLE, P, PRE, H1~H6, DL, OL, UL</code>等。</li>
+<li>常见的内联元素有<code>SPAN, A, STRONG, EM, LABEL, INPUT, SELECT, TEXTAREA, IMG, BR</code>等。</li>
+</ul></li>
+<li>block元素可以包含block元素和inline元素；但inline元素只能包含inline元素。要注意的是这个是个大概的说法，每个特定的元素能包含的元素也是特定的，所以具体到个别元素上，这条规律是不适用的。比如<code>P</code>元素，只能包含inline元素，而不能包含block元素。</li>
+<li>一般来说，可以通过<code>display:inline</code>和<code>display:block</code>的设置，改变元素的布局级别。</li>
+</ol>
+<h1 id="blockinline和inline-block细节对比">2 block，inline和inline-block细节对比</h1>
+<h2 id="displayblock">2.1 display:block</h2>
+<ol style="list-style-type: decimal">
+<li>block元素会独占一行，多个block元素会各自新起一行。默认情况下，block元素宽度自动填满其父元素宽度。</li>
+<li>block元素可以设置<code>width, height</code>属性。块级元素即使设置了宽度,仍然是独占一行。</li>
+<li>block元素可以设置<code>margin</code>和<code>padding</code>属性。</li>
+</ol>
+<h2 id="displayinline">2.2 display:inline</h2>
+<ol style="list-style-type: decimal">
+<li>inline元素不会独占一行，多个相邻的行内元素会排列在同一行里，直到一行排列不下，才会新换一行，其宽度随元素的内容而变化。</li>
+<li>inline元素设置width,height属性无效。</li>
+<li>inline元素的margin和padding属性，水平方向的padding-left, padding-right, margin-left, margin-right都产生边距效果；但竖直方向的padding-top, padding-bottom, margin-top, margin-bottom不会产生边距效果。</li>
+</ol>
+<h2 id="displayinline-block新重要">2.3 display:inline-block（新、重要）</h2>
+<p>简单来说就是将对象呈现为inline对象，但是对象的内容作为block对象呈现。之后的内联对象会被排列在同一行内。比如我们可以给一个link（<code>a</code>元素）inline-block属性值，使其既具有block的宽度高度特性又具有inline的同行特性。</p>
+<h1 id="补充说明">3 补充说明</h1>
+<p>一般我们会用<code>display:block，display:inline</code>或者<code>display:inline-block</code>来调整元素的布局级别，其实<code>isplay</code>的参数远远不止这三种，仅仅是比较常用而已。</p>
+<p>IE（低版本IE）本来是不支持<code>inline-block</code>的，所以在IE中对内联元素使用<code>display:inline-block</code>，理论上IE是不识别的，但使用<code>display:inline-block</code>在IE下会触发<code>layout</code>，从而使内联元素拥有了<code>display:inline-block</code>属性的表象。</p>
+<p><code>input</code>元素是<code>inline-block</code>元素，所以设置宽高可用。可以使用<code>window.getComputedStyle()</code>这个方法拿到<code>input</code>元素的<code>display</code>属性试一下。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2013/06/09/r-packages-introduction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2013/06/09/r-packages-introduction/" itemprop="url">
+                  R的应用领域包介绍z
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-06-09T00:00:00+08:00">
+                2013-06-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2013/06/09/r-packages-introduction/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2013/06/09/r-packages-introduction/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="analysis-of-pharmacokinetic-data-药物代谢动力学数据分析">1 Analysis of Pharmacokinetic Data 药物(代谢)动力学数据分析</h1>
+<ul>
+<li><strong>网址</strong>：<a href="http://cran.r-project.org/web/views/Pharmacokinetics.html" class="uri">http://cran.r-project.org/web/views/Pharmacokinetics.html</a></li>
+<li><strong>维护人员</strong>：Suzette Blanchard</li>
+<li><strong>版本</strong>：2008-02-15</li>
+<li><strong>翻译</strong>：R-fox, 2008-04-12</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/stylus/2013/06/09/r-packages-introduction/#more" rel="contents">
+              阅读全文
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2013/06/03/conflict-between-disqus-and-mathjax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/stylus/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="语千 ~ 刻一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/stylus/2013/06/03/conflict-between-disqus-and-mathjax/" itemprop="url">
+                  Disqus 与 Mathjax 可能有冲突
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-06-03T00:00:00+08:00">
+                2013-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/stylus/categories/计算机-软件应用/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机 - 软件应用</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/stylus/2013/06/03/conflict-between-disqus-and-mathjax/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2013/06/03/conflict-between-disqus-and-mathjax/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>注</strong>：到 2017 年时，这个问题已经不再是问题，一切都因为有了 Pandoc。</p>
+<p>在系统中添加 Mathjax 支持的时候，发现如果 LaTeX 公式与 Disqus 评论系统同时存在，会导致如下的错误</p>
+<blockquote>
+<p>This page is forcing your browser to use legacy mode, which is not compatible with Disqus. Please see our troubleshooting guide to get more information about this error.</p>
+</blockquote>
+<p>这个错误在 IE8.0 中出现，但在 Firefox 21 中却不存在，初步怀疑是 Mathjax 调用<code>Mootools 1.4.5</code>而导致，具体见<a href="http://wordpress.org/support/topic/disqus-browser-legacy-error" class="uri" target="_blank" rel="external">http://wordpress.org/support/topic/disqus-browser-legacy-error</a>。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2013/04/26/Math-version-bold-not-defined/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -407,11 +914,9 @@
         
           
             <p>使用 Y &amp; Y Mathtime 字体，用 XeLaTeX 编译，提示：</p>
-<pre><code>“Error: Math version `bold' is not defined.”
-</code></pre>
+<pre><code>“Error: Math version `bold&#39; is not defined.”</code></pre>
 <p>解决方法是在导言区添加：</p>
-<pre><code>\DeclareMathVersion{bold}
-</code></pre>
+<pre><code>\DeclareMathVersion{bold}</code></pre>
 
           
         
@@ -565,12 +1070,11 @@
       
         
           
-            <p>从<a href="http://web.mit.edu/ghudson/dev/nokrb/third/tetex/texmf/doc/help/faq/uktug-faq/FAQ271.html" target="_blank" rel="external">http://web.mit.edu/ghudson/dev/nokrb/third/tetex/texmf/doc/help/faq/uktug-faq/FAQ271.html</a>给出的结果看，遇到如下的情况时：</p>
+            <p>从<a href="http://web.mit.edu/ghudson/dev/nokrb/third/tetex/texmf/doc/help/faq/uktug-faq/FAQ271.html" class="uri" target="_blank" rel="external">http://web.mit.edu/ghudson/dev/nokrb/third/tetex/texmf/doc/help/faq/uktug-faq/FAQ271.html</a>给出的结果看，遇到如下的情况时：</p>
 <pre><code>! Missing number, treated as zero.
 
                    \relax
-l.21 \begin{Ventry}{Return values}
-</code></pre>
+l.21 \begin{Ventry}{Return values}</code></pre>
 <p>很可能添加<code>calc</code>宏包的支持就可能可以解决问题，至少我确实解决了。</p>
 
           
@@ -724,42 +1228,19 @@ l.21 \begin{Ventry}{Return values}
 
       
         
-          
-            <h1 id="eval函数用法简介">1 eval函数用法简介</h1>
-<p>原文地址：<a href="http://www.ilovematlab.cn/thread-53554-1-1.html" target="_blank" rel="external">http://www.ilovematlab.cn/thread-53554-1-1.html</a></p>
+          <h1 id="eval函数用法简介">1 eval函数用法简介</h1>
+<p>原文地址：<a href="http://www.ilovematlab.cn/thread-53554-1-1.html" class="uri">http://www.ilovematlab.cn/thread-53554-1-1.html</a></p>
 <p><code>eval(expression)</code>用于执行其参数中包含的<code>expression</code>。例如，把<code>August1.mat</code>到<code>August3.mat</code>加载到<code>MATLAB workspace</code>：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> d=<span class="number">1</span>:<span class="number">3</span></div><div class="line">   s = [<span class="string">'load August'</span> int2str(d) <span class="string">'.mat'</span>]</div><div class="line">   eval(s)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
 <p>上面的部分代码也可以写成<code>s = ['load August', int2str(d), '.mat']</code>，也就是中间用逗号隔开，这样才能把三部分合成一个字符串，以下是被执行的<code>s</code>语句：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">s =</div><div class="line">   load August1.mat</div><div class="line">s =</div><div class="line">   load August2.mat</div><div class="line">s =</div><div class="line">   load August3.mat</div></pre></td></tr></table></figure>
-<h1 id="feval函数用法简介">2 feval函数用法简介</h1>
-<p>原文地址：<a href="http://www.madio.net/thread-170200-1-1.html" target="_blank" rel="external">http://www.madio.net/thread-170200-1-1.html</a></p>
-<p><code>[y1,..,yn] = FEVAL(F,x1,...,xn)</code>，<code>F</code>是需要使用函数的函数名，或者句柄(见下面程序注释)；<code>xi</code>是函数的参数，<code>yi</code>是函数的返回值。</p>
-<p>举例，假设需要调用的函数<code>foo</code>定义如下：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span>=<span class="title">foo</span><span class="params">(a,b)</span></span></div><div class="line">x=a*b;</div></pre></td></tr></table></figure>
-<p>若在<code>main</code>函数中用<code>feval</code>调用<code>foo</code>，可以有以下几种方式：</p>
-<blockquote>
-<ol>
-<li><code>result=feval('foo',3,15);</code></li>
-<li><code>result=feval(@foo,3,16); % 这里@foo是函数foo的句柄</code></li>
-<li>若调用的函数要作为<code>main</code>的参数，则</li>
-</ol>
-</blockquote>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">result</span>=<span class="title">main</span><span class="params">(f)</span></span></div><div class="line">result=feval(f,<span class="number">3</span>,<span class="number">10</span>);</div></pre></td></tr></table></figure>
-<p>然后调用<code>main</code>时将<code>'foo'</code>传入即可：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;main(<span class="string">'foo'</span>);</div></pre></td></tr></table></figure>
-<h1 id="feval和eval的区别">3 feval和eval的区别</h1>
-<p>原文地址：<a href="http://powerelite.blog.163.com/blog/static/42965891201272725641245/" target="_blank" rel="external">http://powerelite.blog.163.com/blog/static/42965891201272725641245/</a></p>
-<p><code>feval</code>和<code>eval</code>运行区别之一：<code>feval</code>的<code>FN</code>不能是表达式，其<code>FN</code><strong>只接受函数名</strong>。函数<code>eval</code>给MATLAB提供<strong>宏</strong>的能力，该函数提供了将用户创建的函数名传给其它函数能力，以便求值。函数<code>feval</code>与<code>eval</code>类似，但在用法上有更多的限制。<code>feval('fun',x)</code>求由字符串<code>'fun'</code>给定的函数值，其输入参量是变量<code>x</code>，即<code>feval_r('fun',x)</code>等价于求<code>fun(x)</code>值，注意下面代码中的运行错误解决方法见上面<code>feval</code>函数的三种使用方法。</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">format short</div><div class="line">x=<span class="built_in">pi</span>/<span class="number">4</span>;</div><div class="line">Ve=eval(<span class="string">'1+sin(x)'</span>) </div><div class="line">Ve =</div><div class="line">    <span class="number">1.7071</span> </div><div class="line">Vf=feval(<span class="string">'1+sin(x)'</span>,x) </div><div class="line">??? Error using ==&gt; feval</div><div class="line">Invalid <span class="function"><span class="keyword">function</span> <span class="title">name</span> '1+<span class="title">sin</span><span class="params">(x)</span>'.</span></div></pre></td></tr></table></figure>
-<h1 id="关于带参数的积分问题">4 关于带参数的积分问题</h1>
-<p>原文地址：<a href="http://forum.chinavib.com/thread-42369-1-1.html" target="_blank" rel="external">http://forum.chinavib.com/thread-42369-1-1.html</a></p>
-<p>有不少人常问带参数的积分问题该如何处理,现举一个例子，希望能起到抛砖引玉的作用。</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">%%%--------------------------------------------%%%</span></div><div class="line">例如以下问题:</div><div class="line">函数为 y=<span class="built_in">sin</span>(k.*x).*x.^<span class="number">2</span>，对x积分，</div><div class="line">积分区域为【<span class="number">1</span>，<span class="number">5</span>】，目的是要画 k 和 y 的图形.</div><div class="line"><span class="comment">%%%============================================%%%</span></div><div class="line"><span class="comment">%%% 作k的一个循环, k作为 inline函数的参数即可.</span></div><div class="line">clear all</div><div class="line">k=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">5</span>);</div><div class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="built_in">length</span>(k)</div><div class="line">    kk=k(<span class="built_in">i</span>);</div><div class="line">    fun=strcat(<span class="string">'sin('</span>,num2str(kk),<span class="string">'*x).*x.^2'</span>);</div><div class="line">    y(<span class="built_in">i</span>)=quadl(inline(fun),<span class="number">1</span>,<span class="number">5</span>);</div><div class="line"><span class="keyword">end</span></div><div class="line">plot(k,y)</div><div class="line"><span class="comment">%%%============================================%%%</span></div></pre></td></tr></table></figure>
-<p><strong>注意</strong>：这个程序的特别意义在于，对于任何复杂的、无显式积分表达式的带参数积分问题具有通用性，我主要是针对此而写的。</p>
-<h1 id="matlab中函数调用及feval函数-带参数积分问题">5 Matlab中函数调用及feval函数，带参数积分问题</h1>
-<p>原文地址：<a href="http://www.ilovematlab.cn/thread-36666-1-1.html" target="_blank" rel="external">http://www.ilovematlab.cn/thread-36666-1-1.html</a></p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">InlineSubAnonymousNestedDemo</span></span></div><div class="line"><span class="comment">% 带参数的积分问题</span></div><div class="line"><span class="comment">% 例如</span></div><div class="line"><span class="comment">% 函数为 y=sin(k.*x).*x.^2，对x积分，</span></div><div class="line"><span class="comment">% 积分区域为【1，5】，目的是要画 k 和 y 的图形.</span></div><div class="line"><span class="comment">% 例子意义在于,对于一些复杂的、无显式积分表达式的带参数积分问题具有通用性</span></div><div class="line"><span class="comment">% 问题来源于振动论坛原xjzuo版主发的一个帖子；</span></div><div class="line"><span class="comment">% 原帖地址：http://www.chinavib.com/forum/thread-42369-1-2.html%% 用inline解决</span></div><div class="line">tic;</div><div class="line">k=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">5</span>);</div><div class="line">y1 = <span class="built_in">zeros</span>(<span class="built_in">size</span>(k));</div><div class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="built_in">length</span>(k)</div><div class="line">    kk=k(<span class="built_in">i</span>);</div><div class="line">    fun=inline([<span class="string">'sin('</span>,num2str(kk),<span class="string">'*x).*x.^2'</span>]);</div><div class="line">    y1(<span class="built_in">i</span>)=quadl(fun,<span class="number">0</span>,<span class="number">5</span>);</div><div class="line"><span class="keyword">end</span></div><div class="line">time = toc;</div><div class="line"><span class="built_in">disp</span>([<span class="string">'用inline方法的时间是：'</span>,num2str(time),<span class="string">'秒!'</span>])<span class="comment">%% 用anonymous function 解决</span></div><div class="line">tic;</div><div class="line">f=@(k) quadl(@(x)  <span class="built_in">sin</span>(k.*x).*x.^<span class="number">2</span>,<span class="number">0</span>,<span class="number">5</span>);</div><div class="line">kk=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">5</span>);</div><div class="line">y2=<span class="built_in">zeros</span>(<span class="built_in">size</span>(kk));</div><div class="line"><span class="keyword">for</span> ii=<span class="number">1</span>:<span class="built_in">length</span>(kk)</div><div class="line">y2(ii)=f(kk(ii));</div><div class="line"><span class="keyword">end</span></div><div class="line">time = toc;</div><div class="line"><span class="built_in">disp</span>([<span class="string">'用anonymous function方法的时间是：'</span>,num2str(time),<span class="string">'秒!'</span>])<span class="comment">%% 用nested function解决</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">y</span> = <span class="title">ParaInteg</span><span class="params">(k)</span></span></div><div class="line">y=quadl(@(x) <span class="built_in">sin</span>(k.*x).*x.^<span class="number">2</span> ,<span class="number">0</span>,<span class="number">5</span>);</div><div class="line"><span class="keyword">end</span></div><div class="line">tic;</div><div class="line">kk=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">5</span>);</div><div class="line">y3=<span class="built_in">zeros</span>(<span class="built_in">size</span>(kk));</div><div class="line"><span class="keyword">for</span> ii=<span class="number">1</span>:<span class="built_in">length</span>(kk)</div><div class="line">y3(ii)=ParaInteg(kk(ii));</div><div class="line"><span class="keyword">end</span></div><div class="line">time = toc;</div><div class="line"><span class="built_in">disp</span>([<span class="string">'用nested function方法的时间是：'</span>,num2str(time),<span class="string">'秒!'</span>])<span class="comment">%% 用 arrayfun + anonymous function 解决</span></div><div class="line">tic;y4 = arrayfun(@(k) quadl(@(x)  <span class="built_in">sin</span>(k.*x).*x.^<span class="number">2</span>,<span class="number">0</span>,<span class="number">5</span>),<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">5</span>));time = toc;</div><div class="line"><span class="built_in">disp</span>([<span class="string">'用arrayfun + anonymous function方法的时间是：'</span>,num2str(time),<span class="string">'秒!'</span>])</div><div class="line">plot(kk,y2);</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/stylus/2012/12/07/matlab-eval-feval/#more" rel="contents">
+              阅读全文
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -801,7 +1282,7 @@ l.21 \begin{Ventry}{Return values}
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/12/05/r-string-grep/">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/12/05/r-reg-exp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hao Peng">
@@ -823,8 +1304,8 @@ l.21 \begin{Ventry}{Return values}
             
               
                 
-                <a class="post-title-link" href="/stylus/2012/12/05/r-string-grep/" itemprop="url">
-                  R中字符串处理和grep的用法z
+                <a class="post-title-link" href="/stylus/2012/12/05/r-reg-exp/" itemprop="url">
+                  R中正则表达式简介z
                 </a>
               
             
@@ -863,8 +1344,8 @@ l.21 \begin{Ventry}{Return values}
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/R/" itemprop="url" rel="index">
-                    <span itemprop="name">R</span>
+                  <a href="/stylus/categories/计算机-正则表达式/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机 - 正则表达式</span>
                   </a>
                 </span>
 
@@ -881,9 +1362,9 @@ l.21 \begin{Ventry}{Return values}
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/stylus/2012/12/05/r-string-grep/#comments" itemprop="discussionUrl">
+                <a href="/stylus/2012/12/05/r-reg-exp/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2012/12/05/r-string-grep/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2012/12/05/r-reg-exp/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -910,17 +1391,15 @@ l.21 \begin{Ventry}{Return values}
 
       
         
-          
-            <p>原文地址：<a href="http://jliblog.com/archives/26" target="_blank" rel="external">http://jliblog.com/archives/26</a></p>
-<p>R通常被用来进行数值计算比较多，字符串处理相对较少，而且关于字符串的函数也不多，用得多的就是<code>substr、strsplit、paste、regexpr</code>这几个了。实际上R关于字符串处理的功能是非常强大的，因为它甚至可以直接使用Perl的正则表达式，这也是R的一个理念，作为语言就把向量计算做到极致，作为环境，就在各领域都集成最好的。R中有grep系列的函数，可以用最强大的方式处理字符串的所有问题。</p>
-<p>grep的全称是global search regular expression and print out the line，是Unix下一种强大的文本搜索工具，可以通过正则表达式搜索文本，并把匹配的行打印出来，包括<code>grep</code>、<code>egrep</code>和<code>fgrep</code>（egrep是扩展的grep，fgrep是快速的搜寻方式并没有真正利用正则表达式）。Linux下使用GNU版的grep，该套规范也被广泛地使用，R中的grep函数就是其中之一。</p>
-<p>grep的核心就是正则表达式（Regular Expressions，通常缩写为regex），所谓<strong>正则表达式</strong>，就是用某种模式去匹配一类字符串的一个公式，很多文本编辑器或者程序语言都支持该方式进行字符串的操作，最开始是由上文介绍的Unix工具grep之类普及的，后来得到广泛应用。尤其是Perl语言中将正则表达式发挥到了极致。</p>
-<p>R中的正则表达式非常专业，从grep系列函数的参数就可以看出，有个参数<code>“extended”</code>，默认为T，表示使用扩展grep，也就是egrep，如果选择为F就表示基础的grep，不过该种方式不被R推荐，即使使用了也会出现警告，实际上grep能做的egrep也都能做，而且还要简单不少。我刚开始在egrep中使用总是不能通过，后来发现其实egrep中更简单，很多时候直接写在[]内就行。还有一个参数“perl”，默认为F，如果选择T表示使用Perl的正则表达式规则，功能更加强大，不过如果没有专门学过Perl语言的话用egrep也就够了。另一个参数<code>“fixed”</code>虽然描述的不是同一个东西，但是也很相关，选择之后就会进行精确的匹配，不再使用正则表达式的规则，在效率上会快很多，我觉得这个可能就是fgrep。R的帮助文档中也明确说明了这三个参数实际上代表了四种模式，常规grep、扩展grep、Perl正则表达式、精确匹配，使用者可以根据具体的含义选择自己需要的，如果参数设置互有冲突，会自动忽略后面的参数，并会在Warning中明确指出。</p>
-<p>grep系列函数其实包括<code>grep、grepl、sub、gsub、regexpr、gregexpr</code>，他们的参数很类似，在R中也是把帮助文档集成在了一起，查找任意一个都会得到一个统一的文档。里面对各个参数也是一起介绍的，除了刚才说的三个以外，第一个参数就是最重要的“pattern”，这是一个字符串，直接表示正则表达式，根据模式的不同注意规则就行，另外有个“x”表示要查找的向量，这也是R中的独特之处，不是查找文件，而是查找向量，该处也可以只输入一个字符串，就成了基础的字符串处理函数。对于grep函数，结果只有匹配或者不匹配，因此匹配时输出向量中该元素的下标，如果是单个字符就输出1，对于grepl，和grep其实一样，不过输出的是逻辑值，匹配就是T，不匹配就是F。参数<code>“value”</code>默认为F，输出的值就是刚才说的元素下标或者逻辑值，如果改成T，就会输出查找的字符串。还有一个参数<code>“ignore.case”</code>，默认是F，表示大小写敏感，可以改为T，表示大小写不敏感。参数<code>“useBytes”</code>默认是F，表示按字符查找，如果是T则表示按字节查找，对于中文字符影响还是很大的。参数<code>“invert ”</code>默认为F，表示正常的查找，如果为T则查找模式的补集。像<code>sub</code>和<code>gsub</code>这样的替换函数，还多一个参数<code>“replacement”</code>，用来表示替换的字符。</p>
-<p>这些函数的参数都比较类似，但是输出各不一样，grep输出向量的下标，实际上就是找到与没找到，<code>grepl</code>返回的逻辑值更能说明问题。<code>sub</code>是一个很强大的替换函数，远胜过<code>substr</code>，正则表达式中可以设置非常灵活的规则，然后返回被替换后的字符串，如果正则表达式写得好，基本可以解决所有子字符串的问题。<code>sub</code>函数和<code>gsub</code>函数唯一的差别在于前者匹配第一次符合模式的字符串，后者匹配所有符合模式的字符串，也就是说在替换的时候前者只替换第一次符合的，后者替换所有符合的。<code>regexpr</code>和<code>gregexpr</code>被使用的似乎比较多，因为它们很像其他语言中的<code>instr</code>函数，可以查找到某些字符在字符串中出现的位置，不过我觉得用处并不是很大，因为通常情况下寻找某字符位置的目的就是为了做相关处理，而sub都能搞定。regexpr和gregexpr的关系和sub与gsub差不多，gregexpr操作向量时会返回列表。</p>
-<p>以上就是grep系列函数的一些用法，根据例子可以很方便地使用，个人建议使用参数<code>“pattern”</code>和<code>“x”</code>就行（sub和gsub当然还有replacement），其他的都用默认的。在<code>pattern</code>中按照egrep的规则写正则表达式，基本上可以解决所有的字符串处理问题。只需要对正则表达式有简单的了解，就可以得到R中这些强大的功能。关于正则表达式的用法就在后文中分解了。</p>
-
-          
+          <p>原文地址：<a href="http://jliblog.com/archives/28" class="uri">http://jliblog.com/archives/28</a></p>
+<p>R 中的<code>grep、grepl、sub、gsub、regexpr、gregexpr</code>等函数都使用正则表达式的规则进行匹配。默认是<code>egrep</code>的规则，也可以选用Perl语言的规则。在这里，我们以 R 中的<code>sub</code>函数为例（因为该函数可以返回替换字符串后的具体内容）介绍正则表达式的用法。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/stylus/2012/12/05/r-reg-exp/#more" rel="contents">
+              阅读全文
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1071,7 +1550,7 @@ l.21 \begin{Ventry}{Return values}
 
       
         
-          <p>原文地址：<a href="http://jliblog.com/archives/276">http://jliblog.com/archives/276</a></p>
+          <p>原文地址：<a href="http://jliblog.com/archives/276" class="uri">http://jliblog.com/archives/276</a></p>
 <p>写R程序的人，相信都会遇到过<code>“cannot allocate vector of size”</code>或者<code>“无法分配大小为…的矢量”</code>这样的错误。原因很简单，基本都是产生一个大矩阵等对象时发生的，最干脆的解决办法有两种，第一种是加大内存换64位系统，第二种是改变算法避免如此大的对象。第一种办法，是最好的办法，不过大对象的需求是没有止尽的，终究不是长久之道。第二种办法是最好的思路，无论多么大的对象都是可以弄小的，无非就是分而治之、时间换空间等，对算法的研究也是没有止尽的。</p>
           <!--noindex-->
           <div class="post-button text-center">
@@ -1121,7 +1600,7 @@ l.21 \begin{Ventry}{Return values}
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/12/05/r-reg-exp/">
+    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/12/05/r-string-grep/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hao Peng">
@@ -1143,8 +1622,8 @@ l.21 \begin{Ventry}{Return values}
             
               
                 
-                <a class="post-title-link" href="/stylus/2012/12/05/r-reg-exp/" itemprop="url">
-                  R中正则表达式简介z
+                <a class="post-title-link" href="/stylus/2012/12/05/r-string-grep/" itemprop="url">
+                  R 中字符串处理和 grep 的用法z
                 </a>
               
             
@@ -1162,165 +1641,6 @@ l.21 \begin{Ventry}{Return values}
               
               <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-12-05T00:00:00+08:00">
                 2012-12-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/正则表达式/" itemprop="url" rel="index">
-                    <span itemprop="name">正则表达式</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/stylus/2012/12/05/r-reg-exp/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2012/12/05/r-reg-exp/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>原文地址：<a href="http://jliblog.com/archives/28">http://jliblog.com/archives/28</a></p>
-<p>R中的<code>grep、grepl、sub、gsub、regexpr、gregexpr</code>等函数都使用正则表达式的规则进行匹配。默认是<code>egrep</code>的规则，也可以选用Perl语言的规则。在这里，我们以R中的<code>sub</code>函数为例（因为该函数可以返回替换字符串后的具体内容）介绍正则表达式的用法。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/stylus/2012/12/05/r-reg-exp/#more" rel="contents">
-              阅读全文
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/12/04/cancel-scientific-notation-in-r/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hao Peng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/stylus/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="语千 ~ 刻一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/stylus/2012/12/04/cancel-scientific-notation-in-r/" itemprop="url">
-                  R中如何取消科学计数法z
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-12-04T00:00:00+08:00">
-                2012-12-04
               </time>
             
 
@@ -1360,9 +1680,9 @@ l.21 \begin{Ventry}{Return values}
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/stylus/2012/12/04/cancel-scientific-notation-in-r/#comments" itemprop="discussionUrl">
+                <a href="/stylus/2012/12/05/r-string-grep/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2012/12/04/cancel-scientific-notation-in-r/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2012/12/05/r-string-grep/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1389,13 +1709,15 @@ l.21 \begin{Ventry}{Return values}
 
       
         
-          
-            <p>原文地址：<a href="http://bbs.pinggu.org/thread-1403060-1-1.html" target="_blank" rel="external">http://bbs.pinggu.org/thread-1403060-1-1.html</a></p>
-<blockquote>
-<p>R应该会自动的把太大和太小的数用科学计数法来表示，一般的数应该就是直接表示吧。</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="number">10</span>^seq(<span class="number">1</span>:<span class="number">5</span>)</div><div class="line">[<span class="number">1</span>] <span class="number">1e+01</span> <span class="number">1e+02</span> <span class="number">1e+03</span> <span class="number">1e+04</span> <span class="number">1e+05</span></div><div class="line">&gt; options(scipen=<span class="number">200</span>)</div><div class="line">&gt; <span class="number">10</span>^seq(<span class="number">1</span>:<span class="number">5</span>)</div><div class="line">[<span class="number">1</span>]     <span class="number">10</span>    <span class="number">100</span>   <span class="number">1000</span>  <span class="number">10000</span> <span class="number">100000</span></div></pre></td></tr></table></figure>
-          
+          <p>原文地址：<a href="http://jliblog.com/archives/26" class="uri">http://jliblog.com/archives/26</a></p>
+<p>R通常被用来进行数值计算比较多，字符串处理相对较少，而且关于字符串的函数也不多，用得多的就是<code>substr、strsplit、paste、regexpr</code>这几个了。实际上R关于字符串处理的功能是非常强大的，因为它甚至可以直接使用Perl的正则表达式，这也是R的一个理念，作为语言就把向量计算做到极致，作为环境，就在各领域都集成最好的。R中有grep系列的函数，可以用最强大的方式处理字符串的所有问题。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/stylus/2012/12/05/r-string-grep/#more" rel="contents">
+              阅读全文
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1549,7 +1871,7 @@ l.21 \begin{Ventry}{Return values}
           
             <div>
 <div id="leftDivPre" style="float:left; margin-right: 1em; padding-right: 1em; border-right: solid 3px #ddd;">
-表1 概率密度函数
+<p>表1 概率密度函数</p>
 <pre>函数名          对应分布的概率密度函数
 betapdf         贝塔分布的概率密度函数
 binopdf         二项分布的概率密度函数
@@ -1572,7 +1894,7 @@ unidpdf         离散均匀分布的概率密度函数
 unifpdf         连续均匀分布的概率密度函数
 weibpdf         威布尔分布的概率密度函数</pre>
 <hr>
-表2 累加分布函数
+<p>表2 累加分布函数</p>
 <pre>函数名          对应分布的累加函数
 betacdf         贝塔分布的累加函数
 binocdf         二项分布的累加函数
@@ -1595,7 +1917,7 @@ unidcdf         离散均匀分布的累加函数
 unifcdf         连续均匀分布的累加函数
 weibcdf         威布尔分布的累加函数</pre>
 <hr>
-表3 累加分布函数的逆函数
+<p>表3 累加分布函数的逆函数</p>
 <pre>函数名          对应分布的累加分布函数逆函数
 betainv         贝塔分布的累加分布函数逆函数
 binoinv         二项分布的累加分布函数逆函数
@@ -1619,7 +1941,7 @@ unidinv         离散均匀分布的累加分布函数逆函数
 unifinv         连续均匀分布的累加分布函数逆函数
 weibinv         威布尔分布的累加分布函数逆函数</pre>
 <hr>
-表4 随机数生成器函数
+<p>表4 随机数生成器函数</p>
 <pre>函数名           对应分布的随机数生成器
 betarnd         贝塔分布的随机数生成器
 binornd         二项分布的随机数生成器
@@ -1642,7 +1964,7 @@ unidrnd         离散均匀分布的随机数生成器
 unifrnd         连续均匀分布的随机数生成器
 weibrnd         威布尔分布的随机数生成器</pre>
 <hr>
-表5 分布函数的统计量函数
+<p>表5 分布函数的统计量函数</p>
 <pre>函数名          对应分布的统计量
 betastat        贝塔分布函数的统计量
 binostat        二项分布函数的统计量
@@ -1665,7 +1987,7 @@ unidstat        离散均匀分布函数的统计量
 unifstat        连续均匀分布函数的统计量
 weibstat        威布尔分布函数的统计量</pre>
 <hr>
-表6 参数估计函数
+<p>表6 参数估计函数</p>
 <pre>函数名          对应分布的参数估计
 betafit         贝塔分布的参数估计
 betalike        贝塔对数似然函数的参数估计
@@ -1681,7 +2003,7 @@ unifit          均匀分布的参数估计
 weibfit         威布尔分布的参数估计
 weiblike        威布尔对数似然函数的参数估计</pre>
 <hr>
-表7 统计量描述函数
+<p>表7 统计量描述函数</p>
 <pre>函数名            描述
 bootstrap       任何函数的自助统计量
 corrcoef        相关系数
@@ -1711,6 +2033,7 @@ trimmean        截尾均值
 var             方差</pre>
 </div>
 <div>
+
 <p>表8 统计图形函数</p>
 <pre>函数名            描述
 boxplot         箱形图
@@ -1731,7 +2054,7 @@ refline         参考线
 surfht          数据网格的交互等值线图
 weibplot        威布尔图</pre>
 <hr>
-表9 统计过程控制函数
+<p>表9 统计过程控制函数</p>
 <pre>函数名            描述
 capable         性能指标
 capaplot        性能图
@@ -1741,7 +2064,7 @@ normspec        在指定的区间上绘正态密度
 schart          S图
 xbarplot        x条图</pre>
 <hr>
-表10 聚类分析函数
+<p>表10 聚类分析函数</p>
 <pre>函数名            描述
 cluster         根据linkage函数的输出创建聚类
 clusterdata     根据给定数据创建聚类
@@ -1753,7 +2076,7 @@ pdist           观测量之间的配对距离
 squareform      距离平方矩阵
 zscore          Z分数</pre>
 <hr>
-表11 线性模型函数
+<p>表11 线性模型函数</p>
 <pre>函数名            描述
 anova1          单因子方差分析
 anova2          双因子方差分析
@@ -1780,7 +2103,7 @@ robustfit       稳健回归模型拟合
 stepwise        逐步回归
 x2fx            用于设计矩阵的因子设置矩阵</pre>
 <hr>
-表12 非线性回归函数
+<p>表12 非线性回归函数</p>
 <pre>函数名            描述
 nlinfit         非线性最小二乘数据拟合（牛顿法）
 nlintool        非线性模型拟合的交互式图形工具
@@ -1788,7 +2111,7 @@ nlparci         参数的置信区间
 nlpredci        预测值的置信区间
 nnls            非负最小二乘</pre>
 <hr>
-表13 试验设计函数
+<p>表13 试验设计函数</p>
 <pre>函数名            描述
 cordexch        D-优化设计（列交换算法）
 daugment        递增D-优化设计
@@ -1799,21 +2122,21 @@ fullfact        混合水平的完全析因设计
 hadamard        Hadamard矩阵（正交数组）
 rowexch         D-优化设计（行交换算法）</pre>
 <hr>
-表14 主成分分析函数
+<p>表14 主成分分析函数</p>
 <pre>函数名            描述
 barttest        Barttest检验
 pcacov          源于协方差矩阵的主成分
 pcares          源于主成分的方差
 princomp        根据原始数据进行主成分分析</pre>
 <hr>
-表15 多元统计函数
+<p>表15 多元统计函数</p>
 <pre>函数名            描述
 classify        聚类分析
 mahal           马氏距离
 manova1         单因素多元方差分析
 manovacluster   多元聚类分析</pre>
 <hr>
-表16 假设检验函数
+<p>表16 假设检验函数</p>
 <pre>函数名            描述
 ranksum         秩和检验
 signrank        符号秩检验
@@ -1822,14 +2145,14 @@ ttest           单样本t检验
 ttest2          双样本t检验
 ztest           z检验</pre>
 <hr>
-表17 分布检验函数
+<p>表17 分布检验函数</p>
 <pre>函数名            描述
 jbtest          正态性的Jarque-Bera检验
 kstest          单样本Kolmogorov-Smirnov检验
 kstest2         双样本Kolmogorov-Smirnov检验
 lillietest      正态性的Lilliefors检验</pre>
 <hr>
-表18 非参数函数
+<p>表18 非参数函数</p>
 <pre>函数名            描述
 friedman        Friedman检验
 kruskalwallis   Kruskalwallis检验
@@ -1837,7 +2160,7 @@ ranksum         秩和检验
 signrank        符号秩检验
 signtest        符号检验</pre>
 <hr>
-表19 文件输入输出函数
+<p>表19 文件输入输出函数</p>
 <pre>函数名            描述
 caseread        读取个案名
 casewrite       写个案名到文件
@@ -1845,7 +2168,7 @@ tblread         以表格形式读数据
 tblwrite        以表格形式写数据到文件
 tdfread         从表格间隔形式的文件中读取文本或数值数据</pre>
 <hr>
-表20 演示函数
+<p>表20 演示函数</p>
 <pre>函数名            描述
 aoctool         协方差分析的交互式图形工具
 disttool        探察概率分布函数的GUI工具
@@ -1856,344 +2179,17 @@ rsmdemo         响应拟合工具
 robustdemo      稳健回归拟合工具</pre>
 </div>
 </div>
-<div style="clear:both"></div>
+<div style="clear:both">
+
+</div>
 <script language="javascript">
 if (document.getElementById("content").offsetWidth == 700) {
-	document.getElementById("leftDivPre").style.float = "none";
-	document.getElementById("leftDivPre").style.borderRight = "none";
-	document.getElementById("leftDivPre").style.marginRight = "0em";
-	document.getElementById("leftDivPre").style.paddingRight = "0em";
+    document.getElementById("leftDivPre").style.float = "none";
+    document.getElementById("leftDivPre").style.borderRight = "none";
+    document.getElementById("leftDivPre").style.marginRight = "0em";
+    document.getElementById("leftDivPre").style.paddingRight = "0em";
 }
 </script>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/11/23/matlab-ezplot-latex/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hao Peng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/stylus/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="语千 ~ 刻一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/stylus/2012/11/23/matlab-ezplot-latex/" itemprop="url">
-                  Matlab画二维图心得
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-11-23T00:00:00+08:00">
-                2012-11-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/Matlab/" itemprop="url" rel="index">
-                    <span itemprop="name">Matlab</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/stylus/2012/11/23/matlab-ezplot-latex/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2012/11/23/matlab-ezplot-latex/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <ol>
-<li><code>plot()</code>函数主要用于已有坐标对的连接（包括单个坐标，利用这一点再加上修改<code>MarkSize</code>可以画出指定大小的圆点等各种符号）；</li>
-<li><code>ezplot()</code>既可以画普通函数的图像，也可以画隐函数图像，换句话说，对于给定的函数，<code>ezplot()</code>可以实现<code>plot()</code>的结果；</li>
-<li>根据<code>ezplot()</code>作隐函数图像的原理，<a href="http://www.ilovematlab.cn/thread-21438-1-1.html">http://www.ilovematlab.cn/thread-21438-1-1.html</a>给出了一种用<code>ezplot()</code>同时画两条曲线的巧妙方法，但要注意该方法无法将两条曲线区分开来，因此可能会导致利用<code>legend()</code>添加图例的意图无法达到。</li>
-<li>添加多条曲线时要利用好<code>hold on</code>这一语句；</li>
-<li><code>axis</code>的刻度在默认情况下会自动根据给出的最后一次<code>ezplot()</code>进行调整，如果不希望画出的图像为自适应大小，需要在图像绘制完成后，手工指定axis的x轴与y轴最大、最小刻度；</li>
-<li>添加箭头可以用annotation完成，要注意其坐标是相对大小，在<code>[0,1]</code>之间，我个人比较喜欢PSTricks的箭头风格，因此也会考虑在PSTricks中对已生成的图像进行深加工；</li>
-<li>可以将<code>ezplot()</code>和<code>legend()</code>的结果赋给某个变量，再通过<code>set()</code>函数对图像对象或者<code>legend</code>对象进行字体大小、颜色等的操作；</li>
-<li><code>latex()</code>函数可以用于将指定的符号表达式转换成LaTeX语法格式；</li>
-<li><code>sym()</code>函数可以用于将某个数值对象转换成符号表达式以供<code>latex()</code>函数使用；</li>
-<li><code>title</code>、<code>xlabel</code>、<code>ylabel</code>、<code>zlabel</code>、<code>textbox</code>和<code>text</code>等函数可以利用<code>'Interpreter'</code>,<code>'latex'</code>加载LaTeX格式；</li>
-<li>因为<code>Legend</code>没有<code>Interpreter</code>属性，所以如果要在其中使用LaTeX，必须获取对应的文字句柄，并对文字对象设置<code>String</code>和<code>Interpreter</code>属性，关于这一点可以参考：<a href="http://www.mathworks.com/matlabcentral/newsreader/view_thread/254118">http://www.mathworks.com/matlabcentral/newsreader/view_thread/254118</a>和<a href="http://sites.google.com/site/sleepingwalking/matlab/latex-in-legend">http://sites.google.com/site/sleepingwalking/matlab/latex-in-legend</a>，从下面的示例可以看到，<code>String</code>不一定必要；</li>
-<li>将图像插入LaTeX文档时，建议不要使用<code>pdf</code>格式，而是使用<code>eps</code>格式，否则得到的图像结果锯齿感会比较明显。</li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/stylus/2012/11/23/matlab-ezplot-latex/#more" rel="contents">
-              阅读全文
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://peng-howard.github.io/stylus/stylus/2012/11/21/apsrtable-knitr-latex-table/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hao Peng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/stylus/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="语千 ~ 刻一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/stylus/2012/11/21/apsrtable-knitr-latex-table/" itemprop="url">
-                  apsrtable在knitr中生成LaTeX表格
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-11-21T00:00:00+08:00">
-                2012-11-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/stylus/categories/R/" itemprop="url" rel="index">
-                    <span itemprop="name">R</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/stylus/2012/11/21/apsrtable-knitr-latex-table/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2012/11/21/apsrtable-knitr-latex-table/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>原文地址：<a href="http://cos.name/cn/topic/108631" target="_blank" rel="external">http://cos.name/cn/topic/108631</a></p>
-<p><code>apsrtable()</code>里有个<code>Sweave</code>参数，若设为<code>TRUE</code>，则生成<code>tabular</code>环境，若为默认的<code>FALSE</code>，则为<code>table</code>环境。</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;table&#125;</span><span class="string">[htbp]</span></span></div><div class="line"><span class="tag">\<span class="name">caption</span><span class="string">&#123;some text&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">label</span><span class="string">&#123;tb:ex&#125;</span></span></div><div class="line"><span class="tag">\<span class="name">centering</span></span></div><div class="line">&lt;&lt;results='asis'&gt;&gt;=</div><div class="line">apsrtable(mod1, mod2, mod3, Sweave = TRUE)</div><div class="line">@</div><div class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;table&#125;</span></span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>Yihui: 这大概就是最好的办法了吧……这参数名干嘛非得叫<code>Sweave</code>，明明意思是<code>tabular.only</code>。</p>
-</blockquote>
 
           
         
@@ -2277,7 +2273,7 @@ if (document.getElementById("content").offsetWidth == 700) {
           
             <div class="site-state-item site-state-posts">
               <a href="/stylus/archives">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2288,7 +2284,7 @@ if (document.getElementById("content").offsetWidth == 700) {
             
             <div class="site-state-item site-state-categories">
               <a href="/stylus/categories/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2299,7 +2295,7 @@ if (document.getElementById("content").offsetWidth == 700) {
             
             <div class="site-state-item site-state-tags">
               <a href="/stylus/tags/index.html">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
